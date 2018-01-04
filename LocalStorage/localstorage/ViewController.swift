@@ -41,6 +41,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var trashSizeBytesLabel: UILabel!
     @IBOutlet weak var trashSizeDiskBytesLabel: UILabel!
     
+    @IBAction func onRefreshButton() {
+        self.listFiles()
+    }
+    
     @IBAction func onEmptyTrashButton() {
         let documentsPath = FileManager.documentsDir()
         let trashUrl: URL = URL(fileURLWithPath: documentsPath + "/.Trash", isDirectory: true)
@@ -54,7 +58,6 @@ class ViewController: UIViewController {
         }
         
         self.listFiles()
-        
     }
     
     @IBAction func onFilesButton(_ sender: UIButton) {
