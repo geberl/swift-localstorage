@@ -56,6 +56,15 @@ class ViewController: UIViewController {
         self.listFiles()
         
     }
+    
+    @IBAction func onFilesButton(_ sender: UIButton) {
+        // This opens the Files app in the App Store (without asking the user if he wants to do that)
+        
+        if let url = URL(string: "itms-apps://itunes.apple.com/de/app/files/id1232058109"),
+            UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -204,14 +213,6 @@ class ViewController: UIViewController {
                 print("Files can NOT be opened")
             }
         }
-        
-        
-        
-        // This opens the Files app in the App Store (without askind the user if he wants to do that)
-//        if let url = URL(string: "itms-apps://itunes.apple.com/de/app/files/id1232058109"),
-//            UIApplication.shared.canOpenURL(url) {
-//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//        }
 
     }
 
