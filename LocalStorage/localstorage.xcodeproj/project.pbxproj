@@ -15,6 +15,7 @@
 		A47A17F01FFBBEAE000B9642 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A17EF1FFBBEAE000B9642 /* ShareViewController.swift */; };
 		A47A17F31FFBBEAE000B9642 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47A17F11FFBBEAE000B9642 /* MainInterface.storyboard */; };
 		A47A17F71FFBBEAE000B9642 /* save.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A47A17ED1FFBBEAE000B9642 /* save.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A49C0DD01FFE66BB006BE494 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		A47A17EF1FFBBEAE000B9642 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		A47A17F21FFBBEAE000B9642 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		A47A17F41FFBBEAE000B9642 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				A44E4E751FFA915D00CBE189 /* ViewController.swift */,
 				A44E4E771FFA915D00CBE189 /* Main.storyboard */,
 				A44E4E7C1FFA915D00CBE189 /* LaunchScreen.storyboard */,
+				A49C0DD11FFE66C1006BE494 /* settings */,
 			);
 			path = localstorage;
 			sourceTree = "<group>";
@@ -114,6 +117,14 @@
 				A47A17F11FFBBEAE000B9642 /* MainInterface.storyboard */,
 			);
 			path = save;
+			sourceTree = "<group>";
+		};
+		A49C0DD11FFE66C1006BE494 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */,
+			);
+			path = settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +218,7 @@
 				A44E4E7E1FFA915D00CBE189 /* LaunchScreen.storyboard in Resources */,
 				A44E4E7B1FFA915D00CBE189 /* Assets.xcassets in Resources */,
 				A44E4E791FFA915D00CBE189 /* Main.storyboard in Resources */,
+				A49C0DD01FFE66BB006BE494 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
