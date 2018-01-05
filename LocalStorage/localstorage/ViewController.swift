@@ -73,7 +73,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         self.listFiles()
-        self.checkAppAvailability()
+        // self.checkAppAvailability()  // doesn't do anything useful without me knowing the Files apps URL scheme
     }
     
     func listFiles() {
