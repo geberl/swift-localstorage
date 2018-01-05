@@ -48,18 +48,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Local Storage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pr-5E-tFE">
-                                <rect key="frame" x="16" y="111" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="General" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bx-Hs-DHi">
+                                <rect key="frame" x="16" y="34" width="343" height="54"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="45"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Files" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLb-w8-eI6">
-                                <rect key="frame" x="16" y="140" width="168" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PixelBlack" translatesAutoresizingMaskIntoConstraints="NO" id="6b0-WV-0tQ">
+                                <rect key="frame" x="187" y="0.0" width="1" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Storage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pr-5E-tFE">
+                                <rect key="frame" x="151.5" y="111" width="72.5" height="13.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Folders" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JF7-rb-NOj">
@@ -83,9 +85,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZV-sk-t3f">
-                                <rect key="frame" x="191" y="140" width="168" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZV-sk-t3f">
+                                <rect key="frame" x="190" y="140" width="185" height="21"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -190,13 +191,6 @@
                                     <action selector="onEmptyTrashButton" destination="lek-cb-lfB" eventType="touchUpInside" id="ZTy-jO-nXe"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="General" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bx-Hs-DHi">
-                                <rect key="frame" x="16" y="34" width="343" height="54"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Size on Disk" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O69-iP-sgQ">
                                 <rect key="frame" x="16" y="424" width="168" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -219,8 +213,27 @@
                                     <action selector="onFilesButton:" destination="lek-cb-lfB" eventType="touchUpInside" id="7dS-VC-b6z"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Files" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLb-w8-eI6">
+                                <rect key="frame" x="0.0" y="140" width="185" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Pr-5E-tFE" firstAttribute="top" secondItem="zLb-w8-eI6" secondAttribute="top" constant="-29" id="3z7-eb-dbr"/>
+                            <constraint firstItem="5Pr-5E-tFE" firstAttribute="top" secondItem="spZ-WS-9Yx" secondAttribute="top" constant="91" id="84J-Ps-A9H"/>
+                            <constraint firstItem="6b0-WV-0tQ" firstAttribute="top" secondItem="jjn-2V-JPH" secondAttribute="top" id="Nfq-32-N8Z"/>
+                            <constraint firstAttribute="bottom" secondItem="6b0-WV-0tQ" secondAttribute="bottom" id="RuZ-mC-kuv"/>
+                            <constraint firstItem="6b0-WV-0tQ" firstAttribute="centerX" secondItem="jjn-2V-JPH" secondAttribute="centerX" id="ZOo-Zq-9sw"/>
+                            <constraint firstItem="spZ-WS-9Yx" firstAttribute="trailing" secondItem="HZV-sk-t3f" secondAttribute="trailing" id="bNv-l2-1Uz"/>
+                            <constraint firstItem="zLb-w8-eI6" firstAttribute="leading" secondItem="spZ-WS-9Yx" secondAttribute="leading" id="jAf-Ik-OaE"/>
+                            <constraint firstItem="5Pr-5E-tFE" firstAttribute="centerX" secondItem="jjn-2V-JPH" secondAttribute="centerX" id="ndB-t8-3Yo"/>
+                            <constraint firstItem="6b0-WV-0tQ" firstAttribute="trailing" secondItem="zLb-w8-eI6" secondAttribute="trailing" constant="3" id="q1A-ee-y7Y"/>
+                            <constraint firstItem="HZV-sk-t3f" firstAttribute="top" secondItem="5Pr-5E-tFE" secondAttribute="top" constant="29" id="uVp-h0-w5v"/>
+                            <constraint firstItem="HZV-sk-t3f" firstAttribute="leading" secondItem="6b0-WV-0tQ" secondAttribute="leading" constant="3" id="xhe-Fq-Hhi"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="spZ-WS-9Yx"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="General" id="T0X-VH-fIN"/>
@@ -237,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ve-mu-p47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1840.8" y="-215.44227886056973"/>
+            <point key="canvasLocation" x="1839.2" y="-216.34182908545728"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Qw3-WO-9ZW">
@@ -260,5 +273,6 @@
     </scenes>
     <resources>
         <image name="FilesIcon" width="60" height="60"/>
+        <image name="PixelBlack" width="1" height="1"/>
     </resources>
 </document>
