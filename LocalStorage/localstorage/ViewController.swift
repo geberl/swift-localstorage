@@ -31,6 +31,9 @@ extension URL {
 
 class ViewController: UIViewController {
     
+    // Positioning items inside scroll view -> needed constraints:
+    // https://stackoverflow.com/a/32600396/8137043
+    
     @IBOutlet weak var localFilesNumberLabel: UILabel!
     @IBOutlet weak var localFoldersNumberLabel: UILabel!
     @IBOutlet weak var localSizeBytesLabel: UILabel!
@@ -40,6 +43,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var trashFoldersNumberLabel: UILabel!
     @IBOutlet weak var trashSizeBytesLabel: UILabel!
     @IBOutlet weak var trashSizeDiskBytesLabel: UILabel!
+    
+    @IBAction func onSettingsButton(_ sender: UIButton) {
+        print("settings button pusehed")
+    }
     
     @IBAction func onRefreshButton() {
         self.listFiles()
