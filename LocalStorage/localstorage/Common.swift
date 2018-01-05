@@ -140,10 +140,10 @@ func refreshStats() {
             elementIsTrashed = false
         }
         
-        var fileSize : UInt64
+        var fileSize : Int64
         do {
             let attr = try fileManager.attributesOfItem(atPath: elementURL.path)
-            fileSize = attr[FileAttributeKey.size] as! UInt64
+            fileSize = attr[FileAttributeKey.size] as! Int64
             // Note: FileAttributeKey.type is useless, just contains file/folder, not UTI.
         } catch {
             fileSize = 0

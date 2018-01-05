@@ -83,15 +83,33 @@ class ViewController: UIViewController {
     }
     
     func updateValues() {
-        self.localFilesNumberLabel.text   = String(AppState.localFilesNumber)
+        let byteCountFormatter = ByteCountFormatter()
+        if AppState.unit == "Bytes" {
+            byteCountFormatter.allowedUnits = .useBytes
+        } else if AppState.unit == "KB" {
+            byteCountFormatter.allowedUnits = .useKB
+        } else if AppState.unit == "MB" {
+            byteCountFormatter.allowedUnits = .useMB
+        } else if AppState.unit == "GB" {
+            byteCountFormatter.allowedUnits = .useGB
+        } else {
+            byteCountFormatter.allowedUnits = .useAll
+        }
+        byteCountFormatter.countStyle = .file
+        
+        self.localFilesNumberLabel.text = String(AppState.localFilesNumber)
         self.localFoldersNumberLabel.text = String(AppState.localFoldersNumber)
-        self.localSizeBytesLabel.text     = String(AppState.localSizeBytes) + " bytes"
-        self.localSizeDiskBytesLabel.text = String(AppState.localSizeDiskBytes) + " bytes"
+        if AppState.localSizeBytes == 0 {self.localSizeBytesLabel.text = "0"} else {
+            self.localSizeBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.localSizeBytes)}
+        if AppState.localSizeDiskBytes == 0 {self.localSizeDiskBytesLabel.text = "0"} else {
+            self.localSizeDiskBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.localSizeDiskBytes)}
         
         self.trashFilesNumberLabel.text   = String(AppState.trashFilesNumber)
         self.trashFoldersNumberLabel.text = String(AppState.trashFoldersNumber)
-        self.trashSizeBytesLabel.text     = String(AppState.trashSizeBytes) + " bytes"
-        self.trashSizeDiskBytesLabel.text = String(AppState.trashSizeDiskBytes) + " bytes"
+        if AppState.trashSizeBytes == 0 {self.trashSizeBytesLabel.text = "0"} else {
+            self.trashSizeBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.trashSizeBytes)}
+        if AppState.trashSizeDiskBytes == 0 {self.trashSizeDiskBytesLabel.text = "0"} else {
+            self.trashSizeDiskBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.trashSizeDiskBytes)}
     }
     
 }

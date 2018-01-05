@@ -11,17 +11,18 @@ import UIKit
 
 // Global application state object.
 struct AppState {
-    static var localFilesNumber: UInt64 = 0
-    static var localFoldersNumber: UInt64 = 0
-    static var localSizeBytes: UInt64 = 0
-    static var localSizeDiskBytes: UInt64 = 0
+    static var localFilesNumber: Int64 = 0
+    static var localFoldersNumber: Int64 = 0
+    static var localSizeBytes: Int64 = 0
+    static var localSizeDiskBytes: Int64 = 0
     
-    static var trashFilesNumber: UInt64 = 0
-    static var trashFoldersNumber: UInt64 = 0
-    static var trashSizeBytes: UInt64 = 0
-    static var trashSizeDiskBytes: UInt64 = 0
+    static var trashFilesNumber: Int64 = 0
+    static var trashFoldersNumber: Int64 = 0
+    static var trashSizeBytes: Int64 = 0
+    static var trashSizeDiskBytes: Int64 = 0
     
     static var documentsPath: String = ""
+    static var unit: String = "all"  // Bytes | KB | MB | GB | all
 }
 
 
