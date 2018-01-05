@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  mem2
+//  localstorage
 //
 //  Created by Günther Eberl on 01.01.18.
 //  Copyright © 2018 Günther Eberl. All rights reserved.
@@ -8,11 +8,40 @@
 
 import UIKit
 
+
+// Global application state object.
+struct AppState {
+    static var localFilesNumber: UInt64 = 0
+    static var localFoldersNumber: UInt64 = 0
+    static var localSizeBytes: UInt64 = 0
+    static var localSizeDiskBytes: UInt64 = 0
+    
+    static var trashFilesNumber: UInt64 = 0
+    static var trashFoldersNumber: UInt64 = 0
+    static var trashSizeBytes: UInt64 = 0
+    static var trashSizeDiskBytes: UInt64 = 0
+    
+    static var documentsPath: String = ""
+}
+
+
+func resetAppState() {
+    AppState.localFilesNumber = 0
+    AppState.localFoldersNumber = 0
+    AppState.localSizeBytes = 0
+    AppState.localSizeDiskBytes = 0
+    
+    AppState.trashFilesNumber = 0
+    AppState.trashFoldersNumber = 0
+    AppState.trashSizeBytes = 0
+    AppState.trashSizeDiskBytes = 0
+}
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

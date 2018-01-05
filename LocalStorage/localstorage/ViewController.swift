@@ -1,33 +1,12 @@
 //
 //  ViewController.swift
-//  mem2
+//  localstorage
 //
 //  Created by Günther Eberl on 01.01.18.
 //  Copyright © 2018 Günther Eberl. All rights reserved.
 //
 
 import UIKit
-
-extension FileManager {
-    class func documentsDir() -> String {
-        var paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as [String]
-        return paths[0]
-    }
-    
-    class func cachesDir() -> String {
-        var paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true) as [String]
-        return paths[0]
-    }
-}
-
-extension URL {
-    var typeIdentifier: String? {
-        return (try? resourceValues(forKeys: [.typeIdentifierKey]))?.typeIdentifier
-    }
-    var localizedName: String? {
-        return (try? resourceValues(forKeys: [.localizedNameKey]))?.localizedName
-    }
-}
 
 class ViewController: UIViewController {
     
@@ -44,67 +23,59 @@ class ViewController: UIViewController {
     @IBOutlet weak var trashSizeBytesLabel: UILabel!
     @IBOutlet weak var trashSizeDiskBytesLabel: UILabel!
     
-    @IBAction func onSettingsButton(_ sender: UIButton) {
-        print("settings button pusehed")
-    }
+    @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
+    @IBAction func onRefreshButton() {self.refresh()}
+    @IBAction func onEmptyTrashButton() {self.emptyTrash()}
+    @IBAction func onFilesButton(_ sender: UIButton) {self.showFilesApp()}
     
-    @IBAction func onRefreshButton() {
-        self.listFiles()
-    }
-    
-    @IBAction func onEmptyTrashButton() {
-        let documentsPath = FileManager.documentsDir()
-        let trashUrl: URL = URL(fileURLWithPath: documentsPath + "/.Trash", isDirectory: true)
-        
-        let fileManager = FileManager.default
-        do {
-            try fileManager.removeItem(at: trashUrl)
-            print("Removed dir '" + trashUrl.path + "'")
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        
-        self.listFiles()
-    }
-    
-    @IBAction func onFilesButton(_ sender: UIButton) {
-        // This opens the Files app in the App Store (without asking the user if he wants to do that)
-        
-        if let url = URL(string: "itms-apps://itunes.apple.com/de/app/files/id1232058109"),
-            UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.listFiles()
-        // self.checkAppAvailability()  // doesn't do anything useful without me knowing the Files apps URL scheme
+        
+        print("viewDidLoad")
+        self.refreshStats()
     }
     
-    func listFiles() {
-        let documentsPath = FileManager.documentsDir()
-        print("Listing files in '" + documentsPath + "'")
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        print("didReceiveMemoryWarning")
+    }
+    
+    func showSettings() {
+        print("Settings button pushed")
+    }
+    
+    func refresh() {
+        print("Refresh button pushed")
+        self.refreshStats()
+    }
+    
+    func emptyTrash() {
+        print("Empty trash button pushed")
+        removeDir(path: FileManager.documentsDir() + "/" + ".Trash")
+        self.refreshStats()
+    }
+    
+    func showFilesApp() {
+        print("Files app button pushed")
+        openAppStore(id: 1232058109)
+    }
+    
+    func refreshStats() {
+        print("refreshStats")
+        
+        resetAppState()
+        
+        AppState.documentsPath = FileManager.documentsDir()
+        print("Examining '" + AppState.documentsPath + "'")
         
         let fileManager = FileManager.default
-        guard let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: documentsPath) else {
+        guard let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: AppState.documentsPath) else {
             print("Directory not found!")
             return
         }
         
-        var localFilesNumber: Int = 0
-        var localFoldersNumber: Int = 0
-        var localSizeBytes: UInt64 = 0
-        var localSizeDiskBytes: UInt64 = 0
-        
-        var trashFilesNumber: Int = 0
-        var trashFoldersNumber: Int = 0
-        var trashSizeBytes: UInt64 = 0
-        var trashSizeDiskBytes: UInt64 = 0
-        
         while let element = enumerator.nextObject() as? String {
-            var elementURL: URL = URL(fileURLWithPath: documentsPath)
+            var elementURL: URL = URL(fileURLWithPath: AppState.documentsPath)
             elementURL.appendPathComponent(element)
             
             var elementIsTrashed: Bool
@@ -139,98 +110,40 @@ class ViewController: UIViewController {
                     if elementIsTrashed {
                         if element != ".Trash" {
                             // Don't count the .Trash folder itself towards the folder count
-                            trashFoldersNumber += 1
+                            AppState.trashFoldersNumber += 1
                         }
-                        trashSizeDiskBytes += fileSize
+                        AppState.trashSizeDiskBytes += fileSize
                     } else {
-                        localFoldersNumber += 1
-                        localSizeDiskBytes += fileSize
+                        AppState.localFoldersNumber += 1
+                        AppState.localSizeDiskBytes += fileSize
                     }
                 } else {
                     if elementIsTrashed {
-                        trashFilesNumber += 1
-                        trashSizeBytes += fileSize
-                        trashSizeDiskBytes += fileSize
+                        AppState.trashFilesNumber += 1
+                        AppState.trashSizeBytes += fileSize
+                        AppState.trashSizeDiskBytes += fileSize
                     } else {
-                        localFilesNumber += 1
-                        localSizeBytes += fileSize
-                        localSizeDiskBytes += fileSize
+                        AppState.localFilesNumber += 1
+                        AppState.localSizeBytes += fileSize
+                        AppState.localSizeDiskBytes += fileSize
                     }
                 }
             }
         }
         
-        self.localFilesNumberLabel.text = String(localFilesNumber)
-        self.localFoldersNumberLabel.text = String(localFoldersNumber)
-        self.localSizeBytesLabel.text = String(localSizeBytes) + " bytes"
-        self.localSizeDiskBytesLabel.text = String(localSizeDiskBytes) + " bytes"
-        
-        self.trashFilesNumberLabel.text = String(trashFilesNumber)
-        self.trashFoldersNumberLabel.text = String(trashFoldersNumber)
-        self.trashSizeBytesLabel.text = String(trashSizeBytes) + " bytes"
-        self.trashSizeDiskBytesLabel.text = String(trashSizeDiskBytes) + " bytes"
+        self.updateValues()
     }
     
-    func checkAppAvailability() {
-        // Background: The Files app is built in but can be removed
-        // In which case it can be "reinstalled" through the App Store (but nothing is downloaded)
+    func updateValues() {
+        self.localFilesNumberLabel.text = String(AppState.localFilesNumber)
+        self.localFoldersNumberLabel.text = String(AppState.localFoldersNumber)
+        self.localSizeBytesLabel.text = String(AppState.localSizeBytes) + " bytes"
+        self.localSizeDiskBytesLabel.text = String(AppState.localSizeDiskBytes) + " bytes"
         
-        // Code like this would allow to check if an app is present - if you know its URL Scheme
-        // However I do not know the Files app's URL Scheme
-        
-        // Some URL schemes: https://github.com/cyanzhong/app-tutorials/blob/master/schemes.md
-        // Some other well known ones: mailto, tel, sms, calshow, x-apple-reminder, message, maps, itms, itms-apps, ibooks, gamecenter, facetime
-        // More: https://www.reddit.com/r/workflow/comments/3mux7h/ios_url_schemes/
-        
-        // Some stock bundle ids: https://github.com/joeblau/apple-bundle-identifiers
-        // My bundle id: com.apple.DocumentsApp
-        
-        // URL schemes unclear if case sensitive or in-sensitive, better assume sensitive
-        // Tried to guess without success: file / files / documentsapp
-        // Might very well be that it has none (yet)
-        
-        // Note: LSApplicationQueriesSchemes must also be set in the plist to the URL string without ://
-        
-        var resultFb: Bool?
-        resultFb = UIApplication.shared.canOpenURL(URL(string: "fb://")!)
-        if resultFb != nil {
-            if resultFb == true {
-                print("fb:// can be opened")  // Facebook app must never have been opened, presence on device is enough
-            } else {
-                print("fb:// can NOT be opened")
-            }
-        }
-        
-        // The same for iOS prefs pane:
-        // https://stackoverflow.com/questions/38064557/the-prefs-url-scheme-not-woring-in-ios-10-beta-1-2#42266843
-        var resultPrefs: Bool?
-        resultPrefs = UIApplication.shared.canOpenURL(URL(string: "App-Prefs://")!)
-        if resultPrefs != nil {
-            if resultPrefs == true {
-                print("App-Prefs:// can be opened")
-            } else {
-                print("App-Prefs:// can NOT be opened")
-            }
-        }
-        
-        // And the Files app:
-        var resultFiles: Bool?
-        resultFiles = UIApplication.shared.canOpenURL(URL(string: "com.apple.DocumentsApp://")!)
-        if resultFiles != nil {
-            if resultFiles == true {
-                print("Files can be opened")
-            } else {
-                print("Files can NOT be opened")
-            }
-        }
-
+        self.trashFilesNumberLabel.text = String(AppState.trashFilesNumber)
+        self.trashFoldersNumberLabel.text = String(AppState.trashFoldersNumber)
+        self.trashSizeBytesLabel.text = String(AppState.trashSizeBytes) + " bytes"
+        self.trashSizeDiskBytesLabel.text = String(AppState.trashSizeDiskBytes) + " bytes"
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    
 }
-
