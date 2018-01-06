@@ -36,13 +36,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Uy-2I-JJa"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Types" id="Wx7-dR-OhU"/>
+                    <tabBarItem key="tabBarItem" title="Types" image="TabBarTypes" id="Wx7-dR-OhU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dC1-g1-1jv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1840.4296874999998" y="450.21961932650072"/>
         </scene>
-        <!--General-->
+        <!--Overview-->
         <scene sceneID="Cg1-Mb-ktj">
             <objects>
                 <viewController id="lek-cb-lfB" customClass="ViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
@@ -72,7 +72,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wst-Aa-ltx" userLabel="Headline Stack View">
                                 <rect key="frame" x="15" y="67" width="345" height="41"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bx-Hs-DHi">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bx-Hs-DHi">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="41"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="34"/>
                                         <nil key="textColor"/>
@@ -359,7 +359,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="spZ-WS-9Yx"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="General" id="T0X-VH-fIN"/>
+                    <tabBarItem key="tabBarItem" title="Overview" image="TabBarOverview" id="T0X-VH-fIN"/>
                     <connections>
                         <outlet property="fileMgntStackView" destination="96V-29-rmi" id="4xA-OL-pBu"/>
                         <outlet property="headlineLabel" destination="2Bx-Hs-DHi" id="qSB-si-Bu0"/>
@@ -411,5 +411,7 @@
     <resources>
         <image name="FilesIcon" width="60" height="60"/>
         <image name="PixelBlack" width="1" height="1"/>
+        <image name="TabBarOverview" width="23" height="23"/>
+        <image name="TabBarTypes" width="23" height="23"/>
     </resources>
 </document>
