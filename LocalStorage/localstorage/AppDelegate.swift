@@ -35,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Note concerning images and custom fonts on LaunchScreen:
+        // These things might not show up correctly when newly added. They are somehow cached in the device between runs even though a new build is triggered and/or the app is uninstalled/reinstalled. The only thing that helps is rebooting or running a (fresh) emulator.
+        
         print("didFinishLaunchingWithOptions")
         AppState.documentsPath = FileManager.documentsDir()
         getStats()
