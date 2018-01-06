@@ -115,17 +115,28 @@ func removeDir(path: String) {
 }
 
 
-func refreshStats() {
-    print("refreshStats")
+func resetStats() {
+    print("resetStats")
     
-    resetAppState()
+    AppState.localFilesNumber = 0
+    AppState.localFoldersNumber = 0
+    AppState.localSizeBytes = 0
+    AppState.localSizeDiskBytes = 0
     
-    AppState.documentsPath = FileManager.documentsDir()
-    print("Examining '" + AppState.documentsPath + "'")
+    AppState.trashFilesNumber = 0
+    AppState.trashFoldersNumber = 0
+    AppState.trashSizeBytes = 0
+    AppState.trashSizeDiskBytes = 0
+}
+
+
+func getStats() {
+    print("getStats")
+    resetStats()
     
     let fileManager = FileManager.default
     guard let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: AppState.documentsPath) else {
-        print("Directory not found!")
+        print("Directory not found: " + AppState.documentsPath)
         return
     }
     

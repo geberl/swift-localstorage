@@ -13,15 +13,36 @@ class ViewController: UIViewController {
     // Positioning items inside scroll view -> needed constraints:
     // https://stackoverflow.com/a/32600396/8137043
     
+    @IBOutlet var parentUiView: UIView!
+    @IBOutlet weak var headlineLabel: UILabel!
+    
+    @IBOutlet weak var localFilesLabel: UILabel!
     @IBOutlet weak var localFilesNumberLabel: UILabel!
+    
+    @IBOutlet weak var localFoldersLabel: UILabel!
     @IBOutlet weak var localFoldersNumberLabel: UILabel!
+    
+    @IBOutlet weak var localSizeLabel: UILabel!
     @IBOutlet weak var localSizeBytesLabel: UILabel!
+    
+    @IBOutlet weak var localSizeDiskLabel: UILabel!
     @IBOutlet weak var localSizeDiskBytesLabel: UILabel!
     
+    @IBOutlet weak var trashFilesLabel: UILabel!
     @IBOutlet weak var trashFilesNumberLabel: UILabel!
+    
+    @IBOutlet weak var trashFoldersLabel: UILabel!
     @IBOutlet weak var trashFoldersNumberLabel: UILabel!
+    
+    @IBOutlet weak var trashSizeLabel: UILabel!
     @IBOutlet weak var trashSizeBytesLabel: UILabel!
+    
+    @IBOutlet weak var trashSizeDiskLabel: UILabel!
     @IBOutlet weak var trashSizeDiskBytesLabel: UILabel!
+    
+    @IBOutlet weak var fileMgntStackView: UIStackView!
+    @IBOutlet weak var reminderLineOneLabel: UILabel!
+    @IBOutlet weak var reminderLineTwoLabel: UILabel!
     
     @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
     @IBAction func onRefreshButton() {self.refresh()}
@@ -30,17 +51,53 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print("viewDidLoad")
         
-        self.updatePending()
-        refreshStats()
+        if AppState.hideAppleFilesReminder == true {
+            fileMgntStackView.isHidden = true
+        } else {
+            fileMgntStackView.isHidden = false
+        }
+        
+        if AppState.darkMode == true {
+            self.setTheme(fg: "ColorFontWhite", bg: "ColorBgBlack")
+        } else {
+            self.setTheme(fg: "ColorFontBlack", bg: "ColorBgWhite")
+        }
+        
         self.updateValues()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         print("didReceiveMemoryWarning")
+    }
+    
+    func setTheme(fg: String, bg: String) {
+        let fgColor: UIColor = UIColor(named: fg)!
+        let bgColor: UIColor = UIColor(named: bg)!
+        
+        parentUiView.backgroundColor = bgColor
+        
+        headlineLabel.textColor = fgColor
+        localFilesLabel.textColor = fgColor
+        localFilesNumberLabel.textColor = fgColor
+        localFoldersLabel.textColor = fgColor
+        localFoldersNumberLabel.textColor = fgColor
+        localSizeLabel.textColor = fgColor
+        localSizeBytesLabel.textColor = fgColor
+        localSizeDiskLabel.textColor = fgColor
+        localSizeDiskBytesLabel.textColor = fgColor
+        trashFilesLabel.textColor = fgColor
+        trashFilesNumberLabel.textColor = fgColor
+        trashFoldersLabel.textColor = fgColor
+        trashFoldersNumberLabel.textColor = fgColor
+        trashSizeLabel.textColor = fgColor
+        trashSizeBytesLabel.textColor = fgColor
+        trashSizeDiskLabel.textColor = fgColor
+        trashSizeDiskBytesLabel.textColor = fgColor
+        reminderLineOneLabel.textColor = fgColor
+        reminderLineTwoLabel.textColor = fgColor
     }
     
     func showSettings() {
@@ -51,7 +108,7 @@ class ViewController: UIViewController {
         print("Refresh button pushed")
         
         self.updatePending()
-        refreshStats()
+        getStats()
         self.updateValues()
     }
     
@@ -61,7 +118,7 @@ class ViewController: UIViewController {
         removeDir(path: FileManager.documentsDir() + "/" + ".Trash")
         
         self.updatePending()
-        refreshStats()
+        getStats()
         self.updateValues()
     }
     

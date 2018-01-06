@@ -361,14 +361,27 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="General" id="T0X-VH-fIN"/>
                     <connections>
+                        <outlet property="fileMgntStackView" destination="96V-29-rmi" id="4xA-OL-pBu"/>
+                        <outlet property="headlineLabel" destination="2Bx-Hs-DHi" id="qSB-si-Bu0"/>
+                        <outlet property="localFilesLabel" destination="zLb-w8-eI6" id="94Q-0T-98K"/>
                         <outlet property="localFilesNumberLabel" destination="HZV-sk-t3f" id="Nu7-aj-ERb"/>
+                        <outlet property="localFoldersLabel" destination="JF7-rb-NOj" id="BPb-h3-gYZ"/>
                         <outlet property="localFoldersNumberLabel" destination="PkQ-RY-Hvu" id="ytT-ug-OTI"/>
                         <outlet property="localSizeBytesLabel" destination="LcD-pm-rv3" id="iCm-zQ-JGP"/>
                         <outlet property="localSizeDiskBytesLabel" destination="zqi-VU-gcm" id="tD0-EX-vQG"/>
+                        <outlet property="localSizeDiskLabel" destination="ea3-zT-wQe" id="hdJ-7L-xAm"/>
+                        <outlet property="localSizeLabel" destination="Xst-aE-ZqI" id="3L5-dz-90y"/>
+                        <outlet property="parentUiView" destination="jjn-2V-JPH" id="62t-rO-wOP"/>
+                        <outlet property="reminderLineOneLabel" destination="5SP-5U-boJ" id="gKp-gC-A7U"/>
+                        <outlet property="reminderLineTwoLabel" destination="UCI-1W-3y6" id="45P-vc-Ya3"/>
+                        <outlet property="trashFilesLabel" destination="nFg-U5-pGc" id="uKV-lD-f77"/>
                         <outlet property="trashFilesNumberLabel" destination="v6w-Ll-v4y" id="hEA-EZ-nyV"/>
+                        <outlet property="trashFoldersLabel" destination="SxG-1R-eJk" id="K5L-VM-t7C"/>
                         <outlet property="trashFoldersNumberLabel" destination="ZFm-bi-SAJ" id="Ri2-yT-Vsl"/>
                         <outlet property="trashSizeBytesLabel" destination="zAr-5O-E1s" id="npW-ZD-uF6"/>
                         <outlet property="trashSizeDiskBytesLabel" destination="C4J-jr-e2D" id="ARZ-e8-j3t"/>
+                        <outlet property="trashSizeDiskLabel" destination="O69-iP-sgQ" id="zzq-4n-Dcb"/>
+                        <outlet property="trashSizeLabel" destination="ETh-Wo-voX" id="9TU-KR-TP5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ve-mu-p47" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -378,13 +391,14 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Qw3-WO-9ZW">
             <objects>
-                <tabBarController modalTransitionStyle="crossDissolve" id="6if-fc-UZA" sceneMemberID="viewController">
+                <tabBarController modalTransitionStyle="crossDissolve" id="6if-fc-UZA" customClass="TabBarController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sdn-hq-sD4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tabBar" destination="sdn-hq-sD4" id="5NL-2m-b5x"/>
                         <segue destination="lek-cb-lfB" kind="relationship" relationship="viewControllers" id="LqC-ax-cPz"/>
                         <segue destination="Gtg-AD-JS3" kind="relationship" relationship="viewControllers" id="zW8-tO-3LG"/>
                     </connections>
