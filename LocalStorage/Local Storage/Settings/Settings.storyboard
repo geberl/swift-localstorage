@@ -75,43 +75,29 @@
                                             <action selector="onFileSizeUnitSegCtrl:" destination="bkC-aW-nhg" eventType="valueChanged" id="F5Y-yz-SDB"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Automatically refresh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQx-En-nYg">
-                                        <rect key="frame" x="8" y="113" width="279" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VcM-lq-3rB">
-                                        <rect key="frame" x="320" y="108" width="49" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="onAutoRefreshSwitch:" destination="bkC-aW-nhg" eventType="valueChanged" id="rsB-o2-xkY"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Apple Files app reminder" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jin-3X-ntf">
-                                        <rect key="frame" x="8" y="197" width="279" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ask before emptying the Trash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlo-A2-wdU">
-                                        <rect key="frame" x="8" y="155" width="279" height="21"/>
+                                        <rect key="frame" x="8" y="116" width="279" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfc-qU-0R9">
-                                        <rect key="frame" x="320" y="150" width="49" height="31"/>
+                                        <rect key="frame" x="320" y="111" width="49" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="onAskEmptyTrashSwitch:" destination="bkC-aW-nhg" eventType="valueChanged" id="PYx-sY-wx6"/>
                                         </connections>
                                     </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Apple Files app reminder" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jin-3X-ntf">
+                                        <rect key="frame" x="8" y="156" width="279" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vnK-c1-9rE">
-                                        <rect key="frame" x="320" y="194" width="49" height="31"/>
+                                        <rect key="frame" x="320" y="156" width="49" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="onShowAppleFilesReminderSwitch:" destination="bkC-aW-nhg" eventType="valueChanged" id="vsM-Xt-RKX"/>
@@ -135,7 +121,6 @@
                     </view>
                     <connections>
                         <outlet property="askEmptyTrashSwitch" destination="Yfc-qU-0R9" id="mWz-J9-daK"/>
-                        <outlet property="autoRefreshSwitch" destination="VcM-lq-3rB" id="3qn-47-Kbf"/>
                         <outlet property="darkModeSwitch" destination="FoP-fq-5Dg" id="UBk-Se-Reh"/>
                         <outlet property="fileSizeUnitSegCtrl" destination="uNE-aV-wVm" id="dhR-j2-lJU"/>
                         <outlet property="showAppleFilesReminderSwitch" destination="vnK-c1-9rE" id="jWq-hC-hFe"/>

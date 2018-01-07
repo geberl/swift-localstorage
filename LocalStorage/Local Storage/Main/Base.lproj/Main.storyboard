@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6if-fc-UZA">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,11 +20,11 @@
             <objects>
                 <viewController id="Gtg-AD-JS3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jtb-Vc-8Uc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iat-G9-Hij">
-                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -43,20 +47,20 @@
             <objects>
                 <viewController id="lek-cb-lfB" customClass="MainViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jjn-2V-JPH">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PixelBlack" translatesAutoresizingMaskIntoConstraints="NO" id="6b0-WV-0tQ">
-                                <rect key="frame" x="299.5" y="0.0" width="1" height="600"/>
+                                <rect key="frame" x="187" y="0.0" width="1" height="667"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="3Su-G5-lvz"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Hpd-rJ-YQb">
-                                <rect key="frame" x="15" y="26" width="565" height="34"/>
+                                <rect key="frame" x="15" y="26" width="340" height="34"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewX-l2-lgO">
-                                        <rect key="frame" x="498" y="0.0" width="67" height="34"/>
+                                        <rect key="frame" x="273" y="0.0" width="67" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Settings"/>
                                         <connections>
@@ -66,10 +70,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wst-Aa-ltx" userLabel="Headline Stack View">
-                                <rect key="frame" x="15" y="67" width="570" height="41"/>
+                                <rect key="frame" x="15" y="67" width="345" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bx-Hs-DHi">
-                                        <rect key="frame" x="0.0" y="0.0" width="570" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="41"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="34"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -77,16 +81,16 @@
                                 </subviews>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxu-zY-wmX">
-                                <rect key="frame" x="0.0" y="123" width="600" height="428"/>
+                                <rect key="frame" x="0.0" y="123" width="375" height="495"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Kx8-qw-1Rx" userLabel="Info Items Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="490"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="490"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZU3-hf-3NA" userLabel="Local Storage Stack View">
-                                                <rect key="frame" x="76" y="0.0" width="448" height="172"/>
+                                                <rect key="frame" x="76" y="0.0" width="223" height="172"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Storage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pr-5E-tFE">
-                                                        <rect key="frame" x="188" y="0.0" width="72.5" height="20"/>
+                                                        <rect key="frame" x="75.5" y="0.0" width="72.5" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="wB9-Dg-qAF"/>
                                                         </constraints>
@@ -95,7 +99,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K9R-Bv-e8z" userLabel="Files">
-                                                        <rect key="frame" x="184.5" y="28" width="79" height="20.5"/>
+                                                        <rect key="frame" x="72" y="28" width="79" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Files" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLb-w8-eI6">
                                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
@@ -112,7 +116,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n6e-6E-HOX" userLabel="Folders">
-                                                        <rect key="frame" x="162.5" y="56.5" width="123" height="20.5"/>
+                                                        <rect key="frame" x="50" y="56.5" width="123" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Folders" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JF7-rb-NOj">
                                                                 <rect key="frame" x="0.0" y="0.0" width="57" height="20.5"/>
@@ -129,7 +133,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qt1-Z5-Rt0" userLabel="Size">
-                                                        <rect key="frame" x="159" y="85" width="130" height="20.5"/>
+                                                        <rect key="frame" x="46.5" y="85" width="130" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xst-aE-ZqI">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60.5" height="20.5"/>
@@ -146,7 +150,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NhT-vW-c22" userLabel="Size Disk">
-                                                        <rect key="frame" x="126" y="113.5" width="196" height="20.5"/>
+                                                        <rect key="frame" x="13.5" y="113.5" width="196" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size on Disk" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea3-zT-wQe">
                                                                 <rect key="frame" x="0.0" y="0.0" width="93.5" height="20.5"/>
@@ -163,7 +167,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2u-Fw-75t">
-                                                        <rect key="frame" x="197.5" y="142" width="53" height="30"/>
+                                                        <rect key="frame" x="85" y="142" width="53" height="30"/>
                                                         <state key="normal" title="Refresh"/>
                                                         <connections>
                                                             <action selector="onRefreshButton" destination="lek-cb-lfB" eventType="touchUpInside" id="pvb-kC-CV8"/>
@@ -172,10 +176,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tRB-xA-Coe" userLabel="Trash Stack View">
-                                                <rect key="frame" x="76" y="192" width="448" height="172"/>
+                                                <rect key="frame" x="76" y="192" width="223" height="172"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsA-TW-RHS">
-                                                        <rect key="frame" x="209.5" y="0.0" width="29.5" height="20"/>
+                                                        <rect key="frame" x="97" y="0.0" width="29.5" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="63p-h3-ckE"/>
                                                         </constraints>
@@ -184,7 +188,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xne-eW-29S" userLabel="Files">
-                                                        <rect key="frame" x="184.5" y="28" width="79" height="20.5"/>
+                                                        <rect key="frame" x="72" y="28" width="79" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Files" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFg-U5-pGc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
@@ -201,7 +205,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8ZP-53-RxI" userLabel="Folders">
-                                                        <rect key="frame" x="162.5" y="56.5" width="123" height="20.5"/>
+                                                        <rect key="frame" x="50" y="56.5" width="123" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Folders" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SxG-1R-eJk">
                                                                 <rect key="frame" x="0.0" y="0.0" width="57" height="20.5"/>
@@ -218,7 +222,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Z3-rt-Nyx" userLabel="Size">
-                                                        <rect key="frame" x="159" y="85" width="130" height="20.5"/>
+                                                        <rect key="frame" x="46.5" y="85" width="130" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETh-Wo-voX">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60.5" height="20.5"/>
@@ -235,7 +239,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cvA-uT-Z6k" userLabel="Size Disk">
-                                                        <rect key="frame" x="126" y="113.5" width="196" height="20.5"/>
+                                                        <rect key="frame" x="13.5" y="113.5" width="196" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size on Disk" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O69-iP-sgQ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="93.5" height="20.5"/>
@@ -252,7 +256,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0U-4W-N5d">
-                                                        <rect key="frame" x="181" y="142" width="86" height="30"/>
+                                                        <rect key="frame" x="68.5" y="142" width="86" height="30"/>
                                                         <state key="normal" title="Empty Trash"/>
                                                         <connections>
                                                             <action selector="onEmptyTrashButton" destination="lek-cb-lfB" eventType="touchUpInside" id="ZTy-jO-nXe"/>
@@ -261,7 +265,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="96V-29-rmi" userLabel="File Management Stack View">
-                                                <rect key="frame" x="144.5" y="384" width="311.5" height="85"/>
+                                                <rect key="frame" x="32" y="384" width="311.5" height="85"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Management" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kk0-gs-yVy">
                                                         <rect key="frame" x="110.5" y="0.0" width="90" height="20"/>
@@ -308,7 +312,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KcH-YI-TyT" userLabel="Spacer Stack View">
-                                                <rect key="frame" x="300" y="489" width="0.0" height="1"/>
+                                                <rect key="frame" x="187.5" y="489" width="0.0" height="1"/>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -357,6 +361,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Overview" image="TabBarOverview" id="T0X-VH-fIN"/>
                     <connections>
+                        <outlet property="emptyTrashButton" destination="V0U-4W-N5d" id="CjG-wC-5Xd"/>
                         <outlet property="fileMgntStackView" destination="96V-29-rmi" id="4xA-OL-pBu"/>
                         <outlet property="headlineLabel" destination="2Bx-Hs-DHi" id="qSB-si-Bu0"/>
                         <outlet property="localFilesLabel" destination="zLb-w8-eI6" id="94Q-0T-98K"/>

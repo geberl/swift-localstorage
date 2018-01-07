@@ -51,7 +51,8 @@ class MainViewController: UIViewController {
     
     @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
     @IBAction func onRefreshButton() {self.refresh()}
-    @IBAction func onEmptyTrashButton() {self.emptyTrash()}
+    @IBOutlet var emptyTrashButton: UIButton!
+    @IBAction func onEmptyTrashButton() {self.askEmptyTrash()}
     @IBAction func onFilesButton(_ sender: UIButton) {self.showFilesApp()}
     
     override func viewDidLoad() {
@@ -141,11 +142,30 @@ class MainViewController: UIViewController {
         self.updateValues()
     }
     
+    func askEmptyTrash() {
+        os_log("askEmptyTrash", log: logUi, type: .debug)
+        
+        if userDefaults.bool(forKey: UserDefaultStruct.askEmptyTrash) {
+            let alert = UIAlertController(title: "Are you sure you want to permanently erase all items in the Trash?",
+                                          message: "You can't undo this action",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .`default`, handler: { _ in
+                os_log("Alert action: Cancel", log: logUi, type: .debug)
+            }))
+            alert.addAction(UIAlertAction(title: "Empty Trash", style: .`default`, handler: { _ in
+                os_log("Alert action: Empty Trash", log: logUi, type: .debug)
+                self.emptyTrash()
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            self.emptyTrash()
+        }
+    }
+    
     func emptyTrash() {
-        os_log("emptyTrash", log: logUi, type: .debug)
+        os_log("emptyTrash", log: logGeneral, type: .debug)
         
         removeDir(path: FileManager.documentsDir() + "/" + ".Trash")
-        
         self.updatePending()
         getStats()
         self.updateValues()
@@ -153,10 +173,13 @@ class MainViewController: UIViewController {
     
     func showFilesApp() {
         os_log("showFilesApp", log: logUi, type: .debug)
+        
         openAppStore(id: 1232058109)
     }
     
     func updatePending() {
+        os_log("updatePending", log: logGeneral, type: .debug)
+        
         self.localFilesNumberLabel.text   = "..."
         self.localFoldersNumberLabel.text = "..."
         self.localSizeBytesLabel.text     = "..."
@@ -195,8 +218,13 @@ class MainViewController: UIViewController {
         self.trashFoldersNumberLabel.text = String(AppState.trashFoldersNumber)
         if AppState.trashSizeBytes == 0 {self.trashSizeBytesLabel.text = "0"} else {
             self.trashSizeBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.trashSizeBytes)}
-        if AppState.trashSizeDiskBytes == 0 {self.trashSizeDiskBytesLabel.text = "0"} else {
-            self.trashSizeDiskBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.trashSizeDiskBytes)}
+        if AppState.trashSizeDiskBytes == 0 {
+            self.trashSizeDiskBytesLabel.text = "0"
+            self.emptyTrashButton.isEnabled = false
+        } else {
+            self.trashSizeDiskBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.trashSizeDiskBytes)
+            self.emptyTrashButton.isEnabled = true
+        }
     }
     
 }

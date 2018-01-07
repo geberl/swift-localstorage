@@ -22,9 +22,6 @@ struct UserDefaultStruct {
     static var unit: String = "unit"
     static var unitDefault: String = "all"  // Bytes | KB | MB | GB | all
     
-    static var autoRefresh: String = "autoRefresh"
-    static var autoRefreshDefault: Bool = true
-    
     static var askEmptyTrash: String = "askEmptyTrash"
     static var askEmptyTrashDefault: Bool = true
     
@@ -56,10 +53,6 @@ func ensureUserDefaults() {
     
     if !isKeyPresentInUserDefaults(key: UserDefaultStruct.unit) {
         userDefaults.set(UserDefaultStruct.unitDefault, forKey: UserDefaultStruct.unit)
-    }
-    
-    if !isKeyPresentInUserDefaults(key: UserDefaultStruct.autoRefresh) {
-        userDefaults.set(UserDefaultStruct.autoRefreshDefault, forKey: UserDefaultStruct.autoRefresh)
     }
     
     if !isKeyPresentInUserDefaults(key: UserDefaultStruct.askEmptyTrash) {

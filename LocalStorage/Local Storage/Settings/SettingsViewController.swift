@@ -38,11 +38,6 @@ class SettingsViewController: UIViewController {
         NotificationCenter.default.post(name: .unitChanged, object: nil, userInfo: nil)
     }
     
-    @IBOutlet var autoRefreshSwitch: UISwitch!
-    @IBAction func onAutoRefreshSwitch(_ sender: UISwitch) {
-        userDefaults.set(self.autoRefreshSwitch.isOn, forKey: UserDefaultStruct.autoRefresh)
-    }
-    
     @IBOutlet var askEmptyTrashSwitch: UISwitch!
     @IBAction func onAskEmptyTrashSwitch(_ sender: UISwitch) {
         userDefaults.set(self.askEmptyTrashSwitch.isOn, forKey: UserDefaultStruct.askEmptyTrash)
@@ -79,7 +74,6 @@ class SettingsViewController: UIViewController {
             self.fileSizeUnitSegCtrl.selectedSegmentIndex = 4
         }
         
-        self.autoRefreshSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.autoRefresh), animated: false)
         self.askEmptyTrashSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.askEmptyTrash), animated: false)
         self.showAppleFilesReminderSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.showAppleFilesReminder), animated: false)
     }
