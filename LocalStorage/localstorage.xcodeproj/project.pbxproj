@@ -114,8 +114,8 @@
 				A418AC7D2000092000E3EAF1 /* Common.swift */,
 				A482821520025F5500DC2131 /* Notifications.swift */,
 				A482821820025FC200DC2131 /* Prefs.swift */,
+				A493A4B7200277A300B229CB /* Launch Screen */,
 				A482821720025F8500DC2131 /* Main */,
-				A44E4E7C1FFA915D00CBE189 /* LaunchScreen.storyboard */,
 				A49C0DD11FFE66C1006BE494 /* Settings */,
 			);
 			path = "Local Storage";
@@ -139,6 +139,14 @@
 				A41FEB122000EFB700149DEE /* TabBarController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		A493A4B7200277A300B229CB /* Launch Screen */ = {
+			isa = PBXGroup;
+			children = (
+				A44E4E7C1FFA915D00CBE189 /* LaunchScreen.storyboard */,
+			);
+			path = "Launch Screen";
 			sourceTree = "<group>";
 		};
 		A49C0DD11FFE66C1006BE494 /* Settings */ = {
