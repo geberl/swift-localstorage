@@ -58,8 +58,18 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         os_log("viewDidLoad", log: logGeneral, type: .debug)
         
-        self.updateView()
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.setTheme),
+                                               name: .darkModeChanged, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateValues),
+                                               name: .unitChanged, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.showHideAppleFilesReminder),
+                                               name: .showAppleFilesReminder, object: nil)
+        
+        self.setTheme()
         self.updateValues()
+        self.showHideAppleFilesReminder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,13 +77,7 @@ class MainViewController: UIViewController {
         os_log("didReceiveMemoryWarning", log: logGeneral, type: .info)
     }
     
-    func updateView() {
-        os_log("updateView", log: logGeneral, type: .debug)
-        self.showHideAppleFilesReminder()
-        self.setTheme()
-    }
-    
-    func showHideAppleFilesReminder() {
+    @objc func showHideAppleFilesReminder() {
         os_log("showHideAppleFilesReminder", log: logGeneral, type: .debug)
         if userDefaults.bool(forKey: UserDefaultStruct.showAppleFilesReminder) {
             fileMgntStackView.isHidden = false
@@ -82,7 +86,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    func setTheme() {
+    @objc func setTheme() {
         os_log("setTheme", log: logGeneral, type: .debug)
         if userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
             self.applyColors(fg: "ColorFontWhite", bg: "ColorBgBlack")
@@ -164,7 +168,7 @@ class MainViewController: UIViewController {
         self.trashSizeDiskBytesLabel.text = "..."
     }
     
-    func updateValues() {
+    @objc func updateValues() {
         let unit: String = userDefaults.string(forKey: UserDefaultStruct.unit)!
         let byteCountFormatter = ByteCountFormatter()
         if unit == "Bytes" {

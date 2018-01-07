@@ -19,6 +19,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet var darkModeSwitch: UISwitch!
     @IBAction func onDarkModeSwitch(_ sender: UISwitch) {
         userDefaults.set(self.darkModeSwitch.isOn, forKey: UserDefaultStruct.darkMode)
+        NotificationCenter.default.post(name: .darkModeChanged, object: nil, userInfo: nil)
     }
     
     @IBOutlet var fileSizeUnitSegCtrl: UISegmentedControl!
@@ -34,6 +35,7 @@ class SettingsViewController: UIViewController {
         } else {
             userDefaults.set("all", forKey: UserDefaultStruct.unit)
         }
+        NotificationCenter.default.post(name: .unitChanged, object: nil, userInfo: nil)
     }
     
     @IBOutlet var autoRefreshSwitch: UISwitch!
@@ -49,6 +51,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet var showAppleFilesReminderSwitch: UISwitch!
     @IBAction func onShowAppleFilesReminderSwitch(_ sender: UISwitch) {
         userDefaults.set(self.showAppleFilesReminderSwitch.isOn, forKey: UserDefaultStruct.showAppleFilesReminder)
+        NotificationCenter.default.post(name: .showAppleFilesReminder, object: nil, userInfo: nil)
     }
     
     override func viewDidLoad() {

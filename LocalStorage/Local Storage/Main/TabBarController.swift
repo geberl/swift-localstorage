@@ -14,18 +14,18 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.updateView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(TabBarController.setTheme),
+                                               name: .darkModeChanged, object: nil)
+        
+        self.setTheme()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func updateView() {
-        self.setTheme()
-    }
-    
-    func setTheme() {
+    @objc func setTheme() {
         if userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
             self.tabBar.barStyle = UIBarStyle.black
         } else {
