@@ -22,9 +22,11 @@ struct AppState {
     static var trashSizeDiskBytes: Int64 = 0
     
     static var documentsPath: String = ""
-    static var unit: String = "all"  // Bytes | KB | MB | GB | all
-    static var hideAppleFilesReminder: Bool = false
     static var darkMode: Bool = false
+    static var unit: String = "all"  // Bytes | KB | MB | GB | all
+    static var autoRefresh: Bool = true
+    static var askEmptyTrash: Bool = true
+    static var showAppleFilesReminder: Bool = true
 }
 
 @UIApplicationMain

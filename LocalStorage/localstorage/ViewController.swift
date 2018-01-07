@@ -53,18 +53,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         print("viewDidLoad")
         
-        if AppState.hideAppleFilesReminder == true {
-            fileMgntStackView.isHidden = true
-        } else {
-            fileMgntStackView.isHidden = false
-        }
-        
-        if AppState.darkMode == true {
-            self.setTheme(fg: "ColorFontWhite", bg: "ColorBgBlack")
-        } else {
-            self.setTheme(fg: "ColorFontBlack", bg: "ColorBgWhite")
-        }
-        
+        self.showHideAppleFilesReminder()
+        self.setTheme()
         self.updateValues()
     }
     
@@ -73,7 +63,23 @@ class ViewController: UIViewController {
         print("didReceiveMemoryWarning")
     }
     
-    func setTheme(fg: String, bg: String) {
+    func showHideAppleFilesReminder() {
+        if AppState.showAppleFilesReminder == true {
+            fileMgntStackView.isHidden = false
+        } else {
+            fileMgntStackView.isHidden = true
+        }
+    }
+    
+    func setTheme() {
+        if AppState.darkMode == true {
+            self.applyColors(fg: "ColorFontWhite", bg: "ColorBgBlack")
+        } else {
+            self.applyColors(fg: "ColorFontBlack", bg: "ColorBgWhite")
+        }
+    }
+    
+    func applyColors(fg: String, bg: String) {
         let fgColor: UIColor = UIColor(named: fg)!
         let bgColor: UIColor = UIColor(named: bg)!
         
@@ -102,6 +108,12 @@ class ViewController: UIViewController {
     
     func showSettings() {
         print("Settings button pushed")
+        
+        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "SettingsViewController")
+        self.view.setNeedsLayout()
+        self.view.setNeedsDisplay()
+        self.present(controller, animated: false, completion: nil)
     }
     
     func refresh() {

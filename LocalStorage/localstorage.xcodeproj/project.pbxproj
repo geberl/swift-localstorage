@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A40273412000DD3900F84EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E7A1FFA915D00CBE189 /* Assets.xcassets */; };
+		A40D444A200248EF00A14AD1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40D4449200248EF00A14AD1 /* SettingsViewController.swift */; };
 		A418AC7E2000092000E3EAF1 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418AC7D2000092000E3EAF1 /* Common.swift */; };
 		A41FEB132000EFB700149DEE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41FEB122000EFB700149DEE /* TabBarController.swift */; };
 		A44E4E741FFA915C00CBE189 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E4E731FFA915C00CBE189 /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A40D4449200248EF00A14AD1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A418AC7D2000092000E3EAF1 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		A41FEB122000EFB700149DEE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A44E4E701FFA915C00CBE189 /* localstorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = localstorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */,
+				A40D4449200248EF00A14AD1 /* SettingsViewController.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				A44E4E761FFA915D00CBE189 /* ViewController.swift in Sources */,
 				A41FEB132000EFB700149DEE /* TabBarController.swift in Sources */,
 				A418AC7E2000092000E3EAF1 /* Common.swift in Sources */,
+				A40D444A200248EF00A14AD1 /* SettingsViewController.swift in Sources */,
 				A44E4E741FFA915C00CBE189 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
