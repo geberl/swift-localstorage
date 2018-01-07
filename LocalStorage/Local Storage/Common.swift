@@ -128,6 +128,8 @@ func resetStats() {
     AppState.trashFoldersNumber = 0
     AppState.trashSizeBytes = 0
     AppState.trashSizeDiskBytes = 0
+    
+    AppState.typeSizes = [:]
 }
 
 
@@ -162,15 +164,15 @@ func getStats() {
             os_log("%@", log: logGeneral, type: .error, error.localizedDescription)
         }
         
-        //let fileType: String = elementURL.typeIdentifier!
-        
-        // print(element + " (" + String(fileSize) + ") (" + fileType + ")")
-        
-        // examples: (16066) = 16KB, (57110) = 57KB, (1650104250) = 1,65GB
-        // only works for files
-        // folders show (64) or (96), so no contained files are summed into that, this is just the name string
-        
-        // put notice of how to manage files in there: in the files app
+        if let fileType: String = elementURL.typeIdentifier {
+            if AppState.typeSizes[fileType] == nil {
+                AppState.typeSizes[fileType] = fileSize
+            } else {
+                AppState.typeSizes[fileType] = AppState.typeSizes[fileType]! + fileSize
+            }
+        } else {
+            os_log("Unable to get type identifier for '%@'", log: logGeneral, type: .error)
+        }
         
         if let values = try? elementURL.resourceValues(forKeys: [.isDirectoryKey]) {
             if values.isDirectory! {

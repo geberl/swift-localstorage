@@ -14,7 +14,7 @@ import UIKit
 import os.log
 
 
-class MainViewController: UIViewController {
+class OverviewViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
     
@@ -59,13 +59,13 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         os_log("viewDidLoad", log: logGeneral, type: .debug)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.setTheme),
+        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.setTheme),
                                                name: .darkModeChanged, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateValues),
+        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.updateValues),
                                                name: .unitChanged, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.showHideAppleFilesReminder),
+        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.showHideAppleFilesReminder),
                                                name: .showAppleFilesReminder, object: nil)
         
         self.setTheme()

@@ -27,6 +27,8 @@ struct AppState {
     static var trashSizeBytes: Int64 = 0
     static var trashSizeDiskBytes: Int64 = 0
     
+    static var typeSizes: [String: Int64] = [:]
+    
     static var documentsPath: String = ""
 }
 
