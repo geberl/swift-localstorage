@@ -12,12 +12,14 @@
 		A418AC7E2000092000E3EAF1 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418AC7D2000092000E3EAF1 /* Common.swift */; };
 		A41FEB132000EFB700149DEE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41FEB122000EFB700149DEE /* TabBarController.swift */; };
 		A44E4E741FFA915C00CBE189 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E4E731FFA915C00CBE189 /* AppDelegate.swift */; };
-		A44E4E761FFA915D00CBE189 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E4E751FFA915D00CBE189 /* ViewController.swift */; };
+		A44E4E761FFA915D00CBE189 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E4E751FFA915D00CBE189 /* MainViewController.swift */; };
 		A44E4E791FFA915D00CBE189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E771FFA915D00CBE189 /* Main.storyboard */; };
 		A44E4E7E1FFA915D00CBE189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E7C1FFA915D00CBE189 /* LaunchScreen.storyboard */; };
 		A47A17F01FFBBEAE000B9642 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A17EF1FFBBEAE000B9642 /* ShareViewController.swift */; };
 		A47A17F31FFBBEAE000B9642 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47A17F11FFBBEAE000B9642 /* MainInterface.storyboard */; };
 		A47A17F71FFBBEAE000B9642 /* save.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A47A17ED1FFBBEAE000B9642 /* save.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A482821620025F5500DC2131 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482821520025F5500DC2131 /* Notifications.swift */; };
+		A482821920025FC200DC2131 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482821820025FC200DC2131 /* Prefs.swift */; };
 		A49C0DD01FFE66BB006BE494 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +53,7 @@
 		A41FEB122000EFB700149DEE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A44E4E701FFA915C00CBE189 /* localstorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = localstorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A44E4E731FFA915C00CBE189 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A44E4E751FFA915D00CBE189 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A44E4E751FFA915D00CBE189 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A44E4E781FFA915D00CBE189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A44E4E7A1FFA915D00CBE189 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A44E4E7D1FFA915D00CBE189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +63,8 @@
 		A47A17EF1FFBBEAE000B9642 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		A47A17F21FFBBEAE000B9642 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		A47A17F41FFBBEAE000B9642 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A482821520025F5500DC2131 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		A482821820025FC200DC2131 /* Prefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
 		A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				A47A17E81FFBBB0D000B9642 /* localstorage.entitlements */,
-				A44E4E721FFA915C00CBE189 /* localstorage */,
+				A44E4E7A1FFA915D00CBE189 /* Assets.xcassets */,
+				A44E4E721FFA915C00CBE189 /* Local Storage */,
 				A47A17EE1FFBBEAE000B9642 /* save */,
 				A44E4E711FFA915C00CBE189 /* Products */,
 			);
@@ -101,20 +106,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A44E4E721FFA915C00CBE189 /* localstorage */ = {
+		A44E4E721FFA915C00CBE189 /* Local Storage */ = {
 			isa = PBXGroup;
 			children = (
 				A44E4E7F1FFA915D00CBE189 /* Info.plist */,
-				A44E4E7A1FFA915D00CBE189 /* Assets.xcassets */,
-				A418AC7D2000092000E3EAF1 /* Common.swift */,
 				A44E4E731FFA915C00CBE189 /* AppDelegate.swift */,
-				A44E4E751FFA915D00CBE189 /* ViewController.swift */,
-				A41FEB122000EFB700149DEE /* TabBarController.swift */,
-				A44E4E771FFA915D00CBE189 /* Main.storyboard */,
+				A418AC7D2000092000E3EAF1 /* Common.swift */,
+				A482821520025F5500DC2131 /* Notifications.swift */,
+				A482821820025FC200DC2131 /* Prefs.swift */,
+				A482821720025F8500DC2131 /* Main */,
 				A44E4E7C1FFA915D00CBE189 /* LaunchScreen.storyboard */,
-				A49C0DD11FFE66C1006BE494 /* settings */,
+				A49C0DD11FFE66C1006BE494 /* Settings */,
 			);
-			path = localstorage;
+			path = "Local Storage";
 			sourceTree = "<group>";
 		};
 		A47A17EE1FFBBEAE000B9642 /* save */ = {
@@ -127,13 +131,23 @@
 			path = save;
 			sourceTree = "<group>";
 		};
-		A49C0DD11FFE66C1006BE494 /* settings */ = {
+		A482821720025F8500DC2131 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A44E4E771FFA915D00CBE189 /* Main.storyboard */,
+				A44E4E751FFA915D00CBE189 /* MainViewController.swift */,
+				A41FEB122000EFB700149DEE /* TabBarController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A49C0DD11FFE66C1006BE494 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */,
 				A40D4449200248EF00A14AD1 /* SettingsViewController.swift */,
 			);
-			path = settings;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,7 +260,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A44E4E761FFA915D00CBE189 /* ViewController.swift in Sources */,
+				A482821920025FC200DC2131 /* Prefs.swift in Sources */,
+				A482821620025F5500DC2131 /* Notifications.swift in Sources */,
+				A44E4E761FFA915D00CBE189 /* MainViewController.swift in Sources */,
 				A41FEB132000EFB700149DEE /* TabBarController.swift in Sources */,
 				A418AC7E2000092000E3EAF1 /* Common.swift in Sources */,
 				A40D444A200248EF00A14AD1 /* SettingsViewController.swift in Sources */,
@@ -414,7 +430,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QEZ83PUW72;
-				INFOPLIST_FILE = "$(SRCROOT)/localstorage/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Local Storage/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.eberl.localstorage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,7 +446,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QEZ83PUW72;
-				INFOPLIST_FILE = "$(SRCROOT)/localstorage/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Local Storage/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.eberl.localstorage;
 				PRODUCT_NAME = "$(TARGET_NAME)";

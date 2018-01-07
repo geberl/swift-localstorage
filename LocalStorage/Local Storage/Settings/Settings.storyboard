@@ -23,8 +23,8 @@
                                 <color key="barTintColor" red="0.94137436151504517" green="0.94483226537704468" blue="0.96078723669052124" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <items>
                                     <navigationItem title="Settings" id="LYr-s6-ord">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="snd-HB-WD1">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tkY-9o-8sv">
+                                        <barButtonItem key="leftBarButtonItem" style="done" id="snd-HB-WD1">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tkY-9o-8sv">
                                                 <rect key="frame" x="16" y="5" width="46" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -114,7 +114,7 @@
                                         <rect key="frame" x="320" y="194" width="49" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="showAppleFilesReminder:" destination="bkC-aW-nhg" eventType="valueChanged" id="vsM-Xt-RKX"/>
+                                            <action selector="onShowAppleFilesReminderSwitch:" destination="bkC-aW-nhg" eventType="valueChanged" id="vsM-Xt-RKX"/>
                                         </connections>
                                     </switch>
                                 </subviews>
@@ -138,7 +138,7 @@
                         <outlet property="autoRefreshSwitch" destination="VcM-lq-3rB" id="3qn-47-Kbf"/>
                         <outlet property="darkModeSwitch" destination="FoP-fq-5Dg" id="UBk-Se-Reh"/>
                         <outlet property="fileSizeUnitSegCtrl" destination="uNE-aV-wVm" id="dhR-j2-lJU"/>
-                        <outlet property="showAppleFilesReminder" destination="vnK-c1-9rE" id="jWq-hC-hFe"/>
+                        <outlet property="showAppleFilesReminderSwitch" destination="vnK-c1-9rE" id="jWq-hC-hFe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3px-QI-pg6" userLabel="First Responder" sceneMemberID="firstResponder"/>

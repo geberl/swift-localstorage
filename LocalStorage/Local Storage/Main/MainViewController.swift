@@ -6,12 +6,17 @@
 //  Copyright © 2018 Günther Eberl. All rights reserved.
 //
 
-import UIKit
+// Positioning items inside scroll view -> needed constraints:
+// https://stackoverflow.com/a/32600396/8137043
 
-class ViewController: UIViewController {
+
+import UIKit
+import os.log
+
+
+class MainViewController: UIViewController {
     
-    // Positioning items inside scroll view -> needed constraints:
-    // https://stackoverflow.com/a/32600396/8137043
+    let userDefaults = UserDefaults.standard
     
     @IBOutlet var parentUiView: UIView!
     @IBOutlet weak var headlineLabel: UILabel!
@@ -51,20 +56,26 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
+        os_log("viewDidLoad", log: logGeneral, type: .debug)
         
-        self.showHideAppleFilesReminder()
-        self.setTheme()
+        self.updateView()
         self.updateValues()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        print("didReceiveMemoryWarning")
+        os_log("didReceiveMemoryWarning", log: logGeneral, type: .info)
+    }
+    
+    func updateView() {
+        os_log("updateView", log: logGeneral, type: .debug)
+        self.showHideAppleFilesReminder()
+        self.setTheme()
     }
     
     func showHideAppleFilesReminder() {
-        if AppState.showAppleFilesReminder == true {
+        os_log("showHideAppleFilesReminder", log: logGeneral, type: .debug)
+        if userDefaults.bool(forKey: UserDefaultStruct.showAppleFilesReminder) {
             fileMgntStackView.isHidden = false
         } else {
             fileMgntStackView.isHidden = true
@@ -72,7 +83,8 @@ class ViewController: UIViewController {
     }
     
     func setTheme() {
-        if AppState.darkMode == true {
+        os_log("setTheme", log: logGeneral, type: .debug)
+        if userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
             self.applyColors(fg: "ColorFontWhite", bg: "ColorBgBlack")
         } else {
             self.applyColors(fg: "ColorFontBlack", bg: "ColorBgWhite")
@@ -80,6 +92,7 @@ class ViewController: UIViewController {
     }
     
     func applyColors(fg: String, bg: String) {
+        os_log("applyColors", log: logGeneral, type: .debug)
         let fgColor: UIColor = UIColor(named: fg)!
         let bgColor: UIColor = UIColor(named: bg)!
         
@@ -107,7 +120,7 @@ class ViewController: UIViewController {
     }
     
     func showSettings() {
-        print("Settings button pushed")
+        os_log("showSettings", log: logUi, type: .debug)
         
         let storyboard = UIStoryboard(name: "Settings", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "SettingsViewController")
@@ -117,7 +130,7 @@ class ViewController: UIViewController {
     }
     
     func refresh() {
-        print("Refresh button pushed")
+        os_log("refresh", log: logUi, type: .debug)
         
         self.updatePending()
         getStats()
@@ -125,7 +138,7 @@ class ViewController: UIViewController {
     }
     
     func emptyTrash() {
-        print("Empty trash button pushed")
+        os_log("emptyTrash", log: logUi, type: .debug)
         
         removeDir(path: FileManager.documentsDir() + "/" + ".Trash")
         
@@ -135,7 +148,7 @@ class ViewController: UIViewController {
     }
     
     func showFilesApp() {
-        print("Files app button pushed")
+        os_log("showFilesApp", log: logUi, type: .debug)
         openAppStore(id: 1232058109)
     }
     
@@ -152,14 +165,15 @@ class ViewController: UIViewController {
     }
     
     func updateValues() {
+        let unit: String = userDefaults.string(forKey: UserDefaultStruct.unit)!
         let byteCountFormatter = ByteCountFormatter()
-        if AppState.unit == "Bytes" {
+        if unit == "Bytes" {
             byteCountFormatter.allowedUnits = .useBytes
-        } else if AppState.unit == "KB" {
+        } else if unit == "KB" {
             byteCountFormatter.allowedUnits = .useKB
-        } else if AppState.unit == "MB" {
+        } else if unit == "MB" {
             byteCountFormatter.allowedUnits = .useMB
-        } else if AppState.unit == "GB" {
+        } else if unit == "GB" {
             byteCountFormatter.allowedUnits = .useGB
         } else {
             byteCountFormatter.allowedUnits = .useAll

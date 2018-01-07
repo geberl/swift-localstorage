@@ -10,59 +10,45 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    let userDefaults = UserDefaults.standard
+    
     @IBAction func onCloseButton(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
     }
     
     @IBOutlet var darkModeSwitch: UISwitch!
     @IBAction func onDarkModeSwitch(_ sender: UISwitch) {
-        if self.darkModeSwitch.isOn {
-            AppState.darkMode = true
-        } else {
-            AppState.darkMode = false
-        }
+        userDefaults.set(self.darkModeSwitch.isOn, forKey: UserDefaultStruct.darkMode)
     }
     
     @IBOutlet var fileSizeUnitSegCtrl: UISegmentedControl!
     @IBAction func onFileSizeUnitSegCtrl(_ sender: UISegmentedControl) {
         if self.fileSizeUnitSegCtrl.selectedSegmentIndex == 0 {
-            AppState.unit = "Bytes"
+            userDefaults.set("Bytes", forKey: UserDefaultStruct.unit)
         } else if self.fileSizeUnitSegCtrl.selectedSegmentIndex == 1 {
-            AppState.unit = "KB"
+            userDefaults.set("KB", forKey: UserDefaultStruct.unit)
         } else if self.fileSizeUnitSegCtrl.selectedSegmentIndex == 2 {
-            AppState.unit = "MB"
+            userDefaults.set("MB", forKey: UserDefaultStruct.unit)
         } else if self.fileSizeUnitSegCtrl.selectedSegmentIndex == 3 {
-            AppState.unit = "GB"
+            userDefaults.set("GB", forKey: UserDefaultStruct.unit)
         } else {
-            AppState.unit = "all"
+            userDefaults.set("all", forKey: UserDefaultStruct.unit)
         }
     }
     
     @IBOutlet var autoRefreshSwitch: UISwitch!
     @IBAction func onAutoRefreshSwitch(_ sender: UISwitch) {
-        if self.autoRefreshSwitch.isOn {
-            AppState.autoRefresh = true
-        } else {
-            AppState.autoRefresh = false
-        }
+        userDefaults.set(self.autoRefreshSwitch.isOn, forKey: UserDefaultStruct.autoRefresh)
     }
     
     @IBOutlet var askEmptyTrashSwitch: UISwitch!
     @IBAction func onAskEmptyTrashSwitch(_ sender: UISwitch) {
-        if self.askEmptyTrashSwitch.isOn {
-            AppState.askEmptyTrash = true
-        } else {
-            AppState.askEmptyTrash = false
-        }
+        userDefaults.set(self.askEmptyTrashSwitch.isOn, forKey: UserDefaultStruct.askEmptyTrash)
     }
     
-    @IBOutlet var showAppleFilesReminder: UISwitch!
-    @IBAction func showAppleFilesReminder(_ sender: UISwitch) {
-        if self.showAppleFilesReminder.isOn {
-            AppState.showAppleFilesReminder = true
-        } else {
-            AppState.showAppleFilesReminder = false
-        }
+    @IBOutlet var showAppleFilesReminderSwitch: UISwitch!
+    @IBAction func onShowAppleFilesReminderSwitch(_ sender: UISwitch) {
+        userDefaults.set(self.showAppleFilesReminderSwitch.isOn, forKey: UserDefaultStruct.showAppleFilesReminder)
     }
     
     override func viewDidLoad() {
@@ -75,22 +61,23 @@ class SettingsViewController: UIViewController {
     }
     
     func loadSettings() {
-        self.darkModeSwitch.setOn(AppState.darkMode, animated: false)
+        self.darkModeSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.darkMode), animated: false)
         
-        if AppState.unit == "Bytes" {
+        let unit: String = userDefaults.string(forKey: UserDefaultStruct.unit)!
+        if unit == "Bytes" {
             self.fileSizeUnitSegCtrl.selectedSegmentIndex = 0
-        } else if AppState.unit == "KB" {
+        } else if unit == "KB" {
             self.fileSizeUnitSegCtrl.selectedSegmentIndex = 1
-        } else if AppState.unit == "MB" {
+        } else if unit == "MB" {
             self.fileSizeUnitSegCtrl.selectedSegmentIndex = 2
-        } else if AppState.unit == "GB" {
+        } else if unit == "GB" {
             self.fileSizeUnitSegCtrl.selectedSegmentIndex = 3
         } else {
             self.fileSizeUnitSegCtrl.selectedSegmentIndex = 4
         }
         
-        self.autoRefreshSwitch.setOn(AppState.autoRefresh, animated: false)
-        self.askEmptyTrashSwitch.setOn(AppState.askEmptyTrash, animated: false)
-        self.showAppleFilesReminder.setOn(AppState.showAppleFilesReminder, animated: false)
+        self.autoRefreshSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.autoRefresh), animated: false)
+        self.askEmptyTrashSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.askEmptyTrash), animated: false)
+        self.showAppleFilesReminderSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.showAppleFilesReminder), animated: false)
     }
 }

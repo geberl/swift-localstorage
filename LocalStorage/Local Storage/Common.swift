@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import os.log
 
 
 extension FileManager {
@@ -108,15 +109,15 @@ func removeDir(path: String) {
     let fileManager = FileManager.default
     do {
         try fileManager.removeItem(at: dirUrl)
-        print("Removed dir '" + dirUrl.path + "'")
+        os_log("Removed dir '%@'", log: logGeneral, type: .info, dirUrl.path)
     } catch let error {
-        print(error.localizedDescription)
+        os_log("%@", log: logGeneral, type: .error, error.localizedDescription)
     }
 }
 
 
 func resetStats() {
-    print("resetStats")
+    os_log("resetStats", log: logGeneral, type: .debug)
     
     AppState.localFilesNumber = 0
     AppState.localFoldersNumber = 0
@@ -131,12 +132,12 @@ func resetStats() {
 
 
 func getStats() {
-    print("getStats")
+    os_log("getStats", log: logGeneral, type: .debug)
     resetStats()
     
     let fileManager = FileManager.default
     guard let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: AppState.documentsPath) else {
-        print("Directory not found: " + AppState.documentsPath)
+        os_log("Directory not found '%@'", log: logGeneral, type: .error, AppState.documentsPath)
         return
     }
     
@@ -158,7 +159,7 @@ func getStats() {
             // Note: FileAttributeKey.type is useless, just contains file/folder, not UTI.
         } catch {
             fileSize = 0
-            print("Error: \(error)")
+            os_log("%@", log: logGeneral, type: .error, error.localizedDescription)
         }
         
         //let fileType: String = elementURL.typeIdentifier!

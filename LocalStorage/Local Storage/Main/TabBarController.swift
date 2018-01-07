@@ -9,32 +9,28 @@
 import UIKit
 
 class TabBarController: UITabBarController {
+    
+    let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setTheme()
+        self.updateView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    func updateView() {
+        self.setTheme()
+    }
+    
     func setTheme() {
-        if AppState.darkMode {
+        if userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
             self.tabBar.barStyle = UIBarStyle.black
         } else {
             self.tabBar.barStyle = UIBarStyle.default
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
