@@ -12,11 +12,10 @@ import os.log
 class TypesViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
-
-    @IBOutlet var parentUiView: UIView!
-    @IBOutlet var headlineLabel: UILabel!
     
-    @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
+    @IBAction func onSettingsButton(_ sender: UIButton) {
+        self.showSettings()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,7 @@ class TypesViewController: UIViewController {
         
         self.setTheme()
         
-        // print(AppState.typeSizes)
+        print(AppState.typeSizes)
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,8 +47,10 @@ class TypesViewController: UIViewController {
         os_log("setTheme", log: logGeneral, type: .debug)
         if userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
             self.applyColors(fg: "ColorFontWhite", bg: "ColorBgBlack")
+            self.navigationController?.navigationBar.barStyle = .black
         } else {
             self.applyColors(fg: "ColorFontBlack", bg: "ColorBgWhite")
+            self.navigationController?.navigationBar.barStyle = .default
         }
     }
     
@@ -58,10 +59,6 @@ class TypesViewController: UIViewController {
 
         let fgColor: UIColor = UIColor(named: fg)!
         let bgColor: UIColor = UIColor(named: bg)!
-        
-        parentUiView.backgroundColor = bgColor
-        
-        headlineLabel.textColor = fgColor
     }
     
 }
