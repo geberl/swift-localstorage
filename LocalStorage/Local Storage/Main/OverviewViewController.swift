@@ -20,6 +20,7 @@ class OverviewViewController: UIViewController {
     
     @IBOutlet var parentUiView: UIView!
     @IBOutlet weak var headlineLabel: UILabel!
+    @IBOutlet var refreshActivityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var localFilesLabel: UILabel!
     @IBOutlet weak var localFilesNumberLabel: UILabel!
@@ -190,6 +191,8 @@ class OverviewViewController: UIViewController {
     
     @objc func updatePending() {
         os_log("updatePending", log: logGeneral, type: .debug)
+        
+        self.refreshActivityIndicator.isHidden = false
 
         self.localFilesNumberLabel.text   = "..."
         self.localFoldersNumberLabel.text = "..."
@@ -230,6 +233,7 @@ class OverviewViewController: UIViewController {
             self.localSizeDiskBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.localSizeDiskBytes)}
         
         if !AppState.updateInProgress {
+            self.refreshActivityIndicator.isHidden = true
             self.refreshButton.isEnabled = true
         }
         

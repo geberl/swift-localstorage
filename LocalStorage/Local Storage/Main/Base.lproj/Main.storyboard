@@ -104,16 +104,25 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wst-Aa-ltx" userLabel="Headline Stack View">
-                                <rect key="frame" x="15" y="67" width="345" height="41"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wst-Aa-ltx" userLabel="Headline Stack View">
+                                <rect key="frame" x="15" y="67" width="340" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bx-Hs-DHi">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="41"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="34"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ETF-JF-Vgb">
+                                        <rect key="frame" x="-15" y="0.0" width="0.0" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="3Cw-Rg-ita"/>
+                                        </constraints>
+                                    </activityIndicatorView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="Sxp-Zd-1Vr"/>
+                                </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxu-zY-wmX">
                                 <rect key="frame" x="0.0" y="123" width="375" height="495"/>
@@ -377,7 +386,7 @@
                             <constraint firstItem="ea3-zT-wQe" firstAttribute="trailing" secondItem="6b0-WV-0tQ" secondAttribute="trailing" constant="-5" id="6Vy-97-nWb"/>
                             <constraint firstItem="jxu-zY-wmX" firstAttribute="bottom" secondItem="spZ-WS-9Yx" secondAttribute="bottom" id="Ael-jC-iQN"/>
                             <constraint firstItem="ETh-Wo-voX" firstAttribute="trailing" secondItem="6b0-WV-0tQ" secondAttribute="trailing" constant="-5" id="Dev-UG-enc"/>
-                            <constraint firstItem="Wst-Aa-ltx" firstAttribute="trailing" secondItem="spZ-WS-9Yx" secondAttribute="trailing" constant="-15" id="FAS-Cw-xI6"/>
+                            <constraint firstItem="Wst-Aa-ltx" firstAttribute="trailing" secondItem="spZ-WS-9Yx" secondAttribute="trailing" constant="-20" id="FAS-Cw-xI6"/>
                             <constraint firstItem="jxu-zY-wmX" firstAttribute="top" secondItem="Wst-Aa-ltx" secondAttribute="bottom" constant="15" id="I8D-EZ-Ie7"/>
                             <constraint firstItem="Hpd-rJ-YQb" firstAttribute="leading" secondItem="spZ-WS-9Yx" secondAttribute="leading" constant="15" id="J7Z-EB-Kn9"/>
                             <constraint firstItem="6b0-WV-0tQ" firstAttribute="top" secondItem="jjn-2V-JPH" secondAttribute="top" id="Nfq-32-N8Z"/>
@@ -408,6 +417,7 @@
                         <outlet property="localSizeDiskLabel" destination="ea3-zT-wQe" id="hdJ-7L-xAm"/>
                         <outlet property="localSizeLabel" destination="Xst-aE-ZqI" id="3L5-dz-90y"/>
                         <outlet property="parentUiView" destination="jjn-2V-JPH" id="62t-rO-wOP"/>
+                        <outlet property="refreshActivityIndicator" destination="ETF-JF-Vgb" id="6Ig-JM-0JI"/>
                         <outlet property="refreshButton" destination="B2u-Fw-75t" id="75M-H9-zQi"/>
                         <outlet property="reminderLineOneLabel" destination="5SP-5U-boJ" id="gKp-gC-A7U"/>
                         <outlet property="reminderLineTwoLabel" destination="UCI-1W-3y6" id="45P-vc-Ya3"/>
