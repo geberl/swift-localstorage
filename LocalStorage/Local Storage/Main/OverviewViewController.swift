@@ -121,6 +121,7 @@ class OverviewViewController: UIViewController {
         parentUiView.backgroundColor = bgColor
         
         headlineLabel.textColor = fgColor
+        refreshActivityIndicator.color = fgColor
         localFilesLabel.textColor = fgColor
         localFilesNumberLabel.textColor = fgColor
         localFoldersLabel.textColor = fgColor

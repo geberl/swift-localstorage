@@ -108,13 +108,13 @@
                                 <rect key="frame" x="15" y="67" width="340" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bx-Hs-DHi">
-                                        <rect key="frame" x="0.0" y="0.0" width="340" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="34"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ETF-JF-Vgb">
-                                        <rect key="frame" x="-15" y="0.0" width="0.0" height="41"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ETF-JF-Vgb">
+                                        <rect key="frame" x="320" y="0.0" width="20" height="41"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="41" id="3Cw-Rg-ita"/>
                                         </constraints>
