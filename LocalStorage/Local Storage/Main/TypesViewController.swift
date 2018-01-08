@@ -41,7 +41,7 @@ class TypesViewController: UIViewController {
         let controller = storyboard.instantiateViewController(withIdentifier: "SettingsViewController")
         self.view.setNeedsLayout()
         self.view.setNeedsDisplay()
-        self.present(controller, animated: false, completion: nil)
+        self.present(controller, animated: true, completion: nil)
     }
     
     @objc func setTheme() {

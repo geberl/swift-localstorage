@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     
     @IBAction func onCloseButton(_ sender: UIButton) {
-        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet var darkModeSwitch: UISwitch!
