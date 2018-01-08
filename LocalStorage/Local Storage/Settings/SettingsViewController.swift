@@ -43,10 +43,10 @@ class SettingsViewController: UIViewController {
         userDefaults.set(self.askEmptyTrashSwitch.isOn, forKey: UserDefaultStruct.askEmptyTrash)
     }
     
-    @IBOutlet var showAppleFilesReminderSwitch: UISwitch!
-    @IBAction func onShowAppleFilesReminderSwitch(_ sender: UISwitch) {
-        userDefaults.set(self.showAppleFilesReminderSwitch.isOn, forKey: UserDefaultStruct.showAppleFilesReminder)
-        NotificationCenter.default.post(name: .showAppleFilesReminder, object: nil, userInfo: nil)
+    @IBOutlet var showHelpSwitch: UISwitch!
+    @IBAction func onShowHelpSwitch(_ sender: UISwitch) {
+        userDefaults.set(self.showHelpSwitch.isOn, forKey: UserDefaultStruct.showHelp)
+        NotificationCenter.default.post(name: .showHelp, object: nil, userInfo: nil)
     }
     
     @IBOutlet var animateUpdateSwitch: UISwitch!
@@ -80,7 +80,7 @@ class SettingsViewController: UIViewController {
         }
         
         self.askEmptyTrashSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.askEmptyTrash), animated: false)
-        self.showAppleFilesReminderSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.showAppleFilesReminder), animated: false)
+        self.showHelpSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.showHelp), animated: false)
         self.animateUpdateSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh), animated: false)
     }
 }

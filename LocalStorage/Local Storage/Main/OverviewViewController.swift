@@ -80,7 +80,7 @@ class OverviewViewController: UIViewController {
                                                name: .unitChanged, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.showHideAppleFilesReminder),
-                                               name: .showAppleFilesReminder, object: nil)
+                                               name: .showHelp, object: nil)
         
         self.setTheme()
         self.showHideAppleFilesReminder()
@@ -97,7 +97,7 @@ class OverviewViewController: UIViewController {
     
     @objc func showHideAppleFilesReminder() {
         os_log("showHideAppleFilesReminder", log: logGeneral, type: .debug)
-        if userDefaults.bool(forKey: UserDefaultStruct.showAppleFilesReminder) {
+        if userDefaults.bool(forKey: UserDefaultStruct.showHelp) {
             fileMgntStackView.isHidden = false
         } else {
             fileMgntStackView.isHidden = true

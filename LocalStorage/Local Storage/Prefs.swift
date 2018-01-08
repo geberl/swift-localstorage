@@ -25,8 +25,8 @@ struct UserDefaultStruct {
     static var askEmptyTrash: String = "askEmptyTrash"
     static var askEmptyTrashDefault: Bool = true
     
-    static var showAppleFilesReminder: String = "showAppleFilesReminder"
-    static var showAppleFilesReminderDefault: Bool = true
+    static var showHelp: String = "showHelp"
+    static var showHelpDefault: Bool = true
     
     static var animateUpdateDuringRefresh: String = "animateUpdateDuringRefresh"
     static var animateUpdateDuringRefreshDefault: Bool = true
@@ -62,8 +62,8 @@ func ensureUserDefaults() {
         userDefaults.set(UserDefaultStruct.askEmptyTrashDefault, forKey: UserDefaultStruct.askEmptyTrash)
     }
     
-    if !isKeyPresentInUserDefaults(key: UserDefaultStruct.showAppleFilesReminder) {
-        userDefaults.set(UserDefaultStruct.showAppleFilesReminderDefault, forKey: UserDefaultStruct.showAppleFilesReminder)
+    if !isKeyPresentInUserDefaults(key: UserDefaultStruct.showHelp) {
+        userDefaults.set(UserDefaultStruct.showHelpDefault, forKey: UserDefaultStruct.showHelp)
     }
     
     if !isKeyPresentInUserDefaults(key: UserDefaultStruct.animateUpdateDuringRefresh) {
