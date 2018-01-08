@@ -30,6 +30,7 @@ struct AppState {
     static var typeSizes: [String: Int64] = [:]
     
     static var documentsPath: String = ""
+    static var updateInProgress: Bool = false
 }
 
 @UIApplicationMain

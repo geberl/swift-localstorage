@@ -50,9 +50,13 @@ class OverviewViewController: UIViewController {
     @IBOutlet weak var reminderLineTwoLabel: UILabel!
     
     @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
+    
+    @IBOutlet var refreshButton: UIButton!
     @IBAction func onRefreshButton() {self.refresh()}
+    
     @IBOutlet var emptyTrashButton: UIButton!
     @IBAction func onEmptyTrashButton() {self.askEmptyTrash()}
+    
     @IBAction func onFilesButton(_ sender: UIButton) {self.showFilesApp()}
     
     override func viewDidLoad() {
@@ -62,6 +66,15 @@ class OverviewViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.setTheme),
                                                name: .darkModeChanged, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.updatePending),
+                                               name: .updatePending, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.updateValues),
+                                               name: .updateFinished, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.updateValues),
+                                               name: .updateItemAdded, object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.updateValues),
                                                name: .unitChanged, object: nil)
         
@@ -69,8 +82,11 @@ class OverviewViewController: UIViewController {
                                                name: .showAppleFilesReminder, object: nil)
         
         self.setTheme()
-        self.updateValues()
         self.showHideAppleFilesReminder()
+        
+        if AppState.updateInProgress {
+            self.updatePending()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -136,10 +152,7 @@ class OverviewViewController: UIViewController {
     
     func refresh() {
         os_log("refresh", log: logUi, type: .debug)
-        
-        self.updatePending()
         getStats()
-        self.updateValues()
     }
     
     func askEmptyTrash() {
@@ -166,9 +179,7 @@ class OverviewViewController: UIViewController {
         os_log("emptyTrash", log: logGeneral, type: .debug)
         
         removeDir(path: FileManager.documentsDir() + "/" + ".Trash")
-        self.updatePending()
         getStats()
-        self.updateValues()
     }
     
     func showFilesApp() {
@@ -177,18 +188,22 @@ class OverviewViewController: UIViewController {
         openAppStore(id: 1232058109)
     }
     
-    func updatePending() {
+    @objc func updatePending() {
         os_log("updatePending", log: logGeneral, type: .debug)
-        
+
         self.localFilesNumberLabel.text   = "..."
         self.localFoldersNumberLabel.text = "..."
         self.localSizeBytesLabel.text     = "..."
         self.localSizeDiskBytesLabel.text = "..."
         
+        self.refreshButton.isEnabled = false
+        
         self.trashFilesNumberLabel.text   = "..."
         self.trashFoldersNumberLabel.text = "..."
         self.trashSizeBytesLabel.text     = "..."
         self.trashSizeDiskBytesLabel.text = "..."
+        
+        self.emptyTrashButton.isEnabled = false
     }
     
     @objc func updateValues() {
@@ -214,6 +229,10 @@ class OverviewViewController: UIViewController {
         if AppState.localSizeDiskBytes == 0 {self.localSizeDiskBytesLabel.text = "0"} else {
             self.localSizeDiskBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.localSizeDiskBytes)}
         
+        if !AppState.updateInProgress {
+            self.refreshButton.isEnabled = true
+        }
+        
         self.trashFilesNumberLabel.text   = String(AppState.trashFilesNumber)
         self.trashFoldersNumberLabel.text = String(AppState.trashFoldersNumber)
         if AppState.trashSizeBytes == 0 {self.trashSizeBytesLabel.text = "0"} else {
@@ -223,7 +242,9 @@ class OverviewViewController: UIViewController {
             self.emptyTrashButton.isEnabled = false
         } else {
             self.trashSizeDiskBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.trashSizeDiskBytes)
-            self.emptyTrashButton.isEnabled = true
+            if !AppState.updateInProgress {
+                self.emptyTrashButton.isEnabled = true
+            }
         }
     }
     

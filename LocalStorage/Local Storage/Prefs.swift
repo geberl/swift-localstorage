@@ -28,6 +28,9 @@ struct UserDefaultStruct {
     static var showAppleFilesReminder: String = "showAppleFilesReminder"
     static var showAppleFilesReminderDefault: Bool = true
     
+    static var animateUpdateDuringRefresh: String = "animateUpdateDuringRefresh"
+    static var animateUpdateDuringRefreshDefault: Bool = true
+    
     // The following values have no defaults and are not guaranteed to be present. No force unwrapping for those!
     // (none yet)
 }
@@ -61,5 +64,9 @@ func ensureUserDefaults() {
     
     if !isKeyPresentInUserDefaults(key: UserDefaultStruct.showAppleFilesReminder) {
         userDefaults.set(UserDefaultStruct.showAppleFilesReminderDefault, forKey: UserDefaultStruct.showAppleFilesReminder)
+    }
+    
+    if !isKeyPresentInUserDefaults(key: UserDefaultStruct.animateUpdateDuringRefresh) {
+        userDefaults.set(UserDefaultStruct.animateUpdateDuringRefreshDefault, forKey: UserDefaultStruct.animateUpdateDuringRefresh)
     }
 }

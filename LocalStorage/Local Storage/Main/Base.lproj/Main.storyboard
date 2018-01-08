@@ -408,6 +408,7 @@
                         <outlet property="localSizeDiskLabel" destination="ea3-zT-wQe" id="hdJ-7L-xAm"/>
                         <outlet property="localSizeLabel" destination="Xst-aE-ZqI" id="3L5-dz-90y"/>
                         <outlet property="parentUiView" destination="jjn-2V-JPH" id="62t-rO-wOP"/>
+                        <outlet property="refreshButton" destination="B2u-Fw-75t" id="75M-H9-zQi"/>
                         <outlet property="reminderLineOneLabel" destination="5SP-5U-boJ" id="gKp-gC-A7U"/>
                         <outlet property="reminderLineTwoLabel" destination="UCI-1W-3y6" id="45P-vc-Ya3"/>
                         <outlet property="trashFilesLabel" destination="nFg-U5-pGc" id="uKV-lD-f77"/>

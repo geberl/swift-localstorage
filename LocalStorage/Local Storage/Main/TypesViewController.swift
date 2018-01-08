@@ -26,7 +26,8 @@ class TypesViewController: UIViewController {
                                                name: .darkModeChanged, object: nil)
         
         self.setTheme()
-        print(AppState.typeSizes)
+        
+        // print(AppState.typeSizes)
     }
 
     override func didReceiveMemoryWarning() {

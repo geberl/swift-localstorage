@@ -135,68 +135,91 @@ func resetStats() {
 
 func getStats() {
     os_log("getStats", log: logGeneral, type: .debug)
+    
+    let userDefaults = UserDefaults.standard
+    let sendUpdateItemNotification: Bool = userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh)
+    
+    AppState.updateInProgress = true
     resetStats()
+    NotificationCenter.default.post(name: .updatePending, object: nil, userInfo: nil)
     
-    let fileManager = FileManager.default
-    guard let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: AppState.documentsPath) else {
-        os_log("Directory not found '%@'", log: logGeneral, type: .error, AppState.documentsPath)
-        return
-    }
-    
-    while let element = enumerator.nextObject() as? String {
-        var elementURL: URL = URL(fileURLWithPath: AppState.documentsPath)
-        elementURL.appendPathComponent(element)
-        
-        var elementIsTrashed: Bool
-        if element.starts(with: ".Trash") {
-            elementIsTrashed = true
-        } else {
-            elementIsTrashed = false
+    // Actual file system traversing is done asynchronously to not block the UI.
+    DispatchQueue.global(qos: .userInitiated).async {
+
+        let fileManager = FileManager.default
+        guard let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: AppState.documentsPath) else {
+            os_log("Directory not found '%@'", log: logGeneral, type: .error, AppState.documentsPath)
+            return
         }
         
-        var fileSize : Int64
-        do {
-            let attr = try fileManager.attributesOfItem(atPath: elementURL.path)
-            fileSize = attr[FileAttributeKey.size] as! Int64
-            // Note: FileAttributeKey.type is useless, just contains file/folder, not UTI.
-        } catch {
-            fileSize = 0
-            os_log("%@", log: logGeneral, type: .error, error.localizedDescription)
-        }
-        
-        if let fileType: String = elementURL.typeIdentifier {
-            if AppState.typeSizes[fileType] == nil {
-                AppState.typeSizes[fileType] = fileSize
+        while let element = enumerator.nextObject() as? String {
+            var elementURL: URL = URL(fileURLWithPath: AppState.documentsPath)
+            elementURL.appendPathComponent(element)
+            
+            var elementIsTrashed: Bool
+            if element.starts(with: ".Trash") {
+                elementIsTrashed = true
             } else {
-                AppState.typeSizes[fileType] = AppState.typeSizes[fileType]! + fileSize
+                elementIsTrashed = false
             }
-        } else {
-            os_log("Unable to get type identifier for '%@'", log: logGeneral, type: .error)
-        }
-        
-        if let values = try? elementURL.resourceValues(forKeys: [.isDirectoryKey]) {
-            if values.isDirectory! {
-                if elementIsTrashed {
-                    if element != ".Trash" {
-                        // Don't count the .Trash folder itself towards the folder count
-                        AppState.trashFoldersNumber += 1
+            
+            var fileSize : Int64
+            do {
+                let attr = try fileManager.attributesOfItem(atPath: elementURL.path)
+                fileSize = attr[FileAttributeKey.size] as! Int64
+                // Note: FileAttributeKey.type is useless, just contains file/folder, not UTI.
+            } catch {
+                fileSize = 0
+                os_log("%@", log: logGeneral, type: .error, error.localizedDescription)
+            }
+            
+            if let fileType: String = elementURL.typeIdentifier {
+                if AppState.typeSizes[fileType] == nil {
+                    AppState.typeSizes[fileType] = fileSize
+                } else {
+                    AppState.typeSizes[fileType] = AppState.typeSizes[fileType]! + fileSize
+                }
+            } else {
+                os_log("Unable to get type identifier for '%@'", log: logGeneral, type: .error)
+            }
+            
+            if let values = try? elementURL.resourceValues(forKeys: [.isDirectoryKey]) {
+                if values.isDirectory! {
+                    if elementIsTrashed {
+                        if element != ".Trash" {
+                            // Don't count the .Trash folder itself towards the folder count
+                            AppState.trashFoldersNumber += 1
+                        }
+                        AppState.trashSizeDiskBytes += fileSize
+                    } else {
+                        AppState.localFoldersNumber += 1
+                        AppState.localSizeDiskBytes += fileSize
                     }
-                    AppState.trashSizeDiskBytes += fileSize
                 } else {
-                    AppState.localFoldersNumber += 1
-                    AppState.localSizeDiskBytes += fileSize
-                }
-            } else {
-                if elementIsTrashed {
-                    AppState.trashFilesNumber += 1
-                    AppState.trashSizeBytes += fileSize
-                    AppState.trashSizeDiskBytes += fileSize
-                } else {
-                    AppState.localFilesNumber += 1
-                    AppState.localSizeBytes += fileSize
-                    AppState.localSizeDiskBytes += fileSize
+                    if elementIsTrashed {
+                        AppState.trashFilesNumber += 1
+                        AppState.trashSizeBytes += fileSize
+                        AppState.trashSizeDiskBytes += fileSize
+                    } else {
+                        AppState.localFilesNumber += 1
+                        AppState.localSizeBytes += fileSize
+                        AppState.localSizeDiskBytes += fileSize
+                    }
                 }
             }
+            
+            // Update stats after each file.
+            if sendUpdateItemNotification {
+                DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: .updateItemAdded, object: nil, userInfo: nil)
+                }
+            }
+        }
+        
+        // Update stats after traversing completed.
+        DispatchQueue.main.async {
+            AppState.updateInProgress = false
+            NotificationCenter.default.post(name: .updateFinished, object: nil, userInfo: nil)
         }
     }
 }

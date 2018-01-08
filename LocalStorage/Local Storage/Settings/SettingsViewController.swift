@@ -49,6 +49,11 @@ class SettingsViewController: UIViewController {
         NotificationCenter.default.post(name: .showAppleFilesReminder, object: nil, userInfo: nil)
     }
     
+    @IBOutlet var animateUpdateSwitch: UISwitch!
+    @IBAction func onAnimateUpdateSwitch(_ sender: UISwitch) {
+        userDefaults.set(self.animateUpdateSwitch.isOn, forKey: UserDefaultStruct.animateUpdateDuringRefresh)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadSettings()
@@ -76,5 +81,6 @@ class SettingsViewController: UIViewController {
         
         self.askEmptyTrashSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.askEmptyTrash), animated: false)
         self.showAppleFilesReminderSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.showAppleFilesReminder), animated: false)
+        self.animateUpdateSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh), animated: false)
     }
 }

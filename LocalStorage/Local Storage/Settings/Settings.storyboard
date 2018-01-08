@@ -40,84 +40,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ae1-LS-CD4">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="otS-Ku-Ddv">
-                                        <rect key="frame" x="20" y="150" width="335" height="100"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hnF-sC-lnV">
-                                                <rect key="frame" x="15" y="15" width="305" height="70"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GrK-Tr-Fa2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="305" height="31"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask before emptying the Trash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlo-A2-wdU">
-                                                                <rect key="frame" x="0.0" y="0.0" width="241" height="31"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfc-qU-0R9">
-                                                                <rect key="frame" x="256" y="0.0" width="51" height="31"/>
-                                                                <connections>
-                                                                    <action selector="onAskEmptyTrashSwitch:" destination="bkC-aW-nhg" eventType="valueChanged" id="PYx-sY-wx6"/>
-                                                                </connections>
-                                                            </switch>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q4j-NK-nY5">
-                                                        <rect key="frame" x="0.0" y="46" width="305" height="24"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Apple Files app reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tq-PU-73E">
-                                                                <rect key="frame" x="0.0" y="0.0" width="241" height="24"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vnK-c1-9rE">
-                                                                <rect key="frame" x="256" y="0.0" width="51" height="24"/>
-                                                                <connections>
-                                                                    <action selector="onShowAppleFilesReminderSwitch:" destination="bkC-aW-nhg" eventType="valueChanged" id="vsM-Xt-RKX"/>
-                                                                </connections>
-                                                            </switch>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="Q4j-NK-nY5" firstAttribute="top" secondItem="hnF-sC-lnV" secondAttribute="top" constant="46" id="nt8-ex-oPv"/>
-                                                </constraints>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="9FH-OI-f0e"/>
-                                            <constraint firstAttribute="bottom" secondItem="hnF-sC-lnV" secondAttribute="bottom" constant="15" id="EBP-76-bOc"/>
-                                            <constraint firstItem="hnF-sC-lnV" firstAttribute="leading" secondItem="otS-Ku-Ddv" secondAttribute="leading" constant="15" id="FU2-3o-1ri"/>
-                                            <constraint firstItem="hnF-sC-lnV" firstAttribute="top" secondItem="otS-Ku-Ddv" secondAttribute="top" constant="15" id="ah1-3o-thl"/>
-                                            <constraint firstAttribute="trailing" secondItem="hnF-sC-lnV" secondAttribute="trailing" constant="15" id="xKp-eb-wBt"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
                                     <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZ4-09-nOq">
                                         <rect key="frame" x="20" y="30" width="335" height="100"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mD2-HD-gfd">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mD2-HD-gfd">
                                                 <rect key="frame" x="15" y="15" width="305" height="70"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="kPQ-NN-t0X">
-                                                        <rect key="frame" x="0.0" y="0.0" width="305" height="31"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="305" height="27.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUv-XM-3oM">
-                                                                <rect key="frame" x="0.0" y="0.0" width="241" height="31"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="241" height="27.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FoP-fq-5Dg">
-                                                                <rect key="frame" x="256" y="0.0" width="51" height="31"/>
+                                                                <rect key="frame" x="256" y="0.0" width="51" height="27.5"/>
                                                                 <connections>
                                                                     <action selector="onDarkModeSwitch:" destination="bkC-aW-nhg" eventType="valueChanged" id="5T8-SC-ufh"/>
                                                                 </connections>
@@ -125,16 +64,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NyS-0i-VeS">
-                                                        <rect key="frame" x="0.0" y="46" width="305" height="24"/>
+                                                        <rect key="frame" x="0.0" y="42.5" width="305" height="27.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit for file sizes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yne-bO-aN8">
-                                                                <rect key="frame" x="0.0" y="0.0" width="127.5" height="24"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="127.5" height="27.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="4" translatesAutoresizingMaskIntoConstraints="NO" id="uNE-aV-wVm">
-                                                                <rect key="frame" x="142.5" y="0.0" width="162.5" height="25"/>
+                                                                <rect key="frame" x="142.5" y="0.0" width="162.5" height="28.5"/>
                                                                 <segments>
                                                                     <segment title="B"/>
                                                                     <segment title="KB"/>
@@ -158,6 +97,81 @@
                                             <constraint firstItem="mD2-HD-gfd" firstAttribute="top" secondItem="iZ4-09-nOq" secondAttribute="top" constant="15" id="Xtb-Ie-aCk"/>
                                             <constraint firstAttribute="height" constant="100" id="Y6u-fY-W8G"/>
                                             <constraint firstAttribute="trailing" secondItem="mD2-HD-gfd" secondAttribute="trailing" constant="15" id="gOI-8N-ECg"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="otS-Ku-Ddv">
+                                        <rect key="frame" x="20" y="150" width="335" height="150"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hnF-sC-lnV">
+                                                <rect key="frame" x="15" y="15" width="305" height="120"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GrK-Tr-Fa2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="305" height="30"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask before emptying the Trash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlo-A2-wdU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="241" height="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfc-qU-0R9">
+                                                                <rect key="frame" x="256" y="0.0" width="51" height="30"/>
+                                                                <connections>
+                                                                    <action selector="onAskEmptyTrashSwitch:" destination="bkC-aW-nhg" eventType="valueChanged" id="PYx-sY-wx6"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q4j-NK-nY5">
+                                                        <rect key="frame" x="0.0" y="45" width="305" height="30"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Apple Files app reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tq-PU-73E">
+                                                                <rect key="frame" x="0.0" y="0.0" width="241" height="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vnK-c1-9rE">
+                                                                <rect key="frame" x="256" y="0.0" width="51" height="30"/>
+                                                                <connections>
+                                                                    <action selector="onShowAppleFilesReminderSwitch:" destination="bkC-aW-nhg" eventType="valueChanged" id="vsM-Xt-RKX"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NJN-1F-5Bi">
+                                                        <rect key="frame" x="0.0" y="90" width="305" height="30"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animate value update" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOh-Vs-H8g">
+                                                                <rect key="frame" x="0.0" y="0.0" width="241" height="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5d-z1-w2m">
+                                                                <rect key="frame" x="256" y="0.0" width="51" height="30"/>
+                                                                <connections>
+                                                                    <action selector="onAnimateUpdateSwitch:" destination="bkC-aW-nhg" eventType="valueChanged" id="9JP-gO-Wcj"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="9FH-OI-f0e"/>
+                                            <constraint firstAttribute="bottom" secondItem="hnF-sC-lnV" secondAttribute="bottom" constant="15" id="EBP-76-bOc"/>
+                                            <constraint firstItem="hnF-sC-lnV" firstAttribute="leading" secondItem="otS-Ku-Ddv" secondAttribute="leading" constant="15" id="FU2-3o-1ri"/>
+                                            <constraint firstItem="hnF-sC-lnV" firstAttribute="top" secondItem="otS-Ku-Ddv" secondAttribute="top" constant="15" id="ah1-3o-thl"/>
+                                            <constraint firstAttribute="trailing" secondItem="hnF-sC-lnV" secondAttribute="trailing" constant="15" id="xKp-eb-wBt"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -191,6 +205,7 @@
                         <viewLayoutGuide key="safeArea" id="QB0-bv-YdM"/>
                     </view>
                     <connections>
+                        <outlet property="animateUpdateSwitch" destination="m5d-z1-w2m" id="zGy-Vp-qSr"/>
                         <outlet property="askEmptyTrashSwitch" destination="Yfc-qU-0R9" id="mWz-J9-daK"/>
                         <outlet property="darkModeSwitch" destination="FoP-fq-5Dg" id="UBk-Se-Reh"/>
                         <outlet property="fileSizeUnitSegCtrl" destination="uNE-aV-wVm" id="dhR-j2-lJU"/>
@@ -200,20 +215,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3px-QI-pg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-47.200000000000003" y="-89.505247376311857"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="MUA-gt-09E">
-            <objects>
-                <viewController id="qDR-9G-3Dr" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ya8-Vb-akm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="H0k-r0-6dt"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iCp-Ex-BWs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
 </document>
