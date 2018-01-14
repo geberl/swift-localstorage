@@ -64,6 +64,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mainView" destination="MHt-2w-SHe" id="ffh-bf-00u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieC-px-vSr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

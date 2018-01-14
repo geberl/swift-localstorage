@@ -17,11 +17,13 @@ class TypesViewController: UIViewController {
         self.showSettings()
     }
     
+    @IBOutlet var mainView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         os_log("viewDidLoad", log: logGeneral, type: .debug)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.setTheme),
+        NotificationCenter.default.addObserver(self, selector: #selector(TypesViewController.setTheme),
                                                name: .darkModeChanged, object: nil)
         
         self.setTheme()
@@ -57,8 +59,10 @@ class TypesViewController: UIViewController {
     func applyColors(fg: String, bg: String) {
         os_log("applyColors", log: logGeneral, type: .debug)
 
-        let fgColor: UIColor = UIColor(named: fg)!
+        // let fgColor: UIColor = UIColor(named: fg)!
         let bgColor: UIColor = UIColor(named: bg)!
+        
+        self.mainView.backgroundColor = bgColor
     }
     
 }
