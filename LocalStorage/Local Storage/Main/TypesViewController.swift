@@ -49,20 +49,25 @@ class TypesViewController: UIViewController, ChartViewDelegate {
         chartView.drawBarShadowEnabled = false
         chartView.drawValueAboveBarEnabled = false
         
-        chartView.maxVisibleCount = 60
+        chartView.maxVisibleCount = 1
         
         let xAxis = chartView.xAxis
         xAxis.labelPosition = .bottom
         xAxis.labelFont = .systemFont(ofSize: 10)
         xAxis.drawAxisLineEnabled = false
-        xAxis.drawGridLinesEnabled = true
+        xAxis.drawGridLinesEnabled = false
+        xAxis.drawLabelsEnabled = false
         xAxis.granularity = 10
         
         let leftAxis = chartView.leftAxis
         leftAxis.labelFont = .systemFont(ofSize: 10)
-        leftAxis.drawAxisLineEnabled = false
+        leftAxis.axisLineColor = UIColor(named: "ColorFontGray")!
+        leftAxis.labelTextColor = UIColor(named: "ColorFontGray")!
+        leftAxis.drawAxisLineEnabled = true
         leftAxis.drawGridLinesEnabled = false
+        leftAxis.drawLabelsEnabled = true
         leftAxis.axisMinimum = 0
+        leftAxis.axisMaximum = 100
         
         let l = chartView.legend
         l.horizontalAlignment = .left
@@ -72,13 +77,18 @@ class TypesViewController: UIViewController, ChartViewDelegate {
         l.form = .square
         l.formSize = 8
         l.font = UIFont(name: "HelveticaNeue-Light", size: 11)!
+        l.textColor = UIColor(named: "ColorFontGray")!
         l.xEntrySpace = 10
         
         chartView.fitBars = true
         
-        chartView.animate(yAxisDuration: 2.0)
-        
-        self.setDataCount(Int(4), range: UInt32(50))
+        if userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh) {
+            chartView.animate(yAxisDuration: 1.5)
+        } else {
+            chartView.animate(yAxisDuration: 0)
+        }
+
+        self.setDataCount()
     }
 
     override func didReceiveMemoryWarning() {
@@ -109,40 +119,32 @@ class TypesViewController: UIViewController, ChartViewDelegate {
     func applyColors(fg: String, bg: String) {
         os_log("applyColors", log: logGeneral, type: .debug)
 
-        // let fgColor: UIColor = UIColor(named: fg)!
+        let fgColor: UIColor = UIColor(named: fg)!
         let bgColor: UIColor = UIColor(named: bg)!
         
         self.mainView.backgroundColor = bgColor
     }
     
-    func setDataCount(_ count: Int, range: UInt32) {
-        let spaceForBar = 10.0
+    func setDataCount() {
+        let bytesAudio: Double = 10
+        let bytesVideo: Double = 5
+        let bytesPhotos: Double = 20
+        let bytesDocs: Double = 15
+        let bytesOther: Double = 50
         
-        let yVals = (0..<count).map { (i) -> BarChartDataEntry in
-            let mult = range + 1
-            let val = Double(arc4random_uniform(mult))
-            return BarChartDataEntry(x: Double(i) * spaceForBar, y: val)
-        }
+        let typesVals = [BarChartDataEntry(x: Double(10),
+                                           yValues: [bytesAudio, bytesVideo, bytesPhotos, bytesDocs, bytesOther])]
         
-        let set1 = BarChartDataSet(values: yVals, label: "Set1")
-        set1.drawIconsEnabled = false
+        let typesSet = BarChartDataSet(values: typesVals, label: "")
+        typesSet.drawIconsEnabled = false
+        typesSet.colors = [UIColor(named: "ColorTypeAudio")!,
+                           UIColor(named: "ColorTypeVideo")!,
+                           UIColor(named: "ColorTypePhotos")!,
+                           UIColor(named: "ColorTypeDocs")!,
+                           UIColor(named: "ColorTypeOther")!]
+        typesSet.stackLabels = ["Audio", "Video", "Photos", "Docs", "Other"]
         
-        let audioVals = [BarChartDataEntry(x: Double(4) * spaceForBar, y: 5),
-                         BarChartDataEntry(x: Double(5) * spaceForBar, y: 10)]
-    
-        let audioSet = BarChartDataSet(values: audioVals, label: "Audio")
-        audioSet.drawIconsEnabled = false
-        audioSet.colors = [NSUIColor.red]
-        
-        let videoVals = [BarChartDataEntry(x: Double(6) * spaceForBar, yValues: [10, 40]),
-                         BarChartDataEntry(x: Double(7) * spaceForBar, yValues: [20, 40])]
-        
-        let videoSet = BarChartDataSet(values: videoVals, label: "Video")
-        videoSet.drawIconsEnabled = false
-        videoSet.colors = [NSUIColor.green, NSUIColor.blue]
-        videoSet.stackLabels = ["abc", "def"]
-        
-        let data = BarChartData(dataSets: [set1, audioSet, videoSet])
+        let data = BarChartData(dataSet: typesSet)
         data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
         data.barWidth = 9.0
         

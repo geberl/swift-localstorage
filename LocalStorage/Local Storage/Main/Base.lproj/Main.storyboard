@@ -378,8 +378,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQo-Ya-vaB" customClass="HorizontalBarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="10" width="375" height="392"/>
+                                <rect key="frame" x="0.0" y="15" width="363" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="DPZ-bq-Cbl"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCq-8B-WWZ">
                                 <rect key="frame" x="313" y="472" width="46" height="30"/>
@@ -389,11 +392,16 @@
                                     <segue destination="QZs-U4-FdB" kind="show" id="b8R-zd-iED"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7e-TP-KdR">
+                                <rect key="frame" x="160.5" y="120" width="53" height="30"/>
+                                <state key="normal" title="Refresh"/>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="DPN-2P-LL6" firstAttribute="bottom" secondItem="gQo-Ya-vaB" secondAttribute="bottom" constant="100" id="8XQ-Zx-h0s"/>
-                            <constraint firstItem="gQo-Ya-vaB" firstAttribute="top" secondItem="MHt-2w-SHe" secondAttribute="top" constant="10" id="Cjg-dn-kif"/>
-                            <constraint firstAttribute="trailing" secondItem="gQo-Ya-vaB" secondAttribute="trailing" id="NAn-nO-aYj"/>
+                            <constraint firstItem="gQo-Ya-vaB" firstAttribute="top" secondItem="MHt-2w-SHe" secondAttribute="top" constant="15" id="Cjg-dn-kif"/>
+                            <constraint firstItem="g7e-TP-KdR" firstAttribute="centerX" secondItem="MHt-2w-SHe" secondAttribute="centerX" id="F88-ri-szk"/>
+                            <constraint firstItem="gQo-Ya-vaB" firstAttribute="trailing" secondItem="MHt-2w-SHe" secondAttribute="trailing" constant="-12" id="NAn-nO-aYj"/>
+                            <constraint firstItem="g7e-TP-KdR" firstAttribute="top" secondItem="gQo-Ya-vaB" secondAttribute="bottom" constant="5" id="Obd-Yd-09L"/>
                             <constraint firstItem="gQo-Ya-vaB" firstAttribute="leading" secondItem="MHt-2w-SHe" secondAttribute="leading" id="dcW-Sz-uv0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DPN-2P-LL6"/>
