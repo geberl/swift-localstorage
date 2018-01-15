@@ -18,10 +18,8 @@ class OverviewViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
     
-    @IBOutlet var parentUiView: UIView!
-    @IBOutlet weak var headlineLabel: UILabel!
-    @IBOutlet var refreshActivityIndicator: UIActivityIndicatorView!
-    
+    @IBOutlet var mainView: UIView!
+
     @IBOutlet weak var localFilesLabel: UILabel!
     @IBOutlet weak var localFilesNumberLabel: UILabel!
     
@@ -108,8 +106,10 @@ class OverviewViewController: UIViewController {
         os_log("setTheme", log: logGeneral, type: .debug)
         if userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
             self.applyColors(fg: "ColorFontWhite", bg: "ColorBgBlack")
+            self.navigationController?.navigationBar.barStyle = .black
         } else {
             self.applyColors(fg: "ColorFontBlack", bg: "ColorBgWhite")
+            self.navigationController?.navigationBar.barStyle = .default
         }
     }
     
@@ -118,10 +118,8 @@ class OverviewViewController: UIViewController {
         let fgColor: UIColor = UIColor(named: fg)!
         let bgColor: UIColor = UIColor(named: bg)!
         
-        parentUiView.backgroundColor = bgColor
+        mainView.backgroundColor = bgColor
         
-        headlineLabel.textColor = fgColor
-        refreshActivityIndicator.color = fgColor
         localFilesLabel.textColor = fgColor
         localFilesNumberLabel.textColor = fgColor
         localFoldersLabel.textColor = fgColor
@@ -193,8 +191,6 @@ class OverviewViewController: UIViewController {
     @objc func updatePending() {
         os_log("updatePending", log: logGeneral, type: .debug)
         
-        self.refreshActivityIndicator.isHidden = false
-
         self.localFilesNumberLabel.text   = "..."
         self.localFoldersNumberLabel.text = "..."
         self.localSizeBytesLabel.text     = "..."
@@ -234,7 +230,6 @@ class OverviewViewController: UIViewController {
             self.localSizeDiskBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.localSizeDiskBytes)}
         
         if !AppState.updateInProgress {
-            self.refreshActivityIndicator.isHidden = true
             self.refreshButton.isEnabled = true
         }
         
