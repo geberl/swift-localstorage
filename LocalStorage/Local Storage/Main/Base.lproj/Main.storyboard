@@ -377,8 +377,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQo-Ya-vaB" customClass="HorizontalBarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="10" width="375" height="392"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCq-8B-WWZ">
-                                <rect key="frame" x="207" y="160" width="46" height="30"/>
+                                <rect key="frame" x="313" y="472" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -386,6 +390,12 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="DPN-2P-LL6" firstAttribute="bottom" secondItem="gQo-Ya-vaB" secondAttribute="bottom" constant="100" id="8XQ-Zx-h0s"/>
+                            <constraint firstItem="gQo-Ya-vaB" firstAttribute="top" secondItem="MHt-2w-SHe" secondAttribute="top" constant="10" id="Cjg-dn-kif"/>
+                            <constraint firstAttribute="trailing" secondItem="gQo-Ya-vaB" secondAttribute="trailing" id="NAn-nO-aYj"/>
+                            <constraint firstItem="gQo-Ya-vaB" firstAttribute="leading" secondItem="MHt-2w-SHe" secondAttribute="leading" id="dcW-Sz-uv0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DPN-2P-LL6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Types" id="qIY-eg-uek">
@@ -402,12 +412,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="chartView" destination="gQo-Ya-vaB" id="FhI-kr-Yc6"/>
                         <outlet property="mainView" destination="MHt-2w-SHe" id="ffh-bf-00u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieC-px-vSr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2682" y="460"/>
+            <point key="canvasLocation" x="2680.8000000000002" y="459.22038980509751"/>
         </scene>
         <!--Button-->
         <scene sceneID="JxN-GE-C1p">
