@@ -63,9 +63,9 @@ class TypesViewController: UIViewController, ChartViewDelegate {
         leftAxis.labelFont = .systemFont(ofSize: 10)
         leftAxis.axisLineColor = UIColor(named: "ColorFontGray")!
         leftAxis.labelTextColor = UIColor(named: "ColorFontGray")!
-        leftAxis.drawAxisLineEnabled = true
+        leftAxis.drawAxisLineEnabled = false
         leftAxis.drawGridLinesEnabled = false
-        leftAxis.drawLabelsEnabled = true
+        leftAxis.drawLabelsEnabled = false
         leftAxis.axisMinimum = 0
         leftAxis.axisMaximum = 100
         
