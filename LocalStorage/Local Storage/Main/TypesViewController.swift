@@ -10,7 +10,7 @@ import Charts
 import UIKit
 import os.log
 
-class TypesViewController: UIViewController, ChartViewDelegate {
+class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     let userDefaults = UserDefaults.standard
     
@@ -179,6 +179,25 @@ class TypesViewController: UIViewController, ChartViewDelegate {
         data.barWidth = 9.0
         
         chartView.data = data
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return AppState.types.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let allTypes: Array = Array(AppState.types.keys.sorted())
+        let currentType: String = allTypes[indexPath.row]
+        let currentName: String = AppState.types[currentType]!.name
+        let currentSize: Int64 = AppState.types[currentType]!.size
+        let currentNumber: Int64 = AppState.types[currentType]!.number
+        
+        let cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "protoCell")
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        cell.textLabel?.text = currentName
+        cell.detailTextLabel?.text = String(currentSize) + " bytes in " + String(currentNumber) + " files"
+        
+        return cell
     }
     
 }

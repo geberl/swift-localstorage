@@ -15,6 +15,7 @@ let logGeneral = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "gene
 let logUi = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "ui")
 
 
+// Global type look up table.
 struct TypesLookup {
     static var audio:     [String] = ["public.audio",
                                       "public.mp3",
@@ -172,9 +173,26 @@ struct AppState {
     static var typeNumberArchives: Int64 = 0
     static var typeNumberOther: Int64 = 0
     
+    static var types: [String: TypeInfo] = ["1": TypeInfo(name: "Audio", size: 0, number: 0, paths: []),
+                                            "2": TypeInfo(name: "Video", size: 0, number: 0, paths: []),
+                                            "3": TypeInfo(name: "Documents", size: 0, number: 0, paths: []),
+                                            "4": TypeInfo(name: "Images", size: 0, number: 0, paths: []),
+                                            "5": TypeInfo(name: "Code", size: 0, number: 0, paths: []),
+                                            "6": TypeInfo(name: "Archives", size: 0, number: 0, paths: []),
+                                            "7": TypeInfo(name: "Other", size: 0, number: 0, paths: [])]
+    
     static var documentsPath: String = ""
     static var updateInProgress: Bool = false
 }
+
+
+struct TypeInfo {
+    var name: String
+    var size: Int64
+    var number: Int64
+    var paths: [String]
+}
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

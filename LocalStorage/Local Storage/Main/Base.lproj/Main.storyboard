@@ -388,13 +388,51 @@
                                 <rect key="frame" x="160.5" y="110" width="53" height="30"/>
                                 <state key="normal" title="Refresh"/>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2B7-dx-bAy">
+                                <rect key="frame" x="16" y="148" width="331" height="334"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="protoCell" textLabel="SrX-cY-Gva" detailTextLabel="4Du-rf-Hl6" style="IBUITableViewCellStyleValue1" id="72M-Ns-GUM">
+                                        <rect key="frame" x="0.0" y="28" width="332" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="72M-Ns-GUM" id="pbY-2s-iMU">
+                                            <rect key="frame" x="0.0" y="0.0" width="299" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SrX-cY-Gva">
+                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Du-rf-Hl6">
+                                                    <rect key="frame" x="253" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mYf-Nf-c82" id="8AQ-r2-1dj"/>
+                                    <outlet property="delegate" destination="mYf-Nf-c82" id="125-Mm-vPN"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="gQo-Ya-vaB" firstAttribute="top" secondItem="MHt-2w-SHe" secondAttribute="top" constant="5" id="Cjg-dn-kif"/>
                             <constraint firstItem="g7e-TP-KdR" firstAttribute="centerX" secondItem="MHt-2w-SHe" secondAttribute="centerX" id="F88-ri-szk"/>
-                            <constraint firstItem="gQo-Ya-vaB" firstAttribute="trailing" secondItem="MHt-2w-SHe" secondAttribute="trailing" constant="-10" id="NAn-nO-aYj"/>
+                            <constraint firstItem="gQo-Ya-vaB" firstAttribute="trailing" secondItem="DPN-2P-LL6" secondAttribute="trailing" constant="-10" id="NAn-nO-aYj"/>
                             <constraint firstItem="g7e-TP-KdR" firstAttribute="top" secondItem="gQo-Ya-vaB" secondAttribute="bottom" constant="5" id="Obd-Yd-09L"/>
-                            <constraint firstItem="gQo-Ya-vaB" firstAttribute="leading" secondItem="MHt-2w-SHe" secondAttribute="leading" id="dcW-Sz-uv0"/>
+                            <constraint firstItem="2B7-dx-bAy" firstAttribute="trailing" secondItem="DPN-2P-LL6" secondAttribute="trailing" constant="-28" id="QBI-T4-mL1"/>
+                            <constraint firstItem="2B7-dx-bAy" firstAttribute="leading" secondItem="DPN-2P-LL6" secondAttribute="leading" constant="16" id="QWC-MH-6HW"/>
+                            <constraint firstItem="2B7-dx-bAy" firstAttribute="bottom" secondItem="DPN-2P-LL6" secondAttribute="bottom" constant="-20" id="brq-wc-YXG"/>
+                            <constraint firstItem="gQo-Ya-vaB" firstAttribute="leading" secondItem="DPN-2P-LL6" secondAttribute="leading" id="dcW-Sz-uv0"/>
+                            <constraint firstItem="2B7-dx-bAy" firstAttribute="top" secondItem="g7e-TP-KdR" secondAttribute="bottom" constant="8" id="rev-uL-7uX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DPN-2P-LL6"/>
                     </view>
