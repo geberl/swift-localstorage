@@ -15,6 +15,135 @@ let logGeneral = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "gene
 let logUi = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "ui")
 
 
+struct TypesLookup {
+    static var audio:     [String] = ["public.audio",
+                                      "public.mp3",
+                                      "public.mpeg-4-audio",
+                                      "com.apple.protected-​mpeg-4-audio",
+                                      "public.ulaw-audio",
+                                      "public.aifc-audio",
+                                      "public.aiff-audio",
+                                      "com.apple.coreaudio-​format",
+                                      "com.microsoft.waveform-​audio",
+                                      "com.real.realaudio",
+                                      "org.xiph.flac",
+                                      "public.m3u-playlist",
+                                      "com.apple.m4a-audio",
+                                      "com.apple.protected-mpeg-4-audio"]
+    static var videos:    [String] = ["public.movie",
+                                      "public.video",
+                                      "com.apple.quicktime-movie",
+                                      "public.avi",
+                                      "public.mpeg",
+                                      "public.mpeg-4",
+                                      "public.3gpp",
+                                      "public.3gpp2",
+                                      "com.microsoft.advanced-​systems-format",
+                                      "com.real.realmedia",
+                                      "org.matroska.mkv",
+                                      "org.videolan.sub"]
+    static var documents: [String] = ["public.message",
+                                      "public.presentation",
+                                      "public.contact",
+                                      "com.apple.ical.ics",
+                                      "public.calendar-event",
+                                      "public.plain-text",
+                                      "public.rtf",
+                                      "public.vcard",
+                                      "com.apple.rtfd",
+                                      "com.apple.flat-rtfd",
+                                      "com.adobe.pdf",
+                                      "com.adobe.postscript",
+                                      "com.adobe.encapsulated-​postscript",
+                                      "com.microsoft.word.doc",
+                                      "com.microsoft.excel.xls",
+                                      "com.microsoft.powerpoint.​ppt",
+                                      "com.apple.keynote.key",
+                                      "com.apple.keynote.kth",
+                                      "net.daringfireball.markdown",
+                                      "public.log",
+                                      "org.openxmlformats.presentationml.presentation",
+                                      "org.openxmlformats.spreadsheetml.sheet.macroenabled",
+                                      "org.openxmlformats.spreadsheetml.sheet",
+                                      "org.openxmlformats.wordprocessingml.document",
+                                      "org.idpf.epub-container"]
+    static var images:    [String] = ["public.image",
+                                      "public.fax",
+                                      "public.jpeg",
+                                      "public.jpeg-2000",
+                                      "public.tiff",
+                                      "public.camera-raw-image",
+                                      "com.apple.pict",
+                                      "com.apple.macpaint-image",
+                                      "public.png",
+                                      "public.xbitmap-image",
+                                      "com.apple.quicktime-image",
+                                      "com.apple.icns",
+                                      "com.adobe.photoshop-image",
+                                      "com.adobe.illustrator.ai-​image",
+                                      "com.compuserve.gif",
+                                      "com.microsoft.bmp",
+                                      "com.microsoft.ico",
+                                      "com.truevision.tga-image",
+                                      "com.ilm.openexr-image",
+                                      "com.kodak.flashpix.image",
+                                      "com.bohemiancoding.sketch.drawing",
+                                      "public.svg-image"]
+    static var code:      [String] = ["public.html",
+                                      "public.css",
+                                      "public.xml",
+                                      "public.json",
+                                      "public.comma-separated-values-text",
+                                      "com.textasticapp.textastic.batch-file",
+                                      "public.source-code",
+                                      "public.script",
+                                      "com.netscape.javascript-​source",
+                                      "public.shell-script",
+                                      "public.perl-script",
+                                      "public.python-script",
+                                      "public.ruby-script",
+                                      "public.php-script",
+                                      "com.apple.applescript.text",
+                                      "com.apple.applescript.script",
+                                      "public.c-header",
+                                      "public.c-source",
+                                      "public.objective-c-source",
+                                      "public.swift-source",
+                                      "com.apple.xcode.project",
+                                      "com.apple.property-list",
+                                      "com.apple.framework",
+                                      "com.apple.dt.document.workspace",
+                                      "com.apple.interfacebuilder.document.cocoa",
+                                      "com.apple.dt.interfacebuilder.document.storyboard",
+                                      "com.netscape.javascript-source"]
+    static var archives:  [String] = ["public.archive",
+                                      "org.gnu.gnu-tar-archive",
+                                      "public.tar-archive",
+                                      "org.gnu.gnu-zip-archive",
+                                      "org.gnu.gnu-zip-tar-archive",
+                                      "com.apple.binhex-archive",
+                                      "com.apple.macbinary-​archive",
+                                      "com.pkware.zip-archive",
+                                      "com.allume.stuffit-archive",
+                                      "org.7-zip.7-zip-archive",
+                                      "public.zip-archive"]
+    static var other:     [String] = ["public.folder",
+                                      "public.data",
+                                      "public.disk-image",
+                                      "com.apple.disk-image",
+                                      "public.executable",
+                                      "com.microsoft.windows-executable",
+                                      "com.microsoft.windows-​dynamic-link-library",
+                                      "public.url",
+                                      "com.apple.web-internet-location",
+                                      "com.microsoft.internet-shortcut",
+                                      "com.apple.application",
+                                      "public.font",
+                                      "public.opentype-font",
+                                      "public.truetype-ttf-font"]
+}
+
+
 // Global application state object.
 struct AppState {
     static var localFilesNumber: Int64 = 0
@@ -27,7 +156,21 @@ struct AppState {
     static var trashSizeBytes: Int64 = 0
     static var trashSizeDiskBytes: Int64 = 0
     
-    static var typeSizes: [String: Int64] = [:]
+    static var typeSizeAudio: Int64 = 0
+    static var typeSizeVideos: Int64 = 0
+    static var typeSizeDocuments: Int64 = 0
+    static var typeSizeImages: Int64 = 0
+    static var typeSizeCode: Int64 = 0
+    static var typeSizeArchives: Int64 = 0
+    static var typeSizeOther: Int64 = 0
+    
+    static var typeNumberAudio: Int64 = 0
+    static var typeNumberVideos: Int64 = 0
+    static var typeNumberDocuments: Int64 = 0
+    static var typeNumberImages: Int64 = 0
+    static var typeNumberCode: Int64 = 0
+    static var typeNumberArchives: Int64 = 0
+    static var typeNumberOther: Int64 = 0
     
     static var documentsPath: String = ""
     static var updateInProgress: Bool = false

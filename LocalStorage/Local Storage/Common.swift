@@ -129,7 +129,19 @@ func resetStats() {
     AppState.trashSizeBytes = 0
     AppState.trashSizeDiskBytes = 0
     
-    AppState.typeSizes = [:]
+    AppState.typeSizeAudio = 0
+    AppState.typeSizeVideos = 0
+    AppState.typeSizeDocuments = 0
+    AppState.typeSizeImages = 0
+    AppState.typeSizeCode = 0
+    AppState.typeSizeOther = 0
+    
+    AppState.typeNumberAudio = 0
+    AppState.typeNumberVideos = 0
+    AppState.typeNumberDocuments = 0
+    AppState.typeNumberImages = 0
+    AppState.typeNumberCode = 0
+    AppState.typeNumberOther = 0
 }
 
 
@@ -174,13 +186,36 @@ func getStats() {
             }
             
             if let fileType: String = elementURL.typeIdentifier {
-                if AppState.typeSizes[fileType] == nil {
-                    AppState.typeSizes[fileType] = fileSize
+                if TypesLookup.audio.contains(fileType) {
+                    AppState.typeSizeAudio += fileSize
+                    AppState.typeNumberAudio += 1
+                } else if TypesLookup.videos.contains(fileType) {
+                    AppState.typeSizeVideos += fileSize
+                    AppState.typeNumberVideos += 1
+                } else if TypesLookup.documents.contains(fileType) {
+                    AppState.typeSizeDocuments += fileSize
+                    AppState.typeNumberDocuments += 1
+                } else if TypesLookup.images.contains(fileType) {
+                    AppState.typeSizeImages += fileSize
+                    AppState.typeNumberImages += 1
+                } else if TypesLookup.code.contains(fileType) {
+                    AppState.typeSizeCode += fileSize
+                    AppState.typeNumberCode += 1
+                } else if TypesLookup.archives.contains(fileType) {
+                    AppState.typeSizeArchives += fileSize
+                    AppState.typeNumberArchives += 1
                 } else {
-                    AppState.typeSizes[fileType] = AppState.typeSizes[fileType]! + fileSize
+                    AppState.typeSizeOther += fileSize
+                    AppState.typeNumberOther += 1
+                    if !TypesLookup.other.contains(fileType) {
+                        if !fileType.starts(with: "dyn.") {
+                            print(" Type identifier unknown for '" + fileType + "'")
+                            print("  " + elementURL.path)
+                        }
+                    }
                 }
             } else {
-                os_log("Unable to get type identifier for '%@'", log: logGeneral, type: .error)
+                os_log("Unable to get type identifier for '%@'", log: logGeneral, type: .error, elementURL.path)
             }
             
             if let values = try? elementURL.resourceValues(forKeys: [.isDirectoryKey]) {

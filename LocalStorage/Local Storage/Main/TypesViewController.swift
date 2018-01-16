@@ -31,10 +31,24 @@ class TypesViewController: UIViewController, ChartViewDelegate {
         
         self.setTheme()
         
-        // data stuff below
-        //print(AppState.typeSizes)
+        // Data stuff below (temporary)
+        print(AppState.typeSizeAudio)
+        print(AppState.typeSizeVideos)
+        print(AppState.typeSizeDocuments)
+        print(AppState.typeSizeImages)
+        print(AppState.typeSizeCode)
+        print(AppState.typeSizeArchives)
+        print(AppState.typeSizeOther)
+        print("---")
+        print(AppState.typeNumberAudio)
+        print(AppState.typeNumberVideos)
+        print(AppState.typeNumberDocuments)
+        print(AppState.typeNumberImages)
+        print(AppState.typeNumberCode)
+        print(AppState.typeNumberArchives)
+        print(AppState.typeNumberOther)
         
-        // chart stuff below
+        // Chart stuff below
         
         chartView.chartDescription?.enabled = false
         
@@ -126,23 +140,39 @@ class TypesViewController: UIViewController, ChartViewDelegate {
     }
     
     func setDataCount() {
-        let bytesAudio: Double = 10
-        let bytesVideo: Double = 5
-        let bytesPhotos: Double = 20
-        let bytesDocs: Double = 15
-        let bytesOther: Double = 50
+        let bytesTotal: Double = Double(AppState.typeSizeAudio) + Double(AppState.typeSizeVideos) + Double(AppState.typeSizeImages) + Double(AppState.typeSizeDocuments) + Double(AppState.typeSizeCode) + Double(AppState.typeSizeArchives) + Double(AppState.typeSizeOther)
+        
+        let bytesAudio:     Double = (Double(AppState.typeSizeAudio) / bytesTotal) * 100
+        let bytesVideos:    Double = (Double(AppState.typeSizeVideos) / bytesTotal) * 100
+        let bytesImages:    Double = (Double(AppState.typeSizeImages) / bytesTotal) * 100
+        let bytesDocuments: Double = (Double(AppState.typeSizeDocuments) / bytesTotal) * 100
+        let bytesCode:      Double = (Double(AppState.typeSizeCode) / bytesTotal) * 100
+        let bytesArchives:  Double = (Double(AppState.typeSizeArchives) / bytesTotal) * 100
+        let bytesOther:     Double = (Double(AppState.typeSizeOther) / bytesTotal) * 100
+        
+        print("---")
+        print("Total " + String(bytesTotal) + " bytes")
+        print("Audio " + String(bytesAudio) + " %")
+        print("Video " + String(bytesVideos) + " %")
+        print("Images " + String(bytesImages) + " %")
+        print("Docs " + String(bytesDocuments) + " %")
+        print("Code " + String(bytesCode) + " %")
+        print("Archives " + String(bytesArchives) + " %")
+        print("Other " + String(bytesOther) + " %")
         
         let typesVals = [BarChartDataEntry(x: Double(10),
-                                           yValues: [bytesAudio, bytesVideo, bytesPhotos, bytesDocs, bytesOther])]
+                                           yValues: [bytesAudio, bytesVideos, bytesImages, bytesDocuments, bytesCode, bytesArchives, bytesOther])]
         
         let typesSet = BarChartDataSet(values: typesVals, label: "")
         typesSet.drawIconsEnabled = false
         typesSet.colors = [UIColor(named: "ColorTypeAudio")!,
-                           UIColor(named: "ColorTypeVideo")!,
-                           UIColor(named: "ColorTypePhotos")!,
-                           UIColor(named: "ColorTypeDocs")!,
+                           UIColor(named: "ColorTypeVideos")!,
+                           UIColor(named: "ColorTypeDocuments")!,
+                           UIColor(named: "ColorTypeImages")!,
+                           UIColor(named: "ColorTypeCode")!,
+                           UIColor(named: "ColorTypeArchives")!,
                            UIColor(named: "ColorTypeOther")!]
-        typesSet.stackLabels = ["Audio", "Video", "Photos", "Docs", "Other"]
+        typesSet.stackLabels = ["Audio", "Videos", "Documents", "Images", "Code", "Archives", "Other"]
         
         let data = BarChartData(dataSet: typesSet)
         data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
