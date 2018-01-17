@@ -33,6 +33,37 @@ extension URL {
 }
 
 
+func getSizeString(byteCount: Int64) -> String {
+    // Get a human readable size string according to user preferences.
+    
+    let userDefaults = UserDefaults.standard
+    let unit: String = userDefaults.string(forKey: UserDefaultStruct.unit)!
+    
+    if byteCount == 0 {
+        if unit == "all" {
+            return "0 bytes"
+        }
+        return "0 " + unit
+    }
+    
+    let byteCountFormatter = ByteCountFormatter()
+    if unit == "bytes" {
+        byteCountFormatter.allowedUnits = .useBytes
+    } else if unit == "KB" {
+        byteCountFormatter.allowedUnits = .useKB
+    } else if unit == "MB" {
+        byteCountFormatter.allowedUnits = .useMB
+    } else if unit == "GB" {
+        byteCountFormatter.allowedUnits = .useGB
+    } else {
+        byteCountFormatter.allowedUnits = .useAll
+    }
+    byteCountFormatter.countStyle = .file
+    
+    return byteCountFormatter.string(fromByteCount: byteCount)
+}
+
+
 func checkAppAvailability() {
     // Background: The Files app is built in but can be removed.
     // In which case it can be "reinstalled" through the App Store (but nothing is downloaded).

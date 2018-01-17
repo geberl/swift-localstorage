@@ -207,44 +207,28 @@ class OverviewViewController: UIViewController {
     }
     
     @objc func updateValues() {
-        let unit: String = userDefaults.string(forKey: UserDefaultStruct.unit)!
-        let byteCountFormatter = ByteCountFormatter()
-        if unit == "Bytes" {
-            byteCountFormatter.allowedUnits = .useBytes
-        } else if unit == "KB" {
-            byteCountFormatter.allowedUnits = .useKB
-        } else if unit == "MB" {
-            byteCountFormatter.allowedUnits = .useMB
-        } else if unit == "GB" {
-            byteCountFormatter.allowedUnits = .useGB
-        } else {
-            byteCountFormatter.allowedUnits = .useAll
-        }
-        byteCountFormatter.countStyle = .file
-        
         self.localFilesNumberLabel.text = String(AppState.localFilesNumber)
         self.localFoldersNumberLabel.text = String(AppState.localFoldersNumber)
-        if AppState.localSizeBytes == 0 {self.localSizeBytesLabel.text = "0"} else {
-            self.localSizeBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.localSizeBytes)}
-        if AppState.localSizeDiskBytes == 0 {self.localSizeDiskBytesLabel.text = "0"} else {
-            self.localSizeDiskBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.localSizeDiskBytes)}
         
-        if !AppState.updateInProgress {
+        self.localSizeBytesLabel.text = getSizeString(byteCount: AppState.localSizeBytes)
+        self.localSizeDiskBytesLabel.text = getSizeString(byteCount: AppState.localSizeDiskBytes)
+        
+        if AppState.updateInProgress {
+            self.refreshButton.isEnabled = false
+        } else {
             self.refreshButton.isEnabled = true
         }
         
         self.trashFilesNumberLabel.text   = String(AppState.trashFilesNumber)
         self.trashFoldersNumberLabel.text = String(AppState.trashFoldersNumber)
-        if AppState.trashSizeBytes == 0 {self.trashSizeBytesLabel.text = "0"} else {
-            self.trashSizeBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.trashSizeBytes)}
-        if AppState.trashSizeDiskBytes == 0 {
-            self.trashSizeDiskBytesLabel.text = "0"
+        
+        self.trashSizeBytesLabel.text = getSizeString(byteCount: AppState.trashSizeBytes)
+        self.trashSizeDiskBytesLabel.text = getSizeString(byteCount: AppState.trashSizeDiskBytes)
+        
+        if AppState.trashSizeDiskBytes == 0 || AppState.updateInProgress {
             self.emptyTrashButton.isEnabled = false
         } else {
-            self.trashSizeDiskBytesLabel.text = byteCountFormatter.string(fromByteCount: AppState.trashSizeDiskBytes)
-            if !AppState.updateInProgress {
-                self.emptyTrashButton.isEnabled = true
-            }
+            self.emptyTrashButton.isEnabled = true
         }
     }
     
