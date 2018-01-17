@@ -31,23 +31,6 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         
         self.setTheme()
         
-        // Data stuff below (temporary)
-        print(AppState.typeSizeAudio)
-        print(AppState.typeSizeVideos)
-        print(AppState.typeSizeDocuments)
-        print(AppState.typeSizeImages)
-        print(AppState.typeSizeCode)
-        print(AppState.typeSizeArchives)
-        print(AppState.typeSizeOther)
-        print("---")
-        print(AppState.typeNumberAudio)
-        print(AppState.typeNumberVideos)
-        print(AppState.typeNumberDocuments)
-        print(AppState.typeNumberImages)
-        print(AppState.typeNumberCode)
-        print(AppState.typeNumberArchives)
-        print(AppState.typeNumberOther)
-        
         // Chart stuff below
         
         chartView.chartDescription?.enabled = false
@@ -140,28 +123,11 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     }
     
     func setDataCount() {
-        let bytesTotal: Double = Double(AppState.typeSizeAudio) + Double(AppState.typeSizeVideos) + Double(AppState.typeSizeImages) + Double(AppState.typeSizeDocuments) + Double(AppState.typeSizeCode) + Double(AppState.typeSizeArchives) + Double(AppState.typeSizeOther)
+        let allSizes: Array = AppState.types.map { $0 .size }
+        let sumSize: Double = Double(allSizes.reduce(0, +))
+        let allSizesPercent: Array = allSizes.map { (Double($0) / sumSize) * 100 }
         
-        let bytesAudio:     Double = (Double(AppState.typeSizeAudio) / bytesTotal) * 100
-        let bytesVideos:    Double = (Double(AppState.typeSizeVideos) / bytesTotal) * 100
-        let bytesImages:    Double = (Double(AppState.typeSizeImages) / bytesTotal) * 100
-        let bytesDocuments: Double = (Double(AppState.typeSizeDocuments) / bytesTotal) * 100
-        let bytesCode:      Double = (Double(AppState.typeSizeCode) / bytesTotal) * 100
-        let bytesArchives:  Double = (Double(AppState.typeSizeArchives) / bytesTotal) * 100
-        let bytesOther:     Double = (Double(AppState.typeSizeOther) / bytesTotal) * 100
-        
-        print("---")
-        print("Total " + String(bytesTotal) + " bytes")
-        print("Audio " + String(bytesAudio) + " %")
-        print("Video " + String(bytesVideos) + " %")
-        print("Images " + String(bytesImages) + " %")
-        print("Docs " + String(bytesDocuments) + " %")
-        print("Code " + String(bytesCode) + " %")
-        print("Archives " + String(bytesArchives) + " %")
-        print("Other " + String(bytesOther) + " %")
-        
-        let typesVals = [BarChartDataEntry(x: Double(10),
-                                           yValues: [bytesAudio, bytesVideos, bytesImages, bytesDocuments, bytesCode, bytesArchives, bytesOther])]
+        let typesVals = [BarChartDataEntry(x: Double(10), yValues: allSizesPercent)]
         
         let typesSet = BarChartDataSet(values: typesVals, label: "")
         typesSet.drawIconsEnabled = false

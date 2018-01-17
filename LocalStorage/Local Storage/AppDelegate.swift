@@ -157,22 +157,6 @@ struct AppState {
     static var trashSizeBytes: Int64 = 0
     static var trashSizeDiskBytes: Int64 = 0
     
-    static var typeSizeAudio: Int64 = 0
-    static var typeSizeVideos: Int64 = 0
-    static var typeSizeDocuments: Int64 = 0
-    static var typeSizeImages: Int64 = 0
-    static var typeSizeCode: Int64 = 0
-    static var typeSizeArchives: Int64 = 0
-    static var typeSizeOther: Int64 = 0
-    
-    static var typeNumberAudio: Int64 = 0
-    static var typeNumberVideos: Int64 = 0
-    static var typeNumberDocuments: Int64 = 0
-    static var typeNumberImages: Int64 = 0
-    static var typeNumberCode: Int64 = 0
-    static var typeNumberArchives: Int64 = 0
-    static var typeNumberOther: Int64 = 0
-    
     static var types: [TypeInfo] = [TypeInfo(name: "Audio", color: UIColor(named: "ColorTypeAudio")!, size: 0, number: 0, paths: []),
                                     TypeInfo(name: "Videos", color: UIColor(named: "ColorTypeVideos")!, size: 0, number: 0, paths: []),
                                     TypeInfo(name: "Documents", color: UIColor(named: "ColorTypeDocuments")!, size: 0, number: 0, paths: []),

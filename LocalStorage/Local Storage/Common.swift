@@ -160,19 +160,24 @@ func resetStats() {
     AppState.trashSizeBytes = 0
     AppState.trashSizeDiskBytes = 0
     
-    AppState.typeSizeAudio = 0
-    AppState.typeSizeVideos = 0
-    AppState.typeSizeDocuments = 0
-    AppState.typeSizeImages = 0
-    AppState.typeSizeCode = 0
-    AppState.typeSizeOther = 0
-    
-    AppState.typeNumberAudio = 0
-    AppState.typeNumberVideos = 0
-    AppState.typeNumberDocuments = 0
-    AppState.typeNumberImages = 0
-    AppState.typeNumberCode = 0
-    AppState.typeNumberOther = 0
+    AppState.types = [TypeInfo(name: "Audio", color: UIColor(named: "ColorTypeAudio")!, size: 0, number: 0, paths: []),
+                      TypeInfo(name: "Videos", color: UIColor(named: "ColorTypeVideos")!, size: 0, number: 0, paths: []),
+                      TypeInfo(name: "Documents", color: UIColor(named: "ColorTypeDocuments")!, size: 0, number: 0, paths: []),
+                      TypeInfo(name: "Images", color: UIColor(named: "ColorTypeImages")!, size: 0, number: 0, paths: []),
+                      TypeInfo(name: "Code", color: UIColor(named: "ColorTypeCode")!, size: 0, number: 0, paths: []),
+                      TypeInfo(name: "Archives", color: UIColor(named: "ColorTypeArchives")!, size: 0, number: 0, paths: []),
+                      TypeInfo(name: "Other", color: UIColor(named: "ColorTypeOther")!, size: 0, number: 0, paths: [])]
+}
+
+
+func addToType(name: String, size: Int64) {
+    for (n, type_info) in AppState.types.enumerated() {
+        if type_info.name == name {
+            AppState.types[n].size += size
+            AppState.types[n].number += 1
+            break
+        }
+    }
 }
 
 
@@ -218,26 +223,19 @@ func getStats() {
             
             if let fileType: String = elementURL.typeIdentifier {
                 if TypesLookup.audio.contains(fileType) {
-                    AppState.typeSizeAudio += fileSize
-                    AppState.typeNumberAudio += 1
+                    addToType(name: "Audio", size: fileSize)
                 } else if TypesLookup.videos.contains(fileType) {
-                    AppState.typeSizeVideos += fileSize
-                    AppState.typeNumberVideos += 1
+                    addToType(name: "Videos", size: fileSize)
                 } else if TypesLookup.documents.contains(fileType) {
-                    AppState.typeSizeDocuments += fileSize
-                    AppState.typeNumberDocuments += 1
+                    addToType(name: "Documents", size: fileSize)
                 } else if TypesLookup.images.contains(fileType) {
-                    AppState.typeSizeImages += fileSize
-                    AppState.typeNumberImages += 1
+                    addToType(name: "Images", size: fileSize)
                 } else if TypesLookup.code.contains(fileType) {
-                    AppState.typeSizeCode += fileSize
-                    AppState.typeNumberCode += 1
+                    addToType(name: "Code", size: fileSize)
                 } else if TypesLookup.archives.contains(fileType) {
-                    AppState.typeSizeArchives += fileSize
-                    AppState.typeNumberArchives += 1
+                    addToType(name: "Archives", size: fileSize)
                 } else {
-                    AppState.typeSizeOther += fileSize
-                    AppState.typeNumberOther += 1
+                    addToType(name: "Other", size: fileSize)
                     if !TypesLookup.other.contains(fileType) {
                         if !fileType.starts(with: "dyn.") {
                             print(" Type identifier unknown for '" + fileType + "'")
