@@ -157,13 +157,13 @@ struct AppState {
     static var trashSizeBytes: Int64 = 0
     static var trashSizeDiskBytes: Int64 = 0
     
-    static var types: [TypeInfo] = [TypeInfo(name: "Audio", color: UIColor(named: "ColorTypeAudio")!, size: 0, number: 0, paths: []),
-                                    TypeInfo(name: "Videos", color: UIColor(named: "ColorTypeVideos")!, size: 0, number: 0, paths: []),
-                                    TypeInfo(name: "Documents", color: UIColor(named: "ColorTypeDocuments")!, size: 0, number: 0, paths: []),
-                                    TypeInfo(name: "Images", color: UIColor(named: "ColorTypeImages")!, size: 0, number: 0, paths: []),
-                                    TypeInfo(name: "Code", color: UIColor(named: "ColorTypeCode")!, size: 0, number: 0, paths: []),
-                                    TypeInfo(name: "Archives", color: UIColor(named: "ColorTypeArchives")!, size: 0, number: 0, paths: []),
-                                    TypeInfo(name: "Other", color: UIColor(named: "ColorTypeOther")!, size: 0, number: 0, paths: [])]
+    static var types: [TypeInfo] = [TypeInfo(name: "Audio", color: UIColor(named: "ColorTypeAudio")!, size: 0, number: 0, paths: [], sizes: []),
+                                    TypeInfo(name: "Videos", color: UIColor(named: "ColorTypeVideos")!, size: 0, number: 0, paths: [], sizes: []),
+                                    TypeInfo(name: "Documents", color: UIColor(named: "ColorTypeDocuments")!, size: 0, number: 0, paths: [], sizes: []),
+                                    TypeInfo(name: "Images", color: UIColor(named: "ColorTypeImages")!, size: 0, number: 0, paths: [], sizes: []),
+                                    TypeInfo(name: "Code", color: UIColor(named: "ColorTypeCode")!, size: 0, number: 0, paths: [], sizes: []),
+                                    TypeInfo(name: "Archives", color: UIColor(named: "ColorTypeArchives")!, size: 0, number: 0, paths: [], sizes: []),
+                                    TypeInfo(name: "Other", color: UIColor(named: "ColorTypeOther")!, size: 0, number: 0, paths: [], sizes: [])]
     
     static var documentsPath: String = ""
     static var updateInProgress: Bool = false
@@ -174,8 +174,9 @@ struct TypeInfo {
     var name: String
     var color: UIColor
     var size: Int64
-    var number: Int64
+    var number: Int
     var paths: [String]
+    var sizes: [Int64]
 }
 
 

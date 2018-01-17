@@ -118,7 +118,7 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     func applyColors(fg: String, bg: String) {
         os_log("applyColors", log: logGeneral, type: .debug)
 
-        let fgColor: UIColor = UIColor(named: fg)!
+        // let fgColor: UIColor = UIColor(named: fg)!
         let bgColor: UIColor = UIColor(named: bg)!
         
         self.mainView.backgroundColor = bgColor
@@ -154,8 +154,8 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         cell.textLabel?.text = AppState.types[indexPath.row].name
         
         let currentSize: String = getSizeString(byteCount: AppState.types[indexPath.row].size)
-        let currentNumber: Int64 = AppState.types[indexPath.row].number
-        cell.detailTextLabel?.text = currentSize + " in " + String(currentNumber) + " files"
+        let currentNumber: Int = AppState.types[indexPath.row].number
+        cell.detailTextLabel?.text = currentSize + " in " + String(currentNumber) + " items"
         
         return cell
     }

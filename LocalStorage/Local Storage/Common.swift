@@ -160,21 +160,24 @@ func resetStats() {
     AppState.trashSizeBytes = 0
     AppState.trashSizeDiskBytes = 0
     
-    AppState.types = [TypeInfo(name: "Audio", color: UIColor(named: "ColorTypeAudio")!, size: 0, number: 0, paths: []),
-                      TypeInfo(name: "Videos", color: UIColor(named: "ColorTypeVideos")!, size: 0, number: 0, paths: []),
-                      TypeInfo(name: "Documents", color: UIColor(named: "ColorTypeDocuments")!, size: 0, number: 0, paths: []),
-                      TypeInfo(name: "Images", color: UIColor(named: "ColorTypeImages")!, size: 0, number: 0, paths: []),
-                      TypeInfo(name: "Code", color: UIColor(named: "ColorTypeCode")!, size: 0, number: 0, paths: []),
-                      TypeInfo(name: "Archives", color: UIColor(named: "ColorTypeArchives")!, size: 0, number: 0, paths: []),
-                      TypeInfo(name: "Other", color: UIColor(named: "ColorTypeOther")!, size: 0, number: 0, paths: [])]
+    AppState.types = [TypeInfo(name: "Audio", color: UIColor(named: "ColorTypeAudio")!, size: 0, number: 0, paths: [], sizes: []),
+                      TypeInfo(name: "Videos", color: UIColor(named: "ColorTypeVideos")!, size: 0, number: 0, paths: [], sizes: []),
+                      TypeInfo(name: "Documents", color: UIColor(named: "ColorTypeDocuments")!, size: 0, number: 0, paths: [], sizes: []),
+                      TypeInfo(name: "Images", color: UIColor(named: "ColorTypeImages")!, size: 0, number: 0, paths: [], sizes: []),
+                      TypeInfo(name: "Code", color: UIColor(named: "ColorTypeCode")!, size: 0, number: 0, paths: [], sizes: []),
+                      TypeInfo(name: "Archives", color: UIColor(named: "ColorTypeArchives")!, size: 0, number: 0, paths: [], sizes: []),
+                      TypeInfo(name: "Other", color: UIColor(named: "ColorTypeOther")!, size: 0, number: 0, paths: [], sizes: [])]
 }
 
 
-func addToType(name: String, size: Int64) {
+func addToType(name: String, size: Int64, path: String) {
     for (n, type_info) in AppState.types.enumerated() {
         if type_info.name == name {
             AppState.types[n].size += size
             AppState.types[n].number += 1
+            let documentsPathEndIndex = path.index(AppState.documentsPath.endIndex, offsetBy: 1)
+            AppState.types[n].paths.append(String(path[documentsPathEndIndex...]))
+            AppState.types[n].sizes.append(size)
             break
         }
     }
@@ -223,19 +226,19 @@ func getStats() {
             
             if let fileType: String = elementURL.typeIdentifier {
                 if TypesLookup.audio.contains(fileType) {
-                    addToType(name: "Audio", size: fileSize)
+                    addToType(name: "Audio", size: fileSize, path: elementURL.path)
                 } else if TypesLookup.videos.contains(fileType) {
-                    addToType(name: "Videos", size: fileSize)
+                    addToType(name: "Videos", size: fileSize, path: elementURL.path)
                 } else if TypesLookup.documents.contains(fileType) {
-                    addToType(name: "Documents", size: fileSize)
+                    addToType(name: "Documents", size: fileSize, path: elementURL.path)
                 } else if TypesLookup.images.contains(fileType) {
-                    addToType(name: "Images", size: fileSize)
+                    addToType(name: "Images", size: fileSize, path: elementURL.path)
                 } else if TypesLookup.code.contains(fileType) {
-                    addToType(name: "Code", size: fileSize)
+                    addToType(name: "Code", size: fileSize, path: elementURL.path)
                 } else if TypesLookup.archives.contains(fileType) {
-                    addToType(name: "Archives", size: fileSize)
+                    addToType(name: "Archives", size: fileSize, path: elementURL.path)
                 } else {
-                    addToType(name: "Other", size: fileSize)
+                    addToType(name: "Other", size: fileSize, path: elementURL.path)
                     if !TypesLookup.other.contains(fileType) {
                         if !fileType.starts(with: "dyn.") {
                             print(" Type identifier unknown for '" + fileType + "'")

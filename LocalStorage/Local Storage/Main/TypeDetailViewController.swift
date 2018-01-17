@@ -8,31 +8,47 @@
 
 import UIKit
 
-class TypeDetailViewController: UIViewController {
+class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var typeIndex: Int = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = self.getTitle()
+        self.typeIndex = self.getTypeIndex()
+        self.title = AppState.types[self.typeIndex].name
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func getTitle() -> String {
-        let navChildViewControllers = self.navigationController!.childViewControllers  // [TypesViewController, TypeDetailViewController]
+    func getTypeIndex() -> Int {
+        let navChildViewControllers = self.navigationController!.childViewControllers
         
         for navChildViewController in navChildViewControllers {
             if let viewControllerTitle = navChildViewController.title {
                 if viewControllerTitle == "Types" {
                     let TypesViewController = navChildViewController as! TypesViewController
                     let selectedRowIndex = TypesViewController.typesTableView.indexPathForSelectedRow!
-                    return AppState.types[selectedRowIndex[1]].name
+                    return selectedRowIndex[1]
                 }
             }
         }
         
-        return "n/a"  // this should never happen.
+        return -1
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return AppState.types[self.typeIndex].number
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "protoCell")!
+        
+        cell.textLabel?.text = AppState.types[self.typeIndex].paths[indexPath.row]
+        cell.detailTextLabel?.text = getSizeString(byteCount: AppState.types[self.typeIndex].sizes[indexPath.row])
+        
+        return cell
     }
 
 }
