@@ -165,14 +165,9 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         
         let typesSet = BarChartDataSet(values: typesVals, label: "")
         typesSet.drawIconsEnabled = false
-        typesSet.colors = [UIColor(named: "ColorTypeAudio")!,
-                           UIColor(named: "ColorTypeVideos")!,
-                           UIColor(named: "ColorTypeDocuments")!,
-                           UIColor(named: "ColorTypeImages")!,
-                           UIColor(named: "ColorTypeCode")!,
-                           UIColor(named: "ColorTypeArchives")!,
-                           UIColor(named: "ColorTypeOther")!]
-        typesSet.stackLabels = ["Audio", "Videos", "Documents", "Images", "Code", "Archives", "Other"]
+        
+        typesSet.colors = AppState.types.map { $0 .color }
+        typesSet.stackLabels = AppState.types.map { $0 .name }
         
         let data = BarChartData(dataSet: typesSet)
         data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
@@ -186,16 +181,13 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let allTypes: Array = Array(AppState.types.keys.sorted())
-        let currentType: String = allTypes[indexPath.row]
-        let currentName: String = AppState.types[currentType]!.name
-        let currentSize: Int64 = AppState.types[currentType]!.size
-        let currentNumber: Int64 = AppState.types[currentType]!.number
+        let cell = tableView.dequeueReusableCell(withIdentifier: "protoCell")!
         
-        let cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "protoCell")
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-        cell.textLabel?.text = currentName
-        cell.detailTextLabel?.text = String(currentSize) + " bytes in " + String(currentNumber) + " files"
+        cell.textLabel?.text = AppState.types[indexPath.row].name
+        
+        let currentSize: String = getSizeString(byteCount: AppState.types[indexPath.row].size)
+        let currentNumber: Int64 = AppState.types[indexPath.row].number
+        cell.detailTextLabel?.text = currentSize + " in " + String(currentNumber) + " files"
         
         return cell
     }

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -389,14 +390,17 @@
                                 <state key="normal" title="Refresh"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2B7-dx-bAy">
-                                <rect key="frame" x="16" y="148" width="331" height="334"/>
+                                <rect key="frame" x="16" y="148" width="331" height="312"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="312" id="bVn-1K-gRq"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="protoCell" textLabel="SrX-cY-Gva" detailTextLabel="4Du-rf-Hl6" style="IBUITableViewCellStyleValue1" id="72M-Ns-GUM">
-                                        <rect key="frame" x="0.0" y="28" width="332" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="331" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="72M-Ns-GUM" id="pbY-2s-iMU">
-                                            <rect key="frame" x="0.0" y="0.0" width="299" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="298" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SrX-cY-Gva">
@@ -407,14 +411,17 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Du-rf-Hl6">
-                                                    <rect key="frame" x="253" y="12" width="44" height="20.5"/>
+                                                    <rect key="frame" x="252" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="ColorFontGray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="r6q-dk-t3b" kind="show" id="cJu-Kz-2Y7"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -430,7 +437,6 @@
                             <constraint firstItem="g7e-TP-KdR" firstAttribute="top" secondItem="gQo-Ya-vaB" secondAttribute="bottom" constant="5" id="Obd-Yd-09L"/>
                             <constraint firstItem="2B7-dx-bAy" firstAttribute="trailing" secondItem="DPN-2P-LL6" secondAttribute="trailing" constant="-28" id="QBI-T4-mL1"/>
                             <constraint firstItem="2B7-dx-bAy" firstAttribute="leading" secondItem="DPN-2P-LL6" secondAttribute="leading" constant="16" id="QWC-MH-6HW"/>
-                            <constraint firstItem="2B7-dx-bAy" firstAttribute="bottom" secondItem="DPN-2P-LL6" secondAttribute="bottom" constant="-20" id="brq-wc-YXG"/>
                             <constraint firstItem="gQo-Ya-vaB" firstAttribute="leading" secondItem="DPN-2P-LL6" secondAttribute="leading" id="dcW-Sz-uv0"/>
                             <constraint firstItem="2B7-dx-bAy" firstAttribute="top" secondItem="g7e-TP-KdR" secondAttribute="bottom" constant="8" id="rev-uL-7uX"/>
                         </constraints>
@@ -458,6 +464,21 @@
             </objects>
             <point key="canvasLocation" x="2680.8000000000002" y="459.22038980509751"/>
         </scene>
+        <!--Details-->
+        <scene sceneID="Pzj-OZ-ldf">
+            <objects>
+                <viewController title="Details" id="r6q-dk-t3b" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WnC-Yy-tD5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ft7-K2-CqF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wrB-DP-4b4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3462" y="459"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Qw3-WO-9ZW">
             <objects>
@@ -483,5 +504,8 @@
         <image name="PixelBlack" width="1" height="1"/>
         <image name="TabBarOverview" width="23" height="23"/>
         <image name="TabBarTypes" width="23" height="23"/>
+        <namedColor name="ColorFontGray">
+            <color red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -25,7 +25,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet var fileSizeUnitSegCtrl: UISegmentedControl!
     @IBAction func onFileSizeUnitSegCtrl(_ sender: UISegmentedControl) {
         if self.fileSizeUnitSegCtrl.selectedSegmentIndex == 0 {
-            userDefaults.set("Bytes", forKey: UserDefaultStruct.unit)
+            userDefaults.set("bytes", forKey: UserDefaultStruct.unit)
         } else if self.fileSizeUnitSegCtrl.selectedSegmentIndex == 1 {
             userDefaults.set("KB", forKey: UserDefaultStruct.unit)
         } else if self.fileSizeUnitSegCtrl.selectedSegmentIndex == 2 {
@@ -67,7 +67,7 @@ class SettingsViewController: UIViewController {
         self.darkModeSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.darkMode), animated: false)
         
         let unit: String = userDefaults.string(forKey: UserDefaultStruct.unit)!
-        if unit == "Bytes" {
+        if unit == "bytes" {
             self.fileSizeUnitSegCtrl.selectedSegmentIndex = 0
         } else if unit == "KB" {
             self.fileSizeUnitSegCtrl.selectedSegmentIndex = 1
