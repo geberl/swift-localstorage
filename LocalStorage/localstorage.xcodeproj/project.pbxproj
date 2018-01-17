@@ -18,6 +18,7 @@
 		A44E4E7E1FFA915D00CBE189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E7C1FFA915D00CBE189 /* LaunchScreen.storyboard */; };
 		A482821620025F5500DC2131 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482821520025F5500DC2131 /* Notifications.swift */; };
 		A482821920025FC200DC2131 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482821820025FC200DC2131 /* Prefs.swift */; };
+		A48EFC43200F86AE0084B0D5 /* TypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48EFC42200F86AE0084B0D5 /* TypeDetailViewController.swift */; };
 		A49C0DD01FFE66BB006BE494 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */; };
 		C2A70CD4828C1F21F8284DE0 /* Pods_localstorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CA65CD16296590B7A8EB6E /* Pods_localstorage.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		A44E4E7F1FFA915D00CBE189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A482821520025F5500DC2131 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		A482821820025FC200DC2131 /* Prefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
+		A48EFC42200F86AE0084B0D5 /* TypeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDetailViewController.swift; sourceTree = "<group>"; };
 		A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		CACE514122A426F15A2F3133 /* Pods-localstorage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-localstorage.release.xcconfig"; path = "Pods/Target Support Files/Pods-localstorage/Pods-localstorage.release.xcconfig"; sourceTree = "<group>"; };
 		E3CA65CD16296590B7A8EB6E /* Pods_localstorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_localstorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 				A41FEB122000EFB700149DEE /* TabBarController.swift */,
 				A44E4E751FFA915D00CBE189 /* OverviewViewController.swift */,
 				A41B484C20028430005A9161 /* TypesViewController.swift */,
+				A48EFC42200F86AE0084B0D5 /* TypeDetailViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				A41B484D20028430005A9161 /* TypesViewController.swift in Sources */,
 				A482821920025FC200DC2131 /* Prefs.swift in Sources */,
+				A48EFC43200F86AE0084B0D5 /* TypeDetailViewController.swift in Sources */,
 				A482821620025F5500DC2131 /* Notifications.swift in Sources */,
 				A44E4E761FFA915D00CBE189 /* OverviewViewController.swift in Sources */,
 				A41FEB132000EFB700149DEE /* TabBarController.swift in Sources */,

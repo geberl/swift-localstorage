@@ -22,6 +22,8 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     
     @IBOutlet var chartView: HorizontalBarChartView!
     
+    @IBOutlet var typesTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         os_log("viewDidLoad", log: logGeneral, type: .debug)

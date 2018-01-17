@@ -373,7 +373,7 @@
         <!--Types-->
         <scene sceneID="Veh-UA-dKz">
             <objects>
-                <viewController storyboardIdentifier="TypesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mYf-Nf-c82" customClass="TypesViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TypesViewController" title="Types" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mYf-Nf-c82" customClass="TypesViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MHt-2w-SHe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -420,7 +420,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="r6q-dk-t3b" kind="show" id="cJu-Kz-2Y7"/>
+                                            <segue destination="r6q-dk-t3b" kind="show" id="Y4N-NX-GjP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -458,6 +458,7 @@
                     <connections>
                         <outlet property="chartView" destination="gQo-Ya-vaB" id="FhI-kr-Yc6"/>
                         <outlet property="mainView" destination="MHt-2w-SHe" id="ffh-bf-00u"/>
+                        <outlet property="typesTableView" destination="2B7-dx-bAy" id="jyC-H7-Jem"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieC-px-vSr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -467,7 +468,7 @@
         <!--Details-->
         <scene sceneID="Pzj-OZ-ldf">
             <objects>
-                <viewController title="Details" id="r6q-dk-t3b" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TypeDetailViewController" title="Details" useStoryboardIdentifierAsRestorationIdentifier="YES" id="r6q-dk-t3b" customClass="TypeDetailViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WnC-Yy-tD5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
