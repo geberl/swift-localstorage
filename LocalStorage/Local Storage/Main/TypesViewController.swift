@@ -22,7 +22,9 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
 
     @IBOutlet var refreshButton: UIButton!
     @IBAction func onRefreshButton() {self.refresh()}
-
+    
+    var animateUpdateDuringRefresh: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         os_log("viewDidLoad", log: logGeneral, type: .debug)
@@ -34,19 +36,24 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
                                                name: .updatePending, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(TypesViewController.updateValues),
+                                               name: .updateItemAdded, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(TypesViewController.updateValues),
                                                name: .updateFinished, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(TypesViewController.updateValues),
                                                name: .unitChanged, object: nil)
+        
+        self.animateUpdateDuringRefresh = userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh)
         
         self.setTheme()
         self.setupChart()
         
         if AppState.updateInProgress {
             self.updatePending()
+        } else {
+            self.updateValues()
         }
-        
-        self.updateGraph()
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,6 +93,7 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     
     func refresh() {
         os_log("refresh", log: logUi, type: .debug)
+        self.animateUpdateDuringRefresh = userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh)
         getStats()
     }
     
@@ -140,8 +148,8 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     
     @objc func updatePending() {
         os_log("updatePending", log: logGeneral, type: .debug)
-        
-        // TODO unclear what shows if this takes longer (copy 1000s of log files to iPad again)
+        self.updateGraphPending()
+        self.typesTableView.reloadData()
     }
     
     @objc func updateValues() {
@@ -149,7 +157,27 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         self.typesTableView.reloadData()
     }
     
+    func updateGraphPending() {
+        let data: BarChartData
+        
+        let typesVals = [BarChartDataEntry(x: Double(10), yValues: [100])]
+        
+        let typesSet = BarChartDataSet(values: typesVals, label: "")
+        typesSet.drawIconsEnabled = false
+        typesSet.colors = [UIColor(named: "ColorTypeOther")!]
+        typesSet.stackLabels = ["Refreshing"]  // only shows up if two or more values.
+        
+        data = BarChartData(dataSet: typesSet)
+        
+        data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
+        data.barWidth = 9.0
+        
+        self.chartView.data = data
+    }
+    
     func updateGraph() {
+        let data: BarChartData
+
         let allSizes: Array = AppState.types.map { $0 .size }
         let sumSize: Double = Double(allSizes.reduce(0, +))
         let allSizesPercent: Array = allSizes.map { (Double($0) / sumSize) * 100 }
@@ -162,7 +190,8 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         typesSet.colors = AppState.types.map { $0 .color }
         typesSet.stackLabels = AppState.types.map { $0 .name }
         
-        let data = BarChartData(dataSet: typesSet)
+        data = BarChartData(dataSet: typesSet)
+        
         data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
         data.barWidth = 9.0
         
@@ -178,6 +207,11 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         
         cell.textLabel?.text = AppState.types[indexPath.row].name
         
+        if AppState.updateInProgress && !self.animateUpdateDuringRefresh {
+            cell.detailTextLabel?.text = "..."
+            return cell
+        }
+
         let currentSize: String = getSizeString(byteCount: AppState.types[indexPath.row].size)
         let currentNumber: Int = AppState.types[indexPath.row].number
         cell.detailTextLabel?.text = currentSize + " in " + String(currentNumber) + " items"
