@@ -388,6 +388,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7e-TP-KdR">
                                 <rect key="frame" x="160.5" y="110" width="53" height="30"/>
                                 <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="onRefreshButton" destination="mYf-Nf-c82" eventType="touchUpInside" id="TG1-hF-7dy"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2B7-dx-bAy">
                                 <rect key="frame" x="16" y="148" width="343" height="312"/>
@@ -458,6 +461,7 @@
                     <connections>
                         <outlet property="chartView" destination="gQo-Ya-vaB" id="FhI-kr-Yc6"/>
                         <outlet property="mainView" destination="MHt-2w-SHe" id="ffh-bf-00u"/>
+                        <outlet property="refreshButton" destination="g7e-TP-KdR" id="4Lw-Jv-YBL"/>
                         <outlet property="typesTableView" destination="2B7-dx-bAy" id="jyC-H7-Jem"/>
                     </connections>
                 </viewController>
