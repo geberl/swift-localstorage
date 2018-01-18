@@ -62,7 +62,7 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     }
     
     @objc func setTheme() {
-        os_log("setTheme", log: logGeneral, type: .debug)
+        os_log("setTheme", log: logTabTypes, type: .debug)
         if userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
             self.applyColors(fg: "ColorFontWhite", bg: "ColorBgBlack")
             self.navigationController?.navigationBar.barStyle = .black
@@ -70,15 +70,14 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
             self.applyColors(fg: "ColorFontBlack", bg: "ColorBgWhite")
             self.navigationController?.navigationBar.barStyle = .default
         }
+        self.typesTableView.reloadData()  // changing text color in cells requires a data reload.
     }
     
     func applyColors(fg: String, bg: String) {
         os_log("applyColors", log: logGeneral, type: .debug)
-        
-        // let fgColor: UIColor = UIColor(named: fg)!
         let bgColor: UIColor = UIColor(named: bg)!
-        
         self.mainView.backgroundColor = bgColor
+        self.typesTableView.backgroundColor = bgColor
     }
     
     func showSettings() {
@@ -206,6 +205,11 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "protoCell")!
         
         cell.textLabel?.text = AppState.types[indexPath.row].name
+        if userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
+            cell.textLabel?.textColor = UIColor(named: "ColorFontWhite")!
+        } else {
+            cell.textLabel?.textColor = UIColor(named: "ColorFontBlack")!
+        }
         
         if AppState.updateInProgress && !self.animateUpdateDuringRefresh {
             cell.detailTextLabel?.text = "..."
@@ -217,6 +221,10 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         cell.detailTextLabel?.text = currentSize + " in " + String(currentNumber) + " items"
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
     
 }

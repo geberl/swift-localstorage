@@ -11,8 +11,10 @@ import os.log
 
 
 // Logger configuration.
-let logGeneral = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "general")
-let logUi = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "ui")
+let logGeneral =     OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "general")
+let logTabOverview = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "tabover")
+let logTabTypes =    OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "tabtype")
+let logUi =          OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "ui     ")
 
 
 // Global type look up table.

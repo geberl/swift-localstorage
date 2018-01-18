@@ -392,12 +392,13 @@
                                     <action selector="onRefreshButton" destination="mYf-Nf-c82" eventType="touchUpInside" id="TG1-hF-7dy"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2B7-dx-bAy">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2B7-dx-bAy">
                                 <rect key="frame" x="16" y="148" width="343" height="312"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="312" id="bVn-1K-gRq"/>
                                 </constraints>
+                                <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="protoCell" textLabel="SrX-cY-Gva" detailTextLabel="4Du-rf-Hl6" style="IBUITableViewCellStyleValue1" id="72M-Ns-GUM">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>

@@ -9,8 +9,8 @@
       "color" : {
         "color-space" : "extended-gray",
         "components" : {
-          "white" : "0.900",
-          "alpha" : "1.000"
+          "white" : "0.500",
+          "alpha" : "0.250"
         }
       }
     }
