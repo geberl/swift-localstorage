@@ -60,7 +60,7 @@ class OverviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        os_log("viewDidLoad", log: logGeneral, type: .debug)
+        os_log("viewDidLoad", log: logTabOverview, type: .debug)
         
         NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.setTheme),
                                                name: .darkModeChanged, object: nil)
@@ -90,11 +90,11 @@ class OverviewViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        os_log("didReceiveMemoryWarning", log: logGeneral, type: .info)
+        os_log("didReceiveMemoryWarning", log: logTabOverview, type: .info)
     }
     
     @objc func showHideAppleFilesReminder() {
-        os_log("showHideAppleFilesReminder", log: logGeneral, type: .debug)
+        os_log("showHideAppleFilesReminder", log: logTabOverview, type: .debug)
         if userDefaults.bool(forKey: UserDefaultStruct.showHelp) {
             fileMgntStackView.isHidden = false
         } else {
@@ -103,7 +103,7 @@ class OverviewViewController: UIViewController {
     }
     
     @objc func setTheme() {
-        os_log("setTheme", log: logGeneral, type: .debug)
+        os_log("setTheme", log: logTabOverview, type: .debug)
         if userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
             self.applyColors(fg: "ColorFontWhite", bg: "ColorBgBlack")
             self.navigationController?.navigationBar.barStyle = .black
@@ -114,7 +114,7 @@ class OverviewViewController: UIViewController {
     }
     
     func applyColors(fg: String, bg: String) {
-        os_log("applyColors", log: logGeneral, type: .debug)
+        os_log("applyColors", log: logTabOverview, type: .debug)
         let fgColor: UIColor = UIColor(named: fg)!
         let bgColor: UIColor = UIColor(named: bg)!
         
@@ -141,7 +141,7 @@ class OverviewViewController: UIViewController {
     }
     
     func showSettings() {
-        os_log("showSettings", log: logUi, type: .debug)
+        os_log("showSettings", log: logTabOverview, type: .debug)
         
         let storyboard = UIStoryboard(name: "Settings", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "SettingsViewController")
@@ -151,12 +151,12 @@ class OverviewViewController: UIViewController {
     }
     
     func refresh() {
-        os_log("refresh", log: logUi, type: .debug)
+        os_log("refresh", log: logTabOverview, type: .debug)
         getStats()
     }
     
     func askEmptyTrash() {
-        os_log("askEmptyTrash", log: logUi, type: .debug)
+        os_log("askEmptyTrash", log: logTabOverview, type: .debug)
         
         if userDefaults.bool(forKey: UserDefaultStruct.askEmptyTrash) {
             let alert = UIAlertController(title: "Are you sure you want to permanently erase all items in the Trash?",
@@ -176,20 +176,20 @@ class OverviewViewController: UIViewController {
     }
     
     func emptyTrash() {
-        os_log("emptyTrash", log: logGeneral, type: .debug)
+        os_log("emptyTrash", log: logTabOverview, type: .debug)
         
         removeDir(path: FileManager.documentsDir() + "/" + ".Trash")
         getStats()
     }
     
     func showFilesApp() {
-        os_log("showFilesApp", log: logUi, type: .debug)
+        os_log("showFilesApp", log: logTabOverview, type: .debug)
         
         openAppStore(id: 1232058109)
     }
     
     @objc func updatePending() {
-        os_log("updatePending", log: logGeneral, type: .debug)
+        os_log("updatePending", log: logTabOverview, type: .debug)
         
         self.localFilesNumberLabel.text   = "..."
         self.localFoldersNumberLabel.text = "..."
