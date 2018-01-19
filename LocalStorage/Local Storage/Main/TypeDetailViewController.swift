@@ -7,19 +7,31 @@
 //
 
 import UIKit
+import os.log
 
 class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let userDefaults = UserDefaults.standard
     var typeIndex: Int = -1
-
+    @IBOutlet var mainView: UIView!
+    @IBOutlet var typeDetailTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        os_log("viewDidLoad", log: logTabTypeDetail, type: .debug)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(TypesViewController.setTheme),
+                                               name: .darkModeChanged, object: nil)
+        
         self.typeIndex = self.getTypeIndex()
         self.title = AppState.types[self.typeIndex].name
+        
+        self.setTheme()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        os_log("didReceiveMemoryWarning", log: logTabTypeDetail, type: .info)
     }
     
     func getTypeIndex() -> Int {
@@ -38,6 +50,23 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         return -1
     }
     
+    @objc func setTheme() {
+        os_log("setTheme", log: logTabTypeDetail, type: .debug)
+        if self.userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
+            self.applyColors(fg: "ColorFontWhite", bg: "ColorBgBlack")
+        } else {
+            self.applyColors(fg: "ColorFontBlack", bg: "ColorBgWhite")
+        }
+        self.typeDetailTableView.reloadData()  // changing text color in cells requires a data reload.
+    }
+    
+    func applyColors(fg: String, bg: String) {
+        os_log("applyColors", log: logTabTypeDetail, type: .debug)
+        let bgColor: UIColor = UIColor(named: bg)!
+        self.mainView.backgroundColor = bgColor
+        self.typeDetailTableView.backgroundColor = bgColor
+    }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return AppState.types[self.typeIndex].number
     }
@@ -46,9 +75,18 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "protoCell")!
         
         cell.textLabel?.text = AppState.types[self.typeIndex].paths[indexPath.row]
+        if self.userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
+            cell.textLabel?.textColor = UIColor(named: "ColorFontWhite")!
+        } else {
+            cell.textLabel?.textColor = UIColor(named: "ColorFontBlack")!
+        }
         cell.detailTextLabel?.text = getSizeString(byteCount: AppState.types[self.typeIndex].sizes[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
 
 }

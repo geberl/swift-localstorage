@@ -522,6 +522,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ft7-K2-CqF"/>
                     </view>
+                    <connections>
+                        <outlet property="mainView" destination="WnC-Yy-tD5" id="vbf-nc-jZm"/>
+                        <outlet property="typeDetailTableView" destination="dQj-JT-CIw" id="uxf-a6-5E9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrB-DP-4b4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
