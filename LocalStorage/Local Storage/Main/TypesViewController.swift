@@ -27,7 +27,7 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        os_log("viewDidLoad", log: logGeneral, type: .debug)
+        os_log("viewDidLoad", log: logTabTypes, type: .debug)
         
         NotificationCenter.default.addObserver(self, selector: #selector(TypesViewController.setTheme),
                                                name: .darkModeChanged, object: nil)
@@ -58,7 +58,7 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        os_log("didReceiveMemoryWarning", log: logGeneral, type: .info)
+        os_log("didReceiveMemoryWarning", log: logTabTypes, type: .info)
     }
     
     @objc func setTheme() {
@@ -74,14 +74,14 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     }
     
     func applyColors(fg: String, bg: String) {
-        os_log("applyColors", log: logGeneral, type: .debug)
+        os_log("applyColors", log: logTabTypes, type: .debug)
         let bgColor: UIColor = UIColor(named: bg)!
         self.mainView.backgroundColor = bgColor
         self.typesTableView.backgroundColor = bgColor
     }
     
     func showSettings() {
-        os_log("showSettings", log: logUi, type: .debug)
+        os_log("showSettings", log: logTabTypes, type: .debug)
         
         let storyboard = UIStoryboard(name: "Settings", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "SettingsViewController")
@@ -91,8 +91,8 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     }
     
     func refresh() {
-        os_log("refresh", log: logUi, type: .debug)
         self.animateUpdateDuringRefresh = userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh)
+        os_log("refresh", log: logTabTypes, type: .debug)
         getStats()
     }
     
@@ -146,7 +146,7 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     }
     
     @objc func updatePending() {
-        os_log("updatePending", log: logGeneral, type: .debug)
+        os_log("updatePending", log: logTabTypes, type: .debug)
         self.updateGraphPending()
         self.typesTableView.reloadData()
     }
