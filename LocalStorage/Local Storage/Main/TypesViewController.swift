@@ -44,7 +44,7 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         NotificationCenter.default.addObserver(self, selector: #selector(TypesViewController.updateValues),
                                                name: .unitChanged, object: nil)
         
-        self.animateUpdateDuringRefresh = userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh)
+        self.animateUpdateDuringRefresh = self.userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh)
         
         self.setTheme()
         self.setupChart()
@@ -63,7 +63,7 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     
     @objc func setTheme() {
         os_log("setTheme", log: logTabTypes, type: .debug)
-        if userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
+        if self.userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
             self.applyColors(fg: "ColorFontWhite", bg: "ColorBgBlack")
             self.navigationController?.navigationBar.barStyle = .black
         } else {
@@ -91,8 +91,8 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     }
     
     func refresh() {
-        self.animateUpdateDuringRefresh = userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh)
         os_log("refresh", log: logTabTypes, type: .debug)
+        self.animateUpdateDuringRefresh = self.userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh)
         getStats()
     }
     
@@ -205,7 +205,7 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "protoCell")!
         
         cell.textLabel?.text = AppState.types[indexPath.row].name
-        if userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
+        if self.userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
             cell.textLabel?.textColor = UIColor(named: "ColorFontWhite")!
         } else {
             cell.textLabel?.textColor = UIColor(named: "ColorFontBlack")!
