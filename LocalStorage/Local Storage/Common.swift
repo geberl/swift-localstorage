@@ -64,7 +64,7 @@ func getSizeString(byteCount: Int64) -> String {
 }
 
 
-func checkAppAvailability() {
+func checkAppAvailability(registeredUrl: URL) -> Bool {
     // Background: The Files app is built in but can be removed.
     // In which case it can be "reinstalled" through the App Store (but nothing is downloaded).
     
@@ -88,38 +88,24 @@ func checkAppAvailability() {
     // So this function as of now doesn't do anything useful.
     // I first need to know the Files apps URL scheme.
     
-    var resultFb: Bool?
-    resultFb = UIApplication.shared.canOpenURL(URL(string: "fb://")!)
-    if resultFb != nil {
-        if resultFb == true {
-            print("fb:// can be opened")  // Facebook app must never have been opened, presence on device is enough
-        } else {
-            print("fb:// can NOT be opened")
-        }
-    }
+    // These apps must never have been opened, presence on device is enough, URL seems to be registered on installation
     
-    // The same for iOS prefs pane:
+    // More info about iOS prefs pane:
     // https://stackoverflow.com/questions/38064557/the-prefs-url-scheme-not-woring-in-ios-10-beta-1-2#42266843
-    var resultPrefs: Bool?
-    resultPrefs = UIApplication.shared.canOpenURL(URL(string: "App-Prefs://")!)
-    if resultPrefs != nil {
-        if resultPrefs == true {
-            print("App-Prefs:// can be opened")
-        } else {
-            print("App-Prefs:// can NOT be opened")
-        }
-    }
     
-    // And the Files app:
-    var resultFiles: Bool?
-    resultFiles = UIApplication.shared.canOpenURL(URL(string: "com.apple.DocumentsApp://")!)
-    if resultFiles != nil {
-        if resultFiles == true {
-            print("Files can be opened")
-        } else {
-            print("Files can NOT be opened")
+    // Examples:
+    // checkAppAvailability(registeredUrl: URL(string: "fb://")!)
+    // checkAppAvailability(registeredUrl: URL(string: "App-Prefs://")!)
+    // checkAppAvailability(registeredUrl: URL(string: "com.apple.DocumentsApp://")!)  // doesn't work
+    
+    var checkResult: Bool?
+    checkResult = UIApplication.shared.canOpenURL(registeredUrl)
+    if checkResult != nil {
+        if checkResult == true {
+            return true
         }
     }
+    return false
 }
 
 

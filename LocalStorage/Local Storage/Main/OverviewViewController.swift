@@ -58,6 +58,8 @@ class OverviewViewController: UIViewController {
     
     @IBAction func onFilesButton(_ sender: UIButton) {self.showFilesApp()}
     
+    @IBAction func onPreferencesButton(_ sender: UIButton) {self.openPreferences()}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         os_log("viewDidLoad", log: logTabOverview, type: .debug)
@@ -192,6 +194,24 @@ class OverviewViewController: UIViewController {
         os_log("showFilesApp", log: logTabOverview, type: .debug)
         
         openAppStore(id: 1232058109)
+    }
+    
+    func openPreferences() {
+        os_log("openPreferences", log: logTabOverview, type: .debug)
+        
+        let prefsStorage: URL = URL(string: "App-Prefs:root=General&path=STORAGE_ICLOUD_USAGE/DEVICE_STORAGE")!
+        let prefsStart: URL = URL(string: "App-Prefs://")!
+        
+        if checkAppAvailability(registeredUrl: prefsStorage) {
+            UIApplication.shared.open(prefsStorage, options: [:], completionHandler: nil)
+        } else {
+            os_log("Preferences/General/Storage can't be opened.", log: logTabOverview, type: .error)
+            if checkAppAvailability(registeredUrl: prefsStart) {
+                UIApplication.shared.open(prefsStart, options: [:], completionHandler: nil)
+            } else {
+                os_log("Preferences can't be opened.", log: logTabOverview, type: .error)
+            }
+        }
     }
     
     @objc func updatePending() {
