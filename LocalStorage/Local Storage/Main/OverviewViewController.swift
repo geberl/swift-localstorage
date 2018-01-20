@@ -47,6 +47,9 @@ class OverviewViewController: UIViewController {
     @IBOutlet weak var fileMgntStackView: UIStackView!
     @IBOutlet weak var reminderLineOneLabel: UILabel!
     @IBOutlet weak var reminderLineTwoLabel: UILabel!
+    @IBOutlet weak var reminderLineThreeLabel: UILabel!
+    @IBOutlet weak var reminderLineFourLabel: UILabel!
+    
     
     @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
     
@@ -146,6 +149,8 @@ class OverviewViewController: UIViewController {
         trashSizeDiskBytesLabel.textColor = fgColor
         reminderLineOneLabel.textColor = fgColor
         reminderLineTwoLabel.textColor = fgColor
+        reminderLineThreeLabel.textColor = fgColor
+        reminderLineFourLabel.textColor = fgColor
     }
     
     func showSettings() {

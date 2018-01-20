@@ -392,7 +392,9 @@
                         <outlet property="localSizeLabel" destination="aR5-XI-0vr" id="uNd-ka-465"/>
                         <outlet property="mainView" destination="VYv-tV-cUt" id="bXf-uJ-GbU"/>
                         <outlet property="refreshButton" destination="rpt-j7-kS9" id="3eK-Am-xLY"/>
+                        <outlet property="reminderLineFourLabel" destination="qQ1-IQ-JUD" id="saw-kp-XHw"/>
                         <outlet property="reminderLineOneLabel" destination="ZB7-6H-8gK" id="yrk-aY-aV9"/>
+                        <outlet property="reminderLineThreeLabel" destination="GU1-OW-aTM" id="lfn-jT-B99"/>
                         <outlet property="reminderLineTwoLabel" destination="eO2-sL-YhY" id="rUP-th-mU8"/>
                         <outlet property="trashFilesLabel" destination="Td0-nA-Ivn" id="dif-Vb-Nmu"/>
                         <outlet property="trashFilesNumberLabel" destination="Nwu-21-zkF" id="HKd-vb-MVj"/>
