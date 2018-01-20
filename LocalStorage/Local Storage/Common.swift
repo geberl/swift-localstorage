@@ -290,3 +290,14 @@ func getStats() {
         }
     }
 }
+
+func getFreeSpace() -> Int64? {
+    // Source: https://stackoverflow.com/questions/26198073/query-available-ios-disk-space-with-swift#26198164
+    
+    let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
+    guard
+        let systemAttributes = try? FileManager.default.attributesOfFileSystem(forPath: documentDirectory),
+        let freeSize = systemAttributes[.systemFreeSize] as? NSNumber
+        else { return nil }
+    return freeSize.int64Value
+}

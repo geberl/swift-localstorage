@@ -86,6 +86,12 @@ class OverviewViewController: UIViewController {
         if AppState.updateInProgress {
             self.updatePending()
         }
+        
+        if let bytes = getFreeSpace() {
+            print("Free space: \(getSizeString(byteCount: bytes))")
+        } else {
+            print("Failed")
+        }
     }
     
     override func didReceiveMemoryWarning() {
