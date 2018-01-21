@@ -14,11 +14,11 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     
     let userDefaults = UserDefaults.standard
     
+    @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
+
     @IBOutlet var mainView: UIView!
     @IBOutlet var chartView: HorizontalBarChartView!
     @IBOutlet var typesTableView: UITableView!
-    
-    @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
 
     @IBOutlet var refreshButton: UIButton!
     @IBAction func onRefreshButton() {self.refresh()}

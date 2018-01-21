@@ -18,29 +18,25 @@ class OverviewViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
     
+    @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
+    
     @IBOutlet var mainView: UIView!
 
     @IBOutlet weak var localFilesLabel: UILabel!
     @IBOutlet weak var localFilesNumberLabel: UILabel!
-    
     @IBOutlet weak var localFoldersLabel: UILabel!
     @IBOutlet weak var localFoldersNumberLabel: UILabel!
-    
     @IBOutlet weak var localSizeLabel: UILabel!
     @IBOutlet weak var localSizeBytesLabel: UILabel!
-    
     @IBOutlet weak var localSizeDiskLabel: UILabel!
     @IBOutlet weak var localSizeDiskBytesLabel: UILabel!
     
     @IBOutlet weak var trashFilesLabel: UILabel!
     @IBOutlet weak var trashFilesNumberLabel: UILabel!
-    
     @IBOutlet weak var trashFoldersLabel: UILabel!
     @IBOutlet weak var trashFoldersNumberLabel: UILabel!
-    
     @IBOutlet weak var trashSizeLabel: UILabel!
     @IBOutlet weak var trashSizeBytesLabel: UILabel!
-    
     @IBOutlet weak var trashSizeDiskLabel: UILabel!
     @IBOutlet weak var trashSizeDiskBytesLabel: UILabel!
     
@@ -49,10 +45,7 @@ class OverviewViewController: UIViewController {
     @IBOutlet weak var reminderLineTwoLabel: UILabel!
     @IBOutlet weak var reminderLineThreeLabel: UILabel!
     @IBOutlet weak var reminderLineFourLabel: UILabel!
-    
-    
-    @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
-    
+
     @IBOutlet var refreshButton: UIButton!
     @IBAction func onRefreshButton() {self.refresh()}
     
@@ -60,7 +53,6 @@ class OverviewViewController: UIViewController {
     @IBAction func onEmptyTrashButton() {self.askEmptyTrash()}
     
     @IBAction func onFilesButton(_ sender: UIButton) {self.showFilesApp()}
-    
     @IBAction func onPreferencesButton(_ sender: UIButton) {self.openPreferences()}
     
     override func viewDidLoad() {
@@ -129,28 +121,30 @@ class OverviewViewController: UIViewController {
         let fgColor: UIColor = UIColor(named: fg)!
         let bgColor: UIColor = UIColor(named: bg)!
         
-        mainView.backgroundColor = bgColor
+        self.mainView.backgroundColor = bgColor
         
-        localFilesLabel.textColor = fgColor
-        localFilesNumberLabel.textColor = fgColor
-        localFoldersLabel.textColor = fgColor
-        localFoldersNumberLabel.textColor = fgColor
-        localSizeLabel.textColor = fgColor
-        localSizeBytesLabel.textColor = fgColor
-        localSizeDiskLabel.textColor = fgColor
-        localSizeDiskBytesLabel.textColor = fgColor
-        trashFilesLabel.textColor = fgColor
-        trashFilesNumberLabel.textColor = fgColor
-        trashFoldersLabel.textColor = fgColor
-        trashFoldersNumberLabel.textColor = fgColor
-        trashSizeLabel.textColor = fgColor
-        trashSizeBytesLabel.textColor = fgColor
-        trashSizeDiskLabel.textColor = fgColor
-        trashSizeDiskBytesLabel.textColor = fgColor
-        reminderLineOneLabel.textColor = fgColor
-        reminderLineTwoLabel.textColor = fgColor
-        reminderLineThreeLabel.textColor = fgColor
-        reminderLineFourLabel.textColor = fgColor
+        self.localFilesLabel.textColor = fgColor
+        self.localFilesNumberLabel.textColor = fgColor
+        self.localFoldersLabel.textColor = fgColor
+        self.localFoldersNumberLabel.textColor = fgColor
+        self.localSizeLabel.textColor = fgColor
+        self.localSizeBytesLabel.textColor = fgColor
+        self.localSizeDiskLabel.textColor = fgColor
+        self.localSizeDiskBytesLabel.textColor = fgColor
+        
+        self.trashFilesLabel.textColor = fgColor
+        self.trashFilesNumberLabel.textColor = fgColor
+        self.trashFoldersLabel.textColor = fgColor
+        self.trashFoldersNumberLabel.textColor = fgColor
+        self.trashSizeLabel.textColor = fgColor
+        self.trashSizeBytesLabel.textColor = fgColor
+        self.trashSizeDiskLabel.textColor = fgColor
+        self.trashSizeDiskBytesLabel.textColor = fgColor
+        
+        self.reminderLineOneLabel.textColor = fgColor
+        self.reminderLineTwoLabel.textColor = fgColor
+        self.reminderLineThreeLabel.textColor = fgColor
+        self.reminderLineFourLabel.textColor = fgColor
     }
     
     func showSettings() {
