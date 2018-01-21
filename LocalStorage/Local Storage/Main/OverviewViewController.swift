@@ -30,6 +30,8 @@ class OverviewViewController: UIViewController {
     @IBOutlet weak var localSizeBytesLabel: UILabel!
     @IBOutlet weak var localSizeDiskLabel: UILabel!
     @IBOutlet weak var localSizeDiskBytesLabel: UILabel!
+    @IBOutlet weak var localSizeFreeLabel: UILabel!
+    @IBOutlet weak var localSizeFreeBytesLabel: UILabel!
     
     @IBOutlet weak var trashFilesLabel: UILabel!
     @IBOutlet weak var trashFilesNumberLabel: UILabel!
@@ -66,12 +68,18 @@ class OverviewViewController: UIViewController {
                                                name: .updatePending, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.updateValues),
-                                               name: .updateFinished, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.updateValues),
                                                name: .updateItemAdded, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.updateValues),
+                                               name: .updateFinished, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.updateFree),
+                                               name: .updateFinished, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.updateValues),
+                                               name: .unitChanged, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.updateFree),
                                                name: .unitChanged, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.showHideAppleFilesReminder),
@@ -82,12 +90,6 @@ class OverviewViewController: UIViewController {
         
         if AppState.updateInProgress {
             self.updatePending()
-        }
-        
-        if let bytes = getFreeSpace() {
-            print("Free space: \(getSizeString(byteCount: bytes))")
-        } else {
-            print("Failed")
         }
     }
     
@@ -131,6 +133,8 @@ class OverviewViewController: UIViewController {
         self.localSizeBytesLabel.textColor = fgColor
         self.localSizeDiskLabel.textColor = fgColor
         self.localSizeDiskBytesLabel.textColor = fgColor
+        self.localSizeFreeLabel.textColor = fgColor
+        self.localSizeFreeBytesLabel.textColor = fgColor
         
         self.trashFilesLabel.textColor = fgColor
         self.trashFilesNumberLabel.textColor = fgColor
@@ -221,6 +225,10 @@ class OverviewViewController: UIViewController {
         self.localSizeBytesLabel.text     = "..."
         self.localSizeDiskBytesLabel.text = "..."
         
+        if let bytes = getFreeSpace() {
+            self.localSizeFreeBytesLabel.text = getSizeString(byteCount: bytes)
+        }
+        
         self.refreshButton.isEnabled = false
         
         self.trashFilesNumberLabel.text   = "..."
@@ -257,4 +265,9 @@ class OverviewViewController: UIViewController {
         }
     }
     
+    @objc func updateFree() {
+        if let bytes = getFreeSpace() {
+            self.localSizeFreeBytesLabel.text = getSizeString(byteCount: bytes)
+        }
+    }
 }

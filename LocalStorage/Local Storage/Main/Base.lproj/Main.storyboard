@@ -57,13 +57,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="498"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="z9r-Hv-j8b" userLabel="Info Items Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="579"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="607.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jtG-Tp-DHa" userLabel="Top Stack View">
                                                 <rect key="frame" x="187.5" y="0.0" width="0.0" height="0.0"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dBm-jg-gsd" userLabel="Local Storage Stack View">
-                                                <rect key="frame" x="89.5" y="20" width="196" height="172"/>
+                                                <rect key="frame" x="89.5" y="20" width="196" height="200.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Storage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwb-KF-Vu0">
                                                         <rect key="frame" x="62" y="0.0" width="72.5" height="20"/>
@@ -142,8 +142,25 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Pu1-kL-CFN" userLabel="Free">
+                                                        <rect key="frame" x="33" y="142" width="130" height="20.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMz-z0-Q9K">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 bytes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXU-DL-Pex">
+                                                                <rect key="frame" x="70.5" y="0.0" width="59.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpt-j7-kS9">
-                                                        <rect key="frame" x="71.5" y="142" width="53" height="30"/>
+                                                        <rect key="frame" x="71.5" y="170.5" width="53" height="30"/>
                                                         <state key="normal" title="Refresh"/>
                                                         <connections>
                                                             <action selector="onRefreshButton" destination="aT3-lK-HbQ" eventType="touchUpInside" id="ukP-PW-cFK"/>
@@ -152,7 +169,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2bd-h7-boZ" userLabel="Trash Stack View">
-                                                <rect key="frame" x="89.5" y="212" width="196" height="172"/>
+                                                <rect key="frame" x="89.5" y="240.5" width="196" height="172"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbN-81-3ws">
                                                         <rect key="frame" x="83.5" y="0.0" width="29.5" height="20"/>
@@ -241,7 +258,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JPO-ha-XN1" userLabel="File Management Stack View">
-                                                <rect key="frame" x="17.5" y="404" width="340.5" height="155"/>
+                                                <rect key="frame" x="17.5" y="432.5" width="340.5" height="155"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File &amp; Storage Management" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83l-Rh-oow">
                                                         <rect key="frame" x="97.5" y="0.0" width="145" height="20"/>
@@ -326,12 +343,12 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Kt8-Ui-PBd" userLabel="Spacer Stack View">
-                                                <rect key="frame" x="187.5" y="579" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="187.5" y="607.5" width="0.0" height="0.0"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PixelBlack" translatesAutoresizingMaskIntoConstraints="NO" id="gii-Ed-Cre">
-                                        <rect key="frame" x="187" y="0.0" width="1" height="584"/>
+                                        <rect key="frame" x="187" y="0.0" width="1" height="612.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="wZh-ZR-Twi"/>
                                         </constraints>
@@ -345,6 +362,7 @@
                                     <constraint firstItem="z9r-Hv-j8b" firstAttribute="leading" secondItem="bGX-gR-Xqv" secondAttribute="leading" id="KX4-NK-h09"/>
                                     <constraint firstItem="hbO-i7-ad8" firstAttribute="trailing" secondItem="gii-Ed-Cre" secondAttribute="trailing" constant="-5" id="OTg-Yd-gdr"/>
                                     <constraint firstItem="z9r-Hv-j8b" firstAttribute="bottom" secondItem="bGX-gR-Xqv" secondAttribute="bottom" constant="-5" id="TZo-6f-WcP"/>
+                                    <constraint firstItem="gii-Ed-Cre" firstAttribute="trailing" secondItem="YMz-z0-Q9K" secondAttribute="trailing" constant="5" id="Tww-CI-0AO"/>
                                     <constraint firstItem="7qS-kl-eO2" firstAttribute="trailing" secondItem="gii-Ed-Cre" secondAttribute="trailing" constant="-5" id="aAN-fx-cAo"/>
                                     <constraint firstItem="aR5-XI-0vr" firstAttribute="trailing" secondItem="gii-Ed-Cre" secondAttribute="trailing" constant="-5" id="bAb-l9-wqy"/>
                                     <constraint firstItem="gii-Ed-Cre" firstAttribute="top" secondItem="bGX-gR-Xqv" secondAttribute="top" id="cPu-2G-w0x"/>
@@ -389,6 +407,8 @@
                         <outlet property="localSizeBytesLabel" destination="2gu-8l-Whs" id="ugj-yG-RyV"/>
                         <outlet property="localSizeDiskBytesLabel" destination="mJh-Ec-rzg" id="Ium-B2-3n1"/>
                         <outlet property="localSizeDiskLabel" destination="NJy-4m-ylU" id="HGK-2O-g5h"/>
+                        <outlet property="localSizeFreeBytesLabel" destination="CXU-DL-Pex" id="rc0-fn-E5K"/>
+                        <outlet property="localSizeFreeLabel" destination="YMz-z0-Q9K" id="ppk-Ex-03r"/>
                         <outlet property="localSizeLabel" destination="aR5-XI-0vr" id="uNd-ka-465"/>
                         <outlet property="mainView" destination="VYv-tV-cUt" id="bXf-uJ-GbU"/>
                         <outlet property="refreshButton" destination="rpt-j7-kS9" id="3eK-Am-xLY"/>
