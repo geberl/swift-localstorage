@@ -62,11 +62,17 @@ class SettingsViewController: UIViewController {
         NotificationCenter.default.post(name: .showHelp, object: nil, userInfo: nil)
     }
     
+    @IBOutlet weak var versionLabel: UILabel!
+    @IBAction func onRateAppButton(_ sender: UIButton) { self.rateApp() }
+    @IBAction func onVisitWebsiteButton(_ sender: UIButton) { self.openProductWebsite() }
+    @IBAction func onPrivacyButton(_ sender: UIButton) { self.openPrivacyWebsite() }
+    @IBOutlet weak var copyrightLabel: UILabel!
     
     override func viewDidLoad() {
         os_log("viewDidLoad", log: logSettings, type: .debug)
         super.viewDidLoad()
         self.loadSettings()
+        self.setFooterData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,5 +101,36 @@ class SettingsViewController: UIViewController {
         self.askEmptyTrashSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.askEmptyTrash), animated: false)
         self.showHelpSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.showHelp), animated: false)
         self.animateUpdateSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh), animated: false)
+    }
+    
+    func setFooterData() {
+        os_log("setFooterData", log: logSettings, type: .debug)
+        
+        if let thisVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            self.versionLabel.text = "Local Storage v" + thisVersion
+        } else {
+            self.versionLabel.text = "Local Storage v?.?.?"
+        }
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        if year > 2018 {
+            self.copyrightLabel.text = "© 2018-" + String(year) + " Günther Eberl Software-Entwicklung"
+        } else {
+            self.copyrightLabel.text = "© 2018 Günther Eberl Software-Entwicklung"
+        }
+    }
+    
+    func rateApp() {
+        os_log("rateApp", log: logSettings, type: .debug)
+    }
+    
+    func openProductWebsite() {
+        os_log("openProductWebsite", log: logSettings, type: .debug)
+    }
+    
+    func openPrivacyWebsite() {
+        os_log("openPrivacyWebsite", log: logSettings, type: .debug)
     }
 }
