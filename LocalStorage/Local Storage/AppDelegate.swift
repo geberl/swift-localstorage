@@ -16,6 +16,7 @@ let logTabOverview = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "
 let logTabTypes = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "tab-types")
 let logTabTypeDetail = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "tab-type-details")
 let logUi = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "ui")
+let logSettings = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "settings")
 
 
 // Global type look up table.
