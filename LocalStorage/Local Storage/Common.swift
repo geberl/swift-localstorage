@@ -76,8 +76,8 @@ func checkAppAvailability(registeredUrl: URL) -> Bool {
     // More: https://www.reddit.com/r/workflow/comments/3mux7h/ios_url_schemes/
     
     // Some stock bundle ids: https://github.com/joeblau/apple-bundle-identifiers
-    // The files app bundle id: com.apple.DocumentsApp
-    // However this is not enough, I would need to access a private API for querying (like Workflow probably does).
+    // The files app bundle id (I know this for sure): com.apple.DocumentsApp
+    // However this is not enough, I would need to access a private API for querying (like Workflow probably does and is allowed to because Apple).
     // Using private APIs leads to Apple not letting you into their App Store.
     
     // URL schemes unclear if case sensitive or in-sensitive, better assume sensitive.
