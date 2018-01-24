@@ -202,19 +202,11 @@ class OverviewViewController: UIViewController {
     func openPreferences() {
         os_log("openPreferences", log: logTabOverview, type: .debug)
         
-        let prefsStorage: URL = URL(string: "App-Prefs:root=General&path=STORAGE_ICLOUD_USAGE/DEVICE_STORAGE")!
-        let prefsStart: URL = URL(string: "App-Prefs://")!
+        // Note: Deep linking (directly to Settings - General - Storage) doesn't work anymore with iOS11.
+        // This is as good as it gets for now (2018-01-24, iOS 11.2.5).
         
-        if checkAppAvailability(registeredUrl: prefsStorage) {
-            UIApplication.shared.open(prefsStorage, options: [:], completionHandler: nil)
-        } else {
-            os_log("Preferences/General/Storage can't be opened.", log: logTabOverview, type: .error)
-            if checkAppAvailability(registeredUrl: prefsStart) {
-                UIApplication.shared.open(prefsStart, options: [:], completionHandler: nil)
-            } else {
-                os_log("Preferences can't be opened.", log: logTabOverview, type: .error)
-            }
-        }
+        let appPrefs: URL = URL(string: UIApplicationOpenSettingsURLString)!
+        UIApplication.shared.open(appPrefs, options: [:], completionHandler: nil)
     }
     
     @objc func updatePending() {
