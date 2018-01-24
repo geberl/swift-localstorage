@@ -125,17 +125,9 @@ class SettingsViewController: UIViewController {
     func rateApp() {
         os_log("rateApp", log: logSettings, type: .debug)
         
-        let appID = "Your App ID on App Store"
-        
-        // (Option 1) Open App Page
+        let appID = "1339306324"
         let urlStr = "itms-apps://itunes.apple.com/app/id\(appID)"
-        // (Option 2) Open App Review Tab
-        // let urlStr = "itms-apps://itunes.apple.com/app/viewContentsUserReviews?id=\(appID)"
-        
         self.openWebsite(url: URL(string: urlStr))
-        
-        // TODO unable to test, since I don't have an appID yet
-        // https://stackoverflow.com/questions/3124080/app-store-link-for-rate-review-this-app
     }
     
     func openProductWebsite() {
