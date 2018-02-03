@@ -171,6 +171,7 @@ struct AppState {
     
     static var documentsPath: String = ""
     static var updateInProgress: Bool = false
+    static var demoContent: Bool = false  // NEVER activate this for a release!
 }
 
 

@@ -157,6 +157,12 @@ func resetStats() {
 
 
 func addToType(name: String, size: Int64, path: String) {
+    // Example path on simulator:
+    // /Users/guenther/Library/Developer/CoreSimulator/Devices/AFBF4126-FA48-4E46-A556-EDF83AE4DFC6/data/Containers/Data/Application/7B60C249-5CE0-4F3C-9D5A-2B6D7E107F71/Documents/IMG_0001.JPG
+    
+    // Example path on device:
+    // /var/mobile/Containers/Data/Application/330D92CC-4B3E-4D00-9EE9-A1A2C583A869/Documents/the-events-calendar.4.6.10.1.zip
+    
     for (n, type_info) in AppState.types.enumerated() {
         if type_info.name == name {
             AppState.types[n].size += size
@@ -170,6 +176,59 @@ func addToType(name: String, size: Int64, path: String) {
 }
 
 
+func fakeStats() {
+    let basePath: String = "/var/mobile/Containers/Data/Application/330D92CC-4B3E-4D00-9EE9-A1A2C583A869/Documents/"
+    let subfolderOne: String = "Sonya Yoncheva - The Verdi Album (2018) [16-48] (FLAC)/"
+    let subfolderTwo: String = "Adaptive Layout"
+    
+    addToType(name: "Audio", size: 1200000, path: basePath + "my_favorite_song.mp3")
+    addToType(name: "Audio", size: 23000000, path: basePath + "Auld Lang Syne.flac")
+    addToType(name: "Audio", size: 31000000, path: basePath + subfolderOne + "01 - Verdi - Il trovatore - Tacea la notte placida ... Di tale amor che dirsi.flac")
+    addToType(name: "Audio", size: 27000000, path: basePath + subfolderOne + "09 - Verdi - Nabucco - Anch'io dischiuso un giorno ... Salgo gia del trono aurato.flac")
+    
+    addToType(name: "Videos", size: 8000000, path: basePath + "music video (lowres).m4v")
+    addToType(name: "Videos", size: 54000000, path: basePath + "Movie Trailer 2018.mkv")
+    addToType(name: "Videos", size: 500000000, path: basePath + "oldschool.avi")
+    addToType(name: "Videos", size: 40000, path: basePath + "oldschool.srt")
+    
+    addToType(name: "Documents", size: 120000000, path: basePath + "manual.pdf")
+    addToType(name: "Documents", size: 800000, path: basePath + "The Bible.mobi")
+    addToType(name: "Documents", size: 16000000, path: basePath + subfolderOne + "digital_booklet.pdf")
+    
+    addToType(name: "Images", size: 800000, path: basePath + subfolderOne + "folder.jpg")
+    addToType(name: "Images", size: 24000000, path: basePath + "DCIM234235.JPG")
+    addToType(name: "Images", size: 24000000, path: basePath + "DCIM234236.JPG")
+    addToType(name: "Images", size: 24000000, path: basePath + "DCIM234237.JPG")
+    addToType(name: "Images", size: 24000000, path: basePath + "DCIM234238.JPG")
+    addToType(name: "Images", size: 24000000, path: basePath + "DCIM234239.JPG")
+    
+    addToType(name: "Code", size: 80000, path: basePath + subfolderOne + "index.html")
+    addToType(name: "Code", size: 35000000, path: basePath + subfolderOne + "data.xml")
+    
+    addToType(name: "Archives", size: 1200000, path: basePath + subfolderTwo + "AdaptiveLayout-01-Materials.zip")
+    addToType(name: "Archives", size: 20000000, path: basePath + subfolderTwo + "AdaptiveLayout-02-Materials.zip")
+    addToType(name: "Archives", size: 18000000, path: basePath + subfolderTwo + "AdaptiveLayout-03-Materials.zip")
+    addToType(name: "Archives", size: 14000000, path: basePath + subfolderTwo + "AdaptiveLayout-04-Materials.zip")
+    addToType(name: "Archives", size: 23000000, path: basePath + subfolderTwo + "AdaptiveLayout-05-Materials.zip")
+    addToType(name: "Archives", size: 17000000, path: basePath + subfolderTwo + "AdaptiveLayout-06-Materials.zip")
+    addToType(name: "Archives", size: 9000000, path: basePath + subfolderTwo + "AdaptiveLayout-07-Materials.zip")
+    
+    addToType(name: "Other", size: 100000000, path: basePath + subfolderTwo + "some_unrecognoized.file")
+    
+    AppState.localFilesNumber = 27
+    AppState.localFoldersNumber = 2
+    AppState.localSizeBytes = 1137000000
+    AppState.localSizeDiskBytes = 1150000000
+    
+    AppState.trashFilesNumber = 4
+    AppState.trashSizeBytes = 500000
+    AppState.trashSizeDiskBytes = 555000
+    
+    AppState.updateInProgress = false
+    NotificationCenter.default.post(name: .updateFinished, object: nil, userInfo: nil)
+}
+
+
 func getStats() {
     os_log("getStats", log: logGeneral, type: .debug)
     
@@ -179,6 +238,12 @@ func getStats() {
     AppState.updateInProgress = true
     resetStats()
     NotificationCenter.default.post(name: .updatePending, object: nil, userInfo: nil)
+    
+    // Use fake content for doing easy, consistent screenshots on all device sizes.
+    if AppState.demoContent {
+        fakeStats()
+        return
+    }
     
     // Actual file system traversing is done asynchronously to not block the UI.
     DispatchQueue.global(qos: .userInitiated).async {
