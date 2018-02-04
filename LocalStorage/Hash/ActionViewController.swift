@@ -8,6 +8,26 @@
 
 import UIKit
 import MobileCoreServices
+import os.log
+import CommonCryptoModule
+
+
+// Logger configuration.
+let logActionExtension = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "action")
+
+
+extension Data {
+    public func md5() -> Data {
+        var digest = Data(count: Int(CC_MD5_DIGEST_LENGTH))
+        _ = digest.withUnsafeMutableBytes { resultBytes in
+            self.withUnsafeBytes { originBytes in
+                CC_MD5(originBytes, CC_LONG(count), resultBytes)
+            }
+        }
+        return digest
+    }
+}
+
 
 class ActionViewController: UIViewController {
 
@@ -30,19 +50,26 @@ class ActionViewController: UIViewController {
     }
     
     func hashItem (coding: NSSecureCoding?, error: Error!) {
-        print("hashItem")
-        
-        if coding != nil {
-            print(coding!)
-            
-            if let url = coding as? URL {
-                print(url)
-                print(url.path)
-            }
-        }
+        os_log("hashItem", log: logActionExtension, type: .debug)
         
         if error != nil {
-            print(error)
+            os_log("%@", log: logActionExtension, type: .error, error.localizedDescription)
+        }
+        
+        if coding != nil {
+            if let url = coding as? URL {
+                var fileData: Data
+                do {
+                    fileData = try Data(contentsOf: url)
+                    
+                    let fileMd5Data: Data = fileData.md5()
+                    let hexDigest = fileMd5Data.map { String(format: "%02hhx", $0) }.joined()
+                    print(hexDigest)
+                    
+                } catch let error {
+                    os_log("%@", log: logActionExtension, type: .error, error.localizedDescription)
+                }
+            }
         }
     }
 

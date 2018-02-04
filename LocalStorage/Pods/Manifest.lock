@@ -1,14 +1,17 @@
 PODS:
-  - Charts (3.0.4):
-    - Charts/Core (= 3.0.4)
-  - Charts/Core (3.0.4)
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
+  - CommonCryptoModule (1.0.2)
 
 DEPENDENCIES:
   - Charts
+  - CommonCryptoModule
 
 SPEC CHECKSUMS:
-  Charts: 0705898046257443f0afbbc3179f4b67507b6e48
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
+  CommonCryptoModule: 63a68b57abed79655b3a01011419bf037a05b0a0
 
-PODFILE CHECKSUM: eed128b8d988418dd7f8b6df6a563a37d8b43019
+PODFILE CHECKSUM: 6e53db9b5dd377dd76515fdbb192a14fbc1b2531
 
 COCOAPODS: 1.3.1

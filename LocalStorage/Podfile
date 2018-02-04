@@ -5,3 +5,7 @@ target 'localstorage' do
   pod 'Charts'
   #pod 'SSZipArchive'
 end
+
+target 'Hash' do
+    pod 'CommonCryptoModule'
+end
