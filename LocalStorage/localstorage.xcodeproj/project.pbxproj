@@ -20,7 +20,7 @@
 		A482821920025FC200DC2131 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482821820025FC200DC2131 /* Prefs.swift */; };
 		A48EFC43200F86AE0084B0D5 /* TypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48EFC42200F86AE0084B0D5 /* TypeDetailViewController.swift */; };
 		A49C0DD01FFE66BB006BE494 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */; };
-		A4D856342026F8F700166316 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D856332026F8F700166316 /* ActionViewController.swift */; };
+		A4D856342026F8F700166316 /* HashActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D856332026F8F700166316 /* HashActionViewController.swift */; };
 		A4D856372026F8F700166316 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D856352026F8F700166316 /* MainInterface.storyboard */; };
 		A4D8563B2026F8F700166316 /* Hash.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A4D856312026F8F700166316 /* Hash.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C2A70CD4828C1F21F8284DE0 /* Pods_localstorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CA65CD16296590B7A8EB6E /* Pods_localstorage.framework */; };
@@ -70,7 +70,7 @@
 		A48EFC42200F86AE0084B0D5 /* TypeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDetailViewController.swift; sourceTree = "<group>"; };
 		A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		A4D856312026F8F700166316 /* Hash.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Hash.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4D856332026F8F700166316 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		A4D856332026F8F700166316 /* HashActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashActionViewController.swift; sourceTree = "<group>"; };
 		A4D856362026F8F700166316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		A4D856382026F8F700166316 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CACE514122A426F15A2F3133 /* Pods-localstorage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-localstorage.release.xcconfig"; path = "Pods/Target Support Files/Pods-localstorage/Pods-localstorage.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		A4D856322026F8F700166316 /* Hash */ = {
 			isa = PBXGroup;
 			children = (
-				A4D856332026F8F700166316 /* ActionViewController.swift */,
+				A4D856332026F8F700166316 /* HashActionViewController.swift */,
 				A4D856352026F8F700166316 /* MainInterface.storyboard */,
 				A4D856382026F8F700166316 /* Info.plist */,
 			);
@@ -414,7 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4D856342026F8F700166316 /* ActionViewController.swift in Sources */,
+				A4D856342026F8F700166316 /* HashActionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
