@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A40273412000DD3900F84EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E7A1FFA915D00CBE189 /* Assets.xcassets */; };
 		A40D444A200248EF00A14AD1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40D4449200248EF00A14AD1 /* SettingsViewController.swift */; };
 		A418AC7E2000092000E3EAF1 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418AC7D2000092000E3EAF1 /* Common.swift */; };
 		A41B484D20028430005A9161 /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41B484C20028430005A9161 /* TypesViewController.swift */; };
@@ -20,6 +19,8 @@
 		A482821920025FC200DC2131 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482821820025FC200DC2131 /* Prefs.swift */; };
 		A48EFC43200F86AE0084B0D5 /* TypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48EFC42200F86AE0084B0D5 /* TypeDetailViewController.swift */; };
 		A49C0DD01FFE66BB006BE494 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */; };
+		A4A9E1252028A46B00146E4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E7A1FFA915D00CBE189 /* Assets.xcassets */; };
+		A4A9E1262028A63D00146E4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E7A1FFA915D00CBE189 /* Assets.xcassets */; };
 		A4D856342026F8F700166316 /* HashActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D856332026F8F700166316 /* HashActionViewController.swift */; };
 		A4D856372026F8F700166316 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D856352026F8F700166316 /* MainInterface.storyboard */; };
 		A4D8563B2026F8F700166316 /* Hash.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A4D856312026F8F700166316 /* Hash.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -289,7 +290,7 @@
 			files = (
 				A44E4E7E1FFA915D00CBE189 /* LaunchScreen.storyboard in Resources */,
 				A44E4E791FFA915D00CBE189 /* Main.storyboard in Resources */,
-				A40273412000DD3900F84EFA /* Assets.xcassets in Resources */,
+				A4A9E1252028A46B00146E4B /* Assets.xcassets in Resources */,
 				A49C0DD01FFE66BB006BE494 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A9E1262028A63D00146E4B /* Assets.xcassets in Resources */,
 				A4D856372026F8F700166316 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,11 +605,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 43CC08BD8E0660F30906539E /* Pods-Hash.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = HashActionExtIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QEZ83PUW72;
 				INFOPLIST_FILE = Hash/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = se.eberl.localstorage.Hash;
+				PRODUCT_BUNDLE_IDENTIFIER = se.eberl.localstorage.hash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -619,11 +623,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D869EBF50C8D622D903F3BF8 /* Pods-Hash.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = HashActionExtIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QEZ83PUW72;
 				INFOPLIST_FILE = Hash/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = se.eberl.localstorage.Hash;
+				PRODUCT_BUNDLE_IDENTIFIER = se.eberl.localstorage.hash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
