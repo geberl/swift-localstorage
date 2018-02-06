@@ -177,7 +177,7 @@ func addToType(name: String, size: Int64, path: String) {
 
 
 func fakeStats() {
-    let basePath: String = "/var/mobile/Containers/Data/Application/330D92CC-4B3E-4D00-9EE9-A1A2C583A869/Documents/"
+    let basePath: String = AppState.documentsPath + "/"
     let subfolderOne: String = "Sonya Yoncheva - The Verdi Album (2018) [16-48] (FLAC)/"
     let subfolderTwo: String = "Adaptive Layout"
     
