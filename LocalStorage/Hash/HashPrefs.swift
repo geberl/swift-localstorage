@@ -12,7 +12,7 @@ import os.log
 
 struct UserDefaultStruct {
     static var hashFunction: String = "hashFunction"
-    static var hashFunctionDefault: String = "MD5"  // CRC32 | MD5
+    static var hashFunctionDefault: String = "MD5"  // CRC32 | MD5 | SHA256
 }
 
 

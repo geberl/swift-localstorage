@@ -26,6 +26,16 @@ extension Data {
         }
         return digest
     }
+    
+    public func sha256() -> Data {
+        var digest = Data(count: Int(CC_SHA256_DIGEST_LENGTH))
+        _ = digest.withUnsafeMutableBytes { resultBytes in
+            self.withUnsafeBytes { originBytes in
+                CC_SHA256(originBytes, CC_LONG(count), resultBytes)
+            }
+        }
+        return digest
+    }
 }
 
 
@@ -41,13 +51,16 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var copyButton: UIButton!
     @IBAction func onCopyButton(_ sender: UIButton) { self.copyHash() }
     
-    var hashFunction: String?
+    let userDefaults = UserDefaults.standard
     var fileData: Data?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.loadSettings()
+        ensureUserDefaults()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(HashActionViewController.reloadHashFunction),
+                                               name: .hashFunctionChanged, object: nil)
     
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
             for provider in item.attachments! as! [NSItemProvider] {
@@ -77,12 +90,6 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func loadSettings() {
-        ensureUserDefaults()
-        let userDefaults = UserDefaults.standard
-        self.hashFunction = userDefaults.string(forKey: UserDefaultStruct.hashFunction)!
-    }
-    
     func loadFile(coding: NSSecureCoding?, error: Error!) {
         os_log("loadFile", log: logHashActionExtension, type: .debug)
         
@@ -110,12 +117,18 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if self.fileData != nil {
             
+            let hashFunction: String = userDefaults.string(forKey: UserDefaultStruct.hashFunction)!
             var hashDigest: String
             
-            if self.hashFunction == "MD5" {
+            if hashFunction == "MD5" {
                 let md5Data: Data = self.fileData!.md5()
                 hashDigest = md5Data.map { String(format: "%02hhx", $0) }.joined()
-            } else if self.hashFunction == "CRC32" {
+                
+            } else if hashFunction == "SHA256" {
+                let sha256Data: Data = self.fileData!.sha256()
+                hashDigest = sha256Data.map { String(format: "%02hhx", $0) }.joined()
+                
+            } else if hashFunction == "CRC32" {
                 let crcObj = CRC32(data: self.fileData!)
                 let crcDecimal: UInt32 = crcObj.crc
                 var crcHex: String = String(crcDecimal, radix: 16)
@@ -123,6 +136,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
                     crcHex = "0" + crcHex
                 }
                 hashDigest = crcHex
+                
             } else {
                 self.digestTextField.text = "Error: Undefined hash function"
                 self.copyButton.isEnabled = false
@@ -144,25 +158,31 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
         pasteBoard.string = self.digestTextField.text
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    @objc func reloadHashFunction() {
+        os_log("reloadHashFunction", log: logHashActionExtension, type: .debug)
+        self.digestTextField.text = ""
+        self.copyButton.isEnabled = false
+        self.settingsTableView.reloadData()
     }
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let functionCell = tableView.dequeueReusableCell(withIdentifier: "protoCell")!
+        functionCell.textLabel?.text = "Hash function"
+        functionCell.detailTextLabel?.text = userDefaults.string(forKey: UserDefaultStruct.hashFunction)!
+        return functionCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     @IBAction func done() {
         // Return any edited content to the host app.
         // Since we don't do anything to the file, we just echo the passed in items.
         self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
     }
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let functionCell = tableView.dequeueReusableCell(withIdentifier: "protoCell")!
-        functionCell.textLabel?.text = "Hash function"
-        functionCell.detailTextLabel?.text = self.hashFunction!
-        return functionCell
-    }
-
 }

@@ -21,6 +21,8 @@
 		A49C0DD01FFE66BB006BE494 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */; };
 		A4A9E1252028A46B00146E4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E7A1FFA915D00CBE189 /* Assets.xcassets */; };
 		A4A9E1262028A63D00146E4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E7A1FFA915D00CBE189 /* Assets.xcassets */; };
+		A4B438192029AC6C0053CF54 /* HashFunctionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B438182029AC6C0053CF54 /* HashFunctionDetailViewController.swift */; };
+		A4B4381B2029C4E00053CF54 /* HashNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B4381A2029C4E00053CF54 /* HashNotifications.swift */; };
 		A4D856342026F8F700166316 /* HashActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D856332026F8F700166316 /* HashActionViewController.swift */; };
 		A4D856372026F8F700166316 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D856352026F8F700166316 /* MainInterface.storyboard */; };
 		A4D8563B2026F8F700166316 /* Hash.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A4D856312026F8F700166316 /* Hash.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -72,6 +74,8 @@
 		A482821820025FC200DC2131 /* Prefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
 		A48EFC42200F86AE0084B0D5 /* TypeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDetailViewController.swift; sourceTree = "<group>"; };
 		A49C0DCF1FFE66BB006BE494 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		A4B438182029AC6C0053CF54 /* HashFunctionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HashFunctionDetailViewController.swift; path = Hash/HashFunctionDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		A4B4381A2029C4E00053CF54 /* HashNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashNotifications.swift; sourceTree = "<group>"; };
 		A4D856312026F8F700166316 /* Hash.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Hash.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D856332026F8F700166316 /* HashActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashActionViewController.swift; sourceTree = "<group>"; };
 		A4D856362026F8F700166316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -182,9 +186,11 @@
 			isa = PBXGroup;
 			children = (
 				A4EB420B202992CC0020D347 /* Crc32.swift */,
-				A4D856332026F8F700166316 /* HashActionViewController.swift */,
+				A4B4381A2029C4E00053CF54 /* HashNotifications.swift */,
 				A4EB420E2029A22A0020D347 /* HashPrefs.swift */,
 				A4D856352026F8F700166316 /* MainInterface.storyboard */,
+				A4D856332026F8F700166316 /* HashActionViewController.swift */,
+				A4B438182029AC6C0053CF54 /* HashFunctionDetailViewController.swift */,
 				A4D856382026F8F700166316 /* Info.plist */,
 			);
 			path = Hash;
@@ -423,7 +429,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4D856342026F8F700166316 /* HashActionViewController.swift in Sources */,
+				A4B438192029AC6C0053CF54 /* HashFunctionDetailViewController.swift in Sources */,
 				A4EB420F2029A22A0020D347 /* HashPrefs.swift in Sources */,
+				A4B4381B2029C4E00053CF54 /* HashNotifications.swift in Sources */,
 				A4EB420C202992CC0020D347 /* Crc32.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
