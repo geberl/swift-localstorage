@@ -17,6 +17,26 @@ let logHashActionExtension = OSLog(subsystem: Bundle.main.bundleIdentifier!, cat
 
 
 extension Data {
+    public func md2() -> Data {
+        var digest = Data(count: Int(CC_MD2_DIGEST_LENGTH))
+        _ = digest.withUnsafeMutableBytes { resultBytes in
+            self.withUnsafeBytes { originBytes in
+                CC_MD2(originBytes, CC_LONG(count), resultBytes)
+            }
+        }
+        return digest
+    }
+    
+    public func md4() -> Data {
+        var digest = Data(count: Int(CC_MD4_DIGEST_LENGTH))
+        _ = digest.withUnsafeMutableBytes { resultBytes in
+            self.withUnsafeBytes { originBytes in
+                CC_MD4(originBytes, CC_LONG(count), resultBytes)
+            }
+        }
+        return digest
+    }
+    
     public func md5() -> Data {
         var digest = Data(count: Int(CC_MD5_DIGEST_LENGTH))
         _ = digest.withUnsafeMutableBytes { resultBytes in
@@ -27,11 +47,51 @@ extension Data {
         return digest
     }
     
+    public func sha1() -> Data {
+        var digest = Data(count: Int(CC_SHA1_DIGEST_LENGTH))
+        _ = digest.withUnsafeMutableBytes { resultBytes in
+            self.withUnsafeBytes { originBytes in
+                CC_SHA1(originBytes, CC_LONG(count), resultBytes)
+            }
+        }
+        return digest
+    }
+    
+    public func sha224() -> Data {
+        var digest = Data(count: Int(CC_SHA224_DIGEST_LENGTH))
+        _ = digest.withUnsafeMutableBytes { resultBytes in
+            self.withUnsafeBytes { originBytes in
+                CC_SHA224(originBytes, CC_LONG(count), resultBytes)
+            }
+        }
+        return digest
+    }
+    
     public func sha256() -> Data {
         var digest = Data(count: Int(CC_SHA256_DIGEST_LENGTH))
         _ = digest.withUnsafeMutableBytes { resultBytes in
             self.withUnsafeBytes { originBytes in
                 CC_SHA256(originBytes, CC_LONG(count), resultBytes)
+            }
+        }
+        return digest
+    }
+    
+    public func sha384() -> Data {
+        var digest = Data(count: Int(CC_SHA384_DIGEST_LENGTH))
+        _ = digest.withUnsafeMutableBytes { resultBytes in
+            self.withUnsafeBytes { originBytes in
+                CC_SHA384(originBytes, CC_LONG(count), resultBytes)
+            }
+        }
+        return digest
+    }
+    
+    public func sha512() -> Data {
+        var digest = Data(count: Int(CC_SHA512_DIGEST_LENGTH))
+        _ = digest.withUnsafeMutableBytes { resultBytes in
+            self.withUnsafeBytes { originBytes in
+                CC_SHA512(originBytes, CC_LONG(count), resultBytes)
             }
         }
         return digest
@@ -56,6 +116,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        os_log("viewDidLoad", log: logHashActionExtension, type: .debug)
         
         ensureUserDefaults()
         
@@ -120,15 +181,8 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
             let hashFunction: String = userDefaults.string(forKey: UserDefaultStruct.hashFunction)!
             var hashDigest: String
             
-            if hashFunction == "MD5" {
-                let md5Data: Data = self.fileData!.md5()
-                hashDigest = md5Data.map { String(format: "%02hhx", $0) }.joined()
+            if hashFunction == "CRC32" {
                 
-            } else if hashFunction == "SHA256" {
-                let sha256Data: Data = self.fileData!.sha256()
-                hashDigest = sha256Data.map { String(format: "%02hhx", $0) }.joined()
-                
-            } else if hashFunction == "CRC32" {
                 let crcObj = CRC32(data: self.fileData!)
                 let crcDecimal: UInt32 = crcObj.crc
                 var crcHex: String = String(crcDecimal, radix: 16)
@@ -136,6 +190,38 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
                     crcHex = "0" + crcHex
                 }
                 hashDigest = crcHex
+            
+            } else if hashFunction == "MD2" {
+                let md2Data: Data = self.fileData!.md2()
+                hashDigest = md2Data.map { String(format: "%02hhx", $0) }.joined()
+                
+            } else if hashFunction == "MD4" {
+                let md4Data: Data = self.fileData!.md4()
+                hashDigest = md4Data.map { String(format: "%02hhx", $0) }.joined()
+                
+            } else if hashFunction == "MD5" {
+                let md5Data: Data = self.fileData!.md5()
+                hashDigest = md5Data.map { String(format: "%02hhx", $0) }.joined()
+                
+            } else if hashFunction == "SHA1" {
+                let sha1Data: Data = self.fileData!.sha1()
+                hashDigest = sha1Data.map { String(format: "%02hhx", $0) }.joined()
+                
+            } else if hashFunction == "SHA224" {
+                let sha224Data: Data = self.fileData!.sha224()
+                hashDigest = sha224Data.map { String(format: "%02hhx", $0) }.joined()
+                
+            } else if hashFunction == "SHA256" {
+                let sha256Data: Data = self.fileData!.sha256()
+                hashDigest = sha256Data.map { String(format: "%02hhx", $0) }.joined()
+            
+            } else if hashFunction == "SHA384" {
+                let sha384Data: Data = self.fileData!.sha384()
+                hashDigest = sha384Data.map { String(format: "%02hhx", $0) }.joined()
+                
+            } else if hashFunction == "SHA512" {
+                let sha512Data: Data = self.fileData!.sha512()
+                hashDigest = sha512Data.map { String(format: "%02hhx", $0) }.joined()
                 
             } else {
                 self.digestTextView.text = "Error: Undefined hash function"
@@ -152,25 +238,27 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func addLineBreaks(input: String) -> String {
-        var result: String = ""
+        os_log("addLineBreaks", log: logHashActionExtension, type: .debug)
         
+        var output: String = ""
         for (n, char) in input.enumerated() {
             if n > 0 {
                 if n % 16 == 0 {
-                    result += "\n"
+                    output += "\n"
                 } else if n % 4 == 0 {
-                    result += " "
+                    output += " "
                 }
             }
-            result += String(char)
+            output += String(char)
         }
-        
-        return result
+        return output
     }
     
     func removeLineBreaks(input: String) -> String {
-        var output: String
-        output = input.replacingOccurrences(of: " ", with: "")
+        os_log("removeLineBreaks", log: logHashActionExtension, type: .debug)
+        
+        var output: String = input
+        output = output.replacingOccurrences(of: " ", with: "")
         output = output.replacingOccurrences(of: "\n", with: "")
         return output
     }
@@ -184,6 +272,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @objc func reloadHashFunction() {
         os_log("reloadHashFunction", log: logHashActionExtension, type: .debug)
+        
         self.digestTextView.text = ""
         self.copyButton.isEnabled = false
         self.settingsTableView.reloadData()

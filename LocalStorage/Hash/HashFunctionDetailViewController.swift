@@ -14,8 +14,14 @@ class HashFunctionDetailViewController: UITableViewController {
     let userDefaults = UserDefaults.standard
     let hashFunctions = [
         0: ["name": "CRC32", "desc": "32 bits, Cyclic Redundancy Check"],
-        1: ["name": "MD5", "desc": "128 bits, Merkle–Damgård construction"],
-        2: ["name": "SHA256", "desc": "256 bits, Merkle–Damgård construction"]
+        1: ["name": "MD2", "desc": "128 bits, Merkle–Damgård construction"],
+        2: ["name": "MD4", "desc": "128 bits, Merkle–Damgård construction"],
+        3: ["name": "MD5", "desc": "128 bits, Merkle–Damgård construction"],
+        4: ["name": "SHA1", "desc": "160 bits, Merkle–Damgård construction"],
+        5: ["name": "SHA224", "desc": "224 bits, Merkle–Damgård construction"],
+        6: ["name": "SHA256", "desc": "256 bits, Merkle–Damgård construction"],
+        7: ["name": "SHA384", "desc": "384 bits, Merkle–Damgård construction"],
+        8: ["name": "SHA512", "desc": "512 bits, Merkle–Damgård construction"]
     ]
     var selectedFunctionName: String = UserDefaultStruct.hashFunctionDefault
     
