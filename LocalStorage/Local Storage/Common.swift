@@ -292,8 +292,7 @@ func getStats() {
                     addToType(name: "Other", size: fileSize, path: elementURL.path)
                     if !TypesLookup.other.contains(fileType) {
                         if !fileType.starts(with: "dyn.") {
-                            print(" Type identifier unknown for '" + fileType + "'")
-                            print("  " + elementURL.path)
+                            os_log("Type identifier %@ uncategorized for '%@'", log: logGeneral, type: .info, fileType, elementURL.path)
                         }
                     }
                 }
