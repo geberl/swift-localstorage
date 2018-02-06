@@ -24,6 +24,8 @@
 		A4D856342026F8F700166316 /* HashActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D856332026F8F700166316 /* HashActionViewController.swift */; };
 		A4D856372026F8F700166316 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D856352026F8F700166316 /* MainInterface.storyboard */; };
 		A4D8563B2026F8F700166316 /* Hash.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A4D856312026F8F700166316 /* Hash.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A4EB420C202992CC0020D347 /* Crc32.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EB420B202992CC0020D347 /* Crc32.swift */; };
+		A4EB420F2029A22A0020D347 /* HashPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EB420E2029A22A0020D347 /* HashPrefs.swift */; };
 		C2A70CD4828C1F21F8284DE0 /* Pods_localstorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CA65CD16296590B7A8EB6E /* Pods_localstorage.framework */; };
 		E929BF3DBC31A6D0BDAD1A3C /* Pods_Hash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9012EE8990E6C56E2972487C /* Pods_Hash.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,8 @@
 		A4D856332026F8F700166316 /* HashActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashActionViewController.swift; sourceTree = "<group>"; };
 		A4D856362026F8F700166316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		A4D856382026F8F700166316 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4EB420B202992CC0020D347 /* Crc32.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crc32.swift; sourceTree = "<group>"; };
+		A4EB420E2029A22A0020D347 /* HashPrefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashPrefs.swift; sourceTree = "<group>"; };
 		CACE514122A426F15A2F3133 /* Pods-localstorage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-localstorage.release.xcconfig"; path = "Pods/Target Support Files/Pods-localstorage/Pods-localstorage.release.xcconfig"; sourceTree = "<group>"; };
 		D869EBF50C8D622D903F3BF8 /* Pods-Hash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hash.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hash/Pods-Hash.release.xcconfig"; sourceTree = "<group>"; };
 		E3CA65CD16296590B7A8EB6E /* Pods_localstorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_localstorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,7 +181,9 @@
 		A4D856322026F8F700166316 /* Hash */ = {
 			isa = PBXGroup;
 			children = (
+				A4EB420B202992CC0020D347 /* Crc32.swift */,
 				A4D856332026F8F700166316 /* HashActionViewController.swift */,
+				A4EB420E2029A22A0020D347 /* HashPrefs.swift */,
 				A4D856352026F8F700166316 /* MainInterface.storyboard */,
 				A4D856382026F8F700166316 /* Info.plist */,
 			);
@@ -417,6 +423,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4D856342026F8F700166316 /* HashActionViewController.swift in Sources */,
+				A4EB420F2029A22A0020D347 /* HashPrefs.swift in Sources */,
+				A4EB420C202992CC0020D347 /* Crc32.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

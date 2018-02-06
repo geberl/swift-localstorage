@@ -13,7 +13,7 @@ import CommonCryptoModule
 
 
 // Logger configuration.
-let logActionExtension = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "action")
+let logHashActionExtension = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "hash-action")
 
 
 extension Data {
@@ -41,10 +41,13 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var copyButton: UIButton!
     @IBAction func onCopyButton(_ sender: UIButton) { self.copyHash() }
     
+    var hashFunction: String?
     var fileData: Data?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.loadSettings()
     
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
             for provider in item.attachments! as! [NSItemProvider] {
@@ -74,11 +77,17 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    func loadSettings() {
+        ensureUserDefaults()
+        let userDefaults = UserDefaults.standard
+        self.hashFunction = userDefaults.string(forKey: UserDefaultStruct.hashFunction)!
+    }
+    
     func loadFile(coding: NSSecureCoding?, error: Error!) {
-        os_log("loadFile", log: logActionExtension, type: .debug)
+        os_log("loadFile", log: logHashActionExtension, type: .debug)
         
         if error != nil {
-            os_log("%@", log: logActionExtension, type: .error, error.localizedDescription)
+            os_log("%@", log: logHashActionExtension, type: .error, error.localizedDescription)
             self.digestTextField.text = "Error: Unable to load file"
             return
         }
@@ -88,7 +97,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
                 do {
                     self.fileData = try Data(contentsOf: url)
                 } catch let error {
-                    os_log("%@", log: logActionExtension, type: .error, error.localizedDescription)
+                    os_log("%@", log: logHashActionExtension, type: .error, error.localizedDescription)
                     self.calculateButton.isEnabled = false
                     self.digestTextField.text = "Error: Unable to load file"
                 }
@@ -97,11 +106,30 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func hashFile() {
-        os_log("hashFile", log: logActionExtension, type: .debug)
+        os_log("hashFile", log: logHashActionExtension, type: .debug)
         
         if self.fileData != nil {
-            let fileMd5Data: Data = self.fileData!.md5()
-            self.digestTextField.text = fileMd5Data.map { String(format: "%02hhx", $0) }.joined()
+            
+            var hashDigest: String
+            
+            if self.hashFunction == "MD5" {
+                let md5Data: Data = self.fileData!.md5()
+                hashDigest = md5Data.map { String(format: "%02hhx", $0) }.joined()
+            } else if self.hashFunction == "CRC32" {
+                let crcObj = CRC32(data: self.fileData!)
+                let crcDecimal: UInt32 = crcObj.crc
+                var crcHex: String = String(crcDecimal, radix: 16)
+                while crcHex.count < 8 {
+                    crcHex = "0" + crcHex
+                }
+                hashDigest = crcHex
+            } else {
+                self.digestTextField.text = "Error: Undefined hash function"
+                self.copyButton.isEnabled = false
+                return
+            }
+
+            self.digestTextField.text = hashDigest
             self.copyButton.isEnabled = true
         } else {
             self.digestTextField.text = "Error: Unable to hash file"
@@ -110,7 +138,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func copyHash() {
-        os_log("copyHash", log: logActionExtension, type: .debug)
+        os_log("copyHash", log: logHashActionExtension, type: .debug)
         
         let pasteBoard = UIPasteboard.general
         pasteBoard.string = self.digestTextField.text
@@ -133,7 +161,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let functionCell = tableView.dequeueReusableCell(withIdentifier: "protoCell")!
         functionCell.textLabel?.text = "Hash function"
-        functionCell.detailTextLabel?.text = "MD5"
+        functionCell.detailTextLabel?.text = self.hashFunction!
         return functionCell
     }
 
