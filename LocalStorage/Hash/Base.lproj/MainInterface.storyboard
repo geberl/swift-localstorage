@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6o9-sv-RdG">
-                                <rect key="frame" x="16" y="151" width="288" height="30"/>
+                                <rect key="frame" x="16" y="130" width="288" height="30"/>
                                 <state key="normal" title="Calculate"/>
                                 <connections>
                                     <action selector="onCalculateButton:" destination="rjz-El-LwC" eventType="touchUpInside" id="jhW-di-Fcv"/>
@@ -69,37 +69,45 @@
                                     <outlet property="delegate" destination="rjz-El-LwC" id="jmt-No-pc5"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mEy-mx-hGC">
-                                <rect key="frame" x="16" y="197" width="288" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="GzF-Ol-LtC"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4J-ZM-bjK">
-                                <rect key="frame" x="16" y="313" width="288" height="30"/>
+                                <rect key="frame" x="16" y="482" width="288" height="30"/>
                                 <state key="normal" title="Copy"/>
                                 <connections>
                                     <action selector="onCopyButton:" destination="rjz-El-LwC" eventType="touchUpInside" id="G9n-8z-bFH"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fp6-FA-wsN">
+                                <rect key="frame" x="16" y="176" width="288" height="290"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxO-uG-GaY" userLabel="Digest Text View">
+                                <rect key="frame" x="16" y="176" width="288" height="290"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yh5-md-WqH" firstAttribute="trailing" secondItem="bof-J2-3Mh" secondAttribute="trailing" constant="16" id="0Yo-HI-8bl"/>
-                            <constraint firstItem="mEy-mx-hGC" firstAttribute="top" secondItem="6o9-sv-RdG" secondAttribute="bottom" constant="16" id="0h5-YE-SBv"/>
+                            <constraint firstItem="fp6-FA-wsN" firstAttribute="width" secondItem="ZxO-uG-GaY" secondAttribute="width" id="1pV-td-h3o"/>
                             <constraint firstItem="yh5-md-WqH" firstAttribute="trailing" secondItem="6o9-sv-RdG" secondAttribute="trailing" constant="16" id="IRf-TP-lF3"/>
+                            <constraint firstItem="fp6-FA-wsN" firstAttribute="height" secondItem="ZxO-uG-GaY" secondAttribute="height" id="Iua-fK-Jqj"/>
                             <constraint firstItem="yh5-md-WqH" firstAttribute="trailing" secondItem="P4J-ZM-bjK" secondAttribute="trailing" constant="16" id="OdF-iW-1cw"/>
-                            <constraint firstItem="mEy-mx-hGC" firstAttribute="leading" secondItem="yh5-md-WqH" secondAttribute="leading" constant="16" id="Onn-nv-qR7"/>
+                            <constraint firstItem="P4J-ZM-bjK" firstAttribute="top" secondItem="ZxO-uG-GaY" secondAttribute="bottom" constant="16" id="P4f-OW-9Yo"/>
                             <constraint firstItem="bof-J2-3Mh" firstAttribute="leading" secondItem="yh5-md-WqH" secondAttribute="leading" constant="16" id="Qdx-0L-tmX"/>
-                            <constraint firstItem="yh5-md-WqH" firstAttribute="trailing" secondItem="mEy-mx-hGC" secondAttribute="trailing" constant="16" id="Y11-OO-ZEg"/>
-                            <constraint firstItem="6o9-sv-RdG" firstAttribute="top" secondItem="bof-J2-3Mh" secondAttribute="bottom" constant="37" id="cGK-u2-Pny"/>
+                            <constraint firstItem="ZxO-uG-GaY" firstAttribute="top" secondItem="6o9-sv-RdG" secondAttribute="bottom" constant="16" id="VbR-oZ-XA8"/>
+                            <constraint firstItem="6o9-sv-RdG" firstAttribute="top" secondItem="bof-J2-3Mh" secondAttribute="bottom" constant="16" id="cGK-u2-Pny"/>
                             <constraint firstItem="bof-J2-3Mh" firstAttribute="top" secondItem="yh5-md-WqH" secondAttribute="top" constant="8" id="g3q-kT-0jg"/>
+                            <constraint firstItem="fp6-FA-wsN" firstAttribute="centerY" secondItem="ZxO-uG-GaY" secondAttribute="centerY" id="gS8-0V-CK6"/>
                             <constraint firstItem="P4J-ZM-bjK" firstAttribute="leading" secondItem="yh5-md-WqH" secondAttribute="leading" constant="16" id="mtp-fk-NEo"/>
-                            <constraint firstItem="P4J-ZM-bjK" firstAttribute="top" secondItem="mEy-mx-hGC" secondAttribute="bottom" constant="16" id="v4a-lk-SaG"/>
+                            <constraint firstItem="ZxO-uG-GaY" firstAttribute="leading" secondItem="yh5-md-WqH" secondAttribute="leading" constant="16" id="ouh-3h-Ehv"/>
                             <constraint firstItem="6o9-sv-RdG" firstAttribute="leading" secondItem="yh5-md-WqH" secondAttribute="leading" constant="16" id="x2a-k2-4RU"/>
+                            <constraint firstItem="fp6-FA-wsN" firstAttribute="centerX" secondItem="ZxO-uG-GaY" secondAttribute="centerX" id="xzR-cq-SAm"/>
+                            <constraint firstItem="yh5-md-WqH" firstAttribute="trailing" secondItem="ZxO-uG-GaY" secondAttribute="trailing" constant="16" id="z11-xF-8pn"/>
+                            <constraint firstItem="yh5-md-WqH" firstAttribute="bottom" secondItem="P4J-ZM-bjK" secondAttribute="bottom" constant="16" id="z8g-uE-grQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yh5-md-WqH"/>
                     </view>
@@ -115,7 +123,7 @@
                     <connections>
                         <outlet property="calculateButton" destination="6o9-sv-RdG" id="Che-Wh-eAw"/>
                         <outlet property="copyButton" destination="P4J-ZM-bjK" id="vn7-kR-huS"/>
-                        <outlet property="digestTextField" destination="mEy-mx-hGC" id="EJy-rI-4S4"/>
+                        <outlet property="digestTextView" destination="ZxO-uG-GaY" id="E5g-p5-hqt"/>
                         <outlet property="settingsTableView" destination="bof-J2-3Mh" id="Ndv-JB-SDh"/>
                     </connections>
                 </viewController>

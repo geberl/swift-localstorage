@@ -46,7 +46,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var calculateButton: UIButton!
     @IBAction func onCalculateButton(_ sender: UIButton) { self.hashFile() }
     
-    @IBOutlet weak var digestTextField: UITextField!
+    @IBOutlet weak var digestTextView: UITextView!
     
     @IBOutlet weak var copyButton: UIButton!
     @IBAction func onCopyButton(_ sender: UIButton) { self.copyHash() }
@@ -95,7 +95,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if error != nil {
             os_log("%@", log: logHashActionExtension, type: .error, error.localizedDescription)
-            self.digestTextField.text = "Error: Unable to load file"
+            self.digestTextView.text = "Error: Unable to load file"
             return
         }
         
@@ -106,7 +106,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
                 } catch let error {
                     os_log("%@", log: logHashActionExtension, type: .error, error.localizedDescription)
                     self.calculateButton.isEnabled = false
-                    self.digestTextField.text = "Error: Unable to load file"
+                    self.digestTextView.text = "Error: Unable to load file"
                 }
             }
         }
@@ -138,29 +138,53 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
                 hashDigest = crcHex
                 
             } else {
-                self.digestTextField.text = "Error: Undefined hash function"
+                self.digestTextView.text = "Error: Undefined hash function"
                 self.copyButton.isEnabled = false
                 return
             }
 
-            self.digestTextField.text = hashDigest
+            self.digestTextView.text = self.addLineBreaks(input: hashDigest)
             self.copyButton.isEnabled = true
         } else {
-            self.digestTextField.text = "Error: Unable to hash file"
+            self.digestTextView.text = "Error: Unable to hash file"
             self.copyButton.isEnabled = false
         }
+    }
+    
+    func addLineBreaks(input: String) -> String {
+        var result: String = ""
+        
+        for (n, char) in input.enumerated() {
+            if n > 0 {
+                if n % 16 == 0 {
+                    result += "\n"
+                } else if n % 4 == 0 {
+                    result += " "
+                }
+            }
+            result += String(char)
+        }
+        
+        return result
+    }
+    
+    func removeLineBreaks(input: String) -> String {
+        var output: String
+        output = input.replacingOccurrences(of: " ", with: "")
+        output = output.replacingOccurrences(of: "\n", with: "")
+        return output
     }
     
     func copyHash() {
         os_log("copyHash", log: logHashActionExtension, type: .debug)
         
         let pasteBoard = UIPasteboard.general
-        pasteBoard.string = self.digestTextField.text
+        pasteBoard.string = self.removeLineBreaks(input: self.digestTextView.text)
     }
 
     @objc func reloadHashFunction() {
         os_log("reloadHashFunction", log: logHashActionExtension, type: .debug)
-        self.digestTextField.text = ""
+        self.digestTextView.text = ""
         self.copyButton.isEnabled = false
         self.settingsTableView.reloadData()
     }
