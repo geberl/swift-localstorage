@@ -438,8 +438,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQo-Ya-vaB" customClass="HorizontalBarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="5" width="365" height="100"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="5" width="356" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="DPZ-bq-Cbl"/>
                                 </constraints>
@@ -451,11 +450,11 @@
                                     <action selector="onRefreshButton" destination="mYf-Nf-c82" eventType="touchUpInside" id="TG1-hF-7dy"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2B7-dx-bAy">
-                                <rect key="frame" x="16" y="148" width="343" height="312"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2B7-dx-bAy">
+                                <rect key="frame" x="16" y="148" width="343" height="307"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="312" id="bVn-1K-gRq"/>
+                                    <constraint firstAttribute="height" constant="307" id="bVn-1K-gRq"/>
                                 </constraints>
                                 <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                 <prototypes>
@@ -496,7 +495,7 @@
                         <constraints>
                             <constraint firstItem="gQo-Ya-vaB" firstAttribute="top" secondItem="MHt-2w-SHe" secondAttribute="top" constant="5" id="Cjg-dn-kif"/>
                             <constraint firstItem="g7e-TP-KdR" firstAttribute="centerX" secondItem="MHt-2w-SHe" secondAttribute="centerX" id="F88-ri-szk"/>
-                            <constraint firstItem="gQo-Ya-vaB" firstAttribute="trailing" secondItem="DPN-2P-LL6" secondAttribute="trailing" constant="-10" id="NAn-nO-aYj"/>
+                            <constraint firstItem="gQo-Ya-vaB" firstAttribute="trailing" secondItem="DPN-2P-LL6" secondAttribute="trailing" constant="-19" id="NAn-nO-aYj"/>
                             <constraint firstItem="g7e-TP-KdR" firstAttribute="top" secondItem="gQo-Ya-vaB" secondAttribute="bottom" constant="5" id="Obd-Yd-09L"/>
                             <constraint firstItem="2B7-dx-bAy" firstAttribute="trailing" secondItem="DPN-2P-LL6" secondAttribute="trailing" constant="-16" id="QBI-T4-mL1"/>
                             <constraint firstItem="2B7-dx-bAy" firstAttribute="leading" secondItem="DPN-2P-LL6" secondAttribute="leading" constant="16" id="QWC-MH-6HW"/>
