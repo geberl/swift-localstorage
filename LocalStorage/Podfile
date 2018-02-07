@@ -9,3 +9,7 @@ end
 target 'Hash' do
     pod 'CommonCryptoModule'
 end
+
+target 'Unzip' do
+    pod 'SWCompression'
+end

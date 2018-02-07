@@ -104,10 +104,14 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Charts/Charts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CommonCryptoModule/CommonCryptoModule.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/BitByteData/BitByteData.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SWCompression/SWCompression.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Charts/Charts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CommonCryptoModule/CommonCryptoModule.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/BitByteData/BitByteData.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SWCompression/SWCompression.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

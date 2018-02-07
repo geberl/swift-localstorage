@@ -1,17 +1,59 @@
 PODS:
+  - BitByteData (1.0.2)
   - Charts (3.0.5):
     - Charts/Core (= 3.0.5)
   - Charts/Core (3.0.5)
   - CommonCryptoModule (1.0.2)
+  - SWCompression (4.1.0):
+    - BitByteData (~> 1.0)
+    - SWCompression/BZip2 (= 4.1.0)
+    - SWCompression/Deflate (= 4.1.0)
+    - SWCompression/GZip (= 4.1.0)
+    - SWCompression/LZMA (= 4.1.0)
+    - SWCompression/LZMA2 (= 4.1.0)
+    - SWCompression/SevenZip (= 4.1.0)
+    - SWCompression/TAR (= 4.1.0)
+    - SWCompression/XZ (= 4.1.0)
+    - SWCompression/ZIP (= 4.1.0)
+    - SWCompression/Zlib (= 4.1.0)
+  - SWCompression/BZip2 (4.1.0):
+    - BitByteData (~> 1.0)
+  - SWCompression/Deflate (4.1.0):
+    - BitByteData (~> 1.0)
+  - SWCompression/GZip (4.1.0):
+    - BitByteData (~> 1.0)
+    - SWCompression/Deflate
+  - SWCompression/LZMA (4.1.0):
+    - BitByteData (~> 1.0)
+  - SWCompression/LZMA2 (4.1.0):
+    - BitByteData (~> 1.0)
+    - SWCompression/LZMA
+  - SWCompression/SevenZip (4.1.0):
+    - BitByteData (~> 1.0)
+    - SWCompression/LZMA2
+  - SWCompression/TAR (4.1.0):
+    - BitByteData (~> 1.0)
+  - SWCompression/XZ (4.1.0):
+    - BitByteData (~> 1.0)
+    - SWCompression/LZMA2
+  - SWCompression/ZIP (4.1.0):
+    - BitByteData (~> 1.0)
+    - SWCompression/Deflate
+  - SWCompression/Zlib (4.1.0):
+    - BitByteData (~> 1.0)
+    - SWCompression/Deflate
 
 DEPENDENCIES:
   - Charts
   - CommonCryptoModule
+  - SWCompression
 
 SPEC CHECKSUMS:
+  BitByteData: 39c5e8b2e09bbc8443261f591bf292f359e3f363
   Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
   CommonCryptoModule: 63a68b57abed79655b3a01011419bf037a05b0a0
+  SWCompression: e2db2f78dcf926c1ba8a48ea1e5fb3fe6eded2bb
 
-PODFILE CHECKSUM: 6e53db9b5dd377dd76515fdbb192a14fbc1b2531
+PODFILE CHECKSUM: b2de7d82976d1fe38ff08d385ac4746cd2c01516
 
 COCOAPODS: 1.3.1

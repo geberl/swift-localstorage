@@ -1,0 +1,6 @@
+framework module SWCompression {
+  umbrella header "SWCompression-umbrella.h"
+
+  export *
+  module * { export * }
+}

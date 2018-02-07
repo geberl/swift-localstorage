@@ -1,0 +1,6 @@
+framework module Pods_Unzip {
+  umbrella header "Pods-Unzip-umbrella.h"
+
+  export *
+  module * { export * }
+}
