@@ -29,6 +29,11 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         self.setTheme()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        os_log("viewWillDisappear", log: logTabTypeDetail, type: .debug)
+        NotificationCenter.default.post(name: .backFromDetail, object: nil, userInfo: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         os_log("didReceiveMemoryWarning", log: logTabTypeDetail, type: .info)

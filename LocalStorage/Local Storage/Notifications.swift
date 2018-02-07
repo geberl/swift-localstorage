@@ -17,4 +17,6 @@ extension Notification.Name {
     static let updatePending = Notification.Name("updatePending")
     static let updateItemAdded = Notification.Name("updateItemAdded")
     static let updateFinished = Notification.Name("updateFinished")
+    
+    static let backFromDetail = Notification.Name("backFromDetail")
 }

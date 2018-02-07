@@ -44,6 +44,9 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         NotificationCenter.default.addObserver(self, selector: #selector(TypesViewController.updateValues),
                                                name: .unitChanged, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(TypesViewController.deselectRow),
+                                               name: .backFromDetail, object: nil)
+        
         self.animateUpdateDuringRefresh = self.userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh)
         
         self.setTheme()
@@ -225,6 +228,13 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
+    }
+    
+    @objc func deselectRow() {
+        let selectedRow = self.typesTableView.indexPathForSelectedRow
+        if selectedRow != nil {
+            self.typesTableView.deselectRow(at: selectedRow!, animated: true)
+        }
     }
     
 }
