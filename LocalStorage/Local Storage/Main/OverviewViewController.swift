@@ -99,22 +99,14 @@ class OverviewViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.showHideAppleFilesReminder),
                                                name: .showHelp, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.showExtract),
+                                               name: .launchedFromShareExtension, object: nil)
+        
         self.setTheme()
         self.showHideAppleFilesReminder()
         
         if AppState.updateInProgress {
             self.updatePending()
-        }
-        
-        // TODO showing the extract sheet only works correctly if the app was previously closed down completely OR
-        // the last shows view is overview. If doesn't work if Types or TypeDetails or Settings were last shown.
-        if AppState.openUrlScheme == "localstorage" {  // "" on normal launch.
-            if AppState.openUrlQuery == "extract" {  // "" on normal launch.
-                
-                let storyboard = UIStoryboard(name: "Extract", bundle: Bundle.main)
-                let destination = storyboard.instantiateViewController(withIdentifier: "ExtractViewController") as! ExtractViewController
-                navigationController?.present(destination, animated: true, completion: nil)
-            }
         }
     }
     
@@ -125,6 +117,18 @@ class OverviewViewController: UIViewController {
     
     @objc func showHideAppleFilesReminder() {
         os_log("showHideAppleFilesReminder", log: logTabOverview, type: .debug)
+    @objc func showExtract() {
+        os_log("showExtract", log: logTabOverview, type: .debug)
+        
+        // Having this func and its Notification Observer once (in the ViewController that is guaranteed to show in
+        // the beginning) is enough. It works just as well if another ViewController (Types, TypesDetails) was last
+        // shown before changing apps.
+        // Does not work when Settings are open though. Not so important for now. Maybe close settings before unload.
+        
+        let sb = UIStoryboard(name: "Extract", bundle: Bundle.main)
+        let vc = sb.instantiateViewController(withIdentifier: "ExtractViewController") as! ExtractViewController
+        navigationController?.present(vc, animated: true, completion: nil)
+    }
         if userDefaults.bool(forKey: UserDefaultStruct.showHelp) {
             fileMgntStackView.isHidden = false
         } else {
