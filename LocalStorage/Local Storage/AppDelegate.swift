@@ -131,11 +131,13 @@ struct TypesLookup {
                                       "com.pkware.zip-archive",
                                       "com.allume.stuffit-archive",
                                       "org.7-zip.7-zip-archive",
-                                      "public.zip-archive"]
+                                      "public.zip-archive",
+                                      "public.bzip2-archive",
+                                      "public.iso-image",
+                                      "public.disk-image",
+                                      "com.apple.disk-image"]
     static var other:     [String] = ["public.folder",
                                       "public.data",
-                                      "public.disk-image",
-                                      "com.apple.disk-image",
                                       "public.executable",
                                       "com.microsoft.windows-executable",
                                       "com.microsoft.windows-​dynamic-link-library",
