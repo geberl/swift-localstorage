@@ -18,7 +18,7 @@ class OverviewViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
     
-    // TODO remove this function and the button again once debuggin finished
+    // TODO remove this function and the button again once debugging finished!
     @IBAction func onTempButton(_ sender: UIButton) {
         os_log("onTempButton", log: logTabOverview, type: .debug)
         
