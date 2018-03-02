@@ -96,14 +96,14 @@ class OverviewViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.updateFree),
                                                name: .unitChanged, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.showHideAppleFilesReminder),
+        NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.loadAppleFilesReminder),
                                                name: .showHelp, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.showExtract),
                                                name: .launchedFromShareExtension, object: nil)
         
         self.setTheme()
-        self.showHideAppleFilesReminder()
+        self.loadAppleFilesReminder()
         
         if AppState.updateInProgress {
             self.updatePending()
@@ -115,8 +115,6 @@ class OverviewViewController: UIViewController {
         os_log("didReceiveMemoryWarning", log: logTabOverview, type: .info)
     }
     
-    @objc func showHideAppleFilesReminder() {
-        os_log("showHideAppleFilesReminder", log: logTabOverview, type: .debug)
     @objc func showExtract() {
         os_log("showExtract", log: logTabOverview, type: .debug)
         
@@ -129,6 +127,9 @@ class OverviewViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: "ExtractViewController") as! ExtractViewController
         navigationController?.present(vc, animated: true, completion: nil)
     }
+    
+    @objc func loadAppleFilesReminder() {
+        os_log("loadAppleFilesReminder", log: logTabOverview, type: .debug)
         if userDefaults.bool(forKey: UserDefaultStruct.showHelp) {
             fileMgntStackView.isHidden = false
         } else {
