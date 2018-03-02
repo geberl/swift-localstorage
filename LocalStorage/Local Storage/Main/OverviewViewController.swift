@@ -111,8 +111,8 @@ class OverviewViewController: UIViewController {
     }
     
     override func didReceiveMemoryWarning() {
+        os_log("didReceiveMemoryWarning", log: logTabOverview, type: .debug)
         super.didReceiveMemoryWarning()
-        os_log("didReceiveMemoryWarning", log: logTabOverview, type: .info)
     }
     
     @objc func showExtract() {
@@ -150,6 +150,7 @@ class OverviewViewController: UIViewController {
     
     func applyColors(fg: String, bg: String) {
         os_log("applyColors", log: logTabOverview, type: .debug)
+        
         let fgColor: UIColor = UIColor(named: fg)!
         let bgColor: UIColor = UIColor(named: bg)!
         
