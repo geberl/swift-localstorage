@@ -1,5 +1,5 @@
 //
-//  ActionViewController.swift
+//  HashActionViewController.swift
 //  Hash
 //
 //  Created by Günther Eberl on 04.02.18.
