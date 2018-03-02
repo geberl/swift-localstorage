@@ -20,7 +20,7 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         os_log("viewDidLoad", log: logTabTypeDetail, type: .debug)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(TypesViewController.setTheme),
+        NotificationCenter.default.addObserver(self, selector: #selector(TypeDetailViewController.setTheme),
                                                name: .darkModeChanged, object: nil)
         
         self.typeIndex = self.getTypeIndex()
