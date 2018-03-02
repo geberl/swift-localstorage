@@ -87,11 +87,26 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         cell.detailTextLabel?.text = getSizeString(byteCount: AppState.types[self.typeIndex].sizes[indexPath.row])
         
+        // Display accessory only when in "Archives" type.
+        if AppState.types[self.typeIndex].name == "Archives" {
+            cell.accessoryType = .detailButton
+        } else {
+            cell.accessoryType = .none
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
+    }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        os_log("accesoryButtonTappedForRowWith", log: logTabTypes, type: .debug)
+        
+        let storyboard = UIStoryboard(name: "Extract", bundle: Bundle.main)
+        let destination = storyboard.instantiateViewController(withIdentifier: "ExtractViewController") as! ExtractViewController
+        navigationController?.present(destination, animated: true, completion: nil)
     }
 
 }

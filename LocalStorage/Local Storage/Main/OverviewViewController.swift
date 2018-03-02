@@ -18,6 +18,20 @@ class OverviewViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
     
+    // TODO remove this function and the button again once debuggin finished
+    @IBAction func onTempButton(_ sender: UIButton) {
+        os_log("onTempButton", log: logTabOverview, type: .debug)
+        
+        print(AppState.openUrlScheme) // localstorage
+        print(AppState.openUrlQuery) // unzip
+        
+        let alert = UIAlertView()
+        alert.title = AppState.openUrlScheme
+        alert.message = AppState.openUrlQuery
+        alert.addButton(withTitle: "Done")
+        alert.show()
+    }
+    
     @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
     
     @IBOutlet var mainView: UIView!
@@ -90,6 +104,17 @@ class OverviewViewController: UIViewController {
         
         if AppState.updateInProgress {
             self.updatePending()
+        }
+        
+        // TODO showing the extract sheet only works correctly if the app was previously closed down completely OR
+        // the last shows view is overview. If doesn't work if Types or TypeDetails or Settings were last shown.
+        if AppState.openUrlScheme == "localstorage" {  // "" on normal launch.
+            if AppState.openUrlQuery == "extract" {  // "" on normal launch.
+                
+                let storyboard = UIStoryboard(name: "Extract", bundle: Bundle.main)
+                let destination = storyboard.instantiateViewController(withIdentifier: "ExtractViewController") as! ExtractViewController
+                navigationController?.present(destination, animated: true, completion: nil)
+            }
         }
     }
     

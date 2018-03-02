@@ -172,6 +172,9 @@ struct AppState {
     static var documentsPath: String = ""
     static var updateInProgress: Bool = false
     static var demoContent: Bool = false  // NEVER set this to <true> when doing a release!
+    
+    static var openUrlQuery: String! = ""
+    static var openUrlScheme: String! = ""
 }
 
 
@@ -189,7 +192,6 @@ struct TypeInfo {
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
     let userDefaults = UserDefaults.standard
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -203,6 +205,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ensureUserDefaults()
         AppState.documentsPath = FileManager.documentsDir()
         getStats()
+        
+        return true
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        // This is needed to allow for "deep linking" from the zip/unzip action extensions.
+        // http://blog.originate.com/blog/2014/04/22/deeplinking-in-ios/
+        
+        // Nothing else may be called in here. Otherwise the app closes again right away.
+        
+        AppState.openUrlQuery = url.query
+        AppState.openUrlScheme = url.scheme
         
         return true
     }
