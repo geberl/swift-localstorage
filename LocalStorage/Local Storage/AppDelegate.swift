@@ -260,9 +260,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if AppState.openUrlScheme == "localstorage" {  // "" on normal launch.
             if AppState.openUrlQuery.starts(with: "extract=") {  // "" on normal launch.
+                let path: String = String(AppState.openUrlQuery.dropFirst(8))  // remove "extract=" from of String.
+                if path.count > 0 {
+                    let archiveDict:[String: String] = ["path": path]
                     NotificationCenter.default.post(name: .launchFromShareExtension, object: nil, userInfo: archiveDict)
+                }
             }
         }
+        
+        // Always reset things saved to AppState to not send the Notification twice.
+        AppState.openUrlQuery = ""
+        AppState.openUrlQuery = ""
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
