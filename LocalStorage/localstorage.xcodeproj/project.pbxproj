@@ -734,7 +734,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E9DFAF4D37433A07795BD64C /* Pods-localstorage.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = localstorage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -753,7 +753,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CACE514122A426F15A2F3133 /* Pods-localstorage.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = localstorage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
