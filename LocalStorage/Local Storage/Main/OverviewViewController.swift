@@ -17,21 +17,7 @@ import os.log
 class OverviewViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
-    
-    // TODO remove this function and the button again once debugging finished!
-    @IBAction func onTempButton(_ sender: UIButton) {
-        os_log("onTempButton", log: logTabOverview, type: .debug)
-        
-        print(AppState.openUrlScheme) // localstorage
-        print(AppState.openUrlQuery) // unzip
-        
-        let alert = UIAlertView()
-        alert.title = AppState.openUrlScheme
-        alert.message = AppState.openUrlQuery
-        alert.addButton(withTitle: "Done")
-        alert.show()
-    }
-    
+
     @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
     
     @IBOutlet var mainView: UIView!

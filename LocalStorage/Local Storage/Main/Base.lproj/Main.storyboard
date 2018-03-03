@@ -56,7 +56,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="498"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="z9r-Hv-j8b" userLabel="Info Items Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="645.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="607.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jtG-Tp-DHa" userLabel="Top Stack View">
                                                 <rect key="frame" x="187.5" y="0.0" width="0.0" height="0.0"/>
@@ -168,7 +168,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2bd-h7-boZ" userLabel="Trash Stack View">
-                                                <rect key="frame" x="89.5" y="240.5" width="196" height="210"/>
+                                                <rect key="frame" x="89.5" y="240.5" width="196" height="172"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbN-81-3ws">
                                                         <rect key="frame" x="82.5" y="0.0" width="31.5" height="20"/>
@@ -254,17 +254,10 @@
                                                             <action selector="onEmptyTrashButton" destination="aT3-lK-HbQ" eventType="touchUpInside" id="n0F-tX-0bp"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsr-Tr-F19">
-                                                        <rect key="frame" x="75" y="180" width="46" height="30"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <connections>
-                                                            <action selector="onTempButton:" destination="aT3-lK-HbQ" eventType="touchUpInside" id="zze-zv-RHQ"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JPO-ha-XN1" userLabel="File Management Stack View">
-                                                <rect key="frame" x="17.5" y="470.5" width="340.5" height="155"/>
+                                                <rect key="frame" x="17.5" y="432.5" width="340.5" height="155"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File &amp; Storage Management" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83l-Rh-oow">
                                                         <rect key="frame" x="92" y="0.0" width="156.5" height="20"/>
@@ -349,12 +342,12 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Kt8-Ui-PBd" userLabel="Spacer Stack View">
-                                                <rect key="frame" x="187.5" y="645.5" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="187.5" y="607.5" width="0.0" height="0.0"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PixelBlack" translatesAutoresizingMaskIntoConstraints="NO" id="gii-Ed-Cre">
-                                        <rect key="frame" x="187" y="0.0" width="1" height="650.5"/>
+                                        <rect key="frame" x="187" y="0.0" width="1" height="612.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="wZh-ZR-Twi"/>
                                         </constraints>
