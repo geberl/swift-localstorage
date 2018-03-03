@@ -3,13 +3,9 @@ use_frameworks!
 
 target 'localstorage' do
   pod 'Charts'
-  #pod 'SSZipArchive'
+  pod 'SWCompression'
 end
 
 target 'Hash' do
     pod 'CommonCryptoModule'
-end
-
-target 'Unzip' do
-    pod 'SWCompression'
 end

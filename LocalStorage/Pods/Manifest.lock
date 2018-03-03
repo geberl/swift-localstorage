@@ -1,45 +1,45 @@
 PODS:
-  - BitByteData (1.0.2)
+  - BitByteData (1.1.0)
   - Charts (3.0.5):
     - Charts/Core (= 3.0.5)
   - Charts/Core (3.0.5)
   - CommonCryptoModule (1.0.2)
-  - SWCompression (4.1.0):
+  - SWCompression (4.1.1):
     - BitByteData (~> 1.0)
-    - SWCompression/BZip2 (= 4.1.0)
-    - SWCompression/Deflate (= 4.1.0)
-    - SWCompression/GZip (= 4.1.0)
-    - SWCompression/LZMA (= 4.1.0)
-    - SWCompression/LZMA2 (= 4.1.0)
-    - SWCompression/SevenZip (= 4.1.0)
-    - SWCompression/TAR (= 4.1.0)
-    - SWCompression/XZ (= 4.1.0)
-    - SWCompression/ZIP (= 4.1.0)
-    - SWCompression/Zlib (= 4.1.0)
-  - SWCompression/BZip2 (4.1.0):
+    - SWCompression/BZip2 (= 4.1.1)
+    - SWCompression/Deflate (= 4.1.1)
+    - SWCompression/GZip (= 4.1.1)
+    - SWCompression/LZMA (= 4.1.1)
+    - SWCompression/LZMA2 (= 4.1.1)
+    - SWCompression/SevenZip (= 4.1.1)
+    - SWCompression/TAR (= 4.1.1)
+    - SWCompression/XZ (= 4.1.1)
+    - SWCompression/ZIP (= 4.1.1)
+    - SWCompression/Zlib (= 4.1.1)
+  - SWCompression/BZip2 (4.1.1):
     - BitByteData (~> 1.0)
-  - SWCompression/Deflate (4.1.0):
+  - SWCompression/Deflate (4.1.1):
     - BitByteData (~> 1.0)
-  - SWCompression/GZip (4.1.0):
+  - SWCompression/GZip (4.1.1):
     - BitByteData (~> 1.0)
     - SWCompression/Deflate
-  - SWCompression/LZMA (4.1.0):
+  - SWCompression/LZMA (4.1.1):
     - BitByteData (~> 1.0)
-  - SWCompression/LZMA2 (4.1.0):
+  - SWCompression/LZMA2 (4.1.1):
     - BitByteData (~> 1.0)
     - SWCompression/LZMA
-  - SWCompression/SevenZip (4.1.0):
+  - SWCompression/SevenZip (4.1.1):
     - BitByteData (~> 1.0)
     - SWCompression/LZMA2
-  - SWCompression/TAR (4.1.0):
+  - SWCompression/TAR (4.1.1):
     - BitByteData (~> 1.0)
-  - SWCompression/XZ (4.1.0):
+  - SWCompression/XZ (4.1.1):
     - BitByteData (~> 1.0)
     - SWCompression/LZMA2
-  - SWCompression/ZIP (4.1.0):
+  - SWCompression/ZIP (4.1.1):
     - BitByteData (~> 1.0)
     - SWCompression/Deflate
-  - SWCompression/Zlib (4.1.0):
+  - SWCompression/Zlib (4.1.1):
     - BitByteData (~> 1.0)
     - SWCompression/Deflate
 
@@ -49,11 +49,11 @@ DEPENDENCIES:
   - SWCompression
 
 SPEC CHECKSUMS:
-  BitByteData: 39c5e8b2e09bbc8443261f591bf292f359e3f363
+  BitByteData: 6d439f332e0db10c2d4c8458df2b12ece41f781c
   Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
   CommonCryptoModule: 63a68b57abed79655b3a01011419bf037a05b0a0
-  SWCompression: e2db2f78dcf926c1ba8a48ea1e5fb3fe6eded2bb
+  SWCompression: 3bcc0990d575342f562cec88adee0d19a2d1cf44
 
-PODFILE CHECKSUM: b2de7d82976d1fe38ff08d385ac4746cd2c01516
+PODFILE CHECKSUM: 6223ac8cf653bc15157d732b99a21b8ee914d8ab
 
 COCOAPODS: 1.3.1

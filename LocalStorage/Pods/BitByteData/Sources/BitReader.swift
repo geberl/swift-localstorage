@@ -11,8 +11,20 @@ public protocol BitReader: class {
     /// True, if reader's BIT pointer is aligned with the BYTE border.
     var isAligned: Bool { get }
 
+    // Amount of bits left to read.
+    var bitsLeft: Int { get }
+
+    // Amount of bits that were already read.
+    var bitsRead: Int { get }
+
     /// Creates an instance for reading bits (and bytes) from `data`.
     init(data: Data)
+
+    /**
+     Converts a `ByteReader` instance into `BitReader`, enabling bits reading capabilities. Current `offset` value of
+     `byteReader` is preserved.
+     */
+    init(_ byteReader: ByteReader)
 
     /// Reads bit and returns it, advancing by one BIT position.
     func bit() -> UInt8
