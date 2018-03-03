@@ -19,5 +19,5 @@ extension Notification.Name {
     static let updateFinished = Notification.Name("updateFinished")
     
     static let backFromDetail = Notification.Name("backFromDetail")
-    static let launchedFromShareExtension = Notification.Name("launchedFromShareExtension")
+    static let launchFromShareExtension = Notification.Name("launchFromShareExtension")
 }

@@ -260,7 +260,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if AppState.openUrlScheme == "localstorage" {  // "" on normal launch.
             if AppState.openUrlQuery.starts(with: "extract=") {  // "" on normal launch.
-                NotificationCenter.default.post(name: .launchedFromShareExtension, object: nil, userInfo: nil)
+                    NotificationCenter.default.post(name: .launchFromShareExtension, object: nil, userInfo: archiveDict)
             }
         }
     }

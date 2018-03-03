@@ -100,7 +100,7 @@ class OverviewViewController: UIViewController {
                                                name: .showHelp, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.showExtract),
-                                               name: .launchedFromShareExtension, object: nil)
+                                               name: .launchFromShareExtension, object: nil)
         
         self.setTheme()
         self.loadAppleFilesReminder()
