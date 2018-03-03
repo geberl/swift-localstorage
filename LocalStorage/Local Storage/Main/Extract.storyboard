@@ -77,6 +77,9 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="400"/>
+                    <connections>
+                        <outlet property="fileLabel" destination="aGp-oo-qyP" id="kp8-UR-MU3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmN-lB-KWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

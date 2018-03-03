@@ -157,11 +157,17 @@ func resetStats() {
 
 
 func addToType(name: String, size: Int64, path: String) {
-    // Example path on simulator:
+    // Example documentspath on simulator:
+    // /Users/guenther/Library/Developer/CoreSimulator/Devices/AFBF4126-FA48-4E46-A556-EDF83AE4DFC6/data/Containers/Data/Application/7B60C249-5CE0-4F3C-9D5A-2B6D7E107F71/Documents
+    
+    // Example documentspath on device:
+    // /var/mobile/Containers/Data/Application/330D92CC-4B3E-4D00-9EE9-A1A2C583A869/Documents
+    
+    // Example (file) path on simulator:
     // /Users/guenther/Library/Developer/CoreSimulator/Devices/AFBF4126-FA48-4E46-A556-EDF83AE4DFC6/data/Containers/Data/Application/7B60C249-5CE0-4F3C-9D5A-2B6D7E107F71/Documents/IMG_0001.JPG
     
-    // Example path on device:
-    // /var/mobile/Containers/Data/Application/330D92CC-4B3E-4D00-9EE9-A1A2C583A869/Documents/the-events-calendar.4.6.10.1.zip
+    // Example (file) path on device:
+    // /var/mobile/Containers/Data/Application/330D92CC-4B3E-4D00-9EE9-A1A2C583A869/Documents/IMG_0001.JPG
     
     for (n, type_info) in AppState.types.enumerated() {
         if type_info.name == name {

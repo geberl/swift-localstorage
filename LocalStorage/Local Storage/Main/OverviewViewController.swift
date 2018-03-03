@@ -101,16 +101,20 @@ class OverviewViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @objc func showExtract() {
+    @objc func showExtract(_ notification: Notification) {
         os_log("showExtract", log: logTabOverview, type: .debug)
         
         // Having this func and its Notification Observer once (in the ViewController that is guaranteed to show in
         // the beginning) is enough. It works just as well if another ViewController (Types, TypesDetails) was last
-        // shown before changing apps.
-        // Does not work when Settings are open though. Not so important for now. Maybe close settings before unload.
+        // shown before sending this app to the background.
+        // It does however NOT work when the Settings are open. Not important for now. Close settings before exit?
+        
+        guard let archivePath = notification.userInfo?["path"] as? String else { return }
         
         let sb = UIStoryboard(name: "Extract", bundle: Bundle.main)
         let vc = sb.instantiateViewController(withIdentifier: "ExtractViewController") as! ExtractViewController
+        vc.setArchivePath(path: archivePath)
+        
         navigationController?.present(vc, animated: true, completion: nil)
     }
     

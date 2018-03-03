@@ -104,9 +104,10 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         os_log("accesoryButtonTappedForRowWith", log: logTabTypes, type: .debug)
         
-        let storyboard = UIStoryboard(name: "Extract", bundle: Bundle.main)
-        let destination = storyboard.instantiateViewController(withIdentifier: "ExtractViewController") as! ExtractViewController
-        navigationController?.present(destination, animated: true, completion: nil)
+        let sb = UIStoryboard(name: "Extract", bundle: Bundle.main)
+        let vc = sb.instantiateViewController(withIdentifier: "ExtractViewController") as! ExtractViewController
+        vc.setArchivePath(path: AppState.documentsPath + "/" + AppState.types[self.typeIndex].paths[indexPath.row])
+        navigationController?.present(vc, animated: true, completion: nil)
     }
 
 }
