@@ -133,6 +133,9 @@
                     <size key="freeformSize" width="320" height="400"/>
                     <connections>
                         <outlet property="archiveLabel" destination="nqz-xm-uEE" id="GfS-9d-XOx"/>
+                        <outlet property="createFolderSwitch" destination="dDT-ny-Ikx" id="cWf-U3-Mdk"/>
+                        <outlet property="deleteOnSuccessLabel" destination="V1Z-Sb-BVC" id="fJh-37-ZcW"/>
+                        <outlet property="deleteOnSuccessSwitch" destination="AHQ-B3-nEL" id="cxl-Cu-Hfn"/>
                         <outlet property="extractButton" destination="azZ-CL-cZA" id="cbq-rj-iK8"/>
                     </connections>
                 </viewController>

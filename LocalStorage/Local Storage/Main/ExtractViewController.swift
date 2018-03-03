@@ -20,25 +20,41 @@ class ExtractViewController: UIViewController {
     var archiveData: Data? = nil
     var targetDirUrl: URL? = nil
     
+    var reachedFromExtension: Bool = false
+    
+    let dirsBlacklist: [String] = ["/__MACOSX/"]
+    let fileBlacklist: [String] = [".DS_Store"]
+    
     func setArchiveUrl(path: String) {
         os_log("setArchiveUrl", log: logUi, type: .debug)
         self.archiveUrl = URL(fileURLWithPath: path, isDirectory: false)
+    }
+    
+    func setReachedFromExtension() {
+        os_log("setReachedFromExtension", log: logUi, type: .debug)
+        self.reachedFromExtension = true
     }
 
     override func viewDidLoad() {
         os_log("viewDidLoad", log: logUi, type: .debug)
         super.viewDidLoad()
         
-        // TODO make targetDirUrl user selectable in GUI. Create this folder.
-        self.targetDirUrl = URL(fileURLWithPath: AppState.documentsPath, isDirectory: true)
-        self.targetDirUrl?.appendPathComponent("extract_temp")
-        
-        if self.archiveUrl != nil {
-            self.archiveLabel.text = self.archiveUrl?.lastPathComponent
-            self.extractButton.isEnabled = true
-        } else {
+        if self.archiveUrl == nil {
             self.archiveLabel.text = "???"
             self.extractButton.isEnabled = false
+        } else {
+            self.archiveLabel.text = self.archiveUrl!.lastPathComponent
+            self.extractButton.isEnabled = true  // TODO check if supported type first.
+        }
+        
+        if self.reachedFromExtension {
+            self.deleteOnSuccessLabel.isEnabled = false
+            self.deleteOnSuccessSwitch.setOn(false, animated: false)
+            self.deleteOnSuccessSwitch.isEnabled = false
+        } else {
+            self.deleteOnSuccessLabel.isEnabled = true
+            self.deleteOnSuccessSwitch.setOn(false, animated: false)
+            self.deleteOnSuccessSwitch.isEnabled = true
         }
     }
 
@@ -52,12 +68,34 @@ class ExtractViewController: UIViewController {
     
     @IBOutlet weak var archiveLabel: UILabel!
     
+    @IBOutlet weak var createFolderSwitch: UISwitch!
+    
+    @IBOutlet weak var deleteOnSuccessLabel: UILabel!
+    
+    @IBOutlet weak var deleteOnSuccessSwitch: UISwitch!
+    
     @IBOutlet weak var extractButton: UIButton!
     
     @IBAction func onExtractButton(_ sender: UIButton) {
         os_log("onExtractButton", log: logUi, type: .debug)
-        self.loadData()
-        self.openContainer()
+        
+        self.getTargetDir()
+        self.loadData()  // TODO move this into background task, this might take a while.
+        self.openContainer()  // TODO move this into background task, this might take a while.
+        self.cleanUp()  // TODO move this into background task, this might take a while.
+        
+        getStats()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func getTargetDir() {
+        os_log("getTargetDir", log: logUi, type: .debug)
+        
+        self.targetDirUrl = URL(fileURLWithPath: AppState.documentsPath, isDirectory: true)
+        self.targetDirUrl?.appendPathComponent("extract_temp") // TODO insert whatever folder the user selected here.
+        if self.createFolderSwitch.isOn {
+            self.targetDirUrl?.appendPathComponent(self.archiveUrl!.deletingPathExtension().lastPathComponent)
+        }
     }
     
     func loadData() {
@@ -82,14 +120,31 @@ class ExtractViewController: UIViewController {
                 
                 // Check if this entry is a file (=regular) or a directory. myZipEntry.data is nil for directories.
                 if myZipEntryInfo.type == .regular {
-                    os_log("Found file %@", log: logUi, type: .debug, myZipEntryInfo.name)
+                    os_log("Found file %@.", log: logUi, type: .debug, myZipEntryInfo.name)
+                    let targetFileUrl = self.targetDirUrl!.appendingPathComponent(myZipEntryInfo.name)
+                    
+                    // Check this filename against file blacklist.
+                    if self.fileBlacklist.contains(targetFileUrl.lastPathComponent) {
+                        os_log("Skipping, filename is on blacklist.", log: logUi, type: .info)
+                        continue
+                    }
+                    
+                    // Check parent folder structure against dirs blacklist.
+                    var skipFile: Bool = false
+                    for dirBlacklist in self.dirsBlacklist {
+                        if targetFileUrl.path.range(of: dirBlacklist) != nil {
+                            os_log("Skipping, parent directory is on blacklist.", log: logUi, type: .info)
+                            skipFile = true
+                            break
+                        }
+                    }
+                    if skipFile { continue }
                     
                     if let myZipEntryData: Data = myZipEntry.data {
-                        let targetFileUrl = self.targetDirUrl!.appendingPathComponent(myZipEntryInfo.name)
-                        os_log("Writing to %@", log: logUi, type: .error, targetFileUrl.path)
+                        os_log("Writing to %@.", log: logUi, type: .info, targetFileUrl.path)
                         
-                        // TODO: Check if dir structure already exists, make it if not. Writing fails otherwise.
-                        
+                        makeDirs(path: targetFileUrl.deletingLastPathComponent().path)
+
                         do {
                             try myZipEntryData.write(to: targetFileUrl, options: Data.WritingOptions.atomic)
                         }
@@ -101,12 +156,12 @@ class ExtractViewController: UIViewController {
                         os_log("Unable to get data.", log: logUi, type: .error)
                     }
                 } else if myZipEntryInfo.type == .directory {
-                    os_log("Found directory %@", log: logUi, type: .debug, myZipEntryInfo.name)
+                    os_log("Found directory %@. Skipping.", log: logUi, type: .debug, myZipEntryInfo.name)
                     // Since directories are not reliably encountered before their contained files just skip over them.
                     // Instead examine the partial file path in myZipEntryInfo.name and make sure the dirs exist.
                 } else {
-                    os_log("Found other %@", log: logUi, type: .error, myZipEntryInfo.name)
-                    // This should not occur.
+                    os_log("Found other non-supported item %@.", log: logUi, type: .error, myZipEntryInfo.name)
+                    // No real way to soft and hard links and other advanced stuff on iOS.
                 }
             }
         } catch let error as ZipError {
@@ -116,4 +171,18 @@ class ExtractViewController: UIViewController {
         }
     }
     
+    func cleanUp() {
+        os_log("cleanUp", log: logUi, type: .debug)
+        
+        // Remove the archive itself if the user toggled the switch.
+        if self.deleteOnSuccessSwitch.isOn {
+            removeFileIfExist(path: self.archiveUrl!.path)
+        }
+        
+        // Always remova all content in the App Group shared folder.
+        let appGroupName: String = "group.se.eberl.localstorage"
+        if let destDirUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupName) {
+            clearDir(path: destDirUrl.path)
+        }
+    }
 }

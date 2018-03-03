@@ -114,6 +114,7 @@ class OverviewViewController: UIViewController {
         let sb = UIStoryboard(name: "Extract", bundle: Bundle.main)
         let vc = sb.instantiateViewController(withIdentifier: "ExtractViewController") as! ExtractViewController
         vc.setArchiveUrl(path: archivePath)
+        vc.setReachedFromExtension()
         
         navigationController?.present(vc, animated: true, completion: nil)
     }
