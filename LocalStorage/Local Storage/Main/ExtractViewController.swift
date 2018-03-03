@@ -12,13 +12,18 @@ import os.log
 
 class ExtractViewController: UIViewController {
     
-    var archivePath: String? = nil
+    var archiveUrl: URL? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         os_log("viewDidLoad", log: logUi, type: .debug)
         
-        self.fileLabel.text = "File: " + self.archivePath!
+        if self.archiveUrl != nil {
+            self.fileLabel.text = "File: " + (self.archiveUrl?.lastPathComponent)!
+            self.extractButton.isEnabled = true
+        } else {
+            self.extractButton.isEnabled = false
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,8 +36,14 @@ class ExtractViewController: UIViewController {
     
     @IBOutlet weak var fileLabel: UILabel!
     
-    func setArchivePath(path: String) {
-        os_log("setArchivePath", log: logUi, type: .debug)
-        self.archivePath = path
+    @IBOutlet weak var extractButton: UIButton!
+    
+    @IBAction func onExtractButton(_ sender: UIButton) {
+        os_log("onExtractButton", log: logUi, type: .debug)
+    }
+    
+    func setArchiveUrl(path: String) {
+        os_log("setArchiveUrl", log: logUi, type: .debug)
+        self.archiveUrl = URL(string: path)
     }
 }

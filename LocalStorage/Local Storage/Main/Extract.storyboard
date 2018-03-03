@@ -38,7 +38,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="qAk-EX-YAb">
                                 <rect key="frame" x="8" y="52" width="304" height="340"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGp-oo-qyP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File: " textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGp-oo-qyP">
                                         <rect key="frame" x="0.0" y="0.0" width="35.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -50,9 +50,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azZ-CL-cZA">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azZ-CL-cZA">
                                         <rect key="frame" x="0.0" y="41" width="304" height="299"/>
                                         <state key="normal" title="Extract"/>
+                                        <connections>
+                                            <action selector="onExtractButton:" destination="qma-ee-MIa" eventType="touchUpInside" id="fi1-BQ-yHU"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -78,6 +81,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="400"/>
                     <connections>
+                        <outlet property="extractButton" destination="azZ-CL-cZA" id="cbq-rj-iK8"/>
                         <outlet property="fileLabel" destination="aGp-oo-qyP" id="kp8-UR-MU3"/>
                     </connections>
                 </viewController>

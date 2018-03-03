@@ -106,7 +106,7 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let sb = UIStoryboard(name: "Extract", bundle: Bundle.main)
         let vc = sb.instantiateViewController(withIdentifier: "ExtractViewController") as! ExtractViewController
-        vc.setArchivePath(path: AppState.documentsPath + "/" + AppState.types[self.typeIndex].paths[indexPath.row])
+        vc.setArchiveUrl(path: AppState.documentsPath + "/" + AppState.types[self.typeIndex].paths[indexPath.row])
         navigationController?.present(vc, animated: true, completion: nil)
     }
 
