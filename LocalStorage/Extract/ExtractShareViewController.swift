@@ -111,21 +111,24 @@ class ExtractShareViewController: SLComposeServiceViewController {
         }
     }
     
+    func removeFileIfExist(path: String) {
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: path) {
+            do {
+                try fileManager.removeItem(atPath: path)
+                os_log("Removed file '%@'", log: logExtractShareExtension, type: .debug, path)
+            } catch {
+                os_log("%@", log: logExtractShareExtension, type: .error, error.localizedDescription)
+            }
+        }
+    }
+    
     func copyToAppGroupFolder(srcUrl: URL) -> URL? {
         let appGroupName: String = "group.se.eberl.localstorage"
         if let destDirUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupName) {
             
             let destUrl = destDirUrl.appendingPathComponent(srcUrl.lastPathComponent)
-            
-            // Check if an item with this name already exists here, subsequent copyItem doesn't overwrite but fail then.
-            if FileManager.default.fileExists(atPath: destUrl.path) {
-                do {
-                    try FileManager.default.removeItem(atPath: destUrl.path)
-                } catch {
-                    os_log("Deleting existing file failed: %@", log: logExtractShareExtension, type: .error,
-                           error.localizedDescription)
-                }
-            }
+            removeFileIfExist(path: destUrl.path)  // copyItem doesn't overwrite but fail if file exists already.
 
             do {
                 try FileManager.default.copyItem(at: srcUrl, to: destUrl)

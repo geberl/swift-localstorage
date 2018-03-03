@@ -133,6 +133,46 @@ func removeDir(path: String) {
 }
 
 
+func clearDir(path: String) {
+    let fileManager = FileManager.default
+    do {
+        let items = try fileManager.contentsOfDirectory(atPath: path)
+        for item in items {
+            try fileManager.removeItem(atPath: path + "/" + item)
+            os_log("Removed item '%@'", log: logGeneral, type: .info, item)
+        }
+    } catch let error {
+        os_log("%@", log: logGeneral, type: .error, error.localizedDescription)
+    }
+}
+
+
+func makeDirs(path: String) {
+    let fileManager = FileManager.default
+    do {
+        try fileManager.createDirectory(atPath: path,
+                                        withIntermediateDirectories: true,
+                                        attributes: nil)
+        os_log("Created dir '%@'", log: logGeneral, type: .debug, path)
+    } catch let error {
+        os_log("%@", log: logGeneral, type: .error, error.localizedDescription)
+    }
+}
+
+
+func removeFileIfExist(path: String) {
+    let fileManager = FileManager.default
+    if fileManager.fileExists(atPath: path) {
+        do {
+            try fileManager.removeItem(atPath: path)
+            os_log("Removed file '%@'", log: logGeneral, type: .debug, path)
+        } catch {
+            os_log("%@", log: logGeneral, type: .error, error.localizedDescription)
+        }
+    }
+}
+
+
 func resetStats() {
     os_log("resetStats", log: logGeneral, type: .debug)
     
