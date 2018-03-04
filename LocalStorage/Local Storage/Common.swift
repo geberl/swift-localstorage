@@ -173,6 +173,28 @@ func removeFileIfExist(path: String) {
 }
 
 
+func trashFileIfExist(path: String) {
+    let fileManager = FileManager.default
+    
+    let srcUrl: URL = URL(fileURLWithPath: path, isDirectory: false)
+    let destDirUrl: URL = URL(fileURLWithPath: AppState.documentsPath + "/.Trash/", isDirectory: true)
+    let destUrl = destDirUrl.appendingPathComponent(srcUrl.lastPathComponent)
+    
+    if fileManager.fileExists(atPath: srcUrl.path) {
+        do {
+            makeDirs(path: destDirUrl.path)
+            removeFileIfExist(path: destUrl.path)
+            try fileManager.copyItem(at: srcUrl, to: destUrl)
+            os_log("Copied file to '%@'", log: logGeneral, type: .debug, destUrl.path)
+            try fileManager.removeItem(at: srcUrl)
+            os_log("Removed file '%@'", log: logGeneral, type: .debug, srcUrl.path)
+        } catch {
+            os_log("%@", log: logGeneral, type: .error, error.localizedDescription)
+        }
+    }
+}
+
+
 func resetStats() {
     os_log("resetStats", log: logGeneral, type: .debug)
     

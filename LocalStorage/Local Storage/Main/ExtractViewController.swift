@@ -145,7 +145,7 @@ class ExtractViewController: UIViewController {
         
         var errorMsg: String? = nil
         
-        let removeArchive: Bool = self.deleteOnSuccessSwitch.isOn  // get beforehand, UI stuff not accessible async.
+        let trashArchive: Bool = self.deleteOnSuccessSwitch.isOn  // get beforehand, UI stuff not accessible async.
         self.setExtractionPending()
         self.getTargetDir()
         
@@ -161,7 +161,7 @@ class ExtractViewController: UIViewController {
                 // These formats don't work reliably, error if more than one file in the archive. Deactivated for now.
                 // else if ["bzip2", "xz", "gzip"].contains(self.archiveType!) { errorMsg = self.openCompression() }
             }
-            self.cleanUp(error: errorMsg, removeArchive: removeArchive)
+            self.cleanUp(error: errorMsg, trashArchive: trashArchive)
             
             // Last step.
             DispatchQueue.main.async {
@@ -339,12 +339,12 @@ class ExtractViewController: UIViewController {
         return nil
     }
 
-    func cleanUp(error: String?, removeArchive: Bool) {
+    func cleanUp(error: String?, trashArchive: Bool) {
         os_log("cleanUp", log: logExtractSheet, type: .debug)
         
-        // Remove the archive itself, but only if no error and the user toggled the switch.
-        if error == nil && removeArchive == true {
-            removeFileIfExist(path: self.archiveUrl!.path)
+        // Move the archive to Trash, but only if no error and the user toggled the switch.
+        if error == nil && trashArchive == true {
+            trashFileIfExist(path: self.archiveUrl!.path)
         }
         
         // Always remova all content in the App Group shared folder. Also stuff that might be in there previously.
