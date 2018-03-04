@@ -204,6 +204,12 @@ class OverviewViewController: UIViewController {
             }))
             self.present(alert, animated: true, completion: nil)
         } else {
+            // Remova all content in the App Group shared folder.
+            let appGroupName: String = "group.se.eberl.localstorage"
+            if let destDirUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupName) {
+                clearDir(path: destDirUrl.path)
+            }
+            // Empty the normal trash.
             self.emptyTrash()
         }
     }
