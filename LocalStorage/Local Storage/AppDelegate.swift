@@ -133,10 +133,7 @@ struct TypesLookup {
                                       "com.allume.stuffit-archive",
                                       "org.7-zip.7-zip-archive",
                                       "public.zip-archive",
-                                      "public.bzip2-archive",
-                                      "public.iso-image",
-                                      "public.disk-image",
-                                      "com.apple.disk-image"]
+                                      "public.bzip2-archive"]
     static var other:     [String] = ["public.folder",
                                       "public.data",
                                       "public.executable",
@@ -148,7 +145,10 @@ struct TypesLookup {
                                       "com.apple.application",
                                       "public.font",
                                       "public.opentype-font",
-                                      "public.truetype-ttf-font"]
+                                      "public.truetype-ttf-font",
+                                      "public.iso-image",
+                                      "public.disk-image",
+                                      "com.apple.disk-image"]
 }
 
 
