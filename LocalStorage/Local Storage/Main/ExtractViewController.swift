@@ -91,21 +91,14 @@ class ExtractViewController: UIViewController {
         
         if self.archiveUrl != nil {
             if let typeIdentifier = self.archiveUrl!.typeIdentifier {
-                if typeIdentifier == "public.zip-archive" {
-                    return "zip"
-                } else if typeIdentifier == "public.tar-archive" {
-                    return "tar"
-                } else if typeIdentifier == "org.7-zip.7-zip-archive" {
-                    return "7zip"
-                }
+                if typeIdentifier == "public.zip-archive" { return "zip"
+                } else if typeIdentifier == "public.tar-archive" { return "tar"
+                } else if typeIdentifier == "org.7-zip.7-zip-archive" { return "7zip"
                 // These formats don't work reliably, error if more than one file in the archive. Deactivated for now.
-//                else if typeIdentifier == "public.bzip2-archive" {
-//                    return "bzip2"
-//                } else if typeIdentifier == "org.tukaani.xz-archive" {
-//                    return "xz"
-//                } else if typeIdentifier == "org.gnu.gnu-zip-archive" {
-//                    return "gzip"
-//                }
+                // } else if typeIdentifier == "public.bzip2-archive" { return "bzip2"
+                // } else if typeIdentifier == "org.tukaani.xz-archive" { return "xz"
+                // } else if typeIdentifier == "org.gnu.gnu-zip-archive" { return "gzip"
+                }
             }
         }
         return nil
@@ -152,30 +145,35 @@ class ExtractViewController: UIViewController {
         
         var errorMsg: String? = nil
         
+        let removeArchive: Bool = self.deleteOnSuccessSwitch.isOn  // get beforehand, UI stuff not accessible async.
         self.setExtractionPending()
         self.getTargetDir()
-        if self.archiveUrl != nil {
-            self.loadData()  // TODO move this into background task, this might take a while
-        }
-        if self.archiveType != nil && self.targetDirUrl != nil && self.archiveData != nil {
-            if ["zip", "tar", "7zip"].contains(self.archiveType!) {
-                errorMsg = self.openContainer()  // TODO move this into background task, this might take a while
+        
+        // Do the following as a background task.
+        DispatchQueue.global(qos: .userInitiated).async {
+            if self.archiveUrl != nil {
+                self.loadData()
             }
+            if self.archiveType != nil && self.targetDirUrl != nil && self.archiveData != nil {
+                // These formats work. Most of the time at least.
+                if ["zip", "tar", "7zip"].contains(self.archiveType!) { errorMsg = self.openContainer() }
+                
+                // These formats don't work reliably, error if more than one file in the archive. Deactivated for now.
+                // else if ["bzip2", "xz", "gzip"].contains(self.archiveType!) { errorMsg = self.openCompression() }
+            }
+            self.cleanUp(error: errorMsg, removeArchive: removeArchive)
             
-            // These formats don't work reliably, error if more than one file in the archive. Deactivated for now.
-//             else if ["bzip2", "xz", "gzip"].contains(self.archiveType!) {
-//                errorMsg = self.openCompression()
-//            }
-        }
-        
-        self.cleanUp()  // TODO move this into background task, this might take a while
-        getStats()
-        self.setExtractinFinished()
-        
-        if errorMsg == nil {
-            self.close()
-        } else {
-            self.showExtractionError(detailedError: errorMsg)
+            // Last step.
+            DispatchQueue.main.async {
+                getStats()
+                self.setExtractinFinished()
+                
+                if errorMsg == nil {
+                    self.close()
+                } else {
+                    self.showExtractionError(detailedError: errorMsg)
+                }
+            }
         }
     }
     
@@ -341,11 +339,11 @@ class ExtractViewController: UIViewController {
         return nil
     }
 
-    func cleanUp() {
+    func cleanUp(error: String?, removeArchive: Bool) {
         os_log("cleanUp", log: logExtractSheet, type: .debug)
         
-        // Remove the archive itself, but only if the user toggled the switch.
-        if self.deleteOnSuccessSwitch.isOn {
+        // Remove the archive itself, but only if no error and the user toggled the switch.
+        if error == nil && removeArchive == true {
             removeFileIfExist(path: self.archiveUrl!.path)
         }
         
