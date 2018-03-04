@@ -92,6 +92,8 @@ class ExtractViewController: UIViewController {
                     return "tar"
                 } else if typeIdentifier == "org.7-zip.7-zip-archive" {
                     return "7zip"
+                } else if typeIdentifier == "public.bzip2-archive" {
+                    return "bzip2"
                 }
             }
         }
@@ -121,20 +123,44 @@ class ExtractViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    func showExtractionError(detailedError: String?) {
+        os_log("showExtractionError", log: logExtractSheet, type: .debug)
+        
+        var msg: String = "The archive could not be extracted."
+        if detailedError != nil {
+            msg = detailedError!
+        }
+        
+        let alertController = UIAlertController(title: "Error during extraction", message: msg, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
     func extract() {
         os_log("extract", log: logExtractSheet, type: .debug)
+        
+        var errorMsg: String? = nil
         
         self.getTargetDir()
         if self.archiveUrl != nil {
             self.loadData()  // TODO move this into background task, this might take a while
         }
         if self.archiveType != nil && self.targetDirUrl != nil && self.archiveData != nil {
-            self.openContainer()  // TODO move this into background task, this might take a while
+            if ["zip", "tar", "7zip"].contains(self.archiveType!) {
+                errorMsg = self.openContainer()  // TODO move this into background task, this might take a while
+            } else if ["bzip2"].contains(self.archiveType!) {
+                errorMsg = self.openCompression()  // TODO move this into background task, this might take a while
+            }
         }
-        self.cleanUp()  // TODO move this into background task, this might take a while
         
+        self.cleanUp()  // TODO move this into background task, this might take a while
         getStats()
-        self.close()
+
+        if errorMsg == nil {
+            self.close()
+        } else {
+            self.showExtractionError(detailedError: errorMsg)
+        }
     }
     
     func getTargetDir() {
@@ -190,7 +216,7 @@ class ExtractViewController: UIViewController {
         }
     }
     
-    func openContainer() {
+    func openContainer() -> String? {
         os_log("openContainer", log: logExtractSheet, type: .debug)
         
         // Only attempt extraction if entry is a file (=regular), entry.data is nil for directories.
@@ -223,13 +249,42 @@ class ExtractViewController: UIViewController {
             }
         } catch let error as ZipError {
             os_log("ZipError %@", log: logExtractSheet, type: .error, error.localizedDescription)
+            return error.localizedDescription
         } catch let error as TarError {
             os_log("TarError %@", log: logExtractSheet, type: .error, error.localizedDescription)
+            return error.localizedDescription
         } catch let error as SevenZipError {
             os_log("SevenZipError %@", log: logExtractSheet, type: .error, error.localizedDescription)
+            return error.localizedDescription
         } catch let error {
             os_log("Error %@", log: logExtractSheet, type: .error, error.localizedDescription)
+            return error.localizedDescription
         }
+        return nil
+    }
+    
+    func openCompression() -> String? {
+        os_log("openCompression", log: logExtractSheet, type: .debug)
+        
+        // Bzip2 is a weird format. If doesn't contain file info (like names or paths) but the pure file data.
+        // The reason behin it is that it's implemented as a compression algorithm in my library, not a file format.
+        // It can be created from within Keka on macOS though. Probably an edge case anyways.
+        // I'm probably doing something wrong here. But this works for single files at least...
+        
+        do {
+            if self.archiveType == "bzip2" {
+                let decompressedData = try BZip2.decompress(data: self.archiveData!)
+                let filename: String = self.archiveUrl!.deletingPathExtension().lastPathComponent
+                self.extractFile(filename: filename, filedata: decompressedData)
+            }
+        } catch let error as BZip2Error {
+            os_log("BZip2Error %@", log: logExtractSheet, type: .error, error.localizedDescription)
+            return error.localizedDescription
+        } catch let error {
+            os_log("Error %@", log: logExtractSheet, type: .error, error.localizedDescription)
+            return error.localizedDescription
+        }
+        return nil
     }
 
     func cleanUp() {
