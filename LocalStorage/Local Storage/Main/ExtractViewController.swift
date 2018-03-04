@@ -8,11 +8,7 @@
 
 import UIKit
 import os.log
-import SWCompression
-
-
-// Documentation of SWCompression: https://tsolomko.github.io/SWCompression/
-
+import SWCompression  // Documentation: https://tsolomko.github.io/SWCompression/
 
 class ExtractViewController: UIViewController {
     
