@@ -24,6 +24,7 @@ class ExtractViewController: UIViewController {
     @IBAction func closeButton(_ sender: UIButton) { self.close() }
     @IBOutlet weak var archiveLabel: UILabel!
     @IBOutlet weak var compressionLabel: UILabel!
+    @IBOutlet weak var compressionErrorLabel: UILabel!
     @IBOutlet weak var compressionDetailButton: UIButton!
     @IBAction func compressionDetailButton(_ sender: UIButton) { self.showCompressionDetail() }
     @IBOutlet weak var createFolderSwitch: UISwitch!
@@ -37,8 +38,8 @@ class ExtractViewController: UIViewController {
         super.viewDidLoad()
         
         // Default = everything disabled, label placeholders set.
-        self.archiveLabel.text = "???"
-        self.compressionLabel.text = "unsupported"
+        self.compressionLabel.isHidden = true
+        self.compressionErrorLabel.isHidden = false
         self.createFolderSwitch.isEnabled = false
         self.createFolderSwitch.setOn(false, animated: false)
         self.deleteOnSuccessSwitch.isEnabled = false
@@ -56,20 +57,12 @@ class ExtractViewController: UIViewController {
         self.archiveType = self.getArchiveType()
         if self.archiveType != nil {
             self.compressionLabel.text = self.archiveType
+            self.compressionLabel.isHidden = false
+            self.compressionErrorLabel.isHidden = true
             self.compressionDetailButton.isHidden = true
+            self.createFolderSwitch.isEnabled = true
+            self.createFolderSwitch.setOn(true, animated: false)
             self.extractButton.isEnabled = true
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        os_log("viewDidAppear", log: logExtractSheet, type: .debug)
-        super .viewDidAppear(animated)
-        
-        // Seems to be not possible to change font color before element is shown.
-        if self.archiveType == nil {
-            self.compressionLabel.textColor = UIColor(named: "ColorFontRed")!
-        } else {
-            self.compressionLabel.textColor = UIColor(named: "ColorFontGray")!
         }
     }
 
@@ -90,9 +83,19 @@ class ExtractViewController: UIViewController {
 
     func getArchiveType() -> String? {
         os_log("getArchiveType", log: logExtractSheet, type: .debug)
-        // TODO implement
+        
+        if self.archiveUrl != nil {
+            if let typeIdentifier = self.archiveUrl!.typeIdentifier {
+                if typeIdentifier == "public.zip-archive" {
+                    return "zip"
+                } else if typeIdentifier == "public.tar-archive" {
+                    return "tar"
+                } else if typeIdentifier == "org.7-zip.7-zip-archive" {
+                    return "7zip"
+                }
+            }
+        }
         return nil
-        //return "7zip"
     }
     
     func close() {
@@ -102,7 +105,20 @@ class ExtractViewController: UIViewController {
     
     func showCompressionDetail() {
         os_log("showCompressionDetail", log: logExtractSheet, type: .debug)
-        // TODO implement
+        
+        var msg: String = "Local Storage is only able to extract the types 'public.zip-archive', 'public.tar-archive' "
+        msg += "and 'org.7-zip.7-zip-archive'."
+        
+        if self.archiveUrl != nil {
+            if let typeIdentifier = self.archiveUrl!.typeIdentifier {
+                msg += "\n\n"
+                msg += "Your file has the type '" + typeIdentifier + "'."
+            }
+        }
+        
+        let alertController = UIAlertController(title: "Unsupported file type", message: msg, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
     
     func extract() {

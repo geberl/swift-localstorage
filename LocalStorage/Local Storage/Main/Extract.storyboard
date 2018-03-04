@@ -51,7 +51,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FileName.zip" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqz-xm-uEE">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqz-xm-uEE">
                                                 <rect key="frame" x="62" y="5.5" width="234" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="ColorFontGray"/>
@@ -68,10 +68,16 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="zip" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeV-lB-j9Z">
-                                                <rect key="frame" x="107" y="5.5" width="161" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="???" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeV-lB-j9Z">
+                                                <rect key="frame" x="107" y="5.5" width="56.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="ColorFontGray"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="unsupported" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9H-0b-QqG">
+                                                <rect key="frame" x="169.5" y="5.5" width="98.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="ColorFontRed"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSe-2t-WnY">
@@ -158,6 +164,7 @@
                     <connections>
                         <outlet property="archiveLabel" destination="nqz-xm-uEE" id="GfS-9d-XOx"/>
                         <outlet property="compressionDetailButton" destination="rSe-2t-WnY" id="YFP-VU-etN"/>
+                        <outlet property="compressionErrorLabel" destination="w9H-0b-QqG" id="ij4-AF-Ymw"/>
                         <outlet property="compressionLabel" destination="KeV-lB-j9Z" id="4bH-bt-aq8"/>
                         <outlet property="createFolderSwitch" destination="dDT-ny-Ikx" id="cWf-U3-Mdk"/>
                         <outlet property="deleteOnSuccessLabel" destination="V1Z-Sb-BVC" id="fJh-37-ZcW"/>
@@ -173,6 +180,9 @@
     <resources>
         <namedColor name="ColorFontGray">
             <color red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ColorFontRed">
+            <color red="0.9100000262260437" green="0.30799999833106995" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
