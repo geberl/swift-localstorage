@@ -17,6 +17,7 @@ let logTabTypes = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "tab
 let logTabTypeDetail = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "tab-type-details")
 let logUi = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "ui")
 let logSettings = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "settings")
+let logExtractSheet = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "extract-sheet")
 
 
 // Global type look up table.
