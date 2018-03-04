@@ -99,6 +99,10 @@ class ExtractViewController: UIViewController {
                     return "7zip"
                 } else if typeIdentifier == "public.bzip2-archive" {
                     return "bzip2"
+                } else if typeIdentifier == "org.tukaani.xz-archive" {
+                    return "xz"
+                } else if typeIdentifier == "org.gnu.gnu-zip-archive" {
+                    return "gzip"
                 }
             }
         }
@@ -154,7 +158,7 @@ class ExtractViewController: UIViewController {
         if self.archiveType != nil && self.targetDirUrl != nil && self.archiveData != nil {
             if ["zip", "tar", "7zip"].contains(self.archiveType!) {
                 errorMsg = self.openContainer()  // TODO move this into background task, this might take a while
-            } else if ["bzip2"].contains(self.archiveType!) {
+            } else if ["bzip2", "xz", "gzip"].contains(self.archiveType!) {
                 errorMsg = self.openCompression()  // TODO move this into background task, this might take a while
             }
         }
@@ -297,8 +301,8 @@ class ExtractViewController: UIViewController {
     func openCompression() -> String? {
         os_log("openCompression", log: logExtractSheet, type: .debug)
         
-        // Bzip2 is a weird format. If doesn't contain file info (like names or paths) but the pure file data.
-        // The reason behin it is that it's implemented as a compression algorithm in my library, not a file format.
+        // These are the weirders. If don't contain file info (like names or paths) but the pure file data.
+        // The reason behind it is that it's implemented as a compression algorithm in my library, not a file format.
         // It can be created from within Keka on macOS though. Probably an edge case anyways.
         // I'm probably doing something wrong here. But this works for single files at least...
         
@@ -307,9 +311,23 @@ class ExtractViewController: UIViewController {
                 let decompressedData = try BZip2.decompress(data: self.archiveData!)
                 let filename: String = self.archiveUrl!.deletingPathExtension().lastPathComponent
                 self.extractFile(filename: filename, filedata: decompressedData)
+            } else if self.archiveType == "xz" {
+                let decompressedData = try XZArchive.unarchive(archive: self.archiveData!)
+                let filename: String = self.archiveUrl!.deletingPathExtension().lastPathComponent
+                self.extractFile(filename: filename, filedata: decompressedData)
+            } else if self.archiveType == "gzip" {
+                let decompressedData = try GzipArchive.unarchive(archive: self.archiveData!)
+                let filename: String = self.archiveUrl!.deletingPathExtension().lastPathComponent
+                self.extractFile(filename: filename, filedata: decompressedData)
             }
         } catch let error as BZip2Error {
             os_log("BZip2Error %@", log: logExtractSheet, type: .error, error.localizedDescription)
+            return error.localizedDescription
+        } catch let error as XZError {
+            os_log("XZError %@", log: logExtractSheet, type: .error, error.localizedDescription)
+            return error.localizedDescription
+        } catch let error as GzipError {
+            os_log("GzipError %@", log: logExtractSheet, type: .error, error.localizedDescription)
             return error.localizedDescription
         } catch let error {
             os_log("Error %@", log: logExtractSheet, type: .error, error.localizedDescription)
