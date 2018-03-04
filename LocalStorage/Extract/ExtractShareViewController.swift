@@ -16,8 +16,7 @@ let logExtractShareExtension = OSLog(subsystem: Bundle.main.bundleIdentifier!, c
 
 
 class ExtractShareViewController: SLComposeServiceViewController {
-
-    var containedTypes: [String] = []
+    
     var fileUrl: URL? = nil
     
     override func viewDidLoad() {
@@ -26,71 +25,27 @@ class ExtractShareViewController: SLComposeServiceViewController {
         
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
             for provider in item.attachments! as! [NSItemProvider] {
-                self.containedTypes = provider.registeredTypeIdentifiers
-                
                 // Search for "Uniform Type Identifiers Reference" for a full list of UTIs.
-
-                // zip: "public.file-url" + "public.zip-archive"
-                if provider.hasItemConformingToTypeIdentifier("public.zip-archive") {
-                    provider.loadItem(forTypeIdentifier: "public.zip-archive",
+                // Any file should contain at least "public.file-url" + "public.data"
+                if provider.hasItemConformingToTypeIdentifier("public.data") {
+                    provider.loadItem(forTypeIdentifier: "public.data",
                                       options: [:],
                                       completionHandler: self.loadFile)
                 }
-
-                // 7z: "public.file-url" + "org.7-zip.7-zip-archive"
-                if provider.hasItemConformingToTypeIdentifier("org.7-zip.7-zip-archive") {
-                    provider.loadItem(forTypeIdentifier: "org.7-zip.7-zip-archive",
-                                      options: [:],
-                                      completionHandler: self.loadFile)
-                }
-                
-                // tar: "public.file-url" + "public.tar-archive"
-                if provider.hasItemConformingToTypeIdentifier("public.tar-archive") {
-                    provider.loadItem(forTypeIdentifier: "public.tar-archive",
-                                      options: [:],
-                                      completionHandler: self.loadFile)
-                }
-                
-                // other, unsupported files (eg. *.torrent): "public.file-url" + "public.data"
             }
         }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        os_log("viewDidAppear", log: logExtractShareExtension, type: .debug)
         super.viewDidAppear(animated)
-        
-        var textFieldContent: String = ""
-        if self.containedTypes.count > 0 {
-            textFieldContent = "Contained file types: " + self.containedTypes.joined(separator: ", ") + "\n"
-            textFieldContent += "Supported file types: public.zip-archive, org.7-zip.7-zip-archive, public.tar-archive"
-        } else {
-            textFieldContent = "No file types contained at all."
-        }
-        textFieldContent += "\n\n"
-        if self.fileUrl == nil {
-            textFieldContent += "Email <guenther@eberl.se> if you think you should be able to extract this item."
-        } else {
-            textFieldContent += "Opening archive in Local Storage ..."
-        }
-        self.textView.text = textFieldContent
-        
-        // Dismissing the keyboard doesn't work. Also not in viewDidLoad or the others.
-        // self.view.endEditing(true)
-        // self.textView.endEditing(true)
+        self.textView.text = "Opening in Local Storage ..."
     }
     
     override func viewWillAppear(_ animated: Bool) {
         os_log("viewWillAppear", log: logExtractShareExtension, type: .debug)
         super.viewWillAppear(animated)
-        
-        // Always change the title of the button on the top right, standard "Post".
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.title = "Extract"
-        
-        if self.fileUrl == nil {
-            // File is not a zip file, disable top right button. Make self.didSelectPost() unreachable.
-            self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = false
-        }
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.title = "Open"  // Standard "Post"
     }
     
     func loadFile(coding: NSSecureCoding?, error: Error!) {
@@ -105,7 +60,7 @@ class ExtractShareViewController: SLComposeServiceViewController {
             if let url = coding as? URL {
                 self.fileUrl = self.copyToAppGroupFolder(srcUrl: url)
                 if self.fileUrl != nil {
-                    self.didSelectPost()  // File successfully copied over, hit the "Extract" button right away.
+                    self.didSelectPost()  // Hit the "Open" button right away
                 }
             }
         }
@@ -125,19 +80,19 @@ class ExtractShareViewController: SLComposeServiceViewController {
     
     func copyToAppGroupFolder(srcUrl: URL) -> URL? {
         let appGroupName: String = "group.se.eberl.localstorage"
-        if let destDirUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupName) {
+        let fileManager = FileManager.default
+        if let destDirUrl = fileManager.containerURL(forSecurityApplicationGroupIdentifier: appGroupName) {
             
             let destUrl = destDirUrl.appendingPathComponent(srcUrl.lastPathComponent)
-            removeFileIfExist(path: destUrl.path)  // copyItem doesn't overwrite but fail if file exists already.
+            removeFileIfExist(path: destUrl.path)  // copyItem doesn't overwrite but fails if that file exists already
 
             do {
-                try FileManager.default.copyItem(at: srcUrl, to: destUrl)
+                try fileManager.copyItem(at: srcUrl, to: destUrl)
                 return destUrl
             } catch {
                 os_log("Copying failed: %@", log: logExtractShareExtension, type: .error, error.localizedDescription)
             }
         }
-        
         return nil
     }
     
@@ -150,43 +105,35 @@ class ExtractShareViewController: SLComposeServiceViewController {
     }
     
     @objc func openURL(_ url: URL) {
-        // Function is needed for hack in self.openMainApp().
+        // Function needed for hack in self.openMainApp().
         return
     }
     
-    func openMainApp() {
+    func openMainApp(path: String) {
         os_log("openMainApp", log: logExtractShareExtension, type: .debug)
         
         // Hack to open main app from a share extension from https://stackoverflow.com/a/28037297/8137043
         // This may break in any new version on iOS.
-
+        
         let selector = #selector(openURL(_:))
 
         var responder: UIResponder? = self as UIResponder
         while responder != nil {
             if responder!.responds(to: selector) && responder != self {
-                responder!.perform(selector,
-                                   with: URL(string: "localstorage://actionextension?extract=" + self.fileUrl!.path)!)
+                let filePathPercentEncoded: String = path.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+                let appUrl: URL = URL(string: "localstorage://actionextension?extract=" + filePathPercentEncoded)!
+                responder!.perform(selector, with: appUrl)
                 return
             }
             responder = responder?.next
         }
     }
-    
-    override func configurationItems() -> [Any]! {
-        if self.fileUrl == nil {
-            let errorItem = SLComposeSheetConfigurationItem()!
-            errorItem.title = "Error"
-            errorItem.value = "File can't be extracted"
-            return [errorItem]
-        } else {
-            return []
-        }
-    }
 
     override func didSelectPost() {
         os_log("didSelectPost", log: logExtractShareExtension, type: .debug)
-        self.openMainApp()
+        if self.fileUrl != nil {
+            self.openMainApp(path: self.fileUrl!.path)
+        }
         super.didSelectPost()
     }
 
