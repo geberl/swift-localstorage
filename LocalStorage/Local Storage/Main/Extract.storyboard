@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="ExtractViewController" title="Extract" modalPresentationStyle="formSheet" id="qma-ee-MIa" customClass="ExtractViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="center" id="vts-F0-cUd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="304"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xo1-Tb-buA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem id="VyD-yw-r5s">
                                         <barButtonItem key="leftBarButtonItem" style="done" id="aUE-Ph-nk0">
@@ -37,7 +37,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qAk-EX-YAb">
-                                <rect key="frame" x="12" y="152" width="296" height="236"/>
+                                <rect key="frame" x="12" y="56" width="296" height="236"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tGo-3K-cjt">
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="31"/>
@@ -88,12 +88,24 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Extract to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DG-f2-LgR">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAX-k9-CLS">
                                         <rect key="frame" x="0.0" y="82" width="296" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Extract to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DG-f2-LgR">
+                                                <rect key="frame" x="0.0" y="0.0" width="201" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMq-fk-pkq">
+                                                <rect key="frame" x="201" y="0.0" width="95" height="31"/>
+                                                <state key="normal" title="Local Storage"/>
+                                                <connections>
+                                                    <segue destination="TBS-4s-WL1" kind="show" id="Atg-al-w9K"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2h0-Hn-bBP">
                                         <rect key="frame" x="0.0" y="123" width="296" height="31"/>
                                         <subviews>
@@ -184,11 +196,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fkz-mc-01c"/>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="320" height="400"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="304"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="400"/>
+                    <size key="freeformSize" width="320" height="304"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Wo7-c7-dh4" id="CuL-O1-iRx"/>
                         <outlet property="archiveLabel" destination="nqz-xm-uEE" id="GfS-9d-XOx"/>
@@ -206,6 +218,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmN-lB-KWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="24.800000000000001" y="31.934032983508249"/>
+        </scene>
+        <!--Extract to-->
+        <scene sceneID="E1c-Mt-yj8">
+            <objects>
+                <tableViewController id="s0S-qj-M1C" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vxg-wb-nWy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DirectoryProtoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4Jt-Pr-Mln">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Jt-Pr-Mln" id="1n9-bp-CyU">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="s0S-qj-M1C" id="TuL-Vt-vbj"/>
+                            <outlet property="delegate" destination="s0S-qj-M1C" id="DsQ-Om-pUA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Extract to" largeTitleDisplayMode="never" id="P07-JD-QEW"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JCM-71-6Pd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1330" y="31"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kn0-2k-kut">
+            <objects>
+                <navigationController storyboardIdentifier="ExtractTargetViewController" modalPresentationStyle="formSheet" id="TBS-4s-WL1" sceneMemberID="viewController">
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="400"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="500"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="saR-KD-XKw">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dpc-N1-N4o">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="s0S-qj-M1C" kind="relationship" relationship="rootViewController" id="ORm-Ic-4Dn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6gb-ml-cgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="672" y="31"/>
         </scene>
     </scenes>
     <resources>
