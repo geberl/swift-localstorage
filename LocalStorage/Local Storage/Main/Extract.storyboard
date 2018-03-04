@@ -128,19 +128,47 @@
                                             <constraint firstAttribute="height" constant="31" id="Vpe-sy-4V4"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azZ-CL-cZA">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vb-p2-MOT">
                                         <rect key="frame" x="0.0" y="205" width="296" height="31"/>
-                                        <state key="normal" title="Extract"/>
-                                        <connections>
-                                            <action selector="extractButton:" destination="qma-ee-MIa" eventType="touchUpInside" id="fi1-BQ-yHU"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNd-tn-CMZ" userLabel="Left Placeholder">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="TrJ-5A-RXU"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="ColorBgWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azZ-CL-cZA">
+                                                <rect key="frame" x="20" y="0.0" width="256" height="31"/>
+                                                <state key="normal" title="Extract"/>
+                                                <connections>
+                                                    <action selector="extractButton:" destination="qma-ee-MIa" eventType="touchUpInside" id="fi1-BQ-yHU"/>
+                                                </connections>
+                                            </button>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBU-AP-JFA" userLabel="Right Placeholder">
+                                                <rect key="frame" x="276" y="0.0" width="20" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="9hd-Cc-1fy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="ColorBgWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Wo7-c7-dh4">
+                                                <rect key="frame" x="276" y="0.0" width="20" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="1NO-Ji-7Bq"/>
+                                                </constraints>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="FfS-4U-ALe" firstAttribute="width" secondItem="qAk-EX-YAb" secondAttribute="width" id="IYH-fu-8CP"/>
                                     <constraint firstItem="2h0-Hn-bBP" firstAttribute="width" secondItem="qAk-EX-YAb" secondAttribute="width" id="fhA-p7-sFb"/>
                                     <constraint firstItem="tGo-3K-cjt" firstAttribute="width" secondItem="qAk-EX-YAb" secondAttribute="width" id="lKO-ne-TVY"/>
-                                    <constraint firstItem="azZ-CL-cZA" firstAttribute="centerX" secondItem="qAk-EX-YAb" secondAttribute="centerX" id="snB-h9-eQM"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -162,6 +190,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="400"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Wo7-c7-dh4" id="CuL-O1-iRx"/>
                         <outlet property="archiveLabel" destination="nqz-xm-uEE" id="GfS-9d-XOx"/>
                         <outlet property="compressionDetailButton" destination="rSe-2t-WnY" id="YFP-VU-etN"/>
                         <outlet property="compressionErrorLabel" destination="w9H-0b-QqG" id="ij4-AF-Ymw"/>
@@ -170,6 +199,8 @@
                         <outlet property="deleteOnSuccessLabel" destination="V1Z-Sb-BVC" id="fJh-37-ZcW"/>
                         <outlet property="deleteOnSuccessSwitch" destination="AHQ-B3-nEL" id="cxl-Cu-Hfn"/>
                         <outlet property="extractButton" destination="azZ-CL-cZA" id="cbq-rj-iK8"/>
+                        <outlet property="leftPlaceholderLabel" destination="FNd-tn-CMZ" id="LLW-P9-ml0"/>
+                        <outlet property="rightPlaceholderLabel" destination="lBU-AP-JFA" id="08T-gv-t2Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmN-lB-KWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -178,6 +209,12 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="ColorBgWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ColorBgWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ColorFontGray">
             <color red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

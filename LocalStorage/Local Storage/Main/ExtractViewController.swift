@@ -30,6 +30,9 @@ class ExtractViewController: UIViewController {
     @IBOutlet weak var createFolderSwitch: UISwitch!
     @IBOutlet weak var deleteOnSuccessLabel: UILabel!
     @IBOutlet weak var deleteOnSuccessSwitch: UISwitch!
+    @IBOutlet weak var leftPlaceholderLabel: UILabel!
+    @IBOutlet weak var rightPlaceholderLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var extractButton: UIButton!
     @IBAction func extractButton(_ sender: UIButton) { self.extract() }
     
@@ -45,6 +48,8 @@ class ExtractViewController: UIViewController {
         self.deleteOnSuccessSwitch.isEnabled = false
         self.deleteOnSuccessSwitch.setOn(false, animated: false)
         self.extractButton.isEnabled = false
+        self.rightPlaceholderLabel.isHidden = false
+        self.activityIndicator.isHidden = true
         
         // Perform checks on file.
         if self.archiveUrl == nil {
@@ -141,6 +146,7 @@ class ExtractViewController: UIViewController {
         
         var errorMsg: String? = nil
         
+        self.setExtractionPending()
         self.getTargetDir()
         if self.archiveUrl != nil {
             self.loadData()  // TODO move this into background task, this might take a while
@@ -155,12 +161,37 @@ class ExtractViewController: UIViewController {
         
         self.cleanUp()  // TODO move this into background task, this might take a while
         getStats()
-
+        self.setExtractinFinished()
+        
         if errorMsg == nil {
             self.close()
         } else {
             self.showExtractionError(detailedError: errorMsg)
         }
+    }
+    
+    func setExtractionPending() {
+        os_log("setExtractionPending", log: logExtractSheet, type: .debug)
+        
+        self.rightPlaceholderLabel.isHidden = true
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
+        self.createFolderSwitch.isEnabled = false
+        self.deleteOnSuccessSwitch.isEnabled = false
+        self.extractButton.isEnabled = false
+    }
+    
+    func setExtractinFinished() {
+        os_log("setExtractinFinished", log: logExtractSheet, type: .debug)
+        
+        self.rightPlaceholderLabel.isHidden = false
+        self.activityIndicator.isHidden = true
+        self.activityIndicator.stopAnimating()
+        self.createFolderSwitch.isEnabled = false
+        if self.reachedFromExtension == false {
+            self.deleteOnSuccessSwitch.isEnabled = true
+        }
+        self.extractButton.isEnabled = true
     }
     
     func getTargetDir() {
