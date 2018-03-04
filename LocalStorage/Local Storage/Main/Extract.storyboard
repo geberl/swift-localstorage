@@ -178,6 +178,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="FfS-4U-ALe" firstAttribute="width" secondItem="qAk-EX-YAb" secondAttribute="width" id="IYH-fu-8CP"/>
+                                    <constraint firstAttribute="height" constant="236" id="Ycm-cL-AYB"/>
                                     <constraint firstItem="2h0-Hn-bBP" firstAttribute="width" secondItem="qAk-EX-YAb" secondAttribute="width" id="fhA-p7-sFb"/>
                                     <constraint firstItem="tGo-3K-cjt" firstAttribute="width" secondItem="qAk-EX-YAb" secondAttribute="width" id="lKO-ne-TVY"/>
                                 </constraints>
@@ -187,7 +188,6 @@
                         <constraints>
                             <constraint firstItem="qAk-EX-YAb" firstAttribute="top" secondItem="xo1-Tb-buA" secondAttribute="bottom" constant="12" id="58S-SC-FRl"/>
                             <constraint firstItem="qAk-EX-YAb" firstAttribute="leading" secondItem="fkz-mc-01c" secondAttribute="leading" constant="12" id="7Z8-kn-saV"/>
-                            <constraint firstItem="fkz-mc-01c" firstAttribute="bottom" secondItem="qAk-EX-YAb" secondAttribute="bottom" constant="12" id="Amg-MZ-Mur"/>
                             <constraint firstItem="xo1-Tb-buA" firstAttribute="centerX" secondItem="vts-F0-cUd" secondAttribute="centerX" id="VaJ-yA-JEy"/>
                             <constraint firstItem="fkz-mc-01c" firstAttribute="trailing" secondItem="qAk-EX-YAb" secondAttribute="trailing" constant="12" id="hAM-dc-UG4"/>
                             <constraint firstItem="xo1-Tb-buA" firstAttribute="top" secondItem="fkz-mc-01c" secondAttribute="top" id="jge-7k-GKd"/>
@@ -222,9 +222,6 @@
     <resources>
         <namedColor name="ColorBgWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="ColorFontGray">
-            <color red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ColorFontGray">
             <color red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
