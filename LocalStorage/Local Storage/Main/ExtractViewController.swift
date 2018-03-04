@@ -56,9 +56,6 @@ class ExtractViewController: UIViewController {
             return
         }
         self.archiveLabel.text = self.archiveUrl!.lastPathComponent
-        if self.reachedFromExtension == false {
-            self.deleteOnSuccessSwitch.isEnabled = true
-        }
         self.archiveType = self.getArchiveType()
         if self.archiveType != nil {
             self.compressionLabel.text = self.archiveType
@@ -67,6 +64,9 @@ class ExtractViewController: UIViewController {
             self.compressionDetailButton.isHidden = true
             self.createFolderSwitch.isEnabled = true
             self.createFolderSwitch.setOn(true, animated: false)
+            if self.reachedFromExtension == false {
+                self.deleteOnSuccessSwitch.isEnabled = true
+            }
             self.extractButton.isEnabled = true
         }
     }
@@ -97,13 +97,15 @@ class ExtractViewController: UIViewController {
                     return "tar"
                 } else if typeIdentifier == "org.7-zip.7-zip-archive" {
                     return "7zip"
-                } else if typeIdentifier == "public.bzip2-archive" {
-                    return "bzip2"
-                } else if typeIdentifier == "org.tukaani.xz-archive" {
-                    return "xz"
-                } else if typeIdentifier == "org.gnu.gnu-zip-archive" {
-                    return "gzip"
                 }
+                // These formats don't work reliably, error if more than one file in the archive. Deactivated for now.
+//                else if typeIdentifier == "public.bzip2-archive" {
+//                    return "bzip2"
+//                } else if typeIdentifier == "org.tukaani.xz-archive" {
+//                    return "xz"
+//                } else if typeIdentifier == "org.gnu.gnu-zip-archive" {
+//                    return "gzip"
+//                }
             }
         }
         return nil
@@ -158,9 +160,12 @@ class ExtractViewController: UIViewController {
         if self.archiveType != nil && self.targetDirUrl != nil && self.archiveData != nil {
             if ["zip", "tar", "7zip"].contains(self.archiveType!) {
                 errorMsg = self.openContainer()  // TODO move this into background task, this might take a while
-            } else if ["bzip2", "xz", "gzip"].contains(self.archiveType!) {
-                errorMsg = self.openCompression()  // TODO move this into background task, this might take a while
             }
+            
+            // These formats don't work reliably, error if more than one file in the archive. Deactivated for now.
+//             else if ["bzip2", "xz", "gzip"].contains(self.archiveType!) {
+//                errorMsg = self.openCompression()
+//            }
         }
         
         self.cleanUp()  // TODO move this into background task, this might take a while
@@ -202,7 +207,7 @@ class ExtractViewController: UIViewController {
         os_log("getTargetDir", log: logExtractSheet, type: .debug)
         
         self.targetDirUrl = URL(fileURLWithPath: AppState.documentsPath, isDirectory: true)
-        self.targetDirUrl?.appendPathComponent("Extraced")  // make this user selectable in a later release
+        self.targetDirUrl?.appendPathComponent("Extracted")  // make this user selectable in a later release
         if self.createFolderSwitch.isOn {
             self.targetDirUrl?.appendPathComponent(self.archiveUrl!.deletingPathExtension().lastPathComponent)
         }
