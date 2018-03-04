@@ -24,6 +24,9 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         NotificationCenter.default.addObserver(self, selector: #selector(TypeDetailViewController.setTheme),
                                                name: .darkModeChanged, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(TypeDetailViewController.updateValues),
+                                               name: .updateFinished, object: nil)
+        
         self.typeIndex = self.getTypeIndex()
         self.title = AppState.types[self.typeIndex].name
         
@@ -38,6 +41,10 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     override func didReceiveMemoryWarning() {
         os_log("didReceiveMemoryWarning", log: logTabTypeDetail, type: .info)
         super.didReceiveMemoryWarning()
+    }
+    
+    @objc func updateValues() {
+        self.typeDetailTableView.reloadData()
     }
     
     func getTypeIndex() -> Int {
