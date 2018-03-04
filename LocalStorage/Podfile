@@ -4,6 +4,9 @@ use_frameworks!
 target 'localstorage' do
   pod 'Charts'
   pod 'SWCompression'
+  pod 'SWCompression/BZip2'
+  pod 'SWCompression/Deflate'
+  pod 'SWCompression/LZMA'
 end
 
 target 'Hash' do

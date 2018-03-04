@@ -16,7 +16,7 @@ public final class MsbBitReader: ByteReader, BitReader {
         return self.bitMask == 128
     }
 
-    // Amount of bits left to read.
+    /// Amount of bits left to read.
     public var bitsLeft: Int {
         if self.isFinished {
             return 0
@@ -25,7 +25,7 @@ public final class MsbBitReader: ByteReader, BitReader {
         }
     }
 
-    // Amount of bits that were already read.
+    /// Amount of bits that were already read.
     public var bitsRead: Int {
         if self.isFinished {
             return 8 * self.size
