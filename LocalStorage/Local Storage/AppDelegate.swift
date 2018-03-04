@@ -263,7 +263,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if AppState.openUrlScheme == "localstorage" {  // "" on normal launch.
             if AppState.openUrlQuery.starts(with: "extract=") {  // "" on normal launch.
-                let path: String = String(AppState.openUrlQuery.dropFirst(8))  // remove "extract=" from of String.
+                var path: String = AppState.openUrlQuery
+                path = String(path.dropFirst(8))  // remove "extract=" and convert Substring to String again
+                path = path.removingPercentEncoding!  // replace "%20" by " " etc. again
                 if path.count > 0 {
                     let archiveDict:[String: String] = ["path": path]
                     NotificationCenter.default.post(name: .launchFromShareExtension, object: nil, userInfo: archiveDict)
