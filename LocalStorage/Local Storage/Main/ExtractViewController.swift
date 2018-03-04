@@ -202,7 +202,7 @@ class ExtractViewController: UIViewController {
         os_log("getTargetDir", log: logExtractSheet, type: .debug)
         
         self.targetDirUrl = URL(fileURLWithPath: AppState.documentsPath, isDirectory: true)
-        self.targetDirUrl?.appendPathComponent("extract_temp") // TODO insert whatever folder the user selected here
+        self.targetDirUrl?.appendPathComponent("Extraced")  // make this user selectable in a later release
         if self.createFolderSwitch.isOn {
             self.targetDirUrl?.appendPathComponent(self.archiveUrl!.deletingPathExtension().lastPathComponent)
         }
