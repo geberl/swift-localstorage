@@ -8,20 +8,76 @@
 
 import UIKit
 import os.log
-import SWCompression  // Documentation: https://tsolomko.github.io/SWCompression/
+import SWCompression  // docs: https://tsolomko.github.io/SWCompression/
 
 
 class ExtractViewController: UIViewController {
     
     var archiveUrl: URL? = nil
+    var archiveType: String? = nil
     var archiveData: Data? = nil
     var targetDirUrl: URL? = nil
-    
     var reachedFromExtension: Bool = false
-    
     let dirsBlacklist: [String] = ["/__MACOSX/"]
     let fileBlacklist: [String] = [".DS_Store"]
     
+    @IBAction func closeButton(_ sender: UIButton) { self.close() }
+    @IBOutlet weak var archiveLabel: UILabel!
+    @IBOutlet weak var compressionLabel: UILabel!
+    @IBOutlet weak var compressionDetailButton: UIButton!
+    @IBAction func compressionDetailButton(_ sender: UIButton) { self.showCompressionDetail() }
+    @IBOutlet weak var createFolderSwitch: UISwitch!
+    @IBOutlet weak var deleteOnSuccessLabel: UILabel!
+    @IBOutlet weak var deleteOnSuccessSwitch: UISwitch!
+    @IBOutlet weak var extractButton: UIButton!
+    @IBAction func extractButton(_ sender: UIButton) { self.extract() }
+    
+    override func viewDidLoad() {
+        os_log("viewDidLoad", log: logExtractSheet, type: .debug)
+        super.viewDidLoad()
+        
+        // Default = everything disabled, label placeholders set.
+        self.archiveLabel.text = "???"
+        self.compressionLabel.text = "unsupported"
+        self.createFolderSwitch.isEnabled = false
+        self.createFolderSwitch.setOn(false, animated: false)
+        self.deleteOnSuccessSwitch.isEnabled = false
+        self.deleteOnSuccessSwitch.setOn(false, animated: false)
+        self.extractButton.isEnabled = false
+        
+        // Perform checks on file.
+        if self.archiveUrl == nil {
+            return
+        }
+        self.archiveLabel.text = self.archiveUrl!.lastPathComponent
+        if self.reachedFromExtension == false {
+            self.deleteOnSuccessSwitch.isEnabled = true
+        }
+        self.archiveType = self.getArchiveType()
+        if self.archiveType != nil {
+            self.compressionLabel.text = self.archiveType
+            self.compressionDetailButton.isHidden = true
+            self.extractButton.isEnabled = true
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        os_log("viewDidAppear", log: logExtractSheet, type: .debug)
+        super .viewDidAppear(animated)
+        
+        // Seems to be not possible to change font color before element is shown.
+        if self.archiveType == nil {
+            self.compressionLabel.textColor = UIColor(named: "ColorFontRed")!
+        } else {
+            self.compressionLabel.textColor = UIColor(named: "ColorFontGray")!
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        os_log("didReceiveMemoryWarning", log: logExtractSheet, type: .debug)
+        super.didReceiveMemoryWarning()
+    }
+
     func setArchiveUrl(path: String) {
         os_log("setArchiveUrl", log: logExtractSheet, type: .debug)
         self.archiveUrl = URL(fileURLWithPath: path, isDirectory: false)
@@ -32,64 +88,40 @@ class ExtractViewController: UIViewController {
         self.reachedFromExtension = true
     }
 
-    override func viewDidLoad() {
-        os_log("viewDidLoad", log: logExtractSheet, type: .debug)
-        super.viewDidLoad()
-        
-        if self.archiveUrl == nil {
-            self.archiveLabel.text = "???"
-            self.extractButton.isEnabled = false
-        } else {
-            self.archiveLabel.text = self.archiveUrl!.lastPathComponent
-            self.extractButton.isEnabled = true  // TODO check if supported type first.
-        }
-        
-        if self.reachedFromExtension {
-            self.deleteOnSuccessLabel.isEnabled = false
-            self.deleteOnSuccessSwitch.setOn(false, animated: false)
-            self.deleteOnSuccessSwitch.isEnabled = false
-        } else {
-            self.deleteOnSuccessLabel.isEnabled = true
-            self.deleteOnSuccessSwitch.setOn(false, animated: false)
-            self.deleteOnSuccessSwitch.isEnabled = true
-        }
+    func getArchiveType() -> String? {
+        os_log("getArchiveType", log: logExtractSheet, type: .debug)
+        // TODO implement
+        return nil
+        //return "7zip"
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-    @IBAction func onCloseButton(_ sender: UIButton) {
+    
+    func close() {
+        os_log("close", log: logExtractSheet, type: .debug)
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBOutlet weak var archiveLabel: UILabel!
+    func showCompressionDetail() {
+        os_log("showCompressionDetail", log: logExtractSheet, type: .debug)
+        // TODO implement
+    }
     
-    @IBOutlet weak var createFolderSwitch: UISwitch!
-    
-    @IBOutlet weak var deleteOnSuccessLabel: UILabel!
-    
-    @IBOutlet weak var deleteOnSuccessSwitch: UISwitch!
-    
-    @IBOutlet weak var extractButton: UIButton!
-    
-    @IBAction func onExtractButton(_ sender: UIButton) {
-        os_log("onExtractButton", log: logExtractSheet, type: .debug)
+    func extract() {
+        os_log("extract", log: logExtractSheet, type: .debug)
         
         self.getTargetDir()
-        self.loadData()  // TODO move this into background task, this might take a while.
-        self.openContainer()  // TODO move this into background task, this might take a while.
-        self.cleanUp()  // TODO move this into background task, this might take a while.
+        self.loadData()  // TODO move this into background task, this might take a while
+        self.openContainer()  // TODO move this into background task, this might take a while
+        self.cleanUp()  // TODO move this into background task, this might take a while
         
         getStats()
-        self.dismiss(animated: true, completion: nil)
+        self.close()
     }
     
     func getTargetDir() {
         os_log("getTargetDir", log: logExtractSheet, type: .debug)
         
         self.targetDirUrl = URL(fileURLWithPath: AppState.documentsPath, isDirectory: true)
-        self.targetDirUrl?.appendPathComponent("extract_temp") // TODO insert whatever folder the user selected here.
+        self.targetDirUrl?.appendPathComponent("extract_temp") // TODO insert whatever folder the user selected here
         if self.createFolderSwitch.isOn {
             self.targetDirUrl?.appendPathComponent(self.archiveUrl!.deletingPathExtension().lastPathComponent)
         }
@@ -171,12 +203,12 @@ class ExtractViewController: UIViewController {
     func cleanUp() {
         os_log("cleanUp", log: logExtractSheet, type: .debug)
         
-        // Remove the archive itself if the user toggled the switch.
+        // Remove the archive itself, but only if the user toggled the switch.
         if self.deleteOnSuccessSwitch.isOn {
             removeFileIfExist(path: self.archiveUrl!.path)
         }
         
-        // Always remova all content in the App Group shared folder.
+        // Always remova all content in the App Group shared folder. Also stuff that might be in there previously.
         let appGroupName: String = "group.se.eberl.localstorage"
         if let destDirUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupName) {
             clearDir(path: destDirUrl.path)

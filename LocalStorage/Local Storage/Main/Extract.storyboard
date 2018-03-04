@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xo1-Tb-buA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="181"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                                 <items>
                                     <navigationItem id="VyD-yw-r5s">
                                         <barButtonItem key="leftBarButtonItem" style="done" id="aUE-Ph-nk0">
@@ -28,7 +29,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                 <state key="normal" title="Done"/>
                                                 <connections>
-                                                    <action selector="onCloseButton:" destination="qma-ee-MIa" eventType="touchUpInside" id="ecG-zF-4Lo"/>
+                                                    <action selector="closeButton:" destination="qma-ee-MIa" eventType="touchUpInside" id="ecG-zF-4Lo"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -36,7 +37,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qAk-EX-YAb">
-                                <rect key="frame" x="12" y="193" width="296" height="195"/>
+                                <rect key="frame" x="12" y="152" width="296" height="236"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tGo-3K-cjt">
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="31"/>
@@ -53,19 +54,42 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FileName.zip" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqz-xm-uEE">
                                                 <rect key="frame" x="62" y="5.5" width="234" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" name="ColorFontGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Extract to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DG-f2-LgR">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="jMY-pV-cL7">
                                         <rect key="frame" x="0.0" y="41" width="296" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compression" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyO-9j-zh2">
+                                                <rect key="frame" x="0.0" y="5.5" width="101" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="zip" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeV-lB-j9Z">
+                                                <rect key="frame" x="107" y="5.5" width="161" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="ColorFontGray"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSe-2t-WnY">
+                                                <rect key="frame" x="274" y="4.5" width="22" height="22"/>
+                                                <connections>
+                                                    <action selector="compressionDetailButton:" destination="qma-ee-MIa" eventType="touchUpInside" id="2HN-hM-sGo"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Extract to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DG-f2-LgR">
+                                        <rect key="frame" x="0.0" y="82" width="296" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2h0-Hn-bBP">
-                                        <rect key="frame" x="0.0" y="82" width="296" height="31"/>
+                                        <rect key="frame" x="0.0" y="123" width="296" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create folder for content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYC-6R-Gkr">
                                                 <rect key="frame" x="0.0" y="5.5" width="247" height="20.5"/>
@@ -82,7 +106,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FfS-4U-ALe">
-                                        <rect key="frame" x="0.0" y="123" width="296" height="31"/>
+                                        <rect key="frame" x="0.0" y="164" width="296" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete archive on success" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1Z-Sb-BVC">
                                                 <rect key="frame" x="0.0" y="5.5" width="247" height="20.5"/>
@@ -99,10 +123,10 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azZ-CL-cZA">
-                                        <rect key="frame" x="0.0" y="164" width="296" height="31"/>
+                                        <rect key="frame" x="0.0" y="205" width="296" height="31"/>
                                         <state key="normal" title="Extract"/>
                                         <connections>
-                                            <action selector="onExtractButton:" destination="qma-ee-MIa" eventType="touchUpInside" id="fi1-BQ-yHU"/>
+                                            <action selector="extractButton:" destination="qma-ee-MIa" eventType="touchUpInside" id="fi1-BQ-yHU"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -133,6 +157,8 @@
                     <size key="freeformSize" width="320" height="400"/>
                     <connections>
                         <outlet property="archiveLabel" destination="nqz-xm-uEE" id="GfS-9d-XOx"/>
+                        <outlet property="compressionDetailButton" destination="rSe-2t-WnY" id="YFP-VU-etN"/>
+                        <outlet property="compressionLabel" destination="KeV-lB-j9Z" id="4bH-bt-aq8"/>
                         <outlet property="createFolderSwitch" destination="dDT-ny-Ikx" id="cWf-U3-Mdk"/>
                         <outlet property="deleteOnSuccessLabel" destination="V1Z-Sb-BVC" id="fJh-37-ZcW"/>
                         <outlet property="deleteOnSuccessSwitch" destination="AHQ-B3-nEL" id="cxl-Cu-Hfn"/>
@@ -144,4 +170,9 @@
             <point key="canvasLocation" x="24.800000000000001" y="31.934032983508249"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="ColorFontGray">
+            <color red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
