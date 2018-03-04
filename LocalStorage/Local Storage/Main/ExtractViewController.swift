@@ -125,8 +125,12 @@ class ExtractViewController: UIViewController {
         os_log("extract", log: logExtractSheet, type: .debug)
         
         self.getTargetDir()
-        self.loadData()  // TODO move this into background task, this might take a while
-        self.openContainer()  // TODO move this into background task, this might take a while
+        if self.archiveUrl != nil {
+            self.loadData()  // TODO move this into background task, this might take a while
+        }
+        if self.archiveType != nil && self.targetDirUrl != nil && self.archiveData != nil {
+            self.openContainer()  // TODO move this into background task, this might take a while
+        }
         self.cleanUp()  // TODO move this into background task, this might take a while
         
         getStats()
@@ -153,69 +157,81 @@ class ExtractViewController: UIViewController {
         }
     }
     
+    func extractFile(filename: String, filedata: Data?) {
+        os_log("Found file %@.", log: logExtractSheet, type: .debug, filename)
+        let targetFileUrl = self.targetDirUrl!.appendingPathComponent(filename)
+        
+        // Check this filename against file blacklist.
+        if self.fileBlacklist.contains(targetFileUrl.lastPathComponent) {
+            os_log("Skipping, filename is on blacklist.", log: logExtractSheet, type: .info)
+            return
+        }
+        
+        // Check parent folder structure against dirs blacklist.
+        for dirBlacklist in self.dirsBlacklist {
+            if targetFileUrl.path.range(of: dirBlacklist) != nil {
+                os_log("Skipping, parent directory is on blacklist.", log: logExtractSheet, type: .info)
+                return
+            }
+        }
+
+        // Extract data.
+        if filedata != nil {
+            os_log("Writing data to %@.", log: logExtractSheet, type: .info, targetFileUrl.path)
+            makeDirs(path: targetFileUrl.deletingLastPathComponent().path)
+            do {
+                try filedata!.write(to: targetFileUrl, options: Data.WritingOptions.atomic)
+            }
+            catch {
+                os_log("%@", log: logExtractSheet, type: .error, error.localizedDescription)
+            }
+        } else {
+            os_log("No data contained.", log: logExtractSheet, type: .error)
+        }
+    }
+    
     func openContainer() {
         os_log("openContainer", log: logExtractSheet, type: .debug)
         
+        // Only attempt extraction if entry is a file (=regular), entry.data is nil for directories.
+        // Since directories are not reliably encountered before their contained files just skip over them.
+        // Instead examine the partial file path in myZipEntryInfo.name and make sure the dirs exist.
+        // No real way to soft and hard links and other advanced stuff on iOS.
+        
         do {
-            let containedEntries = try ZipContainer.open(container: self.archiveData!)
-            
-            for containedEntry in containedEntries {
-                let myZipEntry: ZipEntry = containedEntry
-                let myZipEntryInfo: ZipEntryInfo = myZipEntry.info
-                
-                // Check if this entry is a file (=regular) or a directory. myZipEntry.data is nil for directories.
-                if myZipEntryInfo.type == .regular {
-                    os_log("Found file %@.", log: logExtractSheet, type: .debug, myZipEntryInfo.name)
-                    let targetFileUrl = self.targetDirUrl!.appendingPathComponent(myZipEntryInfo.name)
-                    
-                    // Check this filename against file blacklist.
-                    if self.fileBlacklist.contains(targetFileUrl.lastPathComponent) {
-                        os_log("Skipping, filename is on blacklist.", log: logExtractSheet, type: .info)
-                        continue
+            if self.archiveType == "zip" {
+                let zipContainer = try ZipContainer.open(container: self.archiveData!)
+                for zipEntry in zipContainer {
+                    if zipEntry.info.type == .regular {
+                        self.extractFile(filename: zipEntry.info.name, filedata: zipEntry.data)
                     }
-                    
-                    // Check parent folder structure against dirs blacklist.
-                    var skipFile: Bool = false
-                    for dirBlacklist in self.dirsBlacklist {
-                        if targetFileUrl.path.range(of: dirBlacklist) != nil {
-                            os_log("Skipping, parent directory is on blacklist.", log: logExtractSheet, type: .info)
-                            skipFile = true
-                            break
-                        }
+                }
+            } else if self.archiveType == "tar" {
+                let tarContainer = try TarContainer.open(container: self.archiveData!)
+                for tarEntry in tarContainer {
+                    if tarEntry.info.type == .regular {
+                        self.extractFile(filename: tarEntry.info.name, filedata: tarEntry.data)
                     }
-                    if skipFile { continue }
-                    
-                    if let myZipEntryData: Data = myZipEntry.data {
-                        os_log("Writing to %@.", log: logExtractSheet, type: .info, targetFileUrl.path)
-                        
-                        makeDirs(path: targetFileUrl.deletingLastPathComponent().path)
-
-                        do {
-                            try myZipEntryData.write(to: targetFileUrl, options: Data.WritingOptions.atomic)
-                        }
-                        catch {
-                            os_log("%@", log: logExtractSheet, type: .error, error.localizedDescription)
-                        }
-                        
-                    } else {
-                        os_log("Unable to get data.", log: logExtractSheet, type: .error)
+                }
+            } else if self.archiveType == "7zip" {
+                let sevenZipContainer = try SevenZipContainer.open(container: self.archiveData!)
+                for sevenZipEntry in sevenZipContainer {
+                    if sevenZipEntry.info.type == .regular {
+                        self.extractFile(filename: sevenZipEntry.info.name, filedata: sevenZipEntry.data)
                     }
-                } else if myZipEntryInfo.type == .directory {
-                    os_log("Found directory %@. Skipping.", log: logExtractSheet, type: .debug, myZipEntryInfo.name)
-                    // Since directories are not reliably encountered before their contained files just skip over them.
-                    // Instead examine the partial file path in myZipEntryInfo.name and make sure the dirs exist.
-                } else {
-                    os_log("Found non-supported item %@.", log: logExtractSheet, type: .error, myZipEntryInfo.name)
-                    // No real way to soft and hard links and other advanced stuff on iOS.
                 }
             }
         } catch let error as ZipError {
             os_log("ZipError %@", log: logExtractSheet, type: .error, error.localizedDescription)
+        } catch let error as TarError {
+            os_log("TarError %@", log: logExtractSheet, type: .error, error.localizedDescription)
+        } catch let error as SevenZipError {
+            os_log("SevenZipError %@", log: logExtractSheet, type: .error, error.localizedDescription)
         } catch let error {
             os_log("Error %@", log: logExtractSheet, type: .error, error.localizedDescription)
         }
     }
-    
+
     func cleanUp() {
         os_log("cleanUp", log: logExtractSheet, type: .debug)
         
