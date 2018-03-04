@@ -9,6 +9,7 @@
 import UIKit
 import os.log
 
+
 class HashFunctionDetailViewController: UITableViewController {
     
     let userDefaults = UserDefaults.standard
@@ -28,8 +29,8 @@ class HashFunctionDetailViewController: UITableViewController {
     @IBOutlet var hashFunctionDetailTableView: UITableView!
     
     override func viewDidLoad() {
+        os_log("viewDidLoad", log: logHashExtension, type: .debug)
         super.viewDidLoad()
-        os_log("viewDidLoad", log: logHashActionExtension, type: .debug)
         self.selectedFunctionName = userDefaults.string(forKey: UserDefaultStruct.hashFunction)!
     }
     

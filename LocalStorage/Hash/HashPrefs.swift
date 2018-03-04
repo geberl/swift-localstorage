@@ -24,11 +24,11 @@ func isKeyPresentInUserDefaults(key: String) -> Bool {
     }
 }
 
+
 func ensureUserDefaults() {
-    os_log("ensureUserDefaults", log: logHashActionExtension, type: .debug)
+    os_log("ensureUserDefaults", log: logHashExtension, type: .debug)
     
     let userDefaults = UserDefaults.standard
-    
     if !isKeyPresentInUserDefaults(key: UserDefaultStruct.hashFunction) {
         userDefaults.set(UserDefaultStruct.hashFunctionDefault, forKey: UserDefaultStruct.hashFunction)
     }

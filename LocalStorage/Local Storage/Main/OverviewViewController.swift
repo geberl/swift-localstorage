@@ -58,8 +58,8 @@ class OverviewViewController: UIViewController {
     @IBAction func onPreferencesButton(_ sender: UIButton) {self.openPreferences()}
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         os_log("viewDidLoad", log: logTabOverview, type: .debug)
+        super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(OverviewViewController.setTheme),
                                                name: .darkModeChanged, object: nil)

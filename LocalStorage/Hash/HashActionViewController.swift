@@ -13,7 +13,7 @@ import CommonCryptoModule
 
 
 // Logger configuration.
-let logHashActionExtension = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "hash-action")
+let logHashExtension = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "hash-extension")
 
 
 extension Data {
@@ -115,8 +115,8 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     var fileData: Data?
 
     override func viewDidLoad() {
+        os_log("viewDidLoad", log: logHashExtension, type: .debug)
         super.viewDidLoad()
-        os_log("viewDidLoad", log: logHashActionExtension, type: .debug)
         
         ensureUserDefaults()
         
@@ -152,10 +152,10 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func loadFile(coding: NSSecureCoding?, error: Error!) {
-        os_log("loadFile", log: logHashActionExtension, type: .debug)
+        os_log("loadFile", log: logHashExtension, type: .debug)
         
         if error != nil {
-            os_log("%@", log: logHashActionExtension, type: .error, error.localizedDescription)
+            os_log("%@", log: logHashExtension, type: .error, error.localizedDescription)
             self.digestTextView.text = "Error: Unable to load file"
             return
         }
@@ -165,7 +165,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
                 do {
                     self.fileData = try Data(contentsOf: url)
                 } catch let error {
-                    os_log("%@", log: logHashActionExtension, type: .error, error.localizedDescription)
+                    os_log("%@", log: logHashExtension, type: .error, error.localizedDescription)
                     self.calculateButton.isEnabled = false
                     self.digestTextView.text = "Error: Unable to load file"
                 }
@@ -174,7 +174,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func hashFile() {
-        os_log("hashFile", log: logHashActionExtension, type: .debug)
+        os_log("hashFile", log: logHashExtension, type: .debug)
         
         if self.fileData != nil {
             
@@ -238,7 +238,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func addLineBreaks(input: String) -> String {
-        os_log("addLineBreaks", log: logHashActionExtension, type: .debug)
+        os_log("addLineBreaks", log: logHashExtension, type: .debug)
         
         var output: String = ""
         for (n, char) in input.enumerated() {
@@ -255,7 +255,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func removeLineBreaks(input: String) -> String {
-        os_log("removeLineBreaks", log: logHashActionExtension, type: .debug)
+        os_log("removeLineBreaks", log: logHashExtension, type: .debug)
         
         var output: String = input
         output = output.replacingOccurrences(of: " ", with: "")
@@ -264,14 +264,14 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func copyHash() {
-        os_log("copyHash", log: logHashActionExtension, type: .debug)
+        os_log("copyHash", log: logHashExtension, type: .debug)
         
         let pasteBoard = UIPasteboard.general
         pasteBoard.string = self.removeLineBreaks(input: self.digestTextView.text)
     }
 
     @objc func reloadHashFunction() {
-        os_log("reloadHashFunction", log: logHashActionExtension, type: .debug)
+        os_log("reloadHashFunction", log: logHashExtension, type: .debug)
         
         self.digestTextView.text = ""
         self.copyButton.isEnabled = false

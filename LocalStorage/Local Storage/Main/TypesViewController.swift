@@ -10,6 +10,7 @@ import Charts
 import UIKit
 import os.log
 
+
 class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     let userDefaults = UserDefaults.standard
@@ -26,8 +27,8 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     var animateUpdateDuringRefresh: Bool = false
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         os_log("viewDidLoad", log: logTabTypes, type: .debug)
+        super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(TypesViewController.setTheme),
                                                name: .darkModeChanged, object: nil)
@@ -60,8 +61,8 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     }
 
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
         os_log("didReceiveMemoryWarning", log: logTabTypes, type: .info)
+        super.didReceiveMemoryWarning()
     }
     
     @objc func setTheme() {
@@ -167,7 +168,7 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         let typesSet = BarChartDataSet(values: typesVals, label: "")
         typesSet.drawIconsEnabled = false
         typesSet.colors = [UIColor(named: "ColorTypeOther")!]
-        typesSet.stackLabels = ["Refreshing"]  // only shows up if two or more values.
+        typesSet.stackLabels = ["Refreshing"]  // only shows up if two or more values
         
         data = BarChartData(dataSet: typesSet)
         

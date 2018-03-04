@@ -9,6 +9,7 @@
 import UIKit
 import os.log
 
+
 class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let userDefaults = UserDefaults.standard
@@ -17,8 +18,8 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var typeDetailTableView: UITableView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         os_log("viewDidLoad", log: logTabTypeDetail, type: .debug)
+        super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(TypeDetailViewController.setTheme),
                                                name: .darkModeChanged, object: nil)
@@ -35,8 +36,8 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
         os_log("didReceiveMemoryWarning", log: logTabTypeDetail, type: .info)
+        super.didReceiveMemoryWarning()
     }
     
     func getTypeIndex() -> Int {

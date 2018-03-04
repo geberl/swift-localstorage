@@ -12,7 +12,7 @@ import Social
 
 
 // Logger configuration.
-let logExtractShareExtension = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "extract-action")
+let logExtractExtension = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "extract-extension")
 
 
 class ExtractShareViewController: SLComposeServiceViewController {
@@ -20,8 +20,8 @@ class ExtractShareViewController: SLComposeServiceViewController {
     var fileUrl: URL? = nil
     
     override func viewDidLoad() {
+        os_log("viewDidLoad", log: logExtractExtension, type: .debug)
         super.viewDidLoad()
-        os_log("viewDidLoad", log: logExtractShareExtension, type: .debug)
         
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
             for provider in item.attachments! as! [NSItemProvider] {
@@ -37,22 +37,22 @@ class ExtractShareViewController: SLComposeServiceViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        os_log("viewDidAppear", log: logExtractShareExtension, type: .debug)
+        os_log("viewDidAppear", log: logExtractExtension, type: .debug)
         super.viewDidAppear(animated)
         self.textView.text = "Opening in Local Storage ..."
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        os_log("viewWillAppear", log: logExtractShareExtension, type: .debug)
+        os_log("viewWillAppear", log: logExtractExtension, type: .debug)
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.title = "Open"  // Standard "Post"
     }
     
     func loadFile(coding: NSSecureCoding?, error: Error!) {
-        os_log("loadFile", log: logExtractShareExtension, type: .debug)
+        os_log("loadFile", log: logExtractExtension, type: .debug)
         
         if error != nil {
-            os_log("%@", log: logExtractShareExtension, type: .error, error.localizedDescription)
+            os_log("%@", log: logExtractExtension, type: .error, error.localizedDescription)
             return
         }
         
@@ -67,18 +67,22 @@ class ExtractShareViewController: SLComposeServiceViewController {
     }
     
     func removeFileIfExist(path: String) {
+        os_log("removeFileIfExist", log: logExtractExtension, type: .debug)
+        
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: path) {
             do {
                 try fileManager.removeItem(atPath: path)
-                os_log("Removed file '%@'", log: logExtractShareExtension, type: .debug, path)
+                os_log("Removed file '%@'", log: logExtractExtension, type: .debug, path)
             } catch {
-                os_log("%@", log: logExtractShareExtension, type: .error, error.localizedDescription)
+                os_log("%@", log: logExtractExtension, type: .error, error.localizedDescription)
             }
         }
     }
     
     func copyToAppGroupFolder(srcUrl: URL) -> URL? {
+        os_log("copyToAppGroupFolder", log: logExtractExtension, type: .debug)
+        
         let appGroupName: String = "group.se.eberl.localstorage"
         let fileManager = FileManager.default
         if let destDirUrl = fileManager.containerURL(forSecurityApplicationGroupIdentifier: appGroupName) {
@@ -90,7 +94,7 @@ class ExtractShareViewController: SLComposeServiceViewController {
                 try fileManager.copyItem(at: srcUrl, to: destUrl)
                 return destUrl
             } catch {
-                os_log("Copying failed: %@", log: logExtractShareExtension, type: .error, error.localizedDescription)
+                os_log("Copying failed: %@", log: logExtractExtension, type: .error, error.localizedDescription)
             }
         }
         return nil
@@ -110,7 +114,7 @@ class ExtractShareViewController: SLComposeServiceViewController {
     }
     
     func openMainApp(path: String) {
-        os_log("openMainApp", log: logExtractShareExtension, type: .debug)
+        os_log("openMainApp", log: logExtractExtension, type: .debug)
         
         // Hack to open main app from a share extension from https://stackoverflow.com/a/28037297/8137043
         // This may break in any new version on iOS.
@@ -130,7 +134,7 @@ class ExtractShareViewController: SLComposeServiceViewController {
     }
 
     override func didSelectPost() {
-        os_log("didSelectPost", log: logExtractShareExtension, type: .debug)
+        os_log("didSelectPost", log: logExtractExtension, type: .debug)
         if self.fileUrl != nil {
             self.openMainApp(path: self.fileUrl!.path)
         }

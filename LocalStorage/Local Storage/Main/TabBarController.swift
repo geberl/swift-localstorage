@@ -8,16 +8,15 @@
 
 import UIKit
 
+
 class TabBarController: UITabBarController {
     
     let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(TabBarController.setTheme),
                                                name: .darkModeChanged, object: nil)
-        
         self.setTheme()
     }
 
