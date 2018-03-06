@@ -14,14 +14,15 @@ import SWCompression  // docs: https://tsolomko.github.io/SWCompression/
 class ExtractViewController: UIViewController {
     
     var archiveUrl: URL? = nil
+    var reachedFromExtension: Bool = false
+    
     var archiveType: String? = nil
     var archiveData: Data? = nil
     var targetDirUrl: URL? = nil
-    var reachedFromExtension: Bool = false
     let dirsBlacklist: [String] = ["/__MACOSX/"]
     let fileBlacklist: [String] = [".DS_Store"]
     
-    @IBAction func closeButton(_ sender: UIButton) { self.close() }
+    @IBAction func onDoneButton(_ sender: UIBarButtonItem) { self.close() }
     @IBOutlet weak var archiveLabel: UILabel!
     @IBOutlet weak var compressionLabel: UILabel!
     @IBOutlet weak var compressionErrorLabel: UILabel!
@@ -39,6 +40,12 @@ class ExtractViewController: UIViewController {
     override func viewDidLoad() {
         os_log("viewDidLoad", log: logExtractSheet, type: .debug)
         super.viewDidLoad()
+        
+        // Get values from parent NavigationController.
+        // TODO put these in init function better?
+        let parentVC = self.parent as! ExtractNavController
+        self.archiveUrl = parentVC.archiveUrl
+        self.reachedFromExtension = parentVC.reachedFromExtension
         
         // Default = everything disabled, label placeholders set.
         self.compressionLabel.isHidden = true
@@ -74,16 +81,6 @@ class ExtractViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         os_log("didReceiveMemoryWarning", log: logExtractSheet, type: .debug)
         super.didReceiveMemoryWarning()
-    }
-
-    func setArchiveUrl(path: String) {
-        os_log("setArchiveUrl", log: logExtractSheet, type: .debug)
-        self.archiveUrl = URL(fileURLWithPath: path, isDirectory: false)
-    }
-    
-    func setReachedFromExtension() {
-        os_log("setReachedFromExtension", log: logExtractSheet, type: .debug)
-        self.reachedFromExtension = true
     }
 
     func getArchiveType() -> String? {

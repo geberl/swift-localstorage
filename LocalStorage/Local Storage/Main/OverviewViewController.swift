@@ -112,7 +112,7 @@ class OverviewViewController: UIViewController {
         guard let archivePath = notification.userInfo?["path"] as? String else { return }
         
         let sb = UIStoryboard(name: "Extract", bundle: Bundle.main)
-        let vc = sb.instantiateViewController(withIdentifier: "ExtractViewController") as! ExtractViewController
+        let vc = sb.instantiateViewController(withIdentifier: "ExtractNavController") as! ExtractNavController
         vc.setArchiveUrl(path: archivePath)
         vc.setReachedFromExtension()
         

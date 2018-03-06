@@ -113,7 +113,7 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         os_log("accesoryButtonTappedForRowWith", log: logTabTypes, type: .debug)
         
         let sb = UIStoryboard(name: "Extract", bundle: Bundle.main)
-        let vc = sb.instantiateViewController(withIdentifier: "ExtractViewController") as! ExtractViewController
+        let vc = sb.instantiateViewController(withIdentifier: "ExtractNavController") as! ExtractNavController
         vc.setArchiveUrl(path: AppState.documentsPath + "/" + AppState.types[self.typeIndex].paths[indexPath.row])
         navigationController?.present(vc, animated: true, completion: nil)
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qma-ee-MIa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Un6-s7-uoT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,31 +13,13 @@
         <!--Extract-->
         <scene sceneID="8Zf-Bn-olH">
             <objects>
-                <viewController storyboardIdentifier="ExtractViewController" title="Extract" modalPresentationStyle="formSheet" id="qma-ee-MIa" customClass="ExtractViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExtractViewController" title="Extract" id="qma-ee-MIa" customClass="ExtractViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="center" id="vts-F0-cUd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="304"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xo1-Tb-buA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <navigationItem id="VyD-yw-r5s">
-                                        <barButtonItem key="leftBarButtonItem" style="done" id="aUE-Ph-nk0">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xd1-nx-Qy8">
-                                                <rect key="frame" x="16" y="6" width="42" height="32"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                <state key="normal" title="Done"/>
-                                                <connections>
-                                                    <action selector="closeButton:" destination="qma-ee-MIa" eventType="touchUpInside" id="ecG-zF-4Lo"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qAk-EX-YAb">
-                                <rect key="frame" x="12" y="56" width="296" height="236"/>
+                                <rect key="frame" x="12" y="52" width="296" height="236"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tGo-3K-cjt">
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="31"/>
@@ -91,12 +73,19 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAX-k9-CLS">
                                         <rect key="frame" x="0.0" y="82" width="296" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DG-f2-LgR">
-                                                <rect key="frame" x="0.0" y="0.0" width="103" height="31"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DG-f2-LgR">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bix-XB-r0h">
+                                                <rect key="frame" x="49" y="0.0" width="54" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <segue destination="keC-EE-FjJ" kind="show" id="EYI-St-uLP"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Storage / Extracted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h9-8q-C2u">
                                                 <rect key="frame" x="103" y="0.0" width="193" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -186,17 +175,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qAk-EX-YAb" firstAttribute="top" secondItem="xo1-Tb-buA" secondAttribute="bottom" constant="12" id="58S-SC-FRl"/>
                             <constraint firstItem="qAk-EX-YAb" firstAttribute="leading" secondItem="fkz-mc-01c" secondAttribute="leading" constant="12" id="7Z8-kn-saV"/>
-                            <constraint firstItem="xo1-Tb-buA" firstAttribute="centerX" secondItem="vts-F0-cUd" secondAttribute="centerX" id="VaJ-yA-JEy"/>
+                            <constraint firstItem="qAk-EX-YAb" firstAttribute="top" secondItem="fkz-mc-01c" secondAttribute="top" constant="8" id="QUm-ZN-mN2"/>
                             <constraint firstItem="fkz-mc-01c" firstAttribute="trailing" secondItem="qAk-EX-YAb" secondAttribute="trailing" constant="12" id="hAM-dc-UG4"/>
-                            <constraint firstItem="xo1-Tb-buA" firstAttribute="top" secondItem="fkz-mc-01c" secondAttribute="top" id="jge-7k-GKd"/>
-                            <constraint firstItem="xo1-Tb-buA" firstAttribute="width" secondItem="vts-F0-cUd" secondAttribute="width" id="urh-Xo-QOq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fkz-mc-01c"/>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="320" height="304"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="wy3-88-W18">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="60b-De-j85">
+                            <connections>
+                                <action selector="onDoneButton:" destination="qma-ee-MIa" id="eNf-tr-Oqn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="304"/>
@@ -216,7 +208,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmN-lB-KWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="31.934032983508249"/>
+            <point key="canvasLocation" x="834" y="30"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2EP-eb-X9x">
+            <objects>
+                <viewController id="keC-EE-FjJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZSH-1p-wxS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="304"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="List here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEG-62-rE4">
+                                <rect key="frame" x="107" y="153" width="106" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ou0-L5-sHb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uvl-9f-rH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548.8" y="29.685157421289357"/>
+        </scene>
+        <!--Extract Nav Controller-->
+        <scene sceneID="coX-it-zgf">
+            <objects>
+                <navigationController storyboardIdentifier="ExtractNavController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="formSheet" id="Un6-s7-uoT" customClass="ExtractNavController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <value key="contentSizeForViewInPopover" type="size" width="0.0" height="0.0"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <size key="freeformSize" width="320" height="304"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PQy-St-lgQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qma-ee-MIa" kind="relationship" relationship="rootViewController" id="oNh-wa-1Im"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cdw-3t-5y3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="171" y="30"/>
         </scene>
     </scenes>
     <resources>

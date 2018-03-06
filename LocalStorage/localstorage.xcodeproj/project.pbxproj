@@ -18,6 +18,7 @@
 		A44E4E761FFA915D00CBE189 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E4E751FFA915D00CBE189 /* OverviewViewController.swift */; };
 		A44E4E791FFA915D00CBE189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E771FFA915D00CBE189 /* Main.storyboard */; };
 		A44E4E7E1FFA915D00CBE189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E7C1FFA915D00CBE189 /* LaunchScreen.storyboard */; };
+		A45F5A21204EC7C5001E2AA0 /* ExtractNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45F5A20204EC7C5001E2AA0 /* ExtractNavController.swift */; };
 		A482821620025F5500DC2131 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482821520025F5500DC2131 /* Notifications.swift */; };
 		A482821920025FC200DC2131 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482821820025FC200DC2131 /* Prefs.swift */; };
 		A48DB902204893A000E9619E /* Extract.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A48DB901204893A000E9619E /* Extract.storyboard */; };
@@ -92,6 +93,7 @@
 		A44E4E7A1FFA915D00CBE189 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A44E4E7D1FFA915D00CBE189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A44E4E7F1FFA915D00CBE189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A45F5A20204EC7C5001E2AA0 /* ExtractNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractNavController.swift; sourceTree = "<group>"; };
 		A482821520025F5500DC2131 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		A482821820025FC200DC2131 /* Prefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
 		A48DB901204893A000E9619E /* Extract.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Extract.storyboard; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				A41B484C20028430005A9161 /* TypesViewController.swift */,
 				A48EFC42200F86AE0084B0D5 /* TypeDetailViewController.swift */,
 				A48DB901204893A000E9619E /* Extract.storyboard */,
+				A45F5A20204EC7C5001E2AA0 /* ExtractNavController.swift */,
 				A48DB9032048948900E9619E /* ExtractViewController.swift */,
 			);
 			path = Main;
@@ -512,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A48DB9042048948900E9619E /* ExtractViewController.swift in Sources */,
+				A45F5A21204EC7C5001E2AA0 /* ExtractNavController.swift in Sources */,
 				A41B484D20028430005A9161 /* TypesViewController.swift in Sources */,
 				A482821920025FC200DC2131 /* Prefs.swift in Sources */,
 				A48EFC43200F86AE0084B0D5 /* TypeDetailViewController.swift in Sources */,
