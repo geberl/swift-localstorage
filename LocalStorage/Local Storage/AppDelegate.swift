@@ -32,6 +32,7 @@ struct UtiLookup {
                                       "com.apple.coreaudio-​format",
                                       "com.microsoft.waveform-​audio",
                                       "com.real.realaudio",
+                                      "org.videolan.opus",
                                       "org.xiph.flac",
                                       "public.m3u-playlist",
                                       "com.apple.m4a-audio",
@@ -48,7 +49,8 @@ struct UtiLookup {
                                       "com.real.realmedia",
                                       "org.matroska.mkv",
                                       "org.videolan.sub"]
-    static var documents: [String] = ["public.message",
+    static var documents: [String] = ["public.html",
+                                      "public.message",
                                       "public.presentation",
                                       "public.contact",
                                       "com.apple.ical.ics",
@@ -95,37 +97,41 @@ struct UtiLookup {
                                       "com.kodak.flashpix.image",
                                       "com.bohemiancoding.sketch.drawing",
                                       "public.svg-image"]
-    static var code:      [String] = ["public.html",
+    static var code:      [String] = ["public.x509-certificate",
                                       "public.css",
                                       "public.xml",
                                       "public.json",
                                       "public.comma-separated-values-text",
-                                      "com.textasticapp.textastic.batch-file",
                                       "public.source-code",
                                       "public.script",
-                                      "com.netscape.javascript-​source",
                                       "public.shell-script",
                                       "public.perl-script",
                                       "public.python-script",
                                       "public.ruby-script",
                                       "public.php-script",
-                                      "com.apple.applescript.text",
-                                      "com.apple.applescript.script",
                                       "public.c-header",
                                       "public.c-source",
                                       "public.objective-c-source",
                                       "public.swift-source",
+                                      "com.apple.applescript.text",
+                                      "com.apple.applescript.script",
+                                      "com.apple.generic-bundle",
                                       "com.apple.xcode.project",
                                       "com.apple.property-list",
                                       "com.apple.framework",
                                       "com.apple.dt.document.workspace",
                                       "com.apple.interfacebuilder.document.cocoa",
                                       "com.apple.dt.interfacebuilder.document.storyboard",
-                                      "com.netscape.javascript-source"]
+                                      "com.apple.mach-o-dylib",
+                                      "com.netscape.javascript-source",
+                                      "com.sun.java-class",
+                                      "com.textasticapp.textastic.batch-file"]
     static var archives:  [String] = ["com.allume.stuffit-archive",
+                                      "com.apple.application-bundle",
                                       "com.apple.binhex-archive",
                                       "com.apple.macbinary-​archive",
                                       "com.pkware.zip-archive",
+                                      "com.sun.java-archive",
                                       "org.7-zip.7-zip-archive",
                                       "org.gnu.gnu-tar-archive",
                                       "org.gnu.gnu-zip-archive",
@@ -154,18 +160,38 @@ struct UtiLookup {
 
 // Global type look up table for files for which Apple does not specify a UTI, use file extensions (without the dot).
 struct FileExtensionLookup {
-    static var audio:     [String] = ["ogg",
+    static var audio:     [String] = ["flac",
+                                      "ogg",
                                       "opus",
                                       "spex"]
     static var videos:    [String] = []
-    static var documents: [String] = []
-    static var images:    [String] = []
-    static var code:      [String] = []
-    static var archives:  [String] = ["apk",
+    static var documents: [String] = ["db"]
+    static var images:    [String] = ["sketch"]
+    static var code:      [String] = ["entitlements",
+                                      "xcodeproj",
+                                      "xcworkspace",
+                                      "xcworkspacedata",
+                                      "xcuserstate",
+                                      "xcuserdatad",
+                                      "xcshareddata",
+                                      "xcscheme",
+                                      "storyboard",
+                                      "cmake",
+                                      "yaml",
+                                      "bat",
+                                      "map",
+                                      "conf",
+                                      "tcl",
+                                      "so"]
+    static var archives:  [String] = ["a",
+                                      "ar",
+                                      "apk",
                                       "cbr",
                                       "cbz",
                                       "ipa",
-                                      "wsz"]
+                                      "wsz",
+                                      "xz"]
+    static var other:     [String] = ["url"]
 }
 
 // Global application state object.
