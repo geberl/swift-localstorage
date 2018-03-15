@@ -183,7 +183,8 @@ struct FileExtensionLookup {
                                       "conf",
                                       "tcl",
                                       "so"]
-    static var archives:  [String] = ["a",
+    static var archives:  [String] = ["7z",
+                                      "a",
                                       "ar",
                                       "apk",
                                       "cbr",
