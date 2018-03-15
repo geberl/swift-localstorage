@@ -87,15 +87,32 @@ class ExtractViewController: UIViewController {
         os_log("getArchiveType", log: logExtractSheet, type: .debug)
         
         if self.archiveUrl != nil {
+            
+            // self.archiveUrl!.typeIdentifier doesn't provide nice strings for stuff Apple didn't choose to support.
+            // Example: *.ipa = Optional("dyn.ah62d4rv4ge80w6db"), *.apk = Optional("dyn.ah62d4rv4ge80c6dp"), ...
+            // These file types are just zip under the hood but detecting them nicely is not possible.
+            
             if let typeIdentifier = self.archiveUrl!.typeIdentifier {
-                if typeIdentifier == "public.zip-archive" { return "zip"
-                } else if typeIdentifier == "public.tar-archive" { return "tar"
-                } else if typeIdentifier == "org.7-zip.7-zip-archive" { return "7zip"
-                // These formats don't work reliably, error if more than one file in the archive. Deactivated for now.
+                if typeIdentifier == "public.zip-archive" {
+                    return "zip"
+                } else if typeIdentifier == "public.tar-archive" {
+                    return "tar"
+                } else if typeIdentifier == "org.7-zip.7-zip-archive" {
+                    return "7zip"
+                } else {
+                    if typeIdentifier.starts(with: "dyn.") {
+                        // No UTI available for this file. Might still be a supported archive. Look at extension.
+                        let fileExtension = self.archiveUrl!.pathExtension
+                    
+                        if ["apk", "cbz", "ipa", "wsz"].contains(fileExtension) {
+                            return "zip"
+                        }
+                    }
+                }
+                // These formats don't work reliably, error if more than one file in the archive, deactivated for now:
                 // } else if typeIdentifier == "public.bzip2-archive" { return "bzip2"
                 // } else if typeIdentifier == "org.tukaani.xz-archive" { return "xz"
                 // } else if typeIdentifier == "org.gnu.gnu-zip-archive" { return "gzip"
-                }
             }
         }
         return nil
