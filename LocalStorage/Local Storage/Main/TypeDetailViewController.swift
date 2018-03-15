@@ -87,6 +87,10 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "protoCell")!
         
+        // TODO indexPath may somehow be nil and therefor "fatal error: index out of range" exception, app crashed.
+        // Not sure what I did, changing between Files and LocalStorage after emptying the Trash.
+        // Not sure how this is even possible, debug info shows "Foundation not found".
+        
         cell.textLabel?.text = AppState.types[self.typeIndex].paths[indexPath.row]
         if self.userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
             cell.textLabel?.textColor = UIColor(named: "ColorFontWhite")!
