@@ -104,8 +104,12 @@ class ExtractViewController: UIViewController {
                         // No UTI available for this file. Might still be a supported archive. Look at extension.
                         let fileExtension = self.archiveUrl!.pathExtension
                     
-                        if ["apk", "cbz", "ipa", "wsz"].contains(fileExtension) {
+                        if ["apk", "cbz", "ipa", "jar", "wsz", "zip"].contains(fileExtension) {
                             return "zip"
+                        } else if ["tar"].contains(fileExtension) {
+                            return "tar"
+                        } else if ["7z"].contains(fileExtension) {
+                            return "7zip"
                         }
                     }
                 }
