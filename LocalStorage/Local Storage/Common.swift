@@ -344,24 +344,45 @@ func getStats() {
             }
             
             if let fileType: String = elementURL.typeIdentifier {
-                if TypesLookup.audio.contains(fileType) {
+                if UtiLookup.audio.contains(fileType) {
                     addToType(name: "Audio", size: fileSize, path: elementURL.path)
-                } else if TypesLookup.videos.contains(fileType) {
+                } else if UtiLookup.videos.contains(fileType) {
                     addToType(name: "Videos", size: fileSize, path: elementURL.path)
-                } else if TypesLookup.documents.contains(fileType) {
+                } else if UtiLookup.documents.contains(fileType) {
                     addToType(name: "Documents", size: fileSize, path: elementURL.path)
-                } else if TypesLookup.images.contains(fileType) {
+                } else if UtiLookup.images.contains(fileType) {
                     addToType(name: "Images", size: fileSize, path: elementURL.path)
-                } else if TypesLookup.code.contains(fileType) {
+                } else if UtiLookup.code.contains(fileType) {
                     addToType(name: "Code", size: fileSize, path: elementURL.path)
-                } else if TypesLookup.archives.contains(fileType) {
+                } else if UtiLookup.archives.contains(fileType) {
                     addToType(name: "Archives", size: fileSize, path: elementURL.path)
-                } else {
+                } else if UtiLookup.other.contains(fileType) {
                     addToType(name: "Other", size: fileSize, path: elementURL.path)
-                    if !TypesLookup.other.contains(fileType) {
-                        if !fileType.starts(with: "dyn.") {
-                            os_log("Type identifier %@ uncategorized for '%@'", log: logGeneral, type: .info, fileType, elementURL.path)
+                } else {
+                    if fileType.starts(with: "dyn.") {
+                        // No UTI available for this file, use extension based lookup. Less stable but whatever.
+                        
+                        let fileExtension = elementURL.pathExtension
+                        
+                        if FileExtensionLookup.audio.contains(fileExtension) {
+                            addToType(name: "Audio", size: fileSize, path: elementURL.path)
+                        } else if FileExtensionLookup.videos.contains(fileExtension) {
+                            addToType(name: "Videos", size: fileSize, path: elementURL.path)
+                        } else if FileExtensionLookup.documents.contains(fileExtension) {
+                            addToType(name: "Documents", size: fileSize, path: elementURL.path)
+                        } else if FileExtensionLookup.images.contains(fileExtension) {
+                            addToType(name: "Images", size: fileSize, path: elementURL.path)
+                        } else if FileExtensionLookup.code.contains(fileExtension) {
+                            addToType(name: "Code", size: fileSize, path: elementURL.path)
+                        } else if FileExtensionLookup.archives.contains(fileExtension) {
+                            addToType(name: "Archives", size: fileSize, path: elementURL.path)
+                        } else {
+                            addToType(name: "Other", size: fileSize, path: elementURL.path)
                         }
+                    } else {
+                        os_log("Type identifier UTI available %@ but uncategorized for '%@'. Treating as 'Other'",
+                               log: logGeneral, type: .info, fileType, elementURL.lastPathComponent)
+                        addToType(name: "Other", size: fileSize, path: elementURL.path)
                     }
                 }
             } else {

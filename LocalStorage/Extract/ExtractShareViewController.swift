@@ -26,7 +26,8 @@ class ExtractShareViewController: SLComposeServiceViewController {
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
             for provider in item.attachments! as! [NSItemProvider] {
                 // Search for "Uniform Type Identifiers Reference" for a full list of UTIs.
-                // Any file should contain at least "public.file-url" + "public.data"
+                // Anything that is a file should contain at least "public.file-url" + "public.data".
+                // So let anything through here. Decide later what this thing actually is and if it can be extracted.
                 if provider.hasItemConformingToTypeIdentifier("public.data") {
                     provider.loadItem(forTypeIdentifier: "public.data",
                                       options: [:],

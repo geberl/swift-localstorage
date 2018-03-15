@@ -20,8 +20,8 @@ let logSettings = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "set
 let logExtractSheet = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "extract-sheet")
 
 
-// Global type look up table.
-struct TypesLookup {
+// Global type look up table for files that have a UTI.
+struct UtiLookup {
     static var audio:     [String] = ["public.audio",
                                       "public.mp3",
                                       "public.mpeg-4-audio",
@@ -152,6 +152,21 @@ struct TypesLookup {
                                       "com.apple.disk-image"]
 }
 
+// Global type look up table for files for which Apple does not specify a UTI, use file extensions (without the dot).
+struct FileExtensionLookup {
+    static var audio:     [String] = ["ogg",
+                                      "opus",
+                                      "spex"]
+    static var videos:    [String] = []
+    static var documents: [String] = []
+    static var images:    [String] = []
+    static var code:      [String] = []
+    static var archives:  [String] = ["apk",
+                                      "cbr",
+                                      "cbz",
+                                      "ipa",
+                                      "wsz"]
+}
 
 // Global application state object.
 struct AppState {
