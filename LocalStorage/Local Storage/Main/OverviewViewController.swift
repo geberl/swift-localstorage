@@ -192,20 +192,20 @@ class OverviewViewController: UIViewController {
         os_log("askEmptyTrash", log: logTabOverview, type: .debug)
         
         let alertTitle = NSLocalizedString("ask-empty-trash-title",
-                                           value:"Are you sure you want to permanently erase all items in the Trash?",
-                                           comment:"Title of alert")
+                                           value: "Are you sure you want to permanently erase all items in the Trash?",
+                                           comment: "Title of alert")
         
         let alertMessage = NSLocalizedString("ask-empty-trash-message",
-                                             value:"You can't undo this action",
-                                             comment:"Message of alert")
+                                             value: "You can't undo this action",
+                                             comment: "Message of alert")
         
         let alertCancel = NSLocalizedString("ask-empty-trash-cancel",
-                                             value:"Cancel",
-                                             comment:"Cancel button of alert")
+                                             value: "Cancel",
+                                             comment: "Cancel button of alert")
         
         let alertOk = NSLocalizedString("ask-empty-trash-ok",
-                                        value:"Empty Trash",
-                                        comment:"Ok button of alert")
+                                        value: "Empty Trash",
+                                        comment: "Ok button of alert")
         
         if userDefaults.bool(forKey: UserDefaultStruct.askEmptyTrash) {
             let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)

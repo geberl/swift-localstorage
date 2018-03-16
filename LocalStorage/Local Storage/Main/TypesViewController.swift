@@ -224,12 +224,12 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         let currentNumber: Int = AppState.types[indexPath.row].number
         
         let cellLabelIn = NSLocalizedString("cell-label-in",
-                                           value:"in",
-                                           comment:"The 'in' in '56 bytes in 7 items'.")
+                                           value: "in",
+                                           comment: "The 'in' in '56 bytes in 7 items'.")
         
         let cellLabelItems = NSLocalizedString("cell-label-items",
-                                               value:"items",
-                                               comment:"The 'items' in '56 bytes in 7 items'.")
+                                               value: "items",
+                                               comment: "The 'items' in '56 bytes in 7 items'.")
         
         cell.detailTextLabel?.text = currentSize + " " + cellLabelIn + " " + String(currentNumber) + " " + cellLabelItems
         

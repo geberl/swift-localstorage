@@ -164,8 +164,8 @@
 		A410E19C2045A8AC00D58CB0 /* Extract */ = {
 			isa = PBXGroup;
 			children = (
+				A47F815F205BE9AC00930F78 /* de */,
 				A416BFC920491B3200C6B8CB /* Extract.entitlements */,
-				A47F815B205BE7B500930F78 /* Localizable.strings */,
 				A410E19D2045A8AC00D58CB0 /* ExtractShareViewController.swift */,
 				A410E19F2045A8AC00D58CB0 /* MainInterface.storyboard */,
 				A410E1A22045A8AC00D58CB0 /* Info.plist */,
@@ -200,8 +200,8 @@
 		A44E4E721FFA915C00CBE189 /* Local Storage */ = {
 			isa = PBXGroup;
 			children = (
+				A47F8160205BE9B700930F78 /* de */,
 				A44E4E7F1FFA915D00CBE189 /* Info.plist */,
-				A47F8154205BE71700930F78 /* Localizable.strings */,
 				A44E4E731FFA915C00CBE189 /* AppDelegate.swift */,
 				A418AC7D2000092000E3EAF1 /* Common.swift */,
 				A482821520025F5500DC2131 /* Notifications.swift */,
@@ -211,6 +211,30 @@
 				A49C0DD11FFE66C1006BE494 /* Settings */,
 			);
 			path = "Local Storage";
+			sourceTree = "<group>";
+		};
+		A47F815E205BE95800930F78 /* de */ = {
+			isa = PBXGroup;
+			children = (
+				A47F8157205BE77100930F78 /* Localizable.strings */,
+			);
+			path = de;
+			sourceTree = "<group>";
+		};
+		A47F815F205BE9AC00930F78 /* de */ = {
+			isa = PBXGroup;
+			children = (
+				A47F815B205BE7B500930F78 /* Localizable.strings */,
+			);
+			path = de;
+			sourceTree = "<group>";
+		};
+		A47F8160205BE9B700930F78 /* de */ = {
+			isa = PBXGroup;
+			children = (
+				A47F8154205BE71700930F78 /* Localizable.strings */,
+			);
+			path = de;
 			sourceTree = "<group>";
 		};
 		A482821720025F8500DC2131 /* Main */ = {
@@ -248,6 +272,7 @@
 		A4D856322026F8F700166316 /* Hash */ = {
 			isa = PBXGroup;
 			children = (
+				A47F815E205BE95800930F78 /* de */,
 				A4EB420B202992CC0020D347 /* Crc32.swift */,
 				A4B4381A2029C4E00053CF54 /* HashNotifications.swift */,
 				A4EB420E2029A22A0020D347 /* HashPrefs.swift */,
@@ -255,7 +280,6 @@
 				A4D856332026F8F700166316 /* HashActionViewController.swift */,
 				A4B438182029AC6C0053CF54 /* HashFunctionDetailViewController.swift */,
 				A4D856382026F8F700166316 /* Info.plist */,
-				A47F8157205BE77100930F78 /* Localizable.strings */,
 			);
 			path = Hash;
 			sourceTree = "<group>";
