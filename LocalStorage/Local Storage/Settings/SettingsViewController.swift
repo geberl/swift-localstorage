@@ -14,8 +14,8 @@ class SettingsViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
     
-    @IBAction func onCloseButton(_ sender: UIButton) {
-        os_log("onCloseButton", log: logSettings, type: .debug)
+    @IBAction func onDoneButton(_ sender: UIButton) {
+        os_log("onDoneButton", log: logSettings, type: .debug)
         self.dismiss(animated: true, completion: nil)
     }
     

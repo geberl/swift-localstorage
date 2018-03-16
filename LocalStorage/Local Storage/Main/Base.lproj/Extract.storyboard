@@ -25,16 +25,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="File" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGp-oo-qyP">
-                                                <rect key="frame" x="0.0" y="5.5" width="36" height="20.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="36" id="Ln4-mY-M5G"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="5.5" width="271" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqz-xm-uEE">
-                                                <rect key="frame" x="36" y="5.5" width="260" height="20.5"/>
+                                                <rect key="frame" x="271" y="5.5" width="25" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="ColorFontGray"/>
                                                 <nil key="highlightedColor"/>
@@ -74,19 +71,19 @@
                                         <rect key="frame" x="0.0" y="82" width="296" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DG-f2-LgR">
-                                                <rect key="frame" x="0.0" y="0.0" width="49" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="103" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bix-XB-r0h">
-                                                <rect key="frame" x="49" y="0.0" width="54" height="31"/>
-                                                <state key="normal" title="Button"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bix-XB-r0h">
+                                                <rect key="frame" x="103" y="0.0" width="0.0" height="31"/>
+                                                <state key="normal" title="Browse"/>
                                                 <connections>
                                                     <segue destination="keC-EE-FjJ" kind="show" id="EYI-St-uLP"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Storage / Extracted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h9-8q-C2u">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Local Storage / Extracted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h9-8q-C2u">
                                                 <rect key="frame" x="103" y="0.0" width="193" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="ColorFontGray"/>
@@ -107,9 +104,6 @@
                                                 <rect key="frame" x="247" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="31" id="3ca-HN-0Ek"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FfS-4U-ALe">
                                         <rect key="frame" x="0.0" y="164" width="296" height="31"/>
@@ -124,9 +118,6 @@
                                                 <rect key="frame" x="247" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="31" id="Vpe-sy-4V4"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vb-p2-MOT">
                                         <rect key="frame" x="0.0" y="205" width="296" height="31"/>

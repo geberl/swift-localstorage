@@ -154,9 +154,13 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     func loadFile(coding: NSSecureCoding?, error: Error!) {
         os_log("loadFile", log: logHashExtension, type: .debug)
         
+        let errorLoadFile = NSLocalizedString("hash-error-load-file",
+                                              value: "Error: Unable to load file",
+                                              comment: "Text inside multiline TextView")
+        
         if error != nil {
             os_log("%@", log: logHashExtension, type: .error, error.localizedDescription)
-            self.digestTextView.text = "Error: Unable to load file"
+            self.digestTextView.text = errorLoadFile
             return
         }
         
@@ -167,7 +171,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
                 } catch let error {
                     os_log("%@", log: logHashExtension, type: .error, error.localizedDescription)
                     self.calculateButton.isEnabled = false
-                    self.digestTextView.text = "Error: Unable to load file"
+                    self.digestTextView.text = errorLoadFile
                 }
             }
         }
@@ -224,7 +228,10 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
                 hashDigest = sha512Data.map { String(format: "%02hhx", $0) }.joined()
                 
             } else {
-                self.digestTextView.text = "Error: Undefined hash function"
+                let errorUndefinedFunction = NSLocalizedString("hash-error-undefined-function",
+                                                               value: "Error: Undefined hash function",
+                                                               comment: "Text inside multiline TextView")
+                self.digestTextView.text = errorUndefinedFunction
                 self.copyButton.isEnabled = false
                 return
             }
@@ -232,7 +239,10 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
             self.digestTextView.text = self.addLineBreaks(input: hashDigest)
             self.copyButton.isEnabled = true
         } else {
-            self.digestTextView.text = "Error: Unable to hash file"
+            let errorUnableToHash = NSLocalizedString("hash-error-unable-hash",
+                                                      value: "Error: Unable to hash file",
+                                                      comment: "Text inside multiline TextView")
+            self.digestTextView.text = errorUnableToHash
             self.copyButton.isEnabled = false
         }
     }
@@ -284,7 +294,12 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let functionCell = tableView.dequeueReusableCell(withIdentifier: "protoCell")!
-        functionCell.textLabel?.text = "Hash function"
+        
+        let cellHashFunction = NSLocalizedString("hash-cell-function",
+                                                 value: "Hash function",
+                                                 comment: "Title of cell")
+        functionCell.textLabel?.text = cellHashFunction
+        
         functionCell.detailTextLabel?.text = userDefaults.string(forKey: UserDefaultStruct.hashFunction)!
         return functionCell
     }

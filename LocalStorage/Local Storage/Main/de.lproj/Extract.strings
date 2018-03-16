@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "Local Storage / Extracted"; ObjectID = "1h9-8q-C2u"; */
+"1h9-8q-C2u.text" = "Local Storage / Extracted";
+
+/* Class = "UILabel"; text = "Target"; ObjectID = "4DG-f2-LgR"; */
+"4DG-f2-LgR.text" = "Ziel";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Bix-XB-r0h"; */
+"Bix-XB-r0h.normalTitle" = "Button"; / / TODO remove
+
+/* Class = "UILabel"; text = "-"; ObjectID = "FNd-tn-CMZ"; */
+"FNd-tn-CMZ.text" = "-";
+
+/* Class = "UILabel"; text = "???"; ObjectID = "KeV-lB-j9Z"; */
+"KeV-lB-j9Z.text" = "???";
+
+/* Class = "UILabel"; text = "Delete archive on success"; ObjectID = "V1Z-Sb-BVC"; */
+"V1Z-Sb-BVC.text" = "Archiv bei Erfolg löschen";
+
+/* Class = "UILabel"; text = "File"; ObjectID = "aGp-oo-qyP"; */
+"aGp-oo-qyP.text" = "Datei";
+
+/* Class = "UIButton"; normalTitle = "Extract"; ObjectID = "azZ-CL-cZA"; */
+"azZ-CL-cZA.normalTitle" = "Entpacken";
+
+/* Class = "UILabel"; text = "List here"; ObjectID = "cEG-62-rE4"; */
+"cEG-62-rE4.text" = "List here";  // TODO remove
+
+/* Class = "UILabel"; text = "Create folder for content"; ObjectID = "hYC-6R-Gkr"; */
+"hYC-6R-Gkr.text" = "Erstelle Ordner für Inhalt";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "lBU-AP-JFA"; */
+"lBU-AP-JFA.text" = "-";
+
+/* Class = "UILabel"; text = "???"; ObjectID = "nqz-xm-uEE"; */
+"nqz-xm-uEE.text" = "???";
+
+/* Class = "UIViewController"; title = "Extract"; ObjectID = "qma-ee-MIa"; */
+"qma-ee-MIa.title" = "Entpacken";
+
+/* Class = "UILabel"; text = "unsupported"; ObjectID = "w9H-0b-QqG"; */
+"w9H-0b-QqG.text" = "nicht unterstützt";
+
+/* Class = "UILabel"; text = "Format"; ObjectID = "yyO-9j-zh2"; */
+"yyO-9j-zh2.text" = "Format";

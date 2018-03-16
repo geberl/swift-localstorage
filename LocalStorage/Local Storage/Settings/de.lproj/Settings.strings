@@ -1,0 +1,57 @@
+
+/* Class = "UILabel"; text = "File/storage management help"; ObjectID = "1tq-PU-73E"; */
+"1tq-PU-73E.text" = "Zeige 'Datei- & Speicher-Management' Hinweise";
+
+/* Class = "UILabel"; text = "General"; ObjectID = "HdY-Hn-pk5"; */
+"HdY-Hn-pk5.text" = "Allgemein";
+
+/* Class = "UIButton"; normalTitle = "Rate App"; ObjectID = "L60-lt-4lK"; */
+"L60-lt-4lK.normalTitle" = "App bewerten";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "LYr-s6-ord"; */
+"LYr-s6-ord.title" = "Einstellungen";
+
+/* Class = "UILabel"; text = "Ask before emptying the Trash"; ObjectID = "Qlo-A2-wdU"; */
+"Qlo-A2-wdU.text" = "Vor Papierkorb leeren fragen";
+
+/* Class = "UILabel"; text = "© 2018 Günther Eberl Software-Entwicklung"; ObjectID = "VIT-ol-QDk"; */
+"VIT-ol-QDk.text" = "© 2018 Günther Eberl Software-Entwicklung";
+
+/* Class = "UIButton"; normalTitle = "Privacy"; ObjectID = "ZTU-FW-0kz"; */
+"ZTU-FW-0kz.normalTitle" = "Datenschutz";
+
+/* Class = "UILabel"; text = "Dark mode"; ObjectID = "kUv-XM-3oM"; */
+"kUv-XM-3oM.text" = "Dunkler Modus";
+
+/* Class = "UILabel"; text = "Local Storage vx.y.z"; ObjectID = "kj9-yC-Dof"; */
+"kj9-yC-Dof.text" = "Local Storage vx.y.z";
+
+/* Class = "UILabel"; text = "Animate value update"; ObjectID = "mOh-Vs-H8g"; */
+"mOh-Vs-H8g.text" = "Update der Werte animieren";
+
+/* Class = "UILabel"; text = "Tab Overview"; ObjectID = "mdg-qv-XQN"; */
+"mdg-qv-XQN.text" = "Tab Übersicht";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "tkY-9o-8sv"; */
+"tkY-9o-8sv.normalTitle" = "Fertig";
+
+/* Class = "UISegmentedControl"; uNE-aV-wVm.segmentTitles[0] = "B"; ObjectID = "uNE-aV-wVm"; */
+"uNE-aV-wVm.segmentTitles[0]" = "B";
+
+/* Class = "UISegmentedControl"; uNE-aV-wVm.segmentTitles[1] = "KB"; ObjectID = "uNE-aV-wVm"; */
+"uNE-aV-wVm.segmentTitles[1]" = "KB";
+
+/* Class = "UISegmentedControl"; uNE-aV-wVm.segmentTitles[2] = "MB"; ObjectID = "uNE-aV-wVm"; */
+"uNE-aV-wVm.segmentTitles[2]" = "MB";
+
+/* Class = "UISegmentedControl"; uNE-aV-wVm.segmentTitles[3] = "GB"; ObjectID = "uNE-aV-wVm"; */
+"uNE-aV-wVm.segmentTitles[3]" = "GB";
+
+/* Class = "UISegmentedControl"; uNE-aV-wVm.segmentTitles[4] = "all"; ObjectID = "uNE-aV-wVm"; */
+"uNE-aV-wVm.segmentTitles[4]" = "alle";
+
+/* Class = "UIButton"; normalTitle = "Visit Website"; ObjectID = "ufj-Ws-q7C"; */
+"ufj-Ws-q7C.normalTitle" = "Website besuchen";
+
+/* Class = "UILabel"; text = "Unit for file sizes"; ObjectID = "yne-bO-aN8"; */
+"yne-bO-aN8.text" = "Dateigröße Einheit";

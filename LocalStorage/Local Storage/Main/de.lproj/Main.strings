@@ -6,31 +6,31 @@
 "4Du-rf-Hl6.text" = "Detail";
 
 /* Class = "UILabel"; text = "Size on Disk"; ObjectID = "7qS-kl-eO2"; */
-"7qS-kl-eO2.text" = "Size on Disk";
+"7qS-kl-eO2.text" = "Größe auf Platte";
 
 /* Class = "UILabel"; text = "File & Storage Management"; ObjectID = "83l-Rh-oow"; */
-"83l-Rh-oow.text" = "File & Storage Management";
+"83l-Rh-oow.text" = "Datei- & Speicher-Management";
 
 /* Class = "UITabBarItem"; title = "Types"; ObjectID = "8bY-IJ-lUs"; */
-"8bY-IJ-lUs.title" = "Types";
+"8bY-IJ-lUs.title" = "Typen";
 
 /* Class = "UILabel"; text = "Size"; ObjectID = "Ah8-28-mM6"; */
-"Ah8-28-mM6.text" = "Size";
+"Ah8-28-mM6.text" = "Größe";
 
 /* Class = "UILabel"; text = "0 bytes"; ObjectID = "CXU-DL-Pex"; */
 "CXU-DL-Pex.text" = "0 bytes";
 
 /* Class = "UILabel"; text = "Folders"; ObjectID = "E1w-2Z-10g"; */
-"E1w-2Z-10g.text" = "Folders";
+"E1w-2Z-10g.text" = "Ordner";
 
 /* Class = "UILabel"; text = "Want to manage your app storage?"; ObjectID = "GU1-OW-aTM"; */
-"GU1-OW-aTM.text" = "Want to manage your app storage?";
+"GU1-OW-aTM.text" = "App Speicher verwalten??";
 
 /* Class = "UILabel"; text = "Trash"; ObjectID = "JbN-81-3ws"; */
-"JbN-81-3ws.text" = "Trash";
+"JbN-81-3ws.text" = "Papierkorb";
 
 /* Class = "UILabel"; text = "Size on Disk"; ObjectID = "NJy-4m-ylU"; */
-"NJy-4m-ylU.text" = "Size on Disk";
+"NJy-4m-ylU.text" = "Größe auf Platte";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "Nwu-21-zkF"; */
 "Nwu-21-zkF.text" = "0";
@@ -39,67 +39,67 @@
 "Qwb-KF-Vu0.text" = "Local Storage";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "SrX-cY-Gva"; */
-"SrX-cY-Gva.text" = "Title";
+"SrX-cY-Gva.text" = "Titel";
 
 /* Class = "UILabel"; text = "Folders"; ObjectID = "TYB-ZC-Rs1"; */
-"TYB-ZC-Rs1.text" = "Folders";
+"TYB-ZC-Rs1.text" = "Ordner";
 
 /* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "Tbt-Ar-Wfe"; */
-"Tbt-Ar-Wfe.title" = "Settings";
+"Tbt-Ar-Wfe.title" = "Einstellungen";
 
 /* Class = "UILabel"; text = "Files"; ObjectID = "Td0-nA-Ivn"; */
-"Td0-nA-Ivn.text" = "Files";
+"Td0-nA-Ivn.text" = "Dateien";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "Vje-GH-fAP"; */
 "Vje-GH-fAP.text" = "0";
 
 /* Class = "UIButton"; normalTitle = "Empty Trash"; ObjectID = "XEo-Xf-SSn"; */
-"XEo-Xf-SSn.normalTitle" = "Empty Trash";
+"XEo-Xf-SSn.normalTitle" = "Papierkorb leeren";
 
 /* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "XzV-76-K0f"; */
-"XzV-76-K0f.normalTitle" = "Settings";
+"XzV-76-K0f.normalTitle" = "Einstellungen";
 
 /* Class = "UILabel"; text = "Free"; ObjectID = "YMz-z0-Q9K"; */
-"YMz-z0-Q9K.text" = "Free";
+"YMz-z0-Q9K.text" = "Frei";
 
 /* Class = "UILabel"; text = "Looking for your files & folders?"; ObjectID = "ZB7-6H-8gK"; */
-"ZB7-6H-8gK.text" = "Looking for your files & folders?";
+"ZB7-6H-8gK.text" = "Suchst du deine Dateien & Ordner?";
 
 /* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "ZWk-m7-CkV"; */
-"ZWk-m7-CkV.normalTitle" = "Settings";
+"ZWk-m7-CkV.normalTitle" = "Einstellungen";
 
 /* Class = "UILabel"; text = "Size"; ObjectID = "aR5-XI-0vr"; */
-"aR5-XI-0vr.text" = "Size";
+"aR5-XI-0vr.text" = "Größe";
 
 /* Class = "UILabel"; text = "0 bytes"; ObjectID = "bSb-V1-j22"; */
 "bSb-V1-j22.text" = "0 bytes";
 
 /* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "bTi-9m-hWe"; */
-"bTi-9m-hWe.title" = "Settings";
+"bTi-9m-hWe.title" = "Einstellungen";
 
 /* Class = "UITabBarItem"; title = "Overview"; ObjectID = "d6g-yU-hUl"; */
-"d6g-yU-hUl.title" = "Overview";
+"d6g-yU-hUl.title" = "Übersicht";
 
 /* Class = "UILabel"; text = "Please use Apple's Files app."; ObjectID = "eO2-sL-YhY"; */
-"eO2-sL-YhY.text" = "Please use Apple's Files app.";
+"eO2-sL-YhY.text" = "Bitte nutze Apple's Dateien App.";
 
 /* Class = "UIButton"; normalTitle = "Refresh"; ObjectID = "g7e-TP-KdR"; */
-"g7e-TP-KdR.normalTitle" = "Refresh";
+"g7e-TP-KdR.normalTitle" = "Neu laden";
 
 /* Class = "UILabel"; text = "0 bytes"; ObjectID = "gBE-eV-LUw"; */
 "gBE-eV-LUw.text" = "0 bytes";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "gVz-tx-pUc"; */
-"gVz-tx-pUc.text" = "Title";
+"gVz-tx-pUc.text" = "Titel";
 
 /* Class = "UILabel"; text = "Files"; ObjectID = "hbO-i7-ad8"; */
-"hbO-i7-ad8.text" = "Files";
+"hbO-i7-ad8.text" = "Dateien";
 
 /* Class = "UILabel"; text = "0 bytes"; ObjectID = "mJh-Ec-rzg"; */
 "mJh-Ec-rzg.text" = "0 bytes";
 
 /* Class = "UIViewController"; title = "Types"; ObjectID = "mYf-Nf-c82"; */
-"mYf-Nf-c82.title" = "Types";
+"mYf-Nf-c82.title" = "Typen";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "mfr-Ln-S0D"; */
 "mfr-Ln-S0D.text" = "0";
@@ -108,19 +108,19 @@
 "oXU-Ya-Pn1.text" = "0";
 
 /* Class = "UINavigationItem"; title = "Types"; ObjectID = "qIY-eg-uek"; */
-"qIY-eg-uek.title" = "Types";
+"qIY-eg-uek.title" = "Typen";
 
 /* Class = "UILabel"; text = "Take a look in the device Settings."; ObjectID = "qQ1-IQ-JUD"; */
-"qQ1-IQ-JUD.text" = "Take a look in the device Settings.";
+"qQ1-IQ-JUD.text" = "Schau in den Geräte-Einstellungen nach.";
 
 /* Class = "UIViewController"; title = "Details"; ObjectID = "r6q-dk-t3b"; */
 "r6q-dk-t3b.title" = "Details";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "rL8-pU-a4i"; */
-"rL8-pU-a4i.text" = "Subtitle";
+"rL8-pU-a4i.text" = "Untertitel";
 
 /* Class = "UIButton"; normalTitle = "Refresh"; ObjectID = "rpt-j7-kS9"; */
-"rpt-j7-kS9.normalTitle" = "Refresh";
+"rpt-j7-kS9.normalTitle" = "Neu laden";
 
 /* Class = "UINavigationItem"; title = "Overview"; ObjectID = "v7z-Ip-ToZ"; */
-"v7z-Ip-ToZ.title" = "Overview";
+"v7z-Ip-ToZ.title" = "Übersicht";

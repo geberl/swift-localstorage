@@ -222,7 +222,16 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
 
         let currentSize: String = getSizeString(byteCount: AppState.types[indexPath.row].size)
         let currentNumber: Int = AppState.types[indexPath.row].number
-        cell.detailTextLabel?.text = currentSize + " in " + String(currentNumber) + " items"
+        
+        let cellLabelIn = NSLocalizedString("cell-label-in",
+                                           value:"in",
+                                           comment:"The 'in' in '56 bytes in 7 items'.")
+        
+        let cellLabelItems = NSLocalizedString("cell-label-items",
+                                               value:"items",
+                                               comment:"The 'items' in '56 bytes in 7 items'.")
+        
+        cell.detailTextLabel?.text = currentSize + " " + cellLabelIn + " " + String(currentNumber) + " " + cellLabelItems
         
         return cell
     }

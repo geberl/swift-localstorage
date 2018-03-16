@@ -40,13 +40,19 @@ class ExtractShareViewController: SLComposeServiceViewController {
     override func viewDidAppear(_ animated: Bool) {
         os_log("viewDidAppear", log: logExtractExtension, type: .debug)
         super.viewDidAppear(animated)
-        self.textView.text = "Opening in Local Storage ..."
+        let openingPlaceholder = NSLocalizedString("extract-opening-placeholder",
+                                                   value: "Opening in Local Storage ...",
+                                                   comment: "Put on TextView, shouldn't be visible though, too fast")
+        self.textView.text = openingPlaceholder
     }
     
     override func viewWillAppear(_ animated: Bool) {
         os_log("viewWillAppear", log: logExtractExtension, type: .debug)
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.title = "Open"  // Standard "Post"
+        let openButton = NSLocalizedString("extract-open-button",
+                                           value: "Open",
+                                           comment: "Put on dialog top right")
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.title = openButton  // Standard "Post"
     }
     
     func loadFile(coding: NSSecureCoding?, error: Error!) {
