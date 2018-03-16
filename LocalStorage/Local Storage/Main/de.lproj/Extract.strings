@@ -6,7 +6,7 @@
 "4DG-f2-LgR.text" = "Ziel";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Bix-XB-r0h"; */
-"Bix-XB-r0h.normalTitle" = "Button"; / / TODO remove
+"Bix-XB-r0h.normalTitle" = "Button";  // TODO remove
 
 /* Class = "UILabel"; text = "-"; ObjectID = "FNd-tn-CMZ"; */
 "FNd-tn-CMZ.text" = "-";

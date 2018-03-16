@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  localstorage
+
+  Created by Günther Eberl on 16.03.18.
+  Copyright © 2018 Günther Eberl. All rights reserved.
+*/
+
+"type-audio" = "Audio";
+"type-videos" = "Videos";
+"type-documents" = "Dokumente";
+"type-images" = "Bilder";
+"type-code" = "Code";
+"type-archives" = "Archive";
+"type-other" = "Sonstige";
+
+"ask-empty-trash-title" = "Bist du sicher, dass du die Dateien im Papierkorb entgültig löschen willst?";
+"ask-empty-trash-message" = "Diese Aktion kann nicht rückgängig gemacht werden.";
+"ask-empty-trash-cancel" = "Abbrechen";
+"ask-empty-trash-ok" = "Papierkorb leeren";
+
+"cell-label-in" = "in";
+"cell-label-items" = "Objekten";

@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  localstorage
+
+  Created by Günther Eberl on 16.03.18.
+  Copyright © 2018 Günther Eberl. All rights reserved.
+*/
+
+"hash-error-load-file" = "Fehler: Datei laden nicht möglich";
+"hash-error-undefined-function" = "Fehler: Hash Funktion nicht definiert";
+"hash-error-unable-hash" = "Fehler: Datei hashen nicht möglich";
+"hash-cell-function" = "Hash Funktion";

@@ -21,6 +21,9 @@
 		A45F5A21204EC7C5001E2AA0 /* ExtractNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45F5A20204EC7C5001E2AA0 /* ExtractNavController.swift */; };
 		A47B4606205BBB5300B36AF0 /* Extract.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47B4608205BBB5300B36AF0 /* Extract.storyboard */; };
 		A47B460B205BBC4400B36AF0 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47B460D205BBC4400B36AF0 /* Settings.storyboard */; };
+		A47F8156205BE71700930F78 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A47F8154205BE71700930F78 /* Localizable.strings */; };
+		A47F8159205BE77100930F78 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A47F8157205BE77100930F78 /* Localizable.strings */; };
+		A47F815D205BE7B500930F78 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A47F815B205BE7B500930F78 /* Localizable.strings */; };
 		A482821620025F5500DC2131 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482821520025F5500DC2131 /* Notifications.swift */; };
 		A482821920025FC200DC2131 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482821820025FC200DC2131 /* Prefs.swift */; };
 		A48DB9042048948900E9619E /* ExtractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48DB9032048948900E9619E /* ExtractViewController.swift */; };
@@ -100,6 +103,9 @@
 		A47B460A205BBB7600B36AF0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Extract.strings; sourceTree = "<group>"; };
 		A47B460C205BBC4400B36AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		A47B460F205BBC4A00B36AF0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Settings.strings; sourceTree = "<group>"; };
+		A47F8155205BE71700930F78 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Main/de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A47F8158205BE77100930F78 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A47F815C205BE7B500930F78 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A482821520025F5500DC2131 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		A482821820025FC200DC2131 /* Prefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
 		A48DB9032048948900E9619E /* ExtractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				A416BFC920491B3200C6B8CB /* Extract.entitlements */,
+				A47F815B205BE7B500930F78 /* Localizable.strings */,
 				A410E19D2045A8AC00D58CB0 /* ExtractShareViewController.swift */,
 				A410E19F2045A8AC00D58CB0 /* MainInterface.storyboard */,
 				A410E1A22045A8AC00D58CB0 /* Info.plist */,
@@ -194,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				A44E4E7F1FFA915D00CBE189 /* Info.plist */,
+				A47F8154205BE71700930F78 /* Localizable.strings */,
 				A44E4E731FFA915C00CBE189 /* AppDelegate.swift */,
 				A418AC7D2000092000E3EAF1 /* Common.swift */,
 				A482821520025F5500DC2131 /* Notifications.swift */,
@@ -247,6 +255,7 @@
 				A4D856332026F8F700166316 /* HashActionViewController.swift */,
 				A4B438182029AC6C0053CF54 /* HashFunctionDetailViewController.swift */,
 				A4D856382026F8F700166316 /* Info.plist */,
+				A47F8157205BE77100930F78 /* Localizable.strings */,
 			);
 			path = Hash;
 			sourceTree = "<group>";
@@ -387,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A410E1A12045A8AC00D58CB0 /* MainInterface.storyboard in Resources */,
+				A47F815D205BE7B500930F78 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +406,7 @@
 			files = (
 				A44E4E7E1FFA915D00CBE189 /* LaunchScreen.storyboard in Resources */,
 				A44E4E791FFA915D00CBE189 /* Main.storyboard in Resources */,
+				A47F8156205BE71700930F78 /* Localizable.strings in Resources */,
 				A47B4606205BBB5300B36AF0 /* Extract.storyboard in Resources */,
 				A4A9E1252028A46B00146E4B /* Assets.xcassets in Resources */,
 				A47B460B205BBC4400B36AF0 /* Settings.storyboard in Resources */,
@@ -407,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4A9E1262028A63D00146E4B /* Assets.xcassets in Resources */,
+				A47F8159205BE77100930F78 /* Localizable.strings in Resources */,
 				A4D856372026F8F700166316 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +614,30 @@
 				A47B460F205BBC4A00B36AF0 /* de */,
 			);
 			name = Settings.storyboard;
+			sourceTree = "<group>";
+		};
+		A47F8154205BE71700930F78 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A47F8155205BE71700930F78 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A47F8157205BE77100930F78 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A47F8158205BE77100930F78 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A47F815B205BE7B500930F78 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A47F815C205BE7B500930F78 /* de */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		A4D856352026F8F700166316 /* MainInterface.storyboard */ = {
