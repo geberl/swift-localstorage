@@ -6,7 +6,7 @@
 "4Du-rf-Hl6.text" = "Detail";
 
 /* Class = "UILabel"; text = "Size on Disk"; ObjectID = "7qS-kl-eO2"; */
-"7qS-kl-eO2.text" = "Größe auf Platte";
+"7qS-kl-eO2.text" = "Größe auf Volume";
 
 /* Class = "UILabel"; text = "File & Storage Management"; ObjectID = "83l-Rh-oow"; */
 "83l-Rh-oow.text" = "Datei- & Speicher-Management";
@@ -24,13 +24,13 @@
 "E1w-2Z-10g.text" = "Ordner";
 
 /* Class = "UILabel"; text = "Want to manage your app storage?"; ObjectID = "GU1-OW-aTM"; */
-"GU1-OW-aTM.text" = "App Speicher verwalten??";
+"GU1-OW-aTM.text" = "Zum Verwalten des App-Speichers";
 
 /* Class = "UILabel"; text = "Trash"; ObjectID = "JbN-81-3ws"; */
 "JbN-81-3ws.text" = "Papierkorb";
 
 /* Class = "UILabel"; text = "Size on Disk"; ObjectID = "NJy-4m-ylU"; */
-"NJy-4m-ylU.text" = "Größe auf Platte";
+"NJy-4m-ylU.text" = "Größe auf Volume";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "Nwu-21-zkF"; */
 "Nwu-21-zkF.text" = "0";
@@ -111,7 +111,7 @@
 "qIY-eg-uek.title" = "Typen";
 
 /* Class = "UILabel"; text = "Take a look in the device Settings."; ObjectID = "qQ1-IQ-JUD"; */
-"qQ1-IQ-JUD.text" = "Schau in den Geräte-Einstellungen nach.";
+"qQ1-IQ-JUD.text" = "sieh in den iOS-Einstellungen nach.";
 
 /* Class = "UIViewController"; title = "Details"; ObjectID = "r6q-dk-t3b"; */
 "r6q-dk-t3b.title" = "Details";
