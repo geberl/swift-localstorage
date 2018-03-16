@@ -191,17 +191,38 @@ class OverviewViewController: UIViewController {
     func askEmptyTrash() {
         os_log("askEmptyTrash", log: logTabOverview, type: .debug)
         
+        let alertTitle = NSLocalizedString("ask-empty-trash-title",
+                                           value:"Are you sure you want to permanently erase all items in the Trash?",
+                                           comment:"Title of alert")
+        
+        let alertMessage = NSLocalizedString("ask-empty-trash-message",
+                                             value:"You can't undo this action",
+                                             comment:"Message of alert")
+        
+        let alertCancel = NSLocalizedString("ask-empty-trash-cancel",
+                                             value:"Cancel",
+                                             comment:"Cancel button of alert")
+        
+        let alertOk = NSLocalizedString("ask-empty-trash-ok",
+                                        value:"Empty Trash",
+                                        comment:"Ok button of alert")
+        
         if userDefaults.bool(forKey: UserDefaultStruct.askEmptyTrash) {
-            let alert = UIAlertController(title: "Are you sure you want to permanently erase all items in the Trash?",
-                                          message: "You can't undo this action",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .`default`, handler: { _ in
+            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+            
+            let alertCancelAction = UIAlertAction(title: alertCancel, style: .`default`, handler: { _ in
                 os_log("Alert action: Cancel", log: logUi, type: .debug)
-            }))
-            alert.addAction(UIAlertAction(title: "Empty Trash", style: .`default`, handler: { _ in
+            })
+            
+            let alertOkAction = UIAlertAction(title: alertOk, style: .`default`, handler: { _ in
                 os_log("Alert action: Empty Trash", log: logUi, type: .debug)
                 self.emptyTrash()
-            }))
+            })
+            
+            alert.addAction(alertCancelAction)
+            alert.addAction(alertOkAction)
+            alert.preferredAction = alertCancelAction
+            
             self.present(alert, animated: true, completion: nil)
         } else {
             // Remova all content in the App Group shared folder.
