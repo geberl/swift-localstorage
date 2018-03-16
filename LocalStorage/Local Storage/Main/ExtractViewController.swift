@@ -93,7 +93,7 @@ class ExtractViewController: UIViewController {
             // These file types are just zip under the hood but detecting them nicely is not possible.
             
             if let typeIdentifier = self.archiveUrl!.typeIdentifier {
-                if ["public.zip-archive", "com.sun.java-archive"].contains(typeIdentifier) {
+                if ["public.zip-archive", "com.sun.java-archive", "com.iosdec.aa.ipa"].contains(typeIdentifier) {
                     return "zip"
                 } else if typeIdentifier == "public.tar-archive" {
                     return "tar"

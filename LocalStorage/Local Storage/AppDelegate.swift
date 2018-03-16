@@ -130,6 +130,7 @@ struct UtiLookup {
                                       "com.apple.application-bundle",
                                       "com.apple.binhex-archive",
                                       "com.apple.macbinary-​archive",
+                                      "com.iosdec.aa.ipa",
                                       "com.pkware.zip-archive",
                                       "com.sun.java-archive",
                                       "org.7-zip.7-zip-archive",
