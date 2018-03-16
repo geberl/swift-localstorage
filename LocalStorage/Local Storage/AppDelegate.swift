@@ -196,6 +196,18 @@ struct FileExtensionLookup {
     static var other:     [String] = ["url"]
 }
 
+
+struct LocalizedTypeNames {
+    static var audio = NSLocalizedString("type-audio", value: "Audio", comment: "Name of type")
+    static var videos = NSLocalizedString("type-videos", value: "Videos", comment: "Name of type")
+    static var documents = NSLocalizedString("type-documents", value: "Documents", comment: "Name of type")
+    static var images = NSLocalizedString("type-images", value: "Images", comment: "Name of type")
+    static var code = NSLocalizedString("type-code", value: "Code", comment: "Name of type")
+    static var archives = NSLocalizedString("type-archives", value: "Archives", comment: "Name of type")
+    static var other = NSLocalizedString("type-other", value: "Other", comment: "Name of type")
+}
+
+
 // Global application state object.
 struct AppState {
     static var localFilesNumber: Int64 = 0
@@ -209,25 +221,18 @@ struct AppState {
     static var trashSizeDiskBytes: Int64 = 0
     
     static var types: [TypeInfo] = [
-        TypeInfo(name: NSLocalizedString("type-audio", value: "Audio", comment: "Name of type"),
-                 color: UIColor(named: "ColorTypeAudio")!, size: 0, number: 0, paths: [], sizes: []),
-        TypeInfo(name: NSLocalizedString("type-videos", value: "Videos", comment: "Name of type"),
-                 color: UIColor(named: "ColorTypeVideos")!, size: 0, number: 0, paths: [], sizes: []),
-        TypeInfo(name: NSLocalizedString("type-documents", value: "Documents", comment: "Name of type"),
-                 color: UIColor(named: "ColorTypeDocuments")!, size: 0, number: 0, paths: [], sizes: []),
-        TypeInfo(name: NSLocalizedString("type-images", value: "Images", comment: "Name of type"),
-                 color: UIColor(named: "ColorTypeImages")!, size: 0, number: 0, paths: [], sizes: []),
-        TypeInfo(name: NSLocalizedString("type-code", value: "Code", comment: "Name of type"),
-                 color: UIColor(named: "ColorTypeCode")!, size: 0, number: 0, paths: [], sizes: []),
-        TypeInfo(name: NSLocalizedString("type-archives", value: "Archives", comment: "Name of type"),
-                 color: UIColor(named: "ColorTypeArchives")!, size: 0, number: 0, paths: [], sizes: []),
-        TypeInfo(name: NSLocalizedString("type-other", value: "Other", comment: "Name of type"),
-                 color: UIColor(named: "ColorTypeOther")!, size: 0, number: 0, paths: [], sizes: [])
+        TypeInfo(name: LocalizedTypeNames.audio, color: UIColor(named: "ColorTypeAudio")!, size: 0, number: 0, paths: [], sizes: []),
+        TypeInfo(name: LocalizedTypeNames.videos, color: UIColor(named: "ColorTypeVideos")!, size: 0, number: 0, paths: [], sizes: []),
+        TypeInfo(name: LocalizedTypeNames.documents, color: UIColor(named: "ColorTypeDocuments")!, size: 0, number: 0, paths: [], sizes: []),
+        TypeInfo(name: LocalizedTypeNames.images, color: UIColor(named: "ColorTypeImages")!, size: 0, number: 0, paths: [], sizes: []),
+        TypeInfo(name: LocalizedTypeNames.code, color: UIColor(named: "ColorTypeCode")!, size: 0, number: 0, paths: [], sizes: []),
+        TypeInfo(name: LocalizedTypeNames.archives, color: UIColor(named: "ColorTypeArchives")!, size: 0, number: 0, paths: [], sizes: []),
+        TypeInfo(name: LocalizedTypeNames.other, color: UIColor(named: "ColorTypeOther")!, size: 0, number: 0, paths: [], sizes: [])
     ]
     
     static var documentsPath: String = ""
     static var updateInProgress: Bool = false
-    static var demoContent: Bool = true  // NEVER set this to <true> when doing a release!
+    static var demoContent: Bool = false  // NEVER set this to <true> when doing a release!
     
     static var openUrlQuery: String! = ""
     static var openUrlScheme: String! = ""

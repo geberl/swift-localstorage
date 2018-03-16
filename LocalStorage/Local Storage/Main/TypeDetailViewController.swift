@@ -100,7 +100,7 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.detailTextLabel?.text = getSizeString(byteCount: AppState.types[self.typeIndex].sizes[indexPath.row])
         
         // Display accessory only when in "Archives" type.
-        if AppState.types[self.typeIndex].name == "Archives" {
+        if AppState.types[self.typeIndex].name == LocalizedTypeNames.archives {
             cell.accessoryType = .detailButton
         } else {
             cell.accessoryType = .none
