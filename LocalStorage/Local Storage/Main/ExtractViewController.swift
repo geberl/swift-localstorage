@@ -130,31 +130,56 @@ class ExtractViewController: UIViewController {
     func showCompressionDetail() {
         os_log("showCompressionDetail", log: logExtractSheet, type: .debug)
         
-        var msg: String = "Local Storage is only able to extract the types 'public.zip-archive', 'public.tar-archive' "
-        msg += "and 'org.7-zip.7-zip-archive'."
-        
+        var typeInfoString = "???"
         if self.archiveUrl != nil {
             if let typeIdentifier = self.archiveUrl!.typeIdentifier {
-                msg += "\n\n"
-                msg += "Your file has the type '" + typeIdentifier + "'."
+                typeInfoString = typeIdentifier
             }
         }
         
-        let alertController = UIAlertController(title: "Unsupported file type", message: msg, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        let compressionDetailErrorTitle = NSLocalizedString("compression-detail-error-title",
+                                                            value: "Unsupported file type",
+                                                            comment: "Title of alert")
+        
+        let compressionDetailErrorMessage = NSLocalizedString("compression-detail-error-message",
+                                                              value: "Local Storage is only able to extract the types 'public.zip-archive', 'public.tar-archive' and 'org.7-zip.7-zip-archive'.\n\nYour file has the type '",
+                                                              comment: "Shown on alert")
+
+        let compressionDetailErrorOk = NSLocalizedString("compression-detail-error-ok",
+                                                         value: "Ok",
+                                                         comment: "Shown on alert")
+
+        let alertController = UIAlertController(title: compressionDetailErrorTitle,
+                                                message: compressionDetailErrorMessage + typeInfoString + "'.",
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: compressionDetailErrorOk, style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
     
     func showExtractionError(detailedError: String?) {
         os_log("showExtractionError", log: logExtractSheet, type: .debug)
         
-        var msg: String = "The archive could not be extracted."
+        let extractionErrorTitle = NSLocalizedString("extraction-error-title",
+                                                     value: "Error during extraction",
+                                                     comment: "Title of alert")
+        
+        let extractionErrorMessage = NSLocalizedString("extraction-error-message",
+                                                       value: "The archive could not be extracted.",
+                                                       comment: "Shown on alert")
+        
+        let extractionErrorOk = NSLocalizedString("extraction-error-ok",
+                                                  value: "Ok",
+                                                  comment: "Shown on alert")
+        
+        var detailedErrorString: String = " "
         if detailedError != nil {
-            msg = detailedError!
+            detailedErrorString += detailedError!
         }
         
-        let alertController = UIAlertController(title: "Error during extraction", message: msg, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        let alertController = UIAlertController(title: extractionErrorTitle,
+                                                message: extractionErrorMessage + detailedErrorString,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: extractionErrorOk, style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
     

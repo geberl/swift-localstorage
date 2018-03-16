@@ -21,3 +21,11 @@
 
 "cell-label-in" = "in";
 "cell-label-items" = "Objekten";
+
+"compression-detail-error-title" = "Datei-Typ nicht unterstützt";
+"compression-detail-error-message" = "Local Storage kann nur Dateien der Typen 'public.zip-archive', 'public.tar-archive' und 'org.7-zip.7-zip-archive' entpacken.\n\nDeine Datei hat den Typ '";
+"compression-detail-error-ok" = "Ok";
+
+"extraction-error-title" = "Fehler beim Entpacken";
+"extraction-error-message" = "Das Archiv konnte nicht entpackt werden.";
+"extraction-error-ok" = "Ok";
