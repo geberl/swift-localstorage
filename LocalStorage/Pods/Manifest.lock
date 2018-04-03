@@ -1,8 +1,8 @@
 PODS:
   - BitByteData (1.1.1)
-  - Charts (3.0.5):
-    - Charts/Core (= 3.0.5)
-  - Charts/Core (3.0.5)
+  - Charts (3.1.1):
+    - Charts/Core (= 3.1.1)
+  - Charts/Core (3.1.1)
   - CommonCryptoModule (1.0.2)
   - SWCompression (4.2.0):
     - BitByteData (~> 1.1)
@@ -53,7 +53,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   BitByteData: f8d72f4fc98d9334ae619730d23e2990c029e904
-  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
+  Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
   CommonCryptoModule: 63a68b57abed79655b3a01011419bf037a05b0a0
   SWCompression: a94532c285650ac6a0656ff1de48b30e49c45ae7
 
