@@ -143,6 +143,10 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         
         self.chartView.fitBars = true
         
+        // TODO remove this workaround for Charts tallness/legend issue after upgrade 3.0.5 -> 3.1.1
+        // https://github.com/danielgindi/Charts/issues/3359 (commented)
+        self.chartView.extraBottomOffset = CGFloat(32)
+        
         if userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh) {
             self.chartView.animate(yAxisDuration: 1.5)
         } else {
