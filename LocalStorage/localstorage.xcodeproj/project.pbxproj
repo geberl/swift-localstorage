@@ -27,6 +27,7 @@
 		A482821620025F5500DC2131 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482821520025F5500DC2131 /* Notifications.swift */; };
 		A482821920025FC200DC2131 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482821820025FC200DC2131 /* Prefs.swift */; };
 		A48DB9042048948900E9619E /* ExtractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48DB9032048948900E9619E /* ExtractViewController.swift */; };
+		A48E039420764844004FCC42 /* FoldersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E039320764844004FCC42 /* FoldersViewController.swift */; };
 		A48EFC43200F86AE0084B0D5 /* TypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48EFC42200F86AE0084B0D5 /* TypeDetailViewController.swift */; };
 		A4A9E1252028A46B00146E4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E7A1FFA915D00CBE189 /* Assets.xcassets */; };
 		A4A9E1262028A63D00146E4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E7A1FFA915D00CBE189 /* Assets.xcassets */; };
@@ -109,6 +110,7 @@
 		A482821520025F5500DC2131 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		A482821820025FC200DC2131 /* Prefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
 		A48DB9032048948900E9619E /* ExtractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractViewController.swift; sourceTree = "<group>"; };
+		A48E039320764844004FCC42 /* FoldersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersViewController.swift; sourceTree = "<group>"; };
 		A48EFC42200F86AE0084B0D5 /* TypeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDetailViewController.swift; sourceTree = "<group>"; };
 		A4B438182029AC6C0053CF54 /* HashFunctionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HashFunctionDetailViewController.swift; path = Hash/HashFunctionDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		A4B4381A2029C4E00053CF54 /* HashNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashNotifications.swift; sourceTree = "<group>"; };
@@ -240,16 +242,49 @@
 		A482821720025F8500DC2131 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A48E0391207647F3004FCC42 /* Extract */,
 				A44E4E771FFA915D00CBE189 /* Main.storyboard */,
 				A41FEB122000EFB700149DEE /* TabBarController.swift */,
+				A48E038F207647D2004FCC42 /* Overview */,
+				A48E0390207647E3004FCC42 /* Types */,
+				A48E039220764819004FCC42 /* Folders */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A48E038F207647D2004FCC42 /* Overview */ = {
+			isa = PBXGroup;
+			children = (
 				A44E4E751FFA915D00CBE189 /* OverviewViewController.swift */,
-				A41B484C20028430005A9161 /* TypesViewController.swift */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
+		A48E0390207647E3004FCC42 /* Types */ = {
+			isa = PBXGroup;
+			children = (
 				A48EFC42200F86AE0084B0D5 /* TypeDetailViewController.swift */,
+				A41B484C20028430005A9161 /* TypesViewController.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		A48E0391207647F3004FCC42 /* Extract */ = {
+			isa = PBXGroup;
+			children = (
 				A47B4608205BBB5300B36AF0 /* Extract.storyboard */,
 				A45F5A20204EC7C5001E2AA0 /* ExtractNavController.swift */,
 				A48DB9032048948900E9619E /* ExtractViewController.swift */,
 			);
-			path = Main;
+			path = Extract;
+			sourceTree = "<group>";
+		};
+		A48E039220764819004FCC42 /* Folders */ = {
+			isa = PBXGroup;
+			children = (
+				A48E039320764844004FCC42 /* FoldersViewController.swift */,
+			);
+			path = Folders;
 			sourceTree = "<group>";
 		};
 		A493A4B7200277A300B229CB /* Launch Screen */ = {
@@ -475,6 +510,7 @@
 				"${BUILT_PRODUCTS_DIR}/BitByteData/BitByteData.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/SWCompression/SWCompression.framework",
+				"${BUILT_PRODUCTS_DIR}/YMTreeMap/YMTreeMap.framework",
 				"${BUILT_PRODUCTS_DIR}/CommonCryptoModule/CommonCryptoModule.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -482,6 +518,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BitByteData.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWCompression.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YMTreeMap.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CommonCryptoModule.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,6 +600,7 @@
 				A482821620025F5500DC2131 /* Notifications.swift in Sources */,
 				A44E4E761FFA915D00CBE189 /* OverviewViewController.swift in Sources */,
 				A41FEB132000EFB700149DEE /* TabBarController.swift in Sources */,
+				A48E039420764844004FCC42 /* FoldersViewController.swift in Sources */,
 				A418AC7E2000092000E3EAF1 /* Common.swift in Sources */,
 				A40D444A200248EF00A14AD1 /* SettingsViewController.swift in Sources */,
 				A44E4E741FFA915C00CBE189 /* AppDelegate.swift in Sources */,
