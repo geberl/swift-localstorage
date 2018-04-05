@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6if-fc-UZA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6if-fc-UZA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +25,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rC3-Ri-Exl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839" y="462"/>
+            <point key="canvasLocation" x="977" y="236"/>
         </scene>
         <!--Overview Tab-->
         <scene sceneID="jym-t8-kld">
@@ -42,7 +42,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lH9-yX-ipr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1835" y="-238"/>
+            <point key="canvasLocation" x="177" y="237"/>
         </scene>
         <!--Overview-->
         <scene sceneID="LQa-lS-HKG">
@@ -434,7 +434,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yze-Se-oMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2681" y="-421"/>
+            <point key="canvasLocation" x="177" y="1120"/>
         </scene>
         <!--Types-->
         <scene sceneID="Veh-UA-dKz">
@@ -533,7 +533,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieC-px-vSr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2680.8000000000002" y="459.22038980509751"/>
+            <point key="canvasLocation" x="977" y="1015"/>
         </scene>
         <!--Details-->
         <scene sceneID="Pzj-OZ-ldf">
@@ -594,7 +594,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrB-DP-4b4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3461.5999999999999" y="458.32083958020991"/>
+            <point key="canvasLocation" x="977" y="1756"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Qw3-WO-9ZW">
@@ -609,11 +609,59 @@
                         <outlet property="tabBar" destination="sdn-hq-sD4" id="5NL-2m-b5x"/>
                         <segue destination="Iwn-KU-yZO" kind="relationship" relationship="viewControllers" id="9Wg-pQ-ZuW"/>
                         <segue destination="g7C-pp-JrT" kind="relationship" relationship="viewControllers" id="160-b1-bm2"/>
+                        <segue destination="H8t-Zs-yTq" kind="relationship" relationship="viewControllers" id="DCV-xx-Wy1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q5T-mV-Ddf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="890" y="117"/>
+            <point key="canvasLocation" x="977" y="-561"/>
+        </scene>
+        <!--Folders Tab-->
+        <scene sceneID="aNo-RL-gIf">
+            <objects>
+                <navigationController id="H8t-Zs-yTq" userLabel="Folders Tab" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Folders" image="TabBarTypes" id="EQw-GB-rig"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="iVt-Ri-6xv">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="qRW-e8-x5y" kind="relationship" relationship="rootViewController" id="LH6-oy-CGh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLA-Ay-SUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1814" y="235"/>
+        </scene>
+        <!--Folders-->
+        <scene sceneID="qRb-UN-X3H">
+            <objects>
+                <viewController storyboardIdentifier="FoldersViewController" title="Folders" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qRW-e8-x5y" customClass="FoldersViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DQH-oC-dmw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5u2-HY-CqS"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Folders" id="IEI-jh-wmx">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" style="done" id="GgS-Gs-8bm">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ukw-xV-MIa">
+                                <rect key="frame" x="276" y="5" width="83" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <action selector="onSettingsButton:" destination="qRW-e8-x5y" eventType="touchUpInside" id="WjZ-Xj-6mV"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mainView" destination="DQH-oC-dmw" id="PPO-0e-iuH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwV-I3-yv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1814" y="1015"/>
         </scene>
     </scenes>
     <resources>
