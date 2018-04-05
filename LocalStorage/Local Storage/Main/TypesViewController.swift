@@ -103,6 +103,7 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
     func setupChart() {
         self.chartView.chartDescription?.enabled = false
         self.chartView.dragEnabled = false
+        self.chartView.isUserInteractionEnabled = false
         self.chartView.setScaleEnabled(true)
         self.chartView.pinchZoomEnabled = false
         self.chartView.rightAxis.enabled = false
