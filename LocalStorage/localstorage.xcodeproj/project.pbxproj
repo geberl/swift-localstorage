@@ -19,6 +19,10 @@
 		A44E4E791FFA915D00CBE189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E771FFA915D00CBE189 /* Main.storyboard */; };
 		A44E4E7E1FFA915D00CBE189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E7C1FFA915D00CBE189 /* LaunchScreen.storyboard */; };
 		A45F5A21204EC7C5001E2AA0 /* ExtractNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45F5A20204EC7C5001E2AA0 /* ExtractNavController.swift */; };
+		A468034920764C7F0088731A /* FoldersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A468034820764C7F0088731A /* FoldersCollectionViewCell.swift */; };
+		A468034B20764CAD0088731A /* TestValues_Dow30.swift in Sources */ = {isa = PBXBuildFile; fileRef = A468034A20764CAC0088731A /* TestValues_Dow30.swift */; };
+		A468034D20764CCA0088731A /* TestValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = A468034C20764CCA0088731A /* TestValues.swift */; };
+		A468034F2076579A0088731A /* FoldersCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A468034E2076579A0088731A /* FoldersCollectionViewLayout.swift */; };
 		A47B4606205BBB5300B36AF0 /* Extract.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47B4608205BBB5300B36AF0 /* Extract.storyboard */; };
 		A47B460B205BBC4400B36AF0 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47B460D205BBC4400B36AF0 /* Settings.storyboard */; };
 		A47F8156205BE71700930F78 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A47F8154205BE71700930F78 /* Localizable.strings */; };
@@ -98,6 +102,10 @@
 		A44E4E7D1FFA915D00CBE189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A44E4E7F1FFA915D00CBE189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45F5A20204EC7C5001E2AA0 /* ExtractNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractNavController.swift; sourceTree = "<group>"; };
+		A468034820764C7F0088731A /* FoldersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersCollectionViewCell.swift; sourceTree = "<group>"; };
+		A468034A20764CAC0088731A /* TestValues_Dow30.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestValues_Dow30.swift; sourceTree = "<group>"; };
+		A468034C20764CCA0088731A /* TestValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestValues.swift; sourceTree = "<group>"; };
+		A468034E2076579A0088731A /* FoldersCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersCollectionViewLayout.swift; sourceTree = "<group>"; };
 		A47B4603205BB38E00B36AF0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		A47B4604205BB38E00B36AF0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		A47B4607205BBB5300B36AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Extract.storyboard; sourceTree = "<group>"; };
@@ -283,6 +291,10 @@
 			isa = PBXGroup;
 			children = (
 				A48E039320764844004FCC42 /* FoldersViewController.swift */,
+				A468034E2076579A0088731A /* FoldersCollectionViewLayout.swift */,
+				A468034820764C7F0088731A /* FoldersCollectionViewCell.swift */,
+				A468034C20764CCA0088731A /* TestValues.swift */,
+				A468034A20764CAC0088731A /* TestValues_Dow30.swift */,
 			);
 			path = Folders;
 			sourceTree = "<group>";
@@ -592,6 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A468034F2076579A0088731A /* FoldersCollectionViewLayout.swift in Sources */,
 				A48DB9042048948900E9619E /* ExtractViewController.swift in Sources */,
 				A45F5A21204EC7C5001E2AA0 /* ExtractNavController.swift in Sources */,
 				A41B484D20028430005A9161 /* TypesViewController.swift in Sources */,
@@ -599,10 +612,13 @@
 				A48EFC43200F86AE0084B0D5 /* TypeDetailViewController.swift in Sources */,
 				A482821620025F5500DC2131 /* Notifications.swift in Sources */,
 				A44E4E761FFA915D00CBE189 /* OverviewViewController.swift in Sources */,
+				A468034B20764CAD0088731A /* TestValues_Dow30.swift in Sources */,
 				A41FEB132000EFB700149DEE /* TabBarController.swift in Sources */,
+				A468034920764C7F0088731A /* FoldersCollectionViewCell.swift in Sources */,
 				A48E039420764844004FCC42 /* FoldersViewController.swift in Sources */,
 				A418AC7E2000092000E3EAF1 /* Common.swift in Sources */,
 				A40D444A200248EF00A14AD1 /* SettingsViewController.swift in Sources */,
+				A468034D20764CCA0088731A /* TestValues.swift in Sources */,
 				A44E4E741FFA915C00CBE189 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

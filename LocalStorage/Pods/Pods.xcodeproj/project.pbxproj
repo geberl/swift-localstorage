@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -364,7 +364,7 @@
 		2C74CD3EB23E33AB9DC271221BA622BC /* BitWriter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BitWriter.swift; path = Sources/BitWriter.swift; sourceTree = "<group>"; };
 		2CE74B0BD41E2884A8AAECA1E2476A48 /* PieRadarHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieRadarHighlighter.swift; path = Source/Charts/Highlight/PieRadarHighlighter.swift; sourceTree = "<group>"; };
 		2E3C8A73E18C3C9F44F2C43D940692E1 /* TransformerHorizontalBarChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformerHorizontalBarChart.swift; path = Source/Charts/Utils/TransformerHorizontalBarChart.swift; sourceTree = "<group>"; };
-		2EA7E3657FA240D27B39C09D6537DB44 /* Pods-localstorage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-localstorage.modulemap"; sourceTree = "<group>"; };
+		2EA7E3657FA240D27B39C09D6537DB44 /* Pods-localstorage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-localstorage.modulemap"; sourceTree = "<group>"; };
 		3062B25C7C56E6118805DEBC7A32DFB1 /* LineChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/LineChartDataSet.swift; sourceTree = "<group>"; };
 		3071722E84AE0F659F95BE54FB65C290 /* Pods-localstorage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-localstorage-umbrella.h"; sourceTree = "<group>"; };
 		30FD403E850F45E30043CA54D1E3D01E /* TarEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TarEntry.swift; path = Sources/TAR/TarEntry.swift; sourceTree = "<group>"; };
@@ -373,14 +373,14 @@
 		33215A35702044F994F64169DA3A14C0 /* IChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IChartDataSet.swift; path = Source/Charts/Data/Interfaces/IChartDataSet.swift; sourceTree = "<group>"; };
 		332E5BCE94B4210ABD77213DA595BEE0 /* YAxis.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YAxis.swift; path = Source/Charts/Components/YAxis.swift; sourceTree = "<group>"; };
 		33E28720890C32A1A3D2DEE664F7C732 /* ZipError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZipError.swift; path = Sources/ZIP/ZipError.swift; sourceTree = "<group>"; };
-		347501F925CE3AC1BEFEF391145931D2 /* SWCompression.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SWCompression.framework; path = SWCompression.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		347501F925CE3AC1BEFEF391145931D2 /* SWCompression.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWCompression.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BE1DEC6E2D8DCB464E73B76803BE96 /* BitByteData-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BitByteData-umbrella.h"; sourceTree = "<group>"; };
 		35E88B3C4A7804C338E8F2A5FD345758 /* LegendRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegendRenderer.swift; path = Source/Charts/Renderers/LegendRenderer.swift; sourceTree = "<group>"; };
 		368D5C61945FE512038E86552404C608 /* ZipEntryInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZipEntryInfo.swift; path = Sources/ZIP/ZipEntryInfo.swift; sourceTree = "<group>"; };
 		373C3150EFB0A114FB7C053D282C1B41 /* ICandleChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ICandleChartDataSet.swift; path = Source/Charts/Data/Interfaces/ICandleChartDataSet.swift; sourceTree = "<group>"; };
 		385AE03702218F52B9A79CCC3E7CF914 /* BarChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/BarChartDataSet.swift; sourceTree = "<group>"; };
 		390BC3066193B2EF5FECF856E9D0FB15 /* Pods-localstorage-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-localstorage-frameworks.sh"; sourceTree = "<group>"; };
-		3A930CFD5C584E6B8812E39028DA19EE /* BitByteData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BitByteData.framework; path = BitByteData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A930CFD5C584E6B8812E39028DA19EE /* BitByteData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BitByteData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B24A6CCD5DAF30D178B5C2446F7F6F2 /* AnimatedMoveViewJob.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedMoveViewJob.swift; path = Source/Charts/Jobs/AnimatedMoveViewJob.swift; sourceTree = "<group>"; };
 		3B816D4D5C8B0714AF9C6CBAB7E2CFF2 /* BarLineScatterCandleBubbleChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarLineScatterCandleBubbleChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/BarLineScatterCandleBubbleChartDataSet.swift; sourceTree = "<group>"; };
 		3BEF169B95C052D7A59F72909492D466 /* BubbleChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BubbleChartDataProvider.swift; path = Source/Charts/Interfaces/BubbleChartDataProvider.swift; sourceTree = "<group>"; };
@@ -392,7 +392,7 @@
 		4359F8142C31CDA209D8778433259BD7 /* 7zCoderInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = 7zCoderInfo.swift; path = "Sources/7-Zip/7zCoderInfo.swift"; sourceTree = "<group>"; };
 		4535BBF4E5DB1F6257CF25F5745A9CB9 /* Pods-localstorage-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-localstorage-resources.sh"; sourceTree = "<group>"; };
 		459D5FD51EAFF052A50C2E0AD7CF822B /* BZip2+Lengths.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BZip2+Lengths.swift"; path = "Sources/BZip2/BZip2+Lengths.swift"; sourceTree = "<group>"; };
-		46650A126ADBFCB52A45B67592EFE8F3 /* SWCompression.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SWCompression.modulemap; sourceTree = "<group>"; };
+		46650A126ADBFCB52A45B67592EFE8F3 /* SWCompression.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SWCompression.modulemap; sourceTree = "<group>"; };
 		47B386F499E1489C261F5BAD0AE4E52F /* ChartBaseDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartBaseDataSet.swift; path = Source/Charts/Data/Implementations/ChartBaseDataSet.swift; sourceTree = "<group>"; };
 		4872027E75152795A5AE281B91A6DADF /* 7zEntryInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = 7zEntryInfo.swift; path = "Sources/7-Zip/7zEntryInfo.swift"; sourceTree = "<group>"; };
 		49F03D8655103CB7C20E7B09F4449385 /* MsbBitReader+7z.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MsbBitReader+7z.swift"; path = "Sources/7-Zip/MsbBitReader+7z.swift"; sourceTree = "<group>"; };
@@ -406,7 +406,7 @@
 		5031480186E30E12DF3AD86121E49D8F /* ScatterChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScatterChartDataProvider.swift; path = Source/Charts/Interfaces/ScatterChartDataProvider.swift; sourceTree = "<group>"; };
 		528675DABED182D55B380CA99EDF6B56 /* XZArchive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XZArchive.swift; path = Sources/XZ/XZArchive.swift; sourceTree = "<group>"; };
 		52A75B22753871D9E10CCA2035CC2B05 /* IndexAxisValueFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IndexAxisValueFormatter.swift; path = Source/Charts/Formatters/IndexAxisValueFormatter.swift; sourceTree = "<group>"; };
-		54A4A1628476C98CE22D95DE6B47BB29 /* Pods_Hash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Hash.framework; path = "Pods-Hash.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54A4A1628476C98CE22D95DE6B47BB29 /* Pods_Hash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5532812AA5C3F8913E879BD6854810F5 /* BarLineScatterCandleBubbleRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarLineScatterCandleBubbleRenderer.swift; path = Source/Charts/Renderers/BarLineScatterCandleBubbleRenderer.swift; sourceTree = "<group>"; };
 		568A7CBEFC77E33EB7534107D356E32F /* Pods-Hash-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Hash-acknowledgements.markdown"; sourceTree = "<group>"; };
 		57709C4C2E07AB163FBB855F17AA5535 /* CandleStickChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleStickChartRenderer.swift; path = Source/Charts/Renderers/CandleStickChartRenderer.swift; sourceTree = "<group>"; };
@@ -455,9 +455,9 @@
 		76BD1A2310BA19A40541B5BFBBDE48C7 /* Pods-localstorage-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-localstorage-acknowledgements.markdown"; sourceTree = "<group>"; };
 		78A6205802B90787308F308B88EFBA0D /* MsbBitReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MsbBitReader.swift; path = Sources/MsbBitReader.swift; sourceTree = "<group>"; };
 		7986BD778C9152D36572A6AD7BB2188C /* CommonCryptoModule-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CommonCryptoModule-umbrella.h"; sourceTree = "<group>"; };
-		7B1C56D7DFF460AE48C0A21B941F64BA /* CommonCryptoModule.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CommonCryptoModule.modulemap; sourceTree = "<group>"; };
+		7B1C56D7DFF460AE48C0A21B941F64BA /* CommonCryptoModule.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CommonCryptoModule.modulemap; sourceTree = "<group>"; };
 		7B824784D4C0A4B22ABD5D17C6A49E33 /* CheckSums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CheckSums.swift; path = Sources/Common/CheckSums.swift; sourceTree = "<group>"; };
-		7B93A21B1CCE7211CE689CA31D49AAD1 /* Charts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Charts.modulemap; sourceTree = "<group>"; };
+		7B93A21B1CCE7211CE689CA31D49AAD1 /* Charts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Charts.modulemap; sourceTree = "<group>"; };
 		7BA5F801AF7D555BDD9C17D3E98ECFB5 /* Deflate+Compress.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Deflate+Compress.swift"; path = "Sources/Deflate/Deflate+Compress.swift"; sourceTree = "<group>"; };
 		7C5856AC6E5D3ABFE9D1AC205C01661B /* XShapeRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XShapeRenderer.swift; path = Source/Charts/Renderers/Scatter/XShapeRenderer.swift; sourceTree = "<group>"; };
 		7CE3B0A2D9F5A3F6F97AFF02389BED2F /* LineRadarChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineRadarChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/LineRadarChartDataSet.swift; sourceTree = "<group>"; };
@@ -486,7 +486,7 @@
 		905230A94FA7CC7712109D12DF93E8C1 /* LZMA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LZMA.swift; path = Sources/LZMA/LZMA.swift; sourceTree = "<group>"; };
 		909808C1814F995398A4C18234CFB61A /* IValueFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IValueFormatter.swift; path = Source/Charts/Formatters/IValueFormatter.swift; sourceTree = "<group>"; };
 		90C722BA4FB0840AB6D595A70CDBCF41 /* Container.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Container.swift; path = Sources/Common/Container/Container.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		960AFC9F977B60585D01F26699EEBF28 /* DefaultValueFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultValueFormatter.swift; path = Source/Charts/Formatters/DefaultValueFormatter.swift; sourceTree = "<group>"; };
 		96249FD9ADBE3DD25D0764EAC3A5B031 /* ZipCentralDirectoryEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZipCentralDirectoryEntry.swift; path = Sources/ZIP/ZipCentralDirectoryEntry.swift; sourceTree = "<group>"; };
 		972E7B753F233F5DFF33545978ED2B58 /* CombinedChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CombinedChartRenderer.swift; path = Source/Charts/Renderers/CombinedChartRenderer.swift; sourceTree = "<group>"; };
@@ -497,8 +497,8 @@
 		9AA5F2F77B1EFF5E6B22CD580D155374 /* IPieChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IPieChartDataSet.swift; path = Source/Charts/Data/Interfaces/IPieChartDataSet.swift; sourceTree = "<group>"; };
 		9B0D9E615BC2B7D43307160B81848A35 /* CombinedChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CombinedChartDataProvider.swift; path = Source/Charts/Interfaces/CombinedChartDataProvider.swift; sourceTree = "<group>"; };
 		9B196E3892BF3CA8C17950CBEBF9DD1A /* ChartHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartHighlighter.swift; path = Source/Charts/Highlight/ChartHighlighter.swift; sourceTree = "<group>"; };
-		9BBF8FB1B6AB35A19A9D43B3CB025D8B /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Charts.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BDF2E49ACBCF67B298889B02C7BC678 /* Pods-Hash.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Hash.modulemap"; sourceTree = "<group>"; };
+		9BBF8FB1B6AB35A19A9D43B3CB025D8B /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BDF2E49ACBCF67B298889B02C7BC678 /* Pods-Hash.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Hash.modulemap"; sourceTree = "<group>"; };
 		9C9818150CFD6EC2DC9636EA6B954C15 /* CandleChartData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleChartData.swift; path = Source/Charts/Data/Implementations/Standard/CandleChartData.swift; sourceTree = "<group>"; };
 		9D6DFFBC101E6C85071773808ABFF66B /* CompressionMethod+Zip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CompressionMethod+Zip.swift"; path = "Sources/ZIP/CompressionMethod+Zip.swift"; sourceTree = "<group>"; };
 		9E072FF75DC7420502219AEAA9D938C1 /* ZipContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZipContainer.swift; path = Sources/ZIP/ZipContainer.swift; sourceTree = "<group>"; };
@@ -507,7 +507,7 @@
 		A1B0EC4982C46720B87F60E137C8E7E3 /* BurrowsWheeler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BurrowsWheeler.swift; path = Sources/BZip2/BurrowsWheeler.swift; sourceTree = "<group>"; };
 		A2E6E5AAF24DB2D790EBF5403D513477 /* ScatterChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScatterChartRenderer.swift; path = Source/Charts/Renderers/ScatterChartRenderer.swift; sourceTree = "<group>"; };
 		A3EC7694E194829359FBE00BD20E1C8A /* XAxisRendererRadarChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XAxisRendererRadarChart.swift; path = Source/Charts/Renderers/XAxisRendererRadarChart.swift; sourceTree = "<group>"; };
-		A41FA7D99DDEB8166FC53638639059C0 /* BitByteData.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = BitByteData.modulemap; sourceTree = "<group>"; };
+		A41FA7D99DDEB8166FC53638639059C0 /* BitByteData.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BitByteData.modulemap; sourceTree = "<group>"; };
 		A7412996A1F648C7E0544E2E39634EF1 /* LZMADecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LZMADecoder.swift; path = Sources/LZMA/LZMADecoder.swift; sourceTree = "<group>"; };
 		A8290FCAAB29A29DF4ABB54DB5C15069 /* ByteReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ByteReader.swift; path = Sources/ByteReader.swift; sourceTree = "<group>"; };
 		ABA9DF8C41B34BEC3AAC174706456601 /* TriangleShapeRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TriangleShapeRenderer.swift; path = Source/Charts/Renderers/Scatter/TriangleShapeRenderer.swift; sourceTree = "<group>"; };
@@ -555,10 +555,10 @@
 		D026B5510C346FF798F3FC7B6892D12B /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Extensions.swift; sourceTree = "<group>"; };
 		D0589DDB90FD1552E863100892C554AA /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Common/Extensions.swift; sourceTree = "<group>"; };
 		D1EA065EF4C0D0BC2051AEDD5077925A /* SWCompression-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWCompression-dummy.m"; sourceTree = "<group>"; };
-		D201A566430CA7EEC7BA8073111004B0 /* CommonCryptoModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CommonCryptoModule.framework; path = CommonCryptoModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D201A566430CA7EEC7BA8073111004B0 /* CommonCryptoModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonCryptoModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D372BC8FE7213E38CAAAF134A74773E8 /* HorizontalBarChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HorizontalBarChartRenderer.swift; path = Source/Charts/Renderers/HorizontalBarChartRenderer.swift; sourceTree = "<group>"; };
 		D4A8F40218990F1C5E701243767AFFE1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4D3D5C5CE88D52C2F3173A9F66492F0 /* module.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = module.modulemap; path = CommonCryptoModule/CommonCryptoBridge/module.modulemap; sourceTree = "<group>"; };
+		D4D3D5C5CE88D52C2F3173A9F66492F0 /* module.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = CommonCryptoModule/CommonCryptoBridge/module.modulemap; sourceTree = "<group>"; };
 		D4D8470C86ADDDDC68185F7EB50C03FE /* YMTreeMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YMTreeMap.swift; sourceTree = "<group>"; };
 		D6DBD62E16827488FF8BB7C7921A3439 /* YAxisRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YAxisRenderer.swift; path = Source/Charts/Renderers/YAxisRenderer.swift; sourceTree = "<group>"; };
 		D7116F357F66A83E56C3E6AD41800272 /* ScatterChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScatterChartView.swift; path = Source/Charts/Charts/ScatterChartView.swift; sourceTree = "<group>"; };
@@ -566,7 +566,7 @@
 		D796DCAEFE9AF07517C8EE70B32CE0A4 /* ScatterChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScatterChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/ScatterChartDataSet.swift; sourceTree = "<group>"; };
 		D7B8E211ABEF0EF7E4832C74DF662411 /* PieHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieHighlighter.swift; path = Source/Charts/Highlight/PieHighlighter.swift; sourceTree = "<group>"; };
 		D7EAFF2413186F5A7D68470A085CDFE3 /* IShapeRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IShapeRenderer.swift; path = Source/Charts/Renderers/Scatter/IShapeRenderer.swift; sourceTree = "<group>"; };
-		D88095754D027CD3AC77CA626992DA83 /* Pods_localstorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_localstorage.framework; path = "Pods-localstorage.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D88095754D027CD3AC77CA626992DA83 /* Pods_localstorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_localstorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9BAE7A70888BA247B245BE30178001D /* XZError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XZError.swift; path = Sources/XZ/XZError.swift; sourceTree = "<group>"; };
 		D9EB260DB12CD75D2E3FFD6F6482EE96 /* GzipArchive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GzipArchive.swift; path = Sources/GZip/GzipArchive.swift; sourceTree = "<group>"; };
 		DA2B7C32ED4422C7D41EBA8EB4BA0E05 /* DosAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DosAttributes.swift; path = Sources/Common/Container/DosAttributes.swift; sourceTree = "<group>"; };
@@ -598,12 +598,12 @@
 		ED271659598CED92DA318D9F409E9C8F /* XAxis.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XAxis.swift; path = Source/Charts/Components/XAxis.swift; sourceTree = "<group>"; };
 		EFC9FA174D35E558F46A80A94FA7D63B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F044169B593C9C3AE56D7C679F99F3AC /* LZMABitTreeDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LZMABitTreeDecoder.swift; path = Sources/LZMA/LZMABitTreeDecoder.swift; sourceTree = "<group>"; };
-		F28946AB62AFB2BE5BDA2C3937A79ACB /* YMTreeMap.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = YMTreeMap.modulemap; sourceTree = "<group>"; };
+		F28946AB62AFB2BE5BDA2C3937A79ACB /* YMTreeMap.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = YMTreeMap.modulemap; sourceTree = "<group>"; };
 		F296843E99F44C3D37679FD12A2E4A09 /* BubbleChartDataEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BubbleChartDataEntry.swift; path = Source/Charts/Data/Implementations/Standard/BubbleChartDataEntry.swift; sourceTree = "<group>"; };
 		F2A23A638527234602273CA76C5D7D7E /* HorizontalBarChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HorizontalBarChartView.swift; path = Source/Charts/Charts/HorizontalBarChartView.swift; sourceTree = "<group>"; };
 		F3754D7A3C3715E5229ACBA2DD429AA6 /* CommonCryptoBridge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CommonCryptoBridge.h; path = CommonCryptoModule/CommonCryptoBridge/CommonCryptoBridge.h; sourceTree = "<group>"; };
 		F500341242160EC774FF3EB9F337EB20 /* Transformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transformer.swift; path = Source/Charts/Utils/Transformer.swift; sourceTree = "<group>"; };
-		F5A4B5BFC04B048F411917846B7AFB2C /* YMTreeMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YMTreeMap.framework; path = YMTreeMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5A4B5BFC04B048F411917846B7AFB2C /* YMTreeMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YMTreeMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F68C6D5ECB8E32E23C6753615D0EDF26 /* YAxisRendererHorizontalBarChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YAxisRendererHorizontalBarChart.swift; path = Source/Charts/Renderers/YAxisRendererHorizontalBarChart.swift; sourceTree = "<group>"; };
 		F6EA9E0CD66F41AB2415A45C4A4672EA /* ChartUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartUtils.swift; path = Source/Charts/Utils/ChartUtils.swift; sourceTree = "<group>"; };
 		FA110E8B5E1F849C3DA661F63982EF3A /* Charts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Charts-prefix.pch"; sourceTree = "<group>"; };
@@ -687,7 +687,6 @@
 				65329107E8C6502438B6589CB2CB189F /* ZIP */,
 				19E63762D4947923BC7012A4199F47D5 /* Zlib */,
 			);
-			name = SWCompression;
 			path = SWCompression;
 			sourceTree = "<group>";
 		};
@@ -738,7 +737,6 @@
 				161CD70DAFF1C3A5898069A31586881E /* MsbBitWriter.swift */,
 				D858450E96F72D637733844EE1F0B722 /* Support Files */,
 			);
-			name = BitByteData;
 			path = BitByteData;
 			sourceTree = "<group>";
 		};
@@ -809,7 +807,6 @@
 				D4D8470C86ADDDDC68185F7EB50C03FE /* YMTreeMap.swift */,
 				D3B71B4A9FC81F4E0610D0CA64EEC159 /* Support Files */,
 			);
-			name = YMTreeMap;
 			path = YMTreeMap;
 			sourceTree = "<group>";
 		};
@@ -950,7 +947,6 @@
 				F80470B9FD85DEC324A621DF88140EEB /* Core */,
 				9C2309965C149DF59D1706A087650A36 /* Support Files */,
 			);
-			name = Charts;
 			path = Charts;
 			sourceTree = "<group>";
 		};
@@ -972,7 +968,6 @@
 				DCF96DD6555764F49890217C1BF8BCB1 /* Resources */,
 				AE5555462AAE47A2F994D9B11428EE4C /* Support Files */,
 			);
-			name = CommonCryptoModule;
 			path = CommonCryptoModule;
 			sourceTree = "<group>";
 		};
@@ -1411,7 +1406,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1861,6 +1856,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1868,6 +1864,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -2072,6 +2069,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -2079,6 +2077,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
