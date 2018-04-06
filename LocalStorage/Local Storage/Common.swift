@@ -215,6 +215,9 @@ func resetStats() {
                       TypeInfo(name: LocalizedTypeNames.code, color: UIColor(named: "ColorTypeCode")!, size: 0, number: 0, paths: [], sizes: []),
                       TypeInfo(name: LocalizedTypeNames.archives, color: UIColor(named: "ColorTypeArchives")!, size: 0, number: 0, paths: [], sizes: []),
                       TypeInfo(name: LocalizedTypeNames.other, color: UIColor(named: "ColorTypeOther")!, size: 0, number: 0, paths: [], sizes: [])]
+    
+    AppState.files.allValues = []
+    AppState.files.fileInfos = []
 }
 
 
@@ -233,11 +236,17 @@ func addToType(name: String, size: Int64, path: String) {
     
     for (n, type_info) in AppState.types.enumerated() {
         if type_info.name == name {
+            let documentsPathEndIndex = path.index(AppState.documentsPath.endIndex, offsetBy: 1)
+            let filePath = String(path[documentsPathEndIndex...])
+            
             AppState.types[n].size += size
             AppState.types[n].number += 1
-            let documentsPathEndIndex = path.index(AppState.documentsPath.endIndex, offsetBy: 1)
-            AppState.types[n].paths.append(String(path[documentsPathEndIndex...]))
+            AppState.types[n].paths.append(filePath)
             AppState.types[n].sizes.append(size)
+            
+            AppState.files.allValues.append(Double(size))
+            AppState.files.fileInfos.append(FileInfo(name: filePath, type: type_info.name))
+            
             break
         }
     }

@@ -231,6 +231,11 @@ struct AppState {
         TypeInfo(name: LocalizedTypeNames.other, color: UIColor(named: "ColorTypeOther")!, size: 0, number: 0, paths: [], sizes: [])
     ]
     
+    struct files {
+        static var allValues: [Double] = []
+        static var fileInfos: [FileInfo] = []
+    }
+    
     static var documentsPath: String = ""
     static var updateInProgress: Bool = false
     static var demoContent: Bool = false  // NEVER set this to <true> when doing a release!
@@ -247,6 +252,12 @@ struct TypeInfo {
     var number: Int
     var paths: [String]
     var sizes: [Int64]
+}
+
+
+public struct FileInfo {
+    var name: String
+    var type: String
 }
 
 

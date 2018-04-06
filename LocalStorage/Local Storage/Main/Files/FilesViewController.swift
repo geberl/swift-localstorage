@@ -14,8 +14,7 @@ import YMTreeMap
 class FilesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let userDefaults = UserDefaults.standard
-    let values = TestValues_Files.AllValues  // TODO use user's filesystem values, not files test values.
-    
+
     @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
     @IBOutlet var mainView: UIView!
     @IBOutlet var collectionView: UICollectionView!
@@ -37,7 +36,7 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
         os_log("viewWillAppear", log: logTabFiles, type: .debug)
         super.viewWillAppear(animated)
         
-        let treeMap = YMTreeMap(withValues: self.values)
+        let treeMap = YMTreeMap(withValues: AppState.files.allValues)
         treeMap.alignment = .RetinaSubPixel
 
         if let layout = self.collectionView.collectionViewLayout as? FilesCollectionViewLayout {
@@ -51,7 +50,7 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
         os_log("viewWillTransition", log: logTabFiles, type: .debug)
         super.viewWillTransition(to: size, with: coordinator)
 
-        let treeMap = YMTreeMap(withValues: self.values)
+        let treeMap = YMTreeMap(withValues: AppState.files.allValues)
         if let layout = self.collectionView.collectionViewLayout as? FilesCollectionViewLayout {
             layout.rects = treeMap.tessellate(inRect: CGRect(origin: .zero, size: size))
         }
@@ -94,32 +93,32 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return values.count
+        return AppState.files.allValues.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilesCell", for: indexPath)
         
         if let cell = cell as? FilesCollectionViewCell {
-            let file = TestValues_Files.FileInfos[indexPath.item]
-            cell.tintColor = self.color(forType: file.type)
-            cell.symbolLabel.text = file.name
-            cell.valueLabel.text = getSizeString(byteCount: Int64(TestValues_Files.AllValues[indexPath.item]))
+            let fileInfo = AppState.files.fileInfos[indexPath.item]
+            cell.tintColor = self.color(forType: fileInfo.type)
+            cell.symbolLabel.text = fileInfo.name
+            cell.valueLabel.text = getSizeString(byteCount: Int64(AppState.files.allValues[indexPath.item]))
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        // Change background color when user touches cell
+        // Change background color when user touches cell.
         if let cell = collectionView.cellForItem(at: indexPath) as? FilesCollectionViewCell {
-            cell.tintColor = UIColor.red
+            cell.tintColor = UIColor.black
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        // Change background color back when user releases touch
+        // Change background color back when user releases touch.
         if let cell = collectionView.cellForItem(at: indexPath) as? FilesCollectionViewCell {
-            let file = TestValues_Files.FileInfos[indexPath.item]
+            let file = AppState.files.fileInfos[indexPath.item]
             cell.tintColor = self.color(forType: file.type)
         }
     }

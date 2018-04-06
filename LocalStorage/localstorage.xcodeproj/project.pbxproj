@@ -14,7 +14,6 @@
 		A418AC7E2000092000E3EAF1 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418AC7D2000092000E3EAF1 /* Common.swift */; };
 		A41B484D20028430005A9161 /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41B484C20028430005A9161 /* TypesViewController.swift */; };
 		A41FEB132000EFB700149DEE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41FEB122000EFB700149DEE /* TabBarController.swift */; };
-		A438059820774D77003E9D98 /* TestValues_Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = A438059720774D77003E9D98 /* TestValues_Files.swift */; };
 		A44E4E741FFA915C00CBE189 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E4E731FFA915C00CBE189 /* AppDelegate.swift */; };
 		A44E4E761FFA915D00CBE189 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E4E751FFA915D00CBE189 /* OverviewViewController.swift */; };
 		A44E4E791FFA915D00CBE189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E771FFA915D00CBE189 /* Main.storyboard */; };
@@ -93,7 +92,6 @@
 		A418AC7D2000092000E3EAF1 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		A41B484C20028430005A9161 /* TypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesViewController.swift; sourceTree = "<group>"; };
 		A41FEB122000EFB700149DEE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		A438059720774D77003E9D98 /* TestValues_Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestValues_Files.swift; sourceTree = "<group>"; };
 		A44E4E701FFA915C00CBE189 /* localstorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = localstorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A44E4E731FFA915C00CBE189 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A44E4E751FFA915D00CBE189 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
@@ -291,7 +289,6 @@
 				A48E039320764844004FCC42 /* FilesViewController.swift */,
 				A468034E2076579A0088731A /* FilesCollectionViewLayout.swift */,
 				A468034820764C7F0088731A /* FilesCollectionViewCell.swift */,
-				A438059720774D77003E9D98 /* TestValues_Files.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -614,7 +611,6 @@
 				A48E039420764844004FCC42 /* FilesViewController.swift in Sources */,
 				A418AC7E2000092000E3EAF1 /* Common.swift in Sources */,
 				A40D444A200248EF00A14AD1 /* SettingsViewController.swift in Sources */,
-				A438059820774D77003E9D98 /* TestValues_Files.swift in Sources */,
 				A44E4E741FFA915C00CBE189 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
