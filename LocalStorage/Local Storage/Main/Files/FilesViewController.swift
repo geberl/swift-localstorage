@@ -101,9 +101,13 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         if let cell = cell as? FilesCollectionViewCell {
             let fileInfo = AppState.files.fileInfos[indexPath.item]
-            cell.tintColor = self.color(forType: fileInfo.type)
+            cell.tintColor = self.tintColor(forType: fileInfo.type)
             cell.symbolLabel.text = fileInfo.name
             cell.valueLabel.text = getSizeString(byteCount: Int64(AppState.files.allValues[indexPath.item]))
+            
+            let textColor = self.textColor(forType: fileInfo.type)
+            cell.symbolLabel.textColor = textColor
+            cell.valueLabel.textColor = textColor
         }
         return cell
     }
@@ -118,12 +122,12 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
         // Change background color back when user releases touch.
         if let cell = collectionView.cellForItem(at: indexPath) as? FilesCollectionViewCell {
-            let file = AppState.files.fileInfos[indexPath.item]
-            cell.tintColor = self.color(forType: file.type)
+            let fileInfo = AppState.files.fileInfos[indexPath.item]
+            cell.tintColor = self.tintColor(forType: fileInfo.type)
         }
     }
     
-    func color(forType type: String) -> UIColor {
+    func tintColor(forType type: String) -> UIColor {
         if type == LocalizedTypeNames.audio {
             return UIColor(named: "ColorTypeAudio")!
         } else if type == LocalizedTypeNames.videos {
@@ -139,6 +143,17 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
         } else {  // type == LocalizedTypeNames.other
             return UIColor(named: "ColorTypeOther")!
         }
+    }
+    
+    func textColor(forType type: String) -> UIColor {
+        if type == LocalizedTypeNames.audio {
+            return UIColor(named: "ColorFontGray")!
+        } else if type == LocalizedTypeNames.videos {
+            return UIColor(named: "ColorFontGray")!
+        } else if type == LocalizedTypeNames.other {
+            return UIColor(named: "ColorFontGray")!
+        }
+        return UIColor.white
     }
 
 }

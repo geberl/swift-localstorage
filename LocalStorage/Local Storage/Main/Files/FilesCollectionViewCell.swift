@@ -20,10 +20,7 @@ class FilesCollectionViewCell: UICollectionViewCell {
     let symbolLabel: UILabel = ({
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         label.textColor = UIColor.white
-        // label.textColor = UIColor.black
-        
         label.lineBreakMode = .byClipping
         label.font = UIFont.boldSystemFont(ofSize: 14.0)
         return label
@@ -32,10 +29,7 @@ class FilesCollectionViewCell: UICollectionViewCell {
     let valueLabel: UILabel = ({
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         label.textColor = UIColor.white
-        // label.textColor = UIColor.black
-        
         label.lineBreakMode = .byClipping
         label.font = UIFont.systemFont(ofSize: 11)
         return label
@@ -54,7 +48,6 @@ class FilesCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         self.backgroundColor = UIColor.white
-        // self.backgroundColor = UIColor.black
         
         contentView.addSubview(colorView)
         colorView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
@@ -89,6 +82,7 @@ class FilesCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         contentView.layoutIfNeeded()
         
+        // This code hides the labels if they were to get cut. Looks better if nothing is cut I think.
         // let insetRect = colorView.bounds.insetBy(dx: 3, dy: 3)
         // let show = insetRect.contains(symbolLabel.frame) && insetRect.contains(valueLabel.frame)
         // symbolLabel.isHidden = !show
