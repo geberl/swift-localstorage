@@ -20,8 +20,11 @@ class FilesCollectionViewCell: UICollectionViewCell {
     let symbolLabel: UILabel = ({
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
+        
         label.textColor = UIColor.white
         // label.textColor = UIColor.black
+        
+        label.lineBreakMode = .byClipping
         label.font = UIFont.boldSystemFont(ofSize: 14.0)
         return label
     })()
@@ -29,8 +32,11 @@ class FilesCollectionViewCell: UICollectionViewCell {
     let valueLabel: UILabel = ({
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
+        
         label.textColor = UIColor.white
         // label.textColor = UIColor.black
+        
+        label.lineBreakMode = .byClipping
         label.font = UIFont.systemFont(ofSize: 11)
         return label
     })()
@@ -83,9 +89,9 @@ class FilesCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         contentView.layoutIfNeeded()
         
-        let insetRect = colorView.bounds.insetBy(dx: 3, dy: 3)
-        let show = insetRect.contains(symbolLabel.frame) && insetRect.contains(valueLabel.frame)
-        symbolLabel.isHidden = !show
-        valueLabel.isHidden = !show
+        // let insetRect = colorView.bounds.insetBy(dx: 3, dy: 3)
+        // let show = insetRect.contains(symbolLabel.frame) && insetRect.contains(valueLabel.frame)
+        // symbolLabel.isHidden = !show
+        // valueLabel.isHidden = !show
     }
 }
