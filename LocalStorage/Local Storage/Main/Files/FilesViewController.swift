@@ -1,5 +1,5 @@
 //
-//  FoldersViewController.swift
+//  FilesViewController.swift
 //  localstorage
 //
 //  Created by Günther Eberl on 05.04.18.
@@ -11,10 +11,10 @@ import os.log
 import YMTreeMap
 
 
-class FoldersViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FilesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let userDefaults = UserDefaults.standard
-    let values = TestValues_Dow30.AllValues  // TODO use user's filesystem values, not stock test values.
+    let values = TestValues_Files.AllValues  // TODO use user's filesystem values, not files test values.
     
     @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
     @IBOutlet var mainView: UIView!
@@ -30,7 +30,7 @@ class FoldersViewController: UIViewController, UICollectionViewDataSource, UICol
         self.setTheme()
         
         // The following line is needed, the Storyboard connection alone is not sufficient.
-        self.collectionView?.register(FoldersCollectionViewCell.self, forCellWithReuseIdentifier: "FolderCell")
+        self.collectionView?.register(FilesCollectionViewCell.self, forCellWithReuseIdentifier: "FilesCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +40,7 @@ class FoldersViewController: UIViewController, UICollectionViewDataSource, UICol
         let treeMap = YMTreeMap(withValues: self.values)
         treeMap.alignment = .RetinaSubPixel
 
-        if let layout = self.collectionView.collectionViewLayout as? FoldersCollectionViewLayout {
+        if let layout = self.collectionView.collectionViewLayout as? FilesCollectionViewLayout {
             let bounds = self.mainView?.bounds ?? .zero
             layout.rects = treeMap.tessellate(inRect: bounds)
         }
@@ -52,7 +52,7 @@ class FoldersViewController: UIViewController, UICollectionViewDataSource, UICol
         super.viewWillTransition(to: size, with: coordinator)
 
         let treeMap = YMTreeMap(withValues: self.values)
-        if let layout = self.collectionView.collectionViewLayout as? FoldersCollectionViewLayout {
+        if let layout = self.collectionView.collectionViewLayout as? FilesCollectionViewLayout {
             layout.rects = treeMap.tessellate(inRect: CGRect(origin: .zero, size: size))
         }
     }
@@ -98,46 +98,48 @@ class FoldersViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FolderCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilesCell", for: indexPath)
         
-        if let cell = cell as? FoldersCollectionViewCell {
-            let company = TestValues_Dow30.Companies[indexPath.item]
-            let color = self.color(forValue: company.percentChange)
-            
-            cell.tintColor = color
-            cell.symbolLabel.text = company.symbol
-            cell.valueLabel.text = String(format: "%+.2f%%", company.percentChange)
+        if let cell = cell as? FilesCollectionViewCell {
+            let file = TestValues_Files.FileInfos[indexPath.item]
+            cell.tintColor = self.color(forType: file.type)
+            cell.symbolLabel.text = file.name
+            cell.valueLabel.text = getSizeString(byteCount: Int64(TestValues_Files.AllValues[indexPath.item]))
         }
         return cell
     }
     
-    func color(forValue value: Double) -> UIColor {
-        var previousBucketCutoff = Double.greatestFiniteMagnitude;
-        var colors = TestValues_Dow30.colors
-        var (nextBucketCutoff, color) = colors.removeFirst()
-        
-        while !colors.isEmpty {
-            let bucketCutoff = nextBucketCutoff
-            let currentColor = color
-            (nextBucketCutoff, color) = colors.removeFirst()
-            
-            if value < 0 { // negative
-                if value >= bucketCutoff && value < nextBucketCutoff {
-                    return currentColor
-                }
-            }
-            else { // positive
-                if value <= bucketCutoff && value > previousBucketCutoff {
-                    return currentColor
-                } else if value <= nextBucketCutoff && value > bucketCutoff {
-                    return color
-                }
-            }
-            
-            previousBucketCutoff = bucketCutoff
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        // Change background color when user touches cell
+        if let cell = collectionView.cellForItem(at: indexPath) as? FilesCollectionViewCell {
+            cell.tintColor = UIColor.red
         }
-        
-        return UIColor.white
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        // Change background color back when user releases touch
+        if let cell = collectionView.cellForItem(at: indexPath) as? FilesCollectionViewCell {
+            let file = TestValues_Files.FileInfos[indexPath.item]
+            cell.tintColor = self.color(forType: file.type)
+        }
+    }
+    
+    func color(forType type: String) -> UIColor {
+        if type == LocalizedTypeNames.audio {
+            return UIColor(named: "ColorTypeAudio")!
+        } else if type == LocalizedTypeNames.videos {
+            return UIColor(named: "ColorTypeVideos")!
+        } else if type == LocalizedTypeNames.documents {
+            return UIColor(named: "ColorTypeDocuments")!
+        } else if type == LocalizedTypeNames.images {
+            return UIColor(named: "ColorTypeImages")!
+        } else if type == LocalizedTypeNames.code {
+            return UIColor(named: "ColorTypeCode")!
+        } else if type == LocalizedTypeNames.archives {
+            return UIColor(named: "ColorTypeArchives")!
+        } else {  // type == LocalizedTypeNames.other
+            return UIColor(named: "ColorTypeOther")!
+        }
     }
 
 }

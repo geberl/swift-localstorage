@@ -1,10 +1,15 @@
-//  Created by Adam Kaplan on 08/25/2017.
-//  Copyright 2017 Yahoo Holdings Inc.
+//
+//  FilesCollectionViewCell.swift
+//  localstorage
+//
+//  Created by Günther Eberl on 06.04.18.
+//  Copyright © 2018 Günther Eberl. All rights reserved.
+//
 
 import UIKit
 
 
-class FoldersCollectionViewCell: UICollectionViewCell {
+class FilesCollectionViewCell: UICollectionViewCell {
     
     let colorView: UIView = ({
         let colorView = UIView(frame: .zero)
@@ -16,9 +21,8 @@ class FoldersCollectionViewCell: UICollectionViewCell {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white
+        // label.textColor = UIColor.black
         label.font = UIFont.boldSystemFont(ofSize: 14.0)
-        label.shadowColor = UIColor(white: 0, alpha: 0.4)
-        label.shadowOffset = CGSize(width: 0.5, height: 0.5)
         return label
     })()
     
@@ -26,9 +30,8 @@ class FoldersCollectionViewCell: UICollectionViewCell {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white
+        // label.textColor = UIColor.black
         label.font = UIFont.systemFont(ofSize: 11)
-        label.shadowColor = UIColor(white: 0, alpha: 0.4)
-        label.shadowOffset = CGSize(width: 0.5, height: 0.5)
         return label
     })()
     
@@ -45,6 +48,7 @@ class FoldersCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         self.backgroundColor = UIColor.white
+        // self.backgroundColor = UIColor.black
         
         contentView.addSubview(colorView)
         colorView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true

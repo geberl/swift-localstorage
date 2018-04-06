@@ -1,5 +1,5 @@
 //
-//  FoldersCollectionViewLayout.swift
+//  FilesCollectionViewLayout.swift
 //  localstorage
 //
 //  Created by Günther Eberl on 05.04.18.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class FoldersCollectionViewLayout: UICollectionViewLayout {
+class FilesCollectionViewLayout: UICollectionViewLayout {
     
     var rects = [CGRect]() {
         didSet {

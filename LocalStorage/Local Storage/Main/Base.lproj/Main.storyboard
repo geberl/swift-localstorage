@@ -616,11 +616,11 @@
             </objects>
             <point key="canvasLocation" x="977" y="-561"/>
         </scene>
-        <!--Folders Tab-->
+        <!--Files Tab-->
         <scene sceneID="aNo-RL-gIf">
             <objects>
-                <navigationController id="H8t-Zs-yTq" userLabel="Folders Tab" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Folders" image="TabBarTypes" id="EQw-GB-rig"/>
+                <navigationController id="H8t-Zs-yTq" userLabel="Files Tab" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Files" image="TabBarTypes" id="EQw-GB-rig"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="iVt-Ri-6xv">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -633,10 +633,10 @@
             </objects>
             <point key="canvasLocation" x="1814" y="235"/>
         </scene>
-        <!--Folders-->
+        <!--Files-->
         <scene sceneID="qRb-UN-X3H">
             <objects>
-                <viewController storyboardIdentifier="FoldersViewController" title="Folders" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qRW-e8-x5y" customClass="FoldersViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilesViewController" title="Files" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qRW-e8-x5y" customClass="FilesViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DQH-oC-dmw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -644,9 +644,9 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dpF-Yf-bVY">
                                 <rect key="frame" x="10" y="10" width="355" height="482"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewLayout key="collectionViewLayout" id="FCx-fi-Guz" customClass="FoldersCollectionViewLayout" customModule="localstorage" customModuleProvider="target"/>
+                                <collectionViewLayout key="collectionViewLayout" id="FCx-fi-Guz" userLabel="Files Collection View Layout" customClass="FilesCollectionViewLayout" customModule="localstorage" customModuleProvider="target"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FolderCell" id="ADQ-4b-JVP" customClass="FoldersCollectionViewCell" customModule="localstorage" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilesCell" id="ADQ-4b-JVP" userLabel="FilesCell" customClass="FilesCollectionViewCell" customModule="localstorage" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -669,7 +669,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5u2-HY-CqS"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Folders" id="IEI-jh-wmx">
+                    <navigationItem key="navigationItem" title="Files" id="IEI-jh-wmx">
                         <barButtonItem key="rightBarButtonItem" title="Settings" style="done" id="GgS-Gs-8bm">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ukw-xV-MIa">
                                 <rect key="frame" x="276" y="5" width="83" height="34"/>
