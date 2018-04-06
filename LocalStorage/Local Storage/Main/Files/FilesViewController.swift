@@ -21,7 +21,7 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
     @IBOutlet var collectionView: UICollectionView!
 
     override func viewDidLoad() {
-        os_log("viewDidLoad", log: logTabFolders, type: .debug)
+        os_log("viewDidLoad", log: logTabFiles, type: .debug)
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(TypesViewController.setTheme),
@@ -34,7 +34,7 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        os_log("viewWillAppear", log: logTabFolders, type: .debug)
+        os_log("viewWillAppear", log: logTabFiles, type: .debug)
         super.viewWillAppear(animated)
         
         let treeMap = YMTreeMap(withValues: self.values)
@@ -48,7 +48,7 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         // This fires when switching from landscape to portrait mode.
-        os_log("viewWillTransition", log: logTabFolders, type: .debug)
+        os_log("viewWillTransition", log: logTabFiles, type: .debug)
         super.viewWillTransition(to: size, with: coordinator)
 
         let treeMap = YMTreeMap(withValues: self.values)
@@ -58,12 +58,12 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     override func didReceiveMemoryWarning() {
-        os_log("didReceiveMemoryWarning", log: logTabFolders, type: .info)
+        os_log("didReceiveMemoryWarning", log: logTabFiles, type: .info)
         super.didReceiveMemoryWarning()
     }
     
     @objc func setTheme() {
-        os_log("setTheme", log: logTabFolders, type: .debug)
+        os_log("setTheme", log: logTabFiles, type: .debug)
         if self.userDefaults.bool(forKey: UserDefaultStruct.darkMode) {
             self.applyColors(fg: "ColorFontWhite", bg: "ColorBgBlack")
             self.navigationController?.navigationBar.barStyle = .black
@@ -74,13 +74,13 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     func applyColors(fg: String, bg: String) {
-        os_log("applyColors", log: logTabFolders, type: .debug)
+        os_log("applyColors", log: logTabFiles, type: .debug)
         let bgColor: UIColor = UIColor(named: bg)!
         self.mainView.backgroundColor = bgColor
     }
     
     func showSettings() {
-        os_log("showSettings", log: logTabFolders, type: .debug)
+        os_log("showSettings", log: logTabFiles, type: .debug)
         
         let storyboard = UIStoryboard(name: "Settings", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "SettingsViewController")
