@@ -62,6 +62,30 @@ class SettingsViewController: UIViewController {
         NotificationCenter.default.post(name: .showHelp, object: nil, userInfo: nil)
     }
     
+    @IBAction func onTipJarSmallButton(_ sender: UIButton) {
+        os_log("onTipJarSmallButton", log: logSettings, type: .debug)
+        InAppPurchaseService.shared.purchase(product: .tipSmall)
+    }
+    @IBAction func onTipJarSmallInfo(_ sender: UIButton) {
+        os_log("onTipJarSmallInfo", log: logSettings, type: .debug)
+    }
+    
+    @IBAction func onTipJarMediumButton(_ sender: UIButton) {
+        os_log("onTipJarMediumButton", log: logSettings, type: .debug)
+        InAppPurchaseService.shared.purchase(product: .tipMedium)
+    }
+    @IBAction func onTipJarMediumInfo(_ sender: UIButton) {
+        os_log("onTipJarMediumInfo", log: logSettings, type: .debug)
+    }
+    
+    @IBAction func onTipJarBigButton(_ sender: UIButton) {
+        os_log("onTipJarBigButton", log: logSettings, type: .debug)
+        InAppPurchaseService.shared.purchase(product: .tipBig)
+    }
+    @IBAction func onTipJarBigInfo(_ sender: UIButton) {
+        os_log("onTipJarBigInfo", log: logSettings, type: .debug)
+    }
+    
     @IBOutlet weak var versionLabel: UILabel!
     @IBAction func onRateAppButton(_ sender: UIButton) { self.rateApp() }
     @IBAction func onVisitWebsiteButton(_ sender: UIButton) { self.openProductWebsite() }
@@ -73,6 +97,8 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         self.loadSettings()
         self.setFooterData()
+        
+        InAppPurchaseService.shared.getProducts()
     }
 
     override func didReceiveMemoryWarning() {

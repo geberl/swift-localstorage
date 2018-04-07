@@ -14,6 +14,9 @@
 		A418AC7E2000092000E3EAF1 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418AC7D2000092000E3EAF1 /* Common.swift */; };
 		A41B484D20028430005A9161 /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41B484C20028430005A9161 /* TypesViewController.swift */; };
 		A41FEB132000EFB700149DEE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41FEB122000EFB700149DEE /* TabBarController.swift */; };
+		A42F79E920790E6E006CD1D5 /* InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F79E820790E6E006CD1D5 /* InAppPurchases.swift */; };
+		A42F79EB20790FE2006CD1D5 /* InAppPurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F79EA20790FE2006CD1D5 /* InAppPurchaseService.swift */; };
+		A447A5D32078E73C0003FEEC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A447A5D22078E73C0003FEEC /* StoreKit.framework */; };
 		A44E4E741FFA915C00CBE189 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E4E731FFA915C00CBE189 /* AppDelegate.swift */; };
 		A44E4E761FFA915D00CBE189 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E4E751FFA915D00CBE189 /* OverviewViewController.swift */; };
 		A44E4E791FFA915D00CBE189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44E4E771FFA915D00CBE189 /* Main.storyboard */; };
@@ -92,6 +95,9 @@
 		A418AC7D2000092000E3EAF1 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		A41B484C20028430005A9161 /* TypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesViewController.swift; sourceTree = "<group>"; };
 		A41FEB122000EFB700149DEE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		A42F79E820790E6E006CD1D5 /* InAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchases.swift; sourceTree = "<group>"; };
+		A42F79EA20790FE2006CD1D5 /* InAppPurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseService.swift; sourceTree = "<group>"; };
+		A447A5D22078E73C0003FEEC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A44E4E701FFA915C00CBE189 /* localstorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = localstorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A44E4E731FFA915C00CBE189 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A44E4E751FFA915D00CBE189 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2A70CD4828C1F21F8284DE0 /* Pods_localstorage.framework in Frameworks */,
+				A447A5D32078E73C0003FEEC /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +167,7 @@
 		9581D3889740C3D422F2D844 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A447A5D22078E73C0003FEEC /* StoreKit.framework */,
 				E3CA65CD16296590B7A8EB6E /* Pods_localstorage.framework */,
 				9012EE8990E6C56E2972487C /* Pods_Hash.framework */,
 				90A5038D6665A7E32F0EBEA4 /* Pods_Unzip.framework */,
@@ -306,6 +314,8 @@
 			children = (
 				A47B460D205BBC4400B36AF0 /* Settings.storyboard */,
 				A40D4449200248EF00A14AD1 /* SettingsViewController.swift */,
+				A42F79E820790E6E006CD1D5 /* InAppPurchases.swift */,
+				A42F79EA20790FE2006CD1D5 /* InAppPurchaseService.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -424,6 +434,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 						};
@@ -607,7 +620,9 @@
 				A482821620025F5500DC2131 /* Notifications.swift in Sources */,
 				A44E4E761FFA915D00CBE189 /* OverviewViewController.swift in Sources */,
 				A41FEB132000EFB700149DEE /* TabBarController.swift in Sources */,
+				A42F79EB20790FE2006CD1D5 /* InAppPurchaseService.swift in Sources */,
 				A468034920764C7F0088731A /* FilesCollectionViewCell.swift in Sources */,
+				A42F79E920790E6E006CD1D5 /* InAppPurchases.swift in Sources */,
 				A48E039420764844004FCC42 /* FilesViewController.swift in Sources */,
 				A418AC7E2000092000E3EAF1 /* Common.swift in Sources */,
 				A40D444A200248EF00A14AD1 /* SettingsViewController.swift in Sources */,

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,7 +15,7 @@
             <objects>
                 <viewController storyboardIdentifier="SettingsViewController" id="bkC-aW-nhg" customClass="SettingsViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JQc-9U-7zf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ci-4P-hWP">
@@ -38,7 +38,7 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ae1-LS-CD4">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="736"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdY-Hn-pk5">
                                         <rect key="frame" x="20" y="15" width="335" height="14.5"/>
@@ -203,8 +203,91 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In-App Purchases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mE1-3m-jpW">
+                                        <rect key="frame" x="20" y="385" width="335" height="14.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <color key="textColor" name="ColorFontGray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXv-4O-2bE" userLabel="Box In-App Purchases">
+                                        <rect key="frame" x="20" y="414.5" width="335" height="126"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="EYz-MT-9Qx">
+                                                <rect key="frame" x="15" y="15" width="305" height="96"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9S-DD-Y5X">
+                                                        <rect key="frame" x="0.0" y="0.0" width="305" height="22"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4H-yh-GXs">
+                                                                <rect key="frame" x="0.0" y="0.0" width="283" height="22"/>
+                                                                <state key="normal" title="Tip Jar: Small"/>
+                                                                <connections>
+                                                                    <action selector="onTipJarSmallButton:" destination="bkC-aW-nhg" eventType="touchUpInside" id="RkV-7h-eIo"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HJ-jq-llu">
+                                                                <rect key="frame" x="283" y="0.0" width="22" height="22"/>
+                                                                <connections>
+                                                                    <action selector="onTipJarSmallInfo:" destination="bkC-aW-nhg" eventType="touchUpInside" id="3pJ-lO-TAK"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSf-i7-ua7">
+                                                        <rect key="frame" x="0.0" y="37" width="305" height="22"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lkf-eT-cEj">
+                                                                <rect key="frame" x="0.0" y="0.0" width="283" height="22"/>
+                                                                <state key="normal" title="Tip Jar: Medium"/>
+                                                                <connections>
+                                                                    <action selector="onTipJarMediumButton:" destination="bkC-aW-nhg" eventType="touchUpInside" id="oGZ-cY-8kJ"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNh-pZ-EZC">
+                                                                <rect key="frame" x="283" y="0.0" width="22" height="22"/>
+                                                                <connections>
+                                                                    <action selector="onTipJarMediumInfo:" destination="bkC-aW-nhg" eventType="touchUpInside" id="155-o1-4Hc"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aD6-ag-7K1">
+                                                        <rect key="frame" x="0.0" y="74" width="305" height="22"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHJ-qo-bEV">
+                                                                <rect key="frame" x="0.0" y="0.0" width="283" height="22"/>
+                                                                <state key="normal" title="Tip Jar: Big"/>
+                                                                <connections>
+                                                                    <action selector="onTipJarBigButton:" destination="bkC-aW-nhg" eventType="touchUpInside" id="gi6-Jq-E9B"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6h-Nf-8qU">
+                                                                <rect key="frame" x="283" y="0.0" width="22" height="22"/>
+                                                                <connections>
+                                                                    <action selector="onTipJarBigInfo:" destination="bkC-aW-nhg" eventType="touchUpInside" id="en6-XB-2cP"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="EYz-MT-9Qx" firstAttribute="leading" secondItem="TXv-4O-2bE" secondAttribute="leading" constant="15" id="1EY-ga-dg7"/>
+                                            <constraint firstAttribute="trailing" secondItem="EYz-MT-9Qx" secondAttribute="trailing" constant="15" id="84J-zm-8gM"/>
+                                            <constraint firstAttribute="bottom" secondItem="EYz-MT-9Qx" secondAttribute="bottom" constant="15" id="8et-Uf-gLb"/>
+                                            <constraint firstItem="EYz-MT-9Qx" firstAttribute="top" secondItem="TXv-4O-2bE" secondAttribute="top" constant="15" id="k9x-Ts-05W"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwS-p4-Tbx" userLabel="Footer">
-                                        <rect key="frame" x="62" y="523" width="251.5" height="65"/>
+                                        <rect key="frame" x="62" y="656" width="251.5" height="65"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="D8r-NO-BuI">
                                                 <rect key="frame" x="0.0" y="0.0" width="251.5" height="65"/>
@@ -266,17 +349,23 @@
                                 <constraints>
                                     <constraint firstItem="iZ4-09-nOq" firstAttribute="leading" secondItem="ae1-LS-CD4" secondAttribute="leading" constant="20" id="0qt-CM-FLY"/>
                                     <constraint firstItem="otS-Ku-Ddv" firstAttribute="trailing" secondItem="ae1-LS-CD4" secondAttribute="trailing" constant="-20" id="AIe-01-mN6"/>
+                                    <constraint firstItem="mE1-3m-jpW" firstAttribute="leading" secondItem="ae1-LS-CD4" secondAttribute="leading" constant="20" id="Dfm-ov-caU"/>
                                     <constraint firstItem="HdY-Hn-pk5" firstAttribute="leading" secondItem="ae1-LS-CD4" secondAttribute="leading" constant="20" id="DiN-XM-lck"/>
                                     <constraint firstItem="mdg-qv-XQN" firstAttribute="trailing" secondItem="ae1-LS-CD4" secondAttribute="trailing" constant="-20" id="GJY-tS-kE5"/>
                                     <constraint firstItem="otS-Ku-Ddv" firstAttribute="top" secondItem="mdg-qv-XQN" secondAttribute="bottom" constant="15" id="JbM-eU-gmv"/>
+                                    <constraint firstItem="mE1-3m-jpW" firstAttribute="top" secondItem="otS-Ku-Ddv" secondAttribute="bottom" constant="20" id="KYs-pz-V8T"/>
                                     <constraint firstItem="mdg-qv-XQN" firstAttribute="top" secondItem="iZ4-09-nOq" secondAttribute="bottom" constant="20" id="PNT-xr-DqJ"/>
                                     <constraint firstItem="iZ4-09-nOq" firstAttribute="top" secondItem="HdY-Hn-pk5" secondAttribute="bottom" constant="10" id="XE9-lX-lN8"/>
                                     <constraint firstItem="WwS-p4-Tbx" firstAttribute="centerX" secondItem="ae1-LS-CD4" secondAttribute="centerX" id="Xir-Wx-8CR"/>
+                                    <constraint firstItem="TXv-4O-2bE" firstAttribute="leading" secondItem="ae1-LS-CD4" secondAttribute="leading" constant="20" id="YkE-tr-lra"/>
                                     <constraint firstItem="HdY-Hn-pk5" firstAttribute="top" secondItem="ae1-LS-CD4" secondAttribute="top" constant="15" id="ZH6-Yk-5pd"/>
                                     <constraint firstItem="WwS-p4-Tbx" firstAttribute="bottom" secondItem="ae1-LS-CD4" secondAttribute="bottom" constant="-15" id="d9f-tp-y9W"/>
+                                    <constraint firstAttribute="trailing" secondItem="TXv-4O-2bE" secondAttribute="trailing" constant="20" id="eLc-9J-VKf"/>
                                     <constraint firstItem="HdY-Hn-pk5" firstAttribute="trailing" secondItem="ae1-LS-CD4" secondAttribute="trailing" constant="-20" id="gIe-q0-GV0"/>
                                     <constraint firstItem="mdg-qv-XQN" firstAttribute="leading" secondItem="ae1-LS-CD4" secondAttribute="leading" constant="20" id="jwV-jR-408"/>
                                     <constraint firstItem="otS-Ku-Ddv" firstAttribute="leading" secondItem="ae1-LS-CD4" secondAttribute="leading" constant="20" id="oov-ek-Caw"/>
+                                    <constraint firstAttribute="trailing" secondItem="mE1-3m-jpW" secondAttribute="trailing" constant="20" id="p2X-d7-Dol"/>
+                                    <constraint firstItem="TXv-4O-2bE" firstAttribute="top" secondItem="mE1-3m-jpW" secondAttribute="bottom" constant="15" id="s63-vc-3wX"/>
                                     <constraint firstItem="iZ4-09-nOq" firstAttribute="trailing" secondItem="ae1-LS-CD4" secondAttribute="trailing" constant="-20" id="uTz-W4-djY"/>
                                 </constraints>
                             </view>
@@ -293,6 +382,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QB0-bv-YdM"/>
                     </view>
+                    <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="animateUpdateSwitch" destination="m5d-z1-w2m" id="zGy-Vp-qSr"/>
                         <outlet property="askEmptyTrashSwitch" destination="Yfc-qU-0R9" id="mWz-J9-daK"/>
@@ -305,10 +395,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3px-QI-pg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-47.200000000000003" y="-89.505247376311857"/>
+            <point key="canvasLocation" x="-47.200000000000003" y="-89.955022488755631"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="ColorFontGray">
+            <color red="0.43529411759999997" green="0.43529411759999997" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ColorFontGray">
             <color red="0.43529411759999997" green="0.43529411759999997" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
