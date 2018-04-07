@@ -2,7 +2,7 @@
 
 ![Swift](https://img.shields.io/badge/swift-4.1-brightgreen.svg)
 ![Xcode](https://img.shields.io/badge/xcode-9.3-brightgreen.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![License](https://img.shields.io/badge/license-GPL-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
 [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/eberl_se)
 
@@ -44,6 +44,6 @@ If you have any questions or an idea for a new feature, please send your suggest
 - Local Storage uses the following **CocoaPods**:
     - [Charts](https://cocoapods.org/pods/Charts) by *Daniel Cohen Gindi* and *Philipp Jahoda* ([on GitHub](https://github.com/danielgindi/Charts))
     - [SWCompression](https://cocoapods.org/pods/SWCompression) by *Timofey Solomko* ([on GitHub](https://github.com/tsolomko/SWCompression))
-    - [YMTreeMap](https://cocoapods.org/?q=ymtreemap) by *Adam Kaplan* ([on GitHub](https://github.com/yahoo/YMTreeMap))
+    - [YMTreeMap](https://cocoapods.org/pods/YMTreeMap) by *Adam Kaplan* ([on GitHub](https://github.com/yahoo/YMTreeMap))
     - [CommonCryptoModule](https://cocoapods.org/pods/CommonCryptoModule) by *Nikita Kukushkin* ([on GitHub](https://github.com/nkukushkin/CommonCryptoModule))
 - Thanks to everyone who submitted a bug!
