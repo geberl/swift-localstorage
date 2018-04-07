@@ -6,7 +6,7 @@
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
 [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/eberl_se)
 
-Making Apple's stock **Files** app work locally.
+*A place to store your files.*
 
 ## Product page
 
