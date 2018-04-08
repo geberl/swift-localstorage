@@ -16,7 +16,9 @@ Or view *Local Storage* on the [App Store](https://itunes.apple.com/app/id133930
 
 ## Contributing & Questions
 
-Bugs should be reported [here on GitHub](https://github.com/geberl/swift-localstorage/issues). 
+Bugs should be reported [here on GitHub](https://github.com/geberl/swift-localstorage/issues).
+
+I need some help for localization into languages other than German and English. If you speak for example **Italian** take a look at the files `Local Storage/Main/de.lproj/Main.strings` and `Local Storage/Settings/de.lproj/Settings.strings`. Should only take 15 minutes and there's no programming involved.
 
 If you have any questions or an idea for a new feature, please send your suggestions to my Twitter account [@eberl_se](https://twitter.com/eberl_se).
 
