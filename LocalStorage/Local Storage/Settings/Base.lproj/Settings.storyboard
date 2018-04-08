@@ -220,7 +220,7 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4H-yh-GXs">
                                                                 <rect key="frame" x="0.0" y="0.0" width="283" height="22"/>
-                                                                <state key="normal" title="Tip Jar: Small"/>
+                                                                <state key="normal" title="Tip Small"/>
                                                                 <connections>
                                                                     <action selector="onTipJarSmallButton:" destination="bkC-aW-nhg" eventType="touchUpInside" id="RkV-7h-eIo"/>
                                                                 </connections>
@@ -238,7 +238,7 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lkf-eT-cEj">
                                                                 <rect key="frame" x="0.0" y="0.0" width="283" height="22"/>
-                                                                <state key="normal" title="Tip Jar: Medium"/>
+                                                                <state key="normal" title="Tip Medium"/>
                                                                 <connections>
                                                                     <action selector="onTipJarMediumButton:" destination="bkC-aW-nhg" eventType="touchUpInside" id="oGZ-cY-8kJ"/>
                                                                 </connections>
@@ -256,7 +256,7 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHJ-qo-bEV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="283" height="22"/>
-                                                                <state key="normal" title="Tip Jar: Big"/>
+                                                                <state key="normal" title="Tip Big"/>
                                                                 <connections>
                                                                     <action selector="onTipJarBigButton:" destination="bkC-aW-nhg" eventType="touchUpInside" id="gi6-Jq-E9B"/>
                                                                 </connections>
@@ -399,9 +399,6 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="ColorFontGray">
-            <color red="0.43529411759999997" green="0.43529411759999997" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="ColorFontGray">
             <color red="0.43529411759999997" green="0.43529411759999997" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
