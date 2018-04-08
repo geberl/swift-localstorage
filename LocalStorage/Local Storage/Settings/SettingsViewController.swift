@@ -68,6 +68,7 @@ class SettingsViewController: UIViewController {
     }
     @IBAction func onTipJarSmallInfo(_ sender: UIButton) {
         os_log("onTipJarSmallInfo", log: logSettings, type: .debug)
+        self.showTipPurchaseDetail()
     }
     
     @IBAction func onTipJarMediumButton(_ sender: UIButton) {
@@ -76,6 +77,7 @@ class SettingsViewController: UIViewController {
     }
     @IBAction func onTipJarMediumInfo(_ sender: UIButton) {
         os_log("onTipJarMediumInfo", log: logSettings, type: .debug)
+        self.showTipPurchaseDetail()
     }
     
     @IBAction func onTipJarBigButton(_ sender: UIButton) {
@@ -84,6 +86,7 @@ class SettingsViewController: UIViewController {
     }
     @IBAction func onTipJarBigInfo(_ sender: UIButton) {
         os_log("onTipJarBigInfo", log: logSettings, type: .debug)
+        self.showTipPurchaseDetail()
     }
     
     @IBOutlet weak var versionLabel: UILabel!
@@ -127,6 +130,30 @@ class SettingsViewController: UIViewController {
         self.askEmptyTrashSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.askEmptyTrash), animated: false)
         self.showHelpSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.showHelp), animated: false)
         self.animateUpdateSwitch.setOn(userDefaults.bool(forKey: UserDefaultStruct.animateUpdateDuringRefresh), animated: false)
+    }
+    
+    func showTipPurchaseDetail() {
+        os_log("showTipPurchaseDetail", log: logSettings, type: .debug)
+        
+        let tipDetailTitle = NSLocalizedString("tip-detail-title",
+                                               value: "About Tips",
+                                               comment: "Title of alert")
+        
+        let tipDetailMessage = NSLocalizedString("tip-detail-message",
+                                                 value: "There are no new features unlocked when purchasing this. " +
+                                                        "It's just a way of showing your appreciation for Local " +
+                                                        "Storage. Thank you!",
+                                                 comment: "Shown on alert")
+        
+        let tipDetailOk = NSLocalizedString("tip-detail-ok",
+                                            value: "Ok",
+                                            comment: "Shown on alert")
+        
+        let alertController = UIAlertController(title: tipDetailTitle,
+                                                message: tipDetailMessage,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: tipDetailOk, style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
     
     func setFooterData() {

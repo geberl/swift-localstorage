@@ -29,3 +29,7 @@
 "extraction-error-title" = "Fehler beim Entpacken";
 "extraction-error-message" = "Das Archiv konnte nicht entpackt werden.";
 "extraction-error-ok" = "Ok";
+
+"tip-detail-title" = "Über Trinkgeld";
+"tip-detail-message" = "Durch den Kauf werden keine neuen Funktionen freigeschaltet. Es ist nur ein Weg eine kleine Erkenntlichkeit für Local Storage zu zeigen. Vielen Dank!";
+"tip-detail-ok" = "Ok";
