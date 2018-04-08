@@ -18,13 +18,28 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
     @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
     @IBOutlet var mainView: UIView!
     @IBOutlet var collectionView: UICollectionView!
+    
+    @IBOutlet var refreshButton: UIButton!
+    @IBAction func onRefreshButton() {self.refresh()}
 
     override func viewDidLoad() {
         os_log("viewDidLoad", log: logTabFiles, type: .debug)
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(TypesViewController.setTheme),
+        NotificationCenter.default.addObserver(self, selector: #selector(FilesViewController.setTheme),
                                                name: .darkModeChanged, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(FilesViewController.updatePending),
+                                               name: .updatePending, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(FilesViewController.updateValues),
+                                               name: .updateItemAdded, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(FilesViewController.updateValues),
+                                               name: .updateFinished, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(FilesViewController.updateValues),
+                                               name: .unitChanged, object: nil)
 
         self.setTheme()
         
@@ -88,6 +103,11 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
         self.present(controller, animated: true, completion: nil)
     }
     
+    func refresh() {
+        os_log("refresh", log: logTabFiles, type: .debug)
+        getStats()
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -125,6 +145,15 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
             let fileInfo = AppState.files.fileInfos[indexPath.item]
             cell.tintColor = self.tintColor(forType: fileInfo.type)
         }
+    }
+    
+    @objc func updatePending() {
+        os_log("updatePending", log: logTabFiles, type: .debug)
+        self.collectionView.reloadData()
+    }
+    
+    @objc func updateValues() {
+        self.collectionView.reloadData()
     }
     
     func tintColor(forType type: String) -> UIColor {

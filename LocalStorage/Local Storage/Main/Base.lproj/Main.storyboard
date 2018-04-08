@@ -642,7 +642,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dpF-Yf-bVY">
-                                <rect key="frame" x="10" y="10" width="355" height="482"/>
+                                <rect key="frame" x="10" y="10" width="355" height="422"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="FCx-fi-Guz" userLabel="Files Collection View Layout" customClass="FilesCollectionViewLayout" customModule="localstorage" customModuleProvider="target"/>
                                 <cells>
@@ -660,12 +660,22 @@
                                     <outlet property="delegate" destination="qRW-e8-x5y" id="ZEM-1N-yeh"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZE-1P-g9P">
+                                <rect key="frame" x="20" y="452" width="335" height="30"/>
+                                <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="onRefreshButton" destination="qRW-e8-x5y" eventType="touchUpInside" id="f3S-hJ-UiI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="5u2-HY-CqS" firstAttribute="bottom" secondItem="dpF-Yf-bVY" secondAttribute="bottom" constant="10" id="HIV-dN-zfN"/>
+                            <constraint firstItem="OZE-1P-g9P" firstAttribute="top" secondItem="dpF-Yf-bVY" secondAttribute="bottom" constant="20" id="ZQy-N4-Q3r"/>
                             <constraint firstItem="dpF-Yf-bVY" firstAttribute="leading" secondItem="5u2-HY-CqS" secondAttribute="leading" constant="10" id="bOD-9P-Dkk"/>
+                            <constraint firstItem="5u2-HY-CqS" firstAttribute="trailing" secondItem="OZE-1P-g9P" secondAttribute="trailing" constant="20" id="cip-wh-99Q"/>
                             <constraint firstItem="dpF-Yf-bVY" firstAttribute="top" secondItem="5u2-HY-CqS" secondAttribute="top" constant="10" id="eld-9u-4x7"/>
                             <constraint firstItem="5u2-HY-CqS" firstAttribute="trailing" secondItem="dpF-Yf-bVY" secondAttribute="trailing" constant="10" id="hsY-ZY-Y2U"/>
+                            <constraint firstItem="5u2-HY-CqS" firstAttribute="bottom" secondItem="OZE-1P-g9P" secondAttribute="bottom" constant="20" id="jZX-4e-lMJ"/>
+                            <constraint firstItem="OZE-1P-g9P" firstAttribute="leading" secondItem="5u2-HY-CqS" secondAttribute="leading" constant="20" id="lif-Iv-s62"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5u2-HY-CqS"/>
                     </view>
@@ -685,11 +695,12 @@
                     <connections>
                         <outlet property="collectionView" destination="dpF-Yf-bVY" id="8d8-3T-fQj"/>
                         <outlet property="mainView" destination="DQH-oC-dmw" id="PPO-0e-iuH"/>
+                        <outlet property="refreshButton" destination="OZE-1P-g9P" id="VIi-43-Rcx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwV-I3-yv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="1015"/>
+            <point key="canvasLocation" x="1813.5999999999999" y="1014.2428785607198"/>
         </scene>
     </scenes>
     <resources>

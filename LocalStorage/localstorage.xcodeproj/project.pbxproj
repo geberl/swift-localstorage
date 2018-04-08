@@ -275,8 +275,8 @@
 		A48E0390207647E3004FCC42 /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				A48EFC42200F86AE0084B0D5 /* TypeDetailViewController.swift */,
 				A41B484C20028430005A9161 /* TypesViewController.swift */,
+				A48EFC42200F86AE0084B0D5 /* TypeDetailViewController.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
