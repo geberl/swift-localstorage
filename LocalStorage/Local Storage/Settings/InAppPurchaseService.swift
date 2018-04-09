@@ -31,6 +31,7 @@ class InAppPurchaseService: NSObject {
         request.delegate = self
         request.start()
         
+        // Allow multiple purchases of same item.
         self.paymentQueue.add(self)
     }
     
@@ -58,6 +59,11 @@ extension InAppPurchaseService: SKPaymentTransactionObserver {
         for transaction in transactions {
             os_log("Item: %@ -> Status: %@", log: logPurchase, type: .info,
                    transaction.payment.productIdentifier, transaction.transactionState.status())
+            
+            // Clean up queue to allow multiple purchases of same item.
+            if transaction.transactionState != .purchasing {
+                queue.finishTransaction(transaction)
+            }
         }
     }
 }
