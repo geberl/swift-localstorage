@@ -158,19 +158,19 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func tintColor(forType type: String) -> UIColor {
         if type == LocalizedTypeNames.audio {
-            return UIColor(named: "ColorTypeAudio")!
+            return varyColor(baseColor: UIColor(named: "ColorTypeAudio")!, percentVaryColors: 10, percentVaryAlpha: 0)
         } else if type == LocalizedTypeNames.videos {
-            return UIColor(named: "ColorTypeVideos")!
+            return varyColor(baseColor: UIColor(named: "ColorTypeVideos")!, percentVaryColors: 10, percentVaryAlpha: 0)
         } else if type == LocalizedTypeNames.documents {
-            return UIColor(named: "ColorTypeDocuments")!
+            return varyColor(baseColor: UIColor(named: "ColorTypeDocuments")!, percentVaryColors: 10, percentVaryAlpha: 0)
         } else if type == LocalizedTypeNames.images {
-            return UIColor(named: "ColorTypeImages")!
+            return varyColor(baseColor: UIColor(named: "ColorTypeImages")!, percentVaryColors: 10, percentVaryAlpha: 0)
         } else if type == LocalizedTypeNames.code {
-            return UIColor(named: "ColorTypeCode")!
+            return varyColor(baseColor: UIColor(named: "ColorTypeCode")!, percentVaryColors: 10, percentVaryAlpha: 0)
         } else if type == LocalizedTypeNames.archives {
-            return UIColor(named: "ColorTypeArchives")!
+            return varyColor(baseColor: UIColor(named: "ColorTypeArchives")!, percentVaryColors: 10, percentVaryAlpha: 0)
         } else {  // type == LocalizedTypeNames.other
-            return UIColor(named: "ColorTypeOther")!
+            return varyColor(baseColor: UIColor(named: "ColorTypeOther")!, percentVaryColors: 10, percentVaryAlpha: 0)
         }
     }
     
@@ -183,6 +183,35 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
             return UIColor(named: "ColorFontGray")!
         }
         return UIColor.white
+    }
+    
+    func varyColor(baseColor: UIColor, percentVaryColors: Int, percentVaryAlpha: Int) -> UIColor {
+        var components: [CGFloat] = baseColor.cgColor.components!
+        
+        for (n, component) in components.enumerated() {
+            let percentValue = Int32(component * 100)
+            let randomValue = Int32.random(lower: Int32(-percentVaryColors / 2), upper: Int32(percentVaryColors / 2))
+            
+            var percentVaried = percentValue + randomValue
+            
+            if percentVaried > 100 { percentVaried = 100 }
+            if percentVaried < 0 { percentVaried = 0 }
+            
+            components[n] = CGFloat(percentVaried) / 100
+        }
+        
+        // RGBA
+        if components.count == 4 {
+            return UIColor(red: components[0], green: components[1], blue: components[2], alpha: components[3])
+        }
+        
+        // Grayscale
+        if components.count == 2 {
+            return UIColor(white: components[0], alpha: components[1])
+        }
+        
+        // Unexpected: Not RGBA and not Grayscale. Can't vary this.
+        return baseColor
     }
 
 }

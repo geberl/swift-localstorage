@@ -82,7 +82,7 @@ class FilesCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         contentView.layoutIfNeeded()
         
-        // This code hides the labels if they were to get cut. Looks better if nothing is cut I think.
+        // This hides the labels if they were to get cut. Looks better if nothing is hidden I think.
         // let insetRect = colorView.bounds.insetBy(dx: 3, dy: 3)
         // let show = insetRect.contains(symbolLabel.frame) && insetRect.contains(valueLabel.frame)
         // symbolLabel.isHidden = !show
