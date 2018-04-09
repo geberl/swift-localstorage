@@ -8,11 +8,12 @@
 
 import Foundation
 import StoreKit
+import os.log
 
 
 class InAppPurchaseService: NSObject {
     
-    // Make this a singleton.
+    // Enforce this being a singleton.
     private override init() {}
     static let shared = InAppPurchaseService()
     
@@ -20,11 +21,13 @@ class InAppPurchaseService: NSObject {
     let paymentQueue = SKPaymentQueue.default()
     
     func getProducts() {
-        let products: Set = [InAppPurchase.tipSmall.rawValue,
-                             InAppPurchase.tipMedium.rawValue,
-                             InAppPurchase.tipBig.rawValue]
+        os_log("getProducts", log: logPurchase, type: .debug)
         
-        let request = SKProductsRequest(productIdentifiers: products)
+        let productIds: Set = [InAppPurchase.tipSmall.rawValue,
+                               InAppPurchase.tipMedium.rawValue,
+                               InAppPurchase.tipBig.rawValue]
+        
+        let request = SKProductsRequest(productIdentifiers: productIds)
         request.delegate = self
         request.start()
         
@@ -32,6 +35,8 @@ class InAppPurchaseService: NSObject {
     }
     
     func purchase(product: InAppPurchase) {
+        os_log("purchase", log: logPurchase, type: .debug)
+        
         guard let productToPurchase = products.filter({ $0.productIdentifier == product.rawValue}).first else { return }
         let payment = SKPayment(product: productToPurchase)
         self.paymentQueue.add(payment)
@@ -40,22 +45,19 @@ class InAppPurchaseService: NSObject {
 
 extension InAppPurchaseService: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        self.products = response.products
+        os_log("productsRequest", log: logPurchase, type: .debug)
         
-        print(response.invalidProductIdentifiers)  // TODO this has all my stuff inside it
-        print(response.products)  // TODO this is [], because products have not been submitted with new version
-//        for product in response.products {
-//            print(product.localizedDescription)
-//            print(product.localizedTitle)
-//            print(product.productIdentifier)
-//        }
+        self.products = response.products
     }
 }
 
 extension InAppPurchaseService: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        os_log("paymentQueue", log: logPurchase, type: .debug)
+        
         for transaction in transactions {
-            print(transaction.transactionState.status(), transaction.payment.productIdentifier)
+            os_log("Item: %@ -> Status: %@", log: logPurchase, type: .info,
+                   transaction.payment.productIdentifier, transaction.transactionState.status())
         }
     }
 }
@@ -63,11 +65,11 @@ extension InAppPurchaseService: SKPaymentTransactionObserver {
 extension SKPaymentTransactionState {
     func status() -> String {
         switch self {
-            case .deferred: return "deferred"
-            case .failed: return "failed"
-            case .purchased: return "purchased"
-            case .purchasing: return "purchasing"
-            case .restored: return "restored"
+            case .deferred: return "Deferred"
+            case .failed: return "Failed"
+            case .purchased: return "Purchased"
+            case .purchasing: return "Purchasing"
+            case .restored: return "Restored"
         }
     }
 }

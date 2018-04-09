@@ -18,6 +18,7 @@ let logTabTypeDetail = OSLog(subsystem: Bundle.main.bundleIdentifier!, category:
 let logTabFiles = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "tab-files")
 let logUi = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "ui")
 let logSettings = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "settings")
+let logPurchase = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "purchase")
 let logExtractSheet = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "extract-sheet")
 
 
