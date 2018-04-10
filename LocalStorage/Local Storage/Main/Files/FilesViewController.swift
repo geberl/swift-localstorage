@@ -15,12 +15,11 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     let userDefaults = UserDefaults.standard
 
-    @IBAction func onSettingsButton(_ sender: UIButton) {self.showSettings()}
+    @IBAction func onSettingsButton(_ sender: UIButton) { self.showSettings() }
     @IBOutlet var mainView: UIView!
     @IBOutlet var collectionView: UICollectionView!
-    
     @IBOutlet var refreshButton: UIButton!
-    @IBAction func onRefreshButton() {self.refresh()}
+    @IBAction func onRefreshButton() { self.refresh() }
 
     override func viewDidLoad() {
         os_log("viewDidLoad", log: logTabFiles, type: .debug)
@@ -28,12 +27,6 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         NotificationCenter.default.addObserver(self, selector: #selector(FilesViewController.setTheme),
                                                name: .darkModeChanged, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(FilesViewController.updatePending),
-                                               name: .updatePending, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(FilesViewController.updateValues),
-                                               name: .updateItemAdded, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(FilesViewController.updateValues),
                                                name: .updateFinished, object: nil)
@@ -147,11 +140,6 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
             let fileInfo = AppState.files.fileInfos[indexPath.item]
             cell.tintColor = self.tintColor(forType: fileInfo.type)
         }
-    }
-    
-    @objc func updatePending() {
-        os_log("updatePending", log: logTabFiles, type: .debug)
-        self.collectionView.reloadData()
     }
     
     @objc func updateValues() {
