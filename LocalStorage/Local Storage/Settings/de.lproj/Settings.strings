@@ -53,8 +53,14 @@
 /* Class = "UIButton"; normalTitle = "Rate App"; ObjectID = "L60-lt-4lK"; */
 "L60-lt-4lK.normalTitle" = "App bewerten";
 
-/* Class = "UIButton"; normalTitle = "Visit Website"; ObjectID = "ufj-Ws-q7C"; */
-"ufj-Ws-q7C.normalTitle" = "Website besuchen";
+/* Class = "UIButton"; normalTitle = "Website"; ObjectID = "ufj-Ws-q7C"; */
+"ufj-Ws-q7C.normalTitle" = "Website";
+
+/* Class = "UIButton"; normalTitle = "GitHub"; ObjectID = "BHR-Pn-638"; */
+"BHR-Pn-638.normalTitle" = "GitHub";
+
+/* Class = "UIButton"; normalTitle = "License; ObjectID = "4y3-9G-MtY"; */
+"4y3-9G-MtY.normalTitle" = "Lizenz";
 
 /* Class = "UIButton"; normalTitle = "Privacy"; ObjectID = "ZTU-FW-0kz"; */
 "ZTU-FW-0kz.normalTitle" = "Datenschutz";

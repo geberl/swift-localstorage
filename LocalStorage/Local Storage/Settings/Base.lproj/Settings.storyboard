@@ -287,22 +287,22 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwS-p4-Tbx" userLabel="Footer">
-                                        <rect key="frame" x="62" y="656" width="251.5" height="65"/>
+                                        <rect key="frame" x="38" y="656" width="300" height="65"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="D8r-NO-BuI">
-                                                <rect key="frame" x="0.0" y="0.0" width="251.5" height="65"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="65"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Storage vx.y.z" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kj9-yC-Dof" userLabel="Version">
-                                                        <rect key="frame" x="0.0" y="0.0" width="251.5" height="21.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="21.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                         <color key="textColor" name="ColorFontGray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5mg-J8-IAE">
-                                                        <rect key="frame" x="0.0" y="21.5" width="251.5" height="22"/>
+                                                        <rect key="frame" x="0.0" y="21.5" width="300" height="22"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L60-lt-4lK">
-                                                                <rect key="frame" x="0.0" y="0.0" width="77" height="22"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="22"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                 <state key="normal" title="Rate App"/>
                                                                 <connections>
@@ -310,15 +310,31 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufj-Ws-q7C">
-                                                                <rect key="frame" x="87" y="0.0" width="77.5" height="22"/>
+                                                                <rect key="frame" x="62" y="0.0" width="52" height="22"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                                <state key="normal" title="Visit Website"/>
+                                                                <state key="normal" title="Website"/>
                                                                 <connections>
-                                                                    <action selector="onVisitWebsiteButton:" destination="bkC-aW-nhg" eventType="touchUpInside" id="NBu-Ra-uEo"/>
+                                                                    <action selector="onWebsiteButton:" destination="bkC-aW-nhg" eventType="touchUpInside" id="NBu-Ra-uEo"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHR-Pn-638">
+                                                                <rect key="frame" x="124" y="0.0" width="52" height="22"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                <state key="normal" title="GitHub"/>
+                                                                <connections>
+                                                                    <action selector="onGithubButton:" destination="bkC-aW-nhg" eventType="touchUpInside" id="gue-2Z-eoE"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4y3-9G-MtY">
+                                                                <rect key="frame" x="186" y="0.0" width="52" height="22"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                <state key="normal" title="License"/>
+                                                                <connections>
+                                                                    <action selector="onLicenseButton:" destination="bkC-aW-nhg" eventType="touchUpInside" id="eG6-2Q-Jt5"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTU-FW-0kz">
-                                                                <rect key="frame" x="174.5" y="0.0" width="77" height="22"/>
+                                                                <rect key="frame" x="248" y="0.0" width="52" height="22"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                 <state key="normal" title="Privacy"/>
                                                                 <connections>
@@ -328,7 +344,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2018 Günther Eberl Software-Entwicklung" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIT-ol-QDk" userLabel="Copyright">
-                                                        <rect key="frame" x="0.0" y="43.5" width="251.5" height="21.5"/>
+                                                        <rect key="frame" x="0.0" y="43.5" width="300" height="21.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                         <color key="textColor" name="ColorFontGray"/>
                                                         <nil key="highlightedColor"/>

@@ -91,7 +91,9 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var versionLabel: UILabel!
     @IBAction func onRateAppButton(_ sender: UIButton) { self.rateApp() }
-    @IBAction func onVisitWebsiteButton(_ sender: UIButton) { self.openProductWebsite() }
+    @IBAction func onWebsiteButton(_ sender: UIButton) { self.openProductWebsite() }
+    @IBAction func onGithubButton(_ sender: UIButton) { self.openGithubWebsite() }
+    @IBAction func onLicenseButton(_ sender: UIButton) { self.openGithubLicense() }
     @IBAction func onPrivacyButton(_ sender: UIButton) { self.openPrivacyWebsite() }
     @IBOutlet weak var copyrightLabel: UILabel!
     
@@ -186,6 +188,16 @@ class SettingsViewController: UIViewController {
     func openProductWebsite() {
         os_log("openProductWebsite", log: logSettings, type: .debug)
         self.openWebsite(url: URL(string: "https://localstorage.eberl.se/"))
+    }
+    
+    func openGithubWebsite() {
+        os_log("openGithubWebsite", log: logSettings, type: .debug)
+        self.openWebsite(url: URL(string: "https://github.com/geberl/swift-localstorage/"))
+    }
+    
+    func openGithubLicense() {
+        os_log("openGithubLicense", log: logSettings, type: .debug)
+        self.openWebsite(url: URL(string: "https://github.com/geberl/swift-localstorage/blob/master/LICENSE"))
     }
     
     func openPrivacyWebsite() {
