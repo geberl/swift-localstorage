@@ -8,7 +8,7 @@
 
 *A place to store your files.*
 
-## Product page
+## Product pages
 
 For more information, please visit [localstorage.eberl.se](https://localstorage.eberl.se/).
 
@@ -16,11 +16,22 @@ Or view *Local Storage* on the [App Store](https://itunes.apple.com/app/id133930
 
 ## Contributing & Questions
 
-Bugs should be reported [here on GitHub](https://github.com/geberl/swift-localstorage/issues).
+All **bugs** should be reported [here on GitHub](https://github.com/geberl/swift-localstorage/issues).
 
-I need some help for localization into languages other than German and English. If you speak for example **Italian** take a look at the files `Local Storage/de/main/de.lproj/Localizable.strings`, `Local Storage/Main/de.lproj/Main.strings` and  `Local Storage/Settings/de.lproj/Settings.strings`. Should only take 30 minutes and there's no programming involved.
+If you have **questions** or **ideas** for new features, please send me your suggestions via Twitter [@eberl_se](https://twitter.com/eberl_se) or email [guenther@eberl.se](mailto:guenther@eberl.se).
 
-If you have any questions or an idea for a new feature, please send your suggestions to my Twitter account [@eberl_se](https://twitter.com/eberl_se).
+## Localization
+
+I need some help for translating *Local Storage* into languages other than German and English.
+
+The strings in some text files need to be edited. Should only take 30 minutes and there's no programming involved.
+
+- `Local Storage/de/main/de.lproj/Localizable.strings`
+- `Local Storage/Main/de.lproj/Main.strings`
+- `Local Storage/Settings/de.lproj/Settings.strings`
+- `Extract/de.lproj/Localizable.strings`
+- `Hash/de/de.lproj/Localizable.strings`
+- `Hash/de.lproj/MainInterface.strings`
 
 ## Building
 
@@ -37,7 +48,7 @@ If you have any questions or an idea for a new feature, please send your suggest
 - Edit the `Podfile` (remove all fixed version numbers)
 - `pod install`
 - Open **Xcode** using `localstorage.xcworkspace`
-- Try to build & run, check for new warnings & errors, check functionality
+- Try to build & run, check for new warnings & errors, verify that everything is working
 - Edit the `Podfile` (add the fixed version numbers that are confirmed working now)
 - Commit
 
@@ -48,4 +59,6 @@ If you have any questions or an idea for a new feature, please send your suggest
     - [SWCompression](https://cocoapods.org/pods/SWCompression) by *Timofey Solomko* ([on GitHub](https://github.com/tsolomko/SWCompression))
     - [YMTreeMap](https://cocoapods.org/pods/YMTreeMap) by *Adam Kaplan* ([on GitHub](https://github.com/yahoo/YMTreeMap))
     - [CommonCryptoModule](https://cocoapods.org/pods/CommonCryptoModule) by *Nikita Kukushkin* ([on GitHub](https://github.com/nkukushkin/CommonCryptoModule))
+- Localization:
+    - *German* and *English* by @eberl_se
 - Thanks to everyone who submitted a bug!
