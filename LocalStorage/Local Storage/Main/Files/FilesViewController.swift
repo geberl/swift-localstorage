@@ -66,8 +66,10 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
         super.viewWillTransition(to: size, with: coordinator)
 
         let treeMap = YMTreeMap(withValues: AppState.files.allValues)
-        if let layout = self.collectionView.collectionViewLayout as? FilesCollectionViewLayout {
-            layout.rects = treeMap.tessellate(inRect: CGRect(origin: .zero, size: size))
+        if self.collectionView != nil {
+            if let layout = self.collectionView.collectionViewLayout as? FilesCollectionViewLayout {
+                layout.rects = treeMap.tessellate(inRect: CGRect(origin: .zero, size: size))
+            }
         }
     }
     
