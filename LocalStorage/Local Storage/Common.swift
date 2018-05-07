@@ -254,15 +254,17 @@ func addToType(name: String, size: Int64, path: String) {
             let documentsPathEndIndex = path.index(AppState.documentsPath.endIndex, offsetBy: 1)
             let filePath = String(path[documentsPathEndIndex...])
             
-            AppState.types[n].size += size
-            AppState.types[n].number += 1
-            AppState.types[n].paths.append(filePath)
-            AppState.types[n].sizes.append(size)
+            if filePath.name.range(of: ".Trash/") {
+                AppState.types[n].size += size
+                AppState.types[n].number += 1
+                AppState.types[n].paths.append(filePath)
+                AppState.types[n].sizes.append(size)
             
-            AppState.files.allValues.append(Double(size))
-            AppState.files.fileInfos.append(FileInfo(name: filePath, type: type_info.name))
+                AppState.files.allValues.append(Double(size))
+                AppState.files.fileInfos.append(FileInfo(name: filePath, type: type_info.name))
             
-            break
+                break
+            }
         }
     }
 }
