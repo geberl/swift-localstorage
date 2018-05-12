@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6if-fc-UZA">
-    <device id="retina5_5" orientation="landscape">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,7 +16,7 @@
                 <navigationController id="g7C-pp-JrT" userLabel="Types Tab" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Types" image="TabBarTypes" id="8bY-IJ-lUs"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="Gjg-Lv-2xk">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="32"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -33,7 +33,7 @@
                 <navigationController id="Iwn-KU-yZO" userLabel="Overview Tab" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Overview" image="TabBarOverview" id="d6g-yU-hUl"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="fvB-2n-gNw">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="32"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -49,11 +49,11 @@
             <objects>
                 <viewController storyboardIdentifier="OverviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aT3-lK-HbQ" customClass="OverviewViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VYv-tV-cUt" userLabel="Main View">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="764"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="735"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGX-gR-Xqv">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="760"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="731"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="z9r-Hv-j8b" userLabel="Info Items Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="646.33333333333337"/>
@@ -392,7 +392,7 @@
                     <navigationItem key="navigationItem" title="Overview" id="v7z-Ip-ToZ">
                         <barButtonItem key="rightBarButtonItem" title="Settings" style="done" id="Tbt-Ar-Wfe">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZWk-m7-CkV">
-                                <rect key="frame" x="276" y="0.0" width="83" height="32"/>
+                                <rect key="frame" x="276" y="5" width="83" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Settings"/>
@@ -441,38 +441,38 @@
             <objects>
                 <viewController storyboardIdentifier="TypesViewController" title="Types" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mYf-Nf-c82" customClass="TypesViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MHt-2w-SHe">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="571"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQo-Ya-vaB" customClass="HorizontalBarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="5" width="717" height="100"/>
+                                <rect key="frame" x="0.0" y="5" width="395" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="DPZ-bq-Cbl"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7e-TP-KdR">
-                                <rect key="frame" x="341.66666666666669" y="110" width="53" height="30"/>
+                                <rect key="frame" x="180.66666666666666" y="110" width="53" height="30"/>
                                 <state key="normal" title="Refresh"/>
                                 <connections>
                                     <action selector="onRefreshButton" destination="mYf-Nf-c82" eventType="touchUpInside" id="TG1-hF-7dy"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2B7-dx-bAy">
-                                <rect key="frame" x="16" y="148" width="704" height="182"/>
+                                <rect key="frame" x="14" y="148" width="382" height="347"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="307" id="bVn-1K-gRq">
+                                    <constraint firstAttribute="height" constant="347" id="bVn-1K-gRq">
                                         <variation key="heightClass=compact" constant="182"/>
                                         <variation key="heightClass=compact-widthClass=compact" constant="143"/>
                                     </constraint>
                                 </constraints>
                                 <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="protoCell" textLabel="SrX-cY-Gva" detailTextLabel="4Du-rf-Hl6" style="IBUITableViewCellStyleValue1" id="72M-Ns-GUM">
-                                        <rect key="frame" x="0.0" y="28" width="704" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="protoCell" textLabel="SrX-cY-Gva" detailTextLabel="4Du-rf-Hl6" style="IBUITableViewCellStyleValue1" id="72M-Ns-GUM">
+                                        <rect key="frame" x="0.0" y="28" width="382" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="72M-Ns-GUM" id="pbY-2s-iMU">
-                                            <rect key="frame" x="0.0" y="0.0" width="671" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SrX-cY-Gva">
@@ -483,7 +483,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Du-rf-Hl6">
-                                                    <rect key="frame" x="625" y="11.999999999999998" width="44" height="20.333333333333332"/>
+                                                    <rect key="frame" x="303" y="11.999999999999998" width="44" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="ColorFontGray"/>
@@ -507,8 +507,8 @@
                             <constraint firstItem="g7e-TP-KdR" firstAttribute="centerX" secondItem="MHt-2w-SHe" secondAttribute="centerX" id="F88-ri-szk"/>
                             <constraint firstItem="gQo-Ya-vaB" firstAttribute="trailing" secondItem="DPN-2P-LL6" secondAttribute="trailing" constant="-19" id="NAn-nO-aYj"/>
                             <constraint firstItem="g7e-TP-KdR" firstAttribute="top" secondItem="gQo-Ya-vaB" secondAttribute="bottom" constant="5" id="Obd-Yd-09L"/>
-                            <constraint firstItem="2B7-dx-bAy" firstAttribute="trailing" secondItem="DPN-2P-LL6" secondAttribute="trailing" constant="-16" id="QBI-T4-mL1"/>
-                            <constraint firstItem="2B7-dx-bAy" firstAttribute="leading" secondItem="DPN-2P-LL6" secondAttribute="leading" constant="16" id="QWC-MH-6HW"/>
+                            <constraint firstItem="2B7-dx-bAy" firstAttribute="trailing" secondItem="DPN-2P-LL6" secondAttribute="trailing" constant="-18" id="QBI-T4-mL1"/>
+                            <constraint firstItem="2B7-dx-bAy" firstAttribute="leading" secondItem="DPN-2P-LL6" secondAttribute="leading" constant="14" id="QWC-MH-6HW"/>
                             <constraint firstItem="gQo-Ya-vaB" firstAttribute="leading" secondItem="DPN-2P-LL6" secondAttribute="leading" id="dcW-Sz-uv0"/>
                             <constraint firstItem="2B7-dx-bAy" firstAttribute="top" secondItem="g7e-TP-KdR" secondAttribute="bottom" constant="8" id="rev-uL-7uX"/>
                         </constraints>
@@ -517,7 +517,7 @@
                     <navigationItem key="navigationItem" title="Types" id="qIY-eg-uek">
                         <barButtonItem key="rightBarButtonItem" title="Settings" style="done" id="bTi-9m-hWe">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XzV-76-K0f">
-                                <rect key="frame" x="633" y="0.0" width="83" height="32"/>
+                                <rect key="frame" x="311" y="5" width="83" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Settings"/>
@@ -536,25 +536,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieC-px-vSr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="975.81521739130437" y="1013.0434782608696"/>
+            <point key="canvasLocation" x="975.36231884057975" y="1012.5000000000001"/>
         </scene>
         <!--Details-->
         <scene sceneID="Pzj-OZ-ldf">
             <objects>
                 <viewController storyboardIdentifier="TypeDetailViewController" title="Details" useStoryboardIdentifierAsRestorationIdentifier="YES" id="r6q-dk-t3b" customClass="TypeDetailViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WnC-Yy-tD5">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="571"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dQj-JT-CIw">
-                                <rect key="frame" x="16" y="0.0" width="704" height="350"/>
+                                <rect key="frame" x="16" y="0.0" width="382" height="571"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="protoCell" textLabel="gVz-tx-pUc" detailTextLabel="rL8-pU-a4i" style="IBUITableViewCellStyleSubtitle" id="6f6-3c-1xk">
-                                        <rect key="frame" x="0.0" y="28" width="704" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="382" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6f6-3c-1xk" id="Fxp-iZ-COP">
-                                            <rect key="frame" x="0.0" y="0.0" width="657" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gVz-tx-pUc">
@@ -625,7 +625,7 @@
                 <navigationController id="H8t-Zs-yTq" userLabel="Files Tab" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Files" image="TabBarFiles" id="EQw-GB-rig"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="iVt-Ri-6xv">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="32"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -641,11 +641,11 @@
             <objects>
                 <viewController storyboardIdentifier="FilesViewController" title="Files" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qRW-e8-x5y" customClass="FilesViewController" customModule="localstorage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DQH-oC-dmw">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="571"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dpF-Yf-bVY">
-                                <rect key="frame" x="10" y="10" width="716" height="270"/>
+                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dpF-Yf-bVY">
+                                <rect key="frame" x="10" y="10" width="394" height="491"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="FCx-fi-Guz" userLabel="Files Collection View Layout" customClass="FilesCollectionViewLayout" customModule="localstorage" customModuleProvider="target"/>
                                 <cells>
@@ -664,7 +664,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZE-1P-g9P">
-                                <rect key="frame" x="20" y="300" width="696" height="30"/>
+                                <rect key="frame" x="20" y="521" width="374" height="30"/>
                                 <state key="normal" title="Refresh"/>
                                 <connections>
                                     <action selector="onRefreshButton" destination="qRW-e8-x5y" eventType="touchUpInside" id="f3S-hJ-UiI"/>
@@ -685,7 +685,7 @@
                     <navigationItem key="navigationItem" title="Files" id="IEI-jh-wmx">
                         <barButtonItem key="rightBarButtonItem" title="Settings" style="done" id="GgS-Gs-8bm">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ukw-xV-MIa">
-                                <rect key="frame" x="633" y="0.0" width="83" height="32"/>
+                                <rect key="frame" x="311" y="5" width="83" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Settings"/>

@@ -14,7 +14,7 @@ import YMTreeMap
 class FilesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let userDefaults = UserDefaults.standard
-
+    
     @IBAction func onSettingsButton(_ sender: UIButton) { self.showSettings() }
     @IBOutlet var mainView: UIView!
     @IBOutlet var collectionView: UICollectionView!
@@ -124,6 +124,7 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
             cell.symbolLabel.textColor = textColor
             cell.valueLabel.textColor = textColor
         }
+       
         return cell
     }
     
