@@ -207,6 +207,7 @@ struct LocalizedTypeNames {
     static var code = NSLocalizedString("type-code", value: "Code", comment: "Name of type")
     static var archives = NSLocalizedString("type-archives", value: "Archives", comment: "Name of type")
     static var other = NSLocalizedString("type-other", value: "Other", comment: "Name of type")
+    static var trash = NSLocalizedString("type-trash", value: "Trash", comment: "Name of type")
 }
 
 
@@ -229,7 +230,8 @@ struct AppState {
         TypeInfo(name: LocalizedTypeNames.images, color: UIColor(named: "ColorTypeImages")!, size: 0, number: 0, paths: [], sizes: []),
         TypeInfo(name: LocalizedTypeNames.code, color: UIColor(named: "ColorTypeCode")!, size: 0, number: 0, paths: [], sizes: []),
         TypeInfo(name: LocalizedTypeNames.archives, color: UIColor(named: "ColorTypeArchives")!, size: 0, number: 0, paths: [], sizes: []),
-        TypeInfo(name: LocalizedTypeNames.other, color: UIColor(named: "ColorTypeOther")!, size: 0, number: 0, paths: [], sizes: [])
+        TypeInfo(name: LocalizedTypeNames.other, color: UIColor(named: "ColorTypeOther")!, size: 0, number: 0, paths: [], sizes: []),
+        TypeInfo(name: LocalizedTypeNames.trash, color: UIColor.magenta, size: 0, number: 0, paths: [], sizes: [])
     ]
     
     struct files {

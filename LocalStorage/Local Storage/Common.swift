@@ -229,7 +229,9 @@ func resetStats() {
                       TypeInfo(name: LocalizedTypeNames.images, color: UIColor(named: "ColorTypeImages")!, size: 0, number: 0, paths: [], sizes: []),
                       TypeInfo(name: LocalizedTypeNames.code, color: UIColor(named: "ColorTypeCode")!, size: 0, number: 0, paths: [], sizes: []),
                       TypeInfo(name: LocalizedTypeNames.archives, color: UIColor(named: "ColorTypeArchives")!, size: 0, number: 0, paths: [], sizes: []),
-                      TypeInfo(name: LocalizedTypeNames.other, color: UIColor(named: "ColorTypeOther")!, size: 0, number: 0, paths: [], sizes: [])]
+                      TypeInfo(name: LocalizedTypeNames.other, color: UIColor(named: "ColorTypeOther")!, size: 0, number: 0, paths: [], sizes: []),
+                      TypeInfo(name: LocalizedTypeNames.trash, color: UIColor.magenta, size: 0, number: 0, paths: [], sizes: [])
+    ]
     
     AppState.files.allValues = []
     AppState.files.fileInfos = []
@@ -254,14 +256,21 @@ func addToType(name: String, size: Int64, path: String) {
             let documentsPathEndIndex = path.index(AppState.documentsPath.endIndex, offsetBy: 1)
             let filePath = String(path[documentsPathEndIndex...])
             
-            AppState.types[n].size += size
-            AppState.types[n].number += 1
-            AppState.types[n].paths.append(filePath)
-            AppState.types[n].sizes.append(size)
-            
-            AppState.files.allValues.append(Double(size))
-            AppState.files.fileInfos.append(FileInfo(name: filePath, type: type_info.name))
-            
+            if !filePath.contains(".Trash/") {
+                AppState.types[n].size += size
+                AppState.types[n].number += 1
+                AppState.types[n].paths.append(filePath)
+                AppState.types[n].sizes.append(size)
+                
+                AppState.files.allValues.append(Double(size))
+                AppState.files.fileInfos.append(FileInfo(name: filePath, type: type_info.name))
+            } else {
+                AppState.types[n].size += size
+                AppState.types[n].number += 1
+                AppState.types[n].paths.append(filePath)
+                AppState.types[n].sizes.append(size)
+            }
+                
             break
         }
     }
@@ -368,7 +377,9 @@ func getStats() {
             }
             
             if let fileType: String = elementURL.typeIdentifier {
-                if UtiLookup.audio.contains(fileType) {
+                if elementURL.absoluteString.contains(".Trash/") {
+                    addToType(name: LocalizedTypeNames.trash, size: fileSize, path: elementURL.path)
+                } else if UtiLookup.audio.contains(fileType) {
                     addToType(name: LocalizedTypeNames.audio, size: fileSize, path: elementURL.path)
                 } else if UtiLookup.videos.contains(fileType) {
                     addToType(name: LocalizedTypeNames.videos, size: fileSize, path: elementURL.path)
@@ -382,7 +393,7 @@ func getStats() {
                     addToType(name: LocalizedTypeNames.archives, size: fileSize, path: elementURL.path)
                 } else if UtiLookup.other.contains(fileType) {
                     addToType(name: LocalizedTypeNames.other, size: fileSize, path: elementURL.path)
-                } else {
+                }  else {
                     if fileType.starts(with: "dyn.") {
                         // No UTI available for this file, use extension based lookup. Less stable but whatever.
                         
@@ -400,7 +411,7 @@ func getStats() {
                             addToType(name: LocalizedTypeNames.code, size: fileSize, path: elementURL.path)
                         } else if FileExtensionLookup.archives.contains(fileExtension) {
                             addToType(name: LocalizedTypeNames.archives, size: fileSize, path: elementURL.path)
-                        } else {
+                        } else if elementURL.absoluteString.contains(".Trash/") {
                             addToType(name: LocalizedTypeNames.other, size: fileSize, path: elementURL.path)
                         }
                     } else {
