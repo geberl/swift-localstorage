@@ -130,7 +130,7 @@ func openAppStore(id: Int) {
     
     if let url = URL(string: "itms-apps://itunes.apple.com/de/app/files/id" + String(id)),
         UIApplication.shared.canOpenURL(url) {
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
 }
 
@@ -496,4 +496,9 @@ func getFreeSpace() -> Int64? {
         let freeSize = systemAttributes[.systemFreeSize] as? NSNumber
         else { return nil }
     return freeSize.int64Value
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

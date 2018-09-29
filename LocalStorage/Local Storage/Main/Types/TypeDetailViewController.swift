@@ -48,7 +48,7 @@ class TypeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func getTypeIndex() -> Int {
-        let navChildViewControllers = self.navigationController!.childViewControllers
+        let navChildViewControllers = self.navigationController!.children
         
         for navChildViewController in navChildViewControllers {
             if let viewControllerTitle = navChildViewController.title {

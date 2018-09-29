@@ -124,7 +124,7 @@ class HashActionViewController: UIViewController, UITableViewDelegate, UITableVi
                                                name: .hashFunctionChanged, object: nil)
     
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
-            for provider in item.attachments! as! [NSItemProvider] {
+            for provider in item.attachments! {
                // Search for "Uniform Type Identifiers Reference" for a full list of UTIs.
 
                 // For: All kinds of files on the file system.

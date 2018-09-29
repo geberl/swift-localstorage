@@ -24,7 +24,7 @@ class ExtractShareViewController: SLComposeServiceViewController {
         super.viewDidLoad()
         
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
-            for provider in item.attachments! as! [NSItemProvider] {
+            for provider in item.attachments! {
                 // Search for "Uniform Type Identifiers Reference" for a full list of UTIs.
                 // Anything that is a file should contain at least "public.file-url" + "public.data".
                 // So let anything through here. Decide later what this thing actually is and if it can be extracted.

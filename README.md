@@ -1,10 +1,9 @@
 # swift-localstorage
 
-![Swift](https://img.shields.io/badge/swift-4.1-brightgreen.svg)
-![Xcode](https://img.shields.io/badge/xcode-9.3-brightgreen.svg)
+![Swift](https://img.shields.io/badge/swift-4.2-brightgreen.svg)
+![Xcode](https://img.shields.io/badge/xcode-10.0-brightgreen.svg)
 ![License](https://img.shields.io/badge/license-GPL-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
-[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/eberl_se)
 
 *A place to store your files.*
 
@@ -18,7 +17,7 @@ Or view *Local Storage* on the [App Store](https://itunes.apple.com/app/id133930
 
 All **bugs** should be reported [here on GitHub](https://github.com/geberl/swift-localstorage/issues).
 
-If you have **questions** or **ideas** for new features, please send me your suggestions via Twitter [@eberl_se](https://twitter.com/eberl_se) or email [guenther@eberl.se](mailto:guenther@eberl.se).
+If you have **questions** or **ideas** for new features, please send me your suggestions via email [guenther@eberl.se](mailto:guenther@eberl.se).
 
 ## Localization
 

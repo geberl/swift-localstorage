@@ -208,7 +208,12 @@ class SettingsViewController: UIViewController {
     func openWebsite(url: URL?) {
         os_log("openWebsite", log: logSettings, type: .debug)
         if let urlToOpen = url, UIApplication.shared.canOpenURL(urlToOpen) {
-            UIApplication.shared.open(urlToOpen, options: [:], completionHandler: nil)
+            UIApplication.shared.open(urlToOpen, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

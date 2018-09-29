@@ -254,8 +254,8 @@ class OverviewViewController: UIViewController {
         // Note: Deep linking (directly to Settings - General - Storage) doesn't work anymore with iOS11.
         // This is as good as it gets for now (2018-01-24, iOS 11.2.5).
         
-        let appPrefs: URL = URL(string: UIApplicationOpenSettingsURLString)!
-        UIApplication.shared.open(appPrefs, options: [:], completionHandler: nil)
+        let appPrefs: URL = URL(string: UIApplication.openSettingsURLString)!
+        UIApplication.shared.open(appPrefs, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
     
     @objc func updatePending() {
@@ -311,4 +311,9 @@ class OverviewViewController: UIViewController {
             self.localSizeFreeBytesLabel.text = getSizeString(byteCount: bytes)
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
