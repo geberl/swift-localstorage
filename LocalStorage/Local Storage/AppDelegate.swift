@@ -280,6 +280,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         ensureUserDefaults()
         AppState.documentsPath = FileManager.documentsDir()
+        putPlaceholderFile(path: AppState.documentsPath)
         getStats()
         
         return true
@@ -322,6 +323,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // This will however not execute on initial launch.
         // Example: Re-launched from home screen after just previously hidden by pressing home button.
         os_log("applicationWillEnterForeground", log: logGeneral, type: .debug)
+        putPlaceholderFile(path: AppState.documentsPath)
         getStats()
     }
 

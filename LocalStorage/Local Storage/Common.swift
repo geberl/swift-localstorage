@@ -209,6 +209,33 @@ func trashFileIfExist(path: String) {
     }
 }
 
+func putPlaceholderFile(path: String) {
+    let fileName = ".placeholder.txt"
+    
+    var fileContent = "This (hidden) file is just a placeholder, so that iOS is forced to always display the 'Local "
+    fileContent += "Storage' directory in Files. Otherwise it would be hidden as soon as there is nothing left in it. "
+    fileContent += "Which makes for a bad user experience. And leads to people leaving unnecessary negative reviews."
+    
+    let fileURL = URL(fileURLWithPath: path).appendingPathComponent(fileName)
+    
+    let fileManager = FileManager.default
+    do {
+        let items = try fileManager.contentsOfDirectory(atPath: path)
+        
+        if ( items.contains(".Trash") && items.count == 1 ) || items.count == 0 {
+            os_log("Number of (real) items 0. Creating placeholder file.", log: logGeneral, type: .error)
+            try fileContent.write(to: fileURL, atomically: false, encoding: .utf8)
+        }
+        
+        if ( items.contains(".Trash") && items.count > 2 ) || ( !items.contains(".Trash") && items.count > 1 ) {
+            os_log("Number of (real) items > 0. Removing placeholder file.", log: logGeneral, type: .error)
+            removeFileIfExist(path: fileURL.path)
+        }
+    } catch let error {
+        os_log("%@", log: logGeneral, type: .error, error.localizedDescription)
+    }
+}
+
 
 func resetStats() {
     os_log("resetStats", log: logGeneral, type: .debug)
@@ -357,6 +384,10 @@ func getStats() {
                 elementIsTrashed = false
             }
             
+            if element == ".placeholder.txt" {
+                continue
+            }
+            
             var fileSize : Int64
             do {
                 let attr = try fileManager.attributesOfItem(atPath: elementURL.path)
@@ -426,14 +457,16 @@ func getStats() {
                         AppState.localSizeDiskBytes += fileSize
                     }
                 } else {
-                    if elementIsTrashed {
-                        AppState.trashFilesNumber += 1
-                        AppState.trashSizeBytes += fileSize
-                        AppState.trashSizeDiskBytes += fileSize
-                    } else {
-                        AppState.localFilesNumber += 1
-                        AppState.localSizeBytes += fileSize
-                        AppState.localSizeDiskBytes += fileSize
+                    if element != ".placeholder.txt" {
+                        if elementIsTrashed {
+                            AppState.trashFilesNumber += 1
+                            AppState.trashSizeBytes += fileSize
+                            AppState.trashSizeDiskBytes += fileSize
+                        } else {
+                            AppState.localFilesNumber += 1
+                            AppState.localSizeBytes += fileSize
+                            AppState.localSizeDiskBytes += fileSize
+                        }
                     }
                 }
             }
