@@ -169,7 +169,9 @@ struct FileExtensionLookup {
                                       "spex"]
     static var videos:    [String] = []
     static var documents: [String] = ["db"]
-    static var images:    [String] = ["sketch"]
+    static var images:    [String] = ["sketch",
+                                      "heif",
+                                      "heic"]
     static var code:      [String] = ["entitlements",
                                       "xcodeproj",
                                       "xcworkspace",
