@@ -2,9 +2,9 @@ platform :ios, '11.0'
 use_frameworks!
 
 target 'localstorage' do
-  pod 'Charts', '3.1.1'
-  pod 'SWCompression', '4.2.0'
-  pod 'YMTreeMap', '1.0.0'
+  pod 'Charts', '3.2.0'
+  pod 'SWCompression', '4.5.0'
+  pod 'YMTreeMap', '1.2.0'
 end
 
 target 'Hash' do

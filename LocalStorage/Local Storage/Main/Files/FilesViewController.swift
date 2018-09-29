@@ -45,7 +45,7 @@ class FilesViewController: UIViewController, UICollectionViewDataSource, UIColle
         super.viewWillAppear(animated)
         
         let treeMap = YMTreeMap(withValues: AppState.files.allValues)
-        treeMap.alignment = .RetinaSubPixel
+        treeMap.alignment = .retinaSubPixel
 
         if let layout = self.collectionView.collectionViewLayout as? FilesCollectionViewLayout {
             let bounds = self.mainView?.bounds ?? .zero

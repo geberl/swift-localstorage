@@ -17,7 +17,7 @@ Or view *Local Storage* on the [App Store](https://itunes.apple.com/app/id133930
 
 All **bugs** should be reported [here on GitHub](https://github.com/geberl/swift-localstorage/issues).
 
-If you have **questions** or **ideas** for new features, please send me your suggestions via email [guenther@eberl.se](mailto:guenther@eberl.se).
+If you have **questions** or **ideas** for new features, please send me your suggestions via email [localstorage@eberl.se](mailto:localstorage@eberl.se).
 
 ## Localization
 
@@ -59,5 +59,7 @@ The strings in some text files need to be edited. Should only take 30 minutes an
     - [YMTreeMap](https://cocoapods.org/pods/YMTreeMap) by *Adam Kaplan* ([on GitHub](https://github.com/yahoo/YMTreeMap))
     - [CommonCryptoModule](https://cocoapods.org/pods/CommonCryptoModule) by *Nikita Kukushkin* ([on GitHub](https://github.com/nkukushkin/CommonCryptoModule))
 - Localization:
-    - *German* and *English* by @eberl_se
+    - *German* and *English* by Günther Eberl
+- Contributors:
+    - [femilamptey](https://github.com/femilamptey)
 - Thanks to everyone who submitted a bug!

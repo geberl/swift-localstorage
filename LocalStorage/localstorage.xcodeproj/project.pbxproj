@@ -377,7 +377,6 @@
 				A44E4E6D1FFA915C00CBE189 /* Frameworks */,
 				A44E4E6E1FFA915C00CBE189 /* Resources */,
 				D747B6CF002FFCBEFF042F09 /* [CP] Embed Pods Frameworks */,
-				ED42DF0ECE46446F2E067CCC /* [CP] Copy Pods Resources */,
 				A4D8563F2026F8F700166316 /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -399,7 +398,6 @@
 				A4D8562D2026F8F700166316 /* Sources */,
 				A4D8562E2026F8F700166316 /* Frameworks */,
 				A4D8562F2026F8F700166316 /* Resources */,
-				6698A89EE0F2F945CBB22673 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -507,21 +505,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6698A89EE0F2F945CBB22673 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hash/Pods-Hash-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D747B6CF002FFCBEFF042F09 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -564,21 +547,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ED42DF0ECE46446F2E067CCC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-localstorage/Pods-localstorage-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FDCA0D3CF09D57AF0E50F19F /* [CP] Check Pods Manifest.lock */ = {
