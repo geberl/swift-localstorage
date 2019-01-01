@@ -5,13 +5,13 @@
 ![License](https://img.shields.io/badge/license-GPL-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
 
-*A place to store your files.*
+_A place to store your files._
 
 ## Product pages
 
 For more information, please visit [localstorage.eberl.se](https://localstorage.eberl.se/).
 
-Or view *Local Storage* on the [App Store](https://itunes.apple.com/app/id1339306324).
+Or view _Local Storage_ on the [App Store](https://itunes.apple.com/app/id1339306324).
 
 ## Contributing & Questions
 
@@ -21,7 +21,7 @@ If you have **questions** or **ideas** for new features, please send me your sug
 
 ## Localization
 
-I need some help for translating *Local Storage* into languages other than German and English.
+I need some help for translating _Local Storage_ into languages other than German and English.
 
 The strings in some text files need to be edited. Should only take 30 minutes and there's no programming involved.
 
@@ -51,15 +51,19 @@ The strings in some text files need to be edited. Should only take 30 minutes an
 - Edit the `Podfile` (add the fixed version numbers that are confirmed working now)
 - Commit
 
+## Stats
+
+If you're interested in what an app like _Local Storage_ (free, open source + voluntary donations via In-App purchases) nets the author per year take a look into the `App Analytics 2018` folder. Spoiler: Not much.
+
 ## Attributions
 
 - Local Storage uses the following **CocoaPods**:
-    - [Charts](https://cocoapods.org/pods/Charts) by *Daniel Cohen Gindi* and *Philipp Jahoda* ([on GitHub](https://github.com/danielgindi/Charts))
-    - [SWCompression](https://cocoapods.org/pods/SWCompression) by *Timofey Solomko* ([on GitHub](https://github.com/tsolomko/SWCompression))
-    - [YMTreeMap](https://cocoapods.org/pods/YMTreeMap) by *Adam Kaplan* ([on GitHub](https://github.com/yahoo/YMTreeMap))
-    - [CommonCryptoModule](https://cocoapods.org/pods/CommonCryptoModule) by *Nikita Kukushkin* ([on GitHub](https://github.com/nkukushkin/CommonCryptoModule))
+  - [Charts](https://cocoapods.org/pods/Charts) by _Daniel Cohen Gindi_ and _Philipp Jahoda_ ([on GitHub](https://github.com/danielgindi/Charts))
+  - [SWCompression](https://cocoapods.org/pods/SWCompression) by _Timofey Solomko_ ([on GitHub](https://github.com/tsolomko/SWCompression))
+  - [YMTreeMap](https://cocoapods.org/pods/YMTreeMap) by _Adam Kaplan_ ([on GitHub](https://github.com/yahoo/YMTreeMap))
+  - [CommonCryptoModule](https://cocoapods.org/pods/CommonCryptoModule) by _Nikita Kukushkin_ ([on GitHub](https://github.com/nkukushkin/CommonCryptoModule))
 - Localization:
-    - *German* and *English* by Günther Eberl
+  - _German_ and _English_ by Günther Eberl
 - Contributors:
-    - [femilamptey](https://github.com/femilamptey)
+  - [femilamptey](https://github.com/femilamptey)
 - Thanks to everyone who submitted a bug!
