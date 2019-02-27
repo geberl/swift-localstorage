@@ -6,7 +6,6 @@
 //  Copyright © 2018 Günther Eberl. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import os.log
 
