@@ -39,7 +39,7 @@ extension UInt32 {
 }
 
 
-public extension Int32 {
+extension Int32 {
     public static func random(lower: Int32 = min, upper: Int32 = max) -> Int32 {
         let r = arc4random_uniform(UInt32(Int64(upper) - Int64(lower)))
         return Int32(Int64(r) + Int64(lower))

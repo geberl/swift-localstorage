@@ -1,7 +1,7 @@
 # swift-localstorage
 
-![Swift](https://img.shields.io/badge/swift-4.2-brightgreen.svg)
-![Xcode](https://img.shields.io/badge/xcode-10.0-brightgreen.svg)
+![Swift](https://img.shields.io/badge/swift-5-brightgreen.svg)
+![Xcode](https://img.shields.io/badge/xcode-10.2-brightgreen.svg)
 ![License](https://img.shields.io/badge/license-GPL-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
 
