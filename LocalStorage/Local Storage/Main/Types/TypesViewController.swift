@@ -170,7 +170,7 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         
         let typesVals = [BarChartDataEntry(x: Double(10), yValues: [100])]
         
-        let typesSet = BarChartDataSet(values: typesVals, label: "")
+        let typesSet = BarChartDataSet(entries: typesVals, label: "")
         typesSet.drawIconsEnabled = false
         typesSet.colors = [UIColor(named: "ColorTypeOther")!]
         typesSet.stackLabels = ["Refreshing"]  // only shows up if two or more values
@@ -192,7 +192,7 @@ class TypesViewController: UIViewController, ChartViewDelegate, UITableViewDeleg
         
         let typesVals = [BarChartDataEntry(x: Double(10), yValues: allSizesPercent)]
         
-        let typesSet = BarChartDataSet(values: typesVals, label: "")
+        let typesSet = BarChartDataSet(entries: typesVals, label: "")
         typesSet.drawIconsEnabled = false
         
         typesSet.colors = AppState.types.map { $0 .color }

@@ -511,7 +511,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-localstorage/Pods-localstorage-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-localstorage/Pods-localstorage-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BitByteData/BitByteData.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/SWCompression/SWCompression.framework",
@@ -528,7 +528,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-localstorage/Pods-localstorage-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-localstorage/Pods-localstorage-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DA7D8F1B7ECC35C0D0E1A56D /* [CP] Check Pods Manifest.lock */ = {
