@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "Calculate"; ObjectID = "6o9-sv-RdG"; */
+"6o9-sv-RdG.normalTitle" = "Вычислить";
+
+/* Class = "UILabel"; text = "Hash function"; ObjectID = "Nfd-Rm-zQg"; */
+"Nfd-Rm-zQg.text" = "Хэш функция";
+
+/* Class = "UIButton"; normalTitle = "Copy"; ObjectID = "P4J-ZM-bjK"; */
+"P4J-ZM-bjK.normalTitle" = "Копировать";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "d3X-IO-Ae5"; */
+"d3X-IO-Ae5.text" = "Подзаголовок";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "ga1-3M-TRa"; */
+"ga1-3M-TRa.title" = "Готово";
+
+/* Class = "UILabel"; text = "MD5"; ObjectID = "udP-M8-mcu"; */
+"udP-M8-mcu.text" = "MD5";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "w3a-hy-H46"; */
+"w3a-hy-H46.text" = "Заголовок";

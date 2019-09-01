@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  localstorage
+
+  Created by Paul Verest on 14.04.19.
+
+*/
+
+"hash-error-load-file" = "Ошибка: невозможно загрузить файл";
+"hash-error-undefined-function" = "Ошибка: хэш-функция не определена";
+"hash-error-unable-hash" = "Ошибка: невозможно высичлить хэш для файла";
+"hash-cell-function" = "Хэш-функция";
