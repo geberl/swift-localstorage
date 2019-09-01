@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -287,7 +288,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwS-p4-Tbx" userLabel="Footer">
-                                        <rect key="frame" x="38" y="661" width="300" height="60"/>
+                                        <rect key="frame" x="37.5" y="661" width="300" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="D8r-NO-BuI">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
@@ -364,6 +365,7 @@
                                 <color key="backgroundColor" red="0.89435410499572754" green="0.8937259316444397" blue="0.91765093803405762" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="iZ4-09-nOq" firstAttribute="leading" secondItem="ae1-LS-CD4" secondAttribute="leading" constant="20" id="0qt-CM-FLY"/>
+                                    <constraint firstItem="WwS-p4-Tbx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ae1-LS-CD4" secondAttribute="leading" constant="8" id="57T-2N-Evf"/>
                                     <constraint firstItem="otS-Ku-Ddv" firstAttribute="trailing" secondItem="ae1-LS-CD4" secondAttribute="trailing" constant="-20" id="AIe-01-mN6"/>
                                     <constraint firstItem="mE1-3m-jpW" firstAttribute="leading" secondItem="ae1-LS-CD4" secondAttribute="leading" constant="20" id="Dfm-ov-caU"/>
                                     <constraint firstItem="HdY-Hn-pk5" firstAttribute="leading" secondItem="ae1-LS-CD4" secondAttribute="leading" constant="20" id="DiN-XM-lck"/>
@@ -375,6 +377,7 @@
                                     <constraint firstItem="WwS-p4-Tbx" firstAttribute="centerX" secondItem="ae1-LS-CD4" secondAttribute="centerX" id="Xir-Wx-8CR"/>
                                     <constraint firstItem="TXv-4O-2bE" firstAttribute="leading" secondItem="ae1-LS-CD4" secondAttribute="leading" constant="20" id="YkE-tr-lra"/>
                                     <constraint firstItem="HdY-Hn-pk5" firstAttribute="top" secondItem="ae1-LS-CD4" secondAttribute="top" constant="15" id="ZH6-Yk-5pd"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WwS-p4-Tbx" secondAttribute="trailing" constant="8" id="c8k-QN-cSz"/>
                                     <constraint firstItem="WwS-p4-Tbx" firstAttribute="bottom" secondItem="ae1-LS-CD4" secondAttribute="bottom" constant="-15" id="d9f-tp-y9W"/>
                                     <constraint firstAttribute="trailing" secondItem="TXv-4O-2bE" secondAttribute="trailing" constant="20" id="eLc-9J-VKf"/>
                                     <constraint firstItem="HdY-Hn-pk5" firstAttribute="trailing" secondItem="ae1-LS-CD4" secondAttribute="trailing" constant="-20" id="gIe-q0-GV0"/>
@@ -405,6 +408,8 @@
                         <outlet property="copyrightLabel" destination="VIT-ol-QDk" id="F62-EA-z6B"/>
                         <outlet property="darkModeSwitch" destination="FoP-fq-5Dg" id="UBk-Se-Reh"/>
                         <outlet property="fileSizeUnitSegCtrl" destination="uNE-aV-wVm" id="dhR-j2-lJU"/>
+                        <outlet property="privacyButton" destination="ZTU-FW-0kz" id="uAf-2U-ai9"/>
+                        <outlet property="rateAppButton" destination="L60-lt-4lK" id="lpm-o2-Xe8"/>
                         <outlet property="showHelpSwitch" destination="vnK-c1-9rE" id="jWq-hC-hFe"/>
                         <outlet property="versionLabel" destination="9q7-ds-WRG" id="09H-Bl-6H1"/>
                     </connections>
@@ -416,10 +421,7 @@
     </scenes>
     <resources>
         <namedColor name="ColorFontGray">
-            <color red="0.43529411759999997" green="0.43529411759999997" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="ColorFontGray">
-            <color red="0.43529411759999997" green="0.43529411759999997" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
