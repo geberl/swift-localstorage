@@ -1,3 +1,15 @@
+# UPDATE 2019-09-01: App Discontinued
+
+Apple will release iOS 13 in a few days, with 1st party support for local storage functionality in the Files app. This makes the need for my solution obsolete.
+
+Since I don't have time anyways I decided to abandon all work on this project and remove the app from sale on the App Store. 
+
+Support is also discontinued.
+
+Feel free to compile it on your own or fork this project.
+
+---
+
 # swift-localstorage
 
 ![Swift](https://img.shields.io/badge/swift-5-brightgreen.svg)
